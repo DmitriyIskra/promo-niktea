@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
