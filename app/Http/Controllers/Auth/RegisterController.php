@@ -15,6 +15,7 @@ class RegisterController extends Controller
 {
     public function action(Request $request)
     {
+        $code = 200;
         $data = $request->all();
         $response = [];
         $messages = [
@@ -36,12 +37,14 @@ class RegisterController extends Controller
             $data['password'] = $this->pass_gen();
             $error = Codes::query()->where('code', $data['code'])->first();
             if (!$error) {
+                $code = 412;
                 $response['errors'][] = 'Неправильный код упаковки - ' . $data["code"];
             } else {
                 $deactivator = new Codes;
                 $active_mod = $deactivator->avaibler($data['code']);
                 if (!$active_mod) {
                     $response['errors'][] = 'Данный код упаковки уже зарегистрирован - ' . $data["code"];
+                    $code = 406;
                 } else {
                     $disabler = $deactivator->deactivator($active_mod["id"]);
                 }
@@ -57,10 +60,12 @@ class RegisterController extends Controller
                     $response['user_info'] = $check;
                     $response['code_activated'] = filter_var($disabler, FILTER_VALIDATE_BOOLEAN);
                 } else {
+                    $code = 418;
                     $response['errors'][] = 'Не удалось применить код - ' . $data["code"];
                 }
             }
         } else {
+            $code = 406;
             $errors = $validator->errors();
             foreach ($errors->all() as $message) {
                 $response['errors'][] = $message;
@@ -68,7 +73,7 @@ class RegisterController extends Controller
                 $response['user_info'] = Null;
             }
         }
-        return json_encode($response, JSON_PRETTY_PRINT);
+        return response()->json($response, $code);
     }
 
     public function create(array $data)

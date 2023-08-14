@@ -1,7 +1,7 @@
 .cards__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;        
 }
 
 .contacts {
@@ -11,17 +11,17 @@
 }
 
 .card--container {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    box-sizing: border-box;
-    padding: 15px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 15px;
 }
 
-.contacts__card {
+.contacts__card {        
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
+    align-content: center;    
     justify-content: center;
     position: relative;
     text-align: center;
@@ -37,42 +37,42 @@
 }
 
 .contacts__card .promo__button {
-    width: 50%;
-    height: 70px;
-    font-size: 28px;
+  width: 50%;
+  height: 70px;
+  font-size: 28px;
 }
 
 .contacts__card--text {
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
-    color: #FFF;
-    font-family: Blogger Sans;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+  color: #FFF;
+  font-family: Blogger Sans;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 
 @media (max-width: 1400px) {
 
-    .contacts {
-        padding-left: 50px;
-        padding-right: 50px;
-    }
+  .contacts  {
+    padding-left: 50px;
+    padding-right: 50px;    
+  }
 
-    .contacts__card {
-        width: 35rem;
-    }
+  .contacts__card {
+    width: 35rem;
+  }
 
-    .cards__container {
-        /* flex-direction: column; */
-    }
+  .cards__container {
+    /* flex-direction: column; */
+  }
 
-    .contacts__card--text {
-        font-size: 18px;
-    }
+  .contacts__card--text {
+    font-size: 18px;
+  }
 
 }
 
@@ -87,26 +87,26 @@
 }
 
 
-.map-image {
+  .map-image {
     width: auto;
     height: 100%;
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;    
+    
+  }  
 
-}
+  .baloon__content {
+    font-family: Arsenal;   
+  }
 
-.baloon__content {
-    font-family: Arsenal;
-}
-
-.map_baloon {
+  .map_baloon {
     border-radius: 5px;
-}
+  }
 
-.contacts__card-map {
+  .contacts__card-map {
     position: relative;
     text-align: center;
-    box-sizing: border-box;
+    box-sizing: border-box;    
     width: 48.9375rem;
     height: 500px;
     margin-bottom: 50px;
@@ -115,17 +115,17 @@
     /* border-radius: 3.125rem; */
     border-radius: 2.5vw;
     background: var(--unnamed, linear-gradient(180deg, #7775B6 0%, #494694 69.79%));
-}
+  }
+  
 
-
-.contacts__card--back {
+  .contacts__card--back {
     text-align: center;
-    border-radius: 50px;
-    overflow: hidden;
-
-}
-
-.contacts__card--back::after {
+      border-radius: 50px;
+      overflow: hidden;
+    
+  }
+  
+  .contacts__card--back::after {  
     content: "";
     position: absolute;
     top: 0;
@@ -135,25 +135,25 @@
     border-radius: 50px;
     /* border-radius: 2.5vw; */
     border-radius: 50px;
-    border: 3px solid transparent;
+    border: 3px solid transparent; 
     border-image-source: linear-gradient(#00BD8D 32.29%, #00392D 100%) border-box;
     background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%) border-box;
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    box-shadow: 0px 0px 0px 0px rgba(8, 43, 34, 0.10), -1px -4px 9px 0px rgba(8, 43, 34, 0.10), -4px -16px 17px 0px rgba(8, 43, 34, 0.09), -9px -37px 23px 0px rgba(8, 43, 34, 0.05), -16px -66px 27px 0px rgba(8, 43, 34, 0.01), -26px -102px 30px 0px rgba(8, 43, 34, 0.00), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.contacts-flover--left {
+    mask-composite: exclude;  
+    box-shadow: 0px 0px 0px 0px rgba(8, 43, 34, 0.10), -1px -4px 9px 0px rgba(8, 43, 34, 0.10), -4px -16px 17px 0px rgba(8, 43, 34, 0.09), -9px -37px 23px 0px rgba(8, 43, 34, 0.05), -16px -66px 27px 0px rgba(8, 43, 34, 0.01), -26px -102px 30px 0px rgba(8, 43, 34, 0.00), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);    
+  }
+  
+  .contacts-flover--left {
     position: absolute;
     top: -18%;
     left: -14%;
     z-index: 10;
-}
+  }
 
-.contacts-flover--right {
+  .contacts-flover--right {
     position: absolute;
     bottom: -18%;
     right: -14%;
     z-index: 10;
-}
+  }

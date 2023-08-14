@@ -13,7 +13,8 @@ class LoginController extends Controller
 {
     public function action(Request $request)
     {
-        $response = [];
+        $response = ["is_auth" => false];
+        $code = 403;
         $messages = [
             'required' => 'Поле :attribute обязательно.',
             'unique' => 'Значение поля :attribute уже занято.',
@@ -25,8 +26,9 @@ class LoginController extends Controller
         ], $messages);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return json_encode(["error" => "welcome"], JSON_PRETTY_PRINT);
+            $response = ["is_auth" => True];
+            $code = 200;
         }
-        return json_encode(["error" => "no logging in"], JSON_PRETTY_PRINT);
+        return response()->json($response, $code);
     }
 }

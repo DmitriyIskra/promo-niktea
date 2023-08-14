@@ -12,13 +12,13 @@ let yandexMapInit = function () {
 
 
         let placemark1 = new ymaps.Placemark([55.776534451190315, 37.54337849781465], {
-                balloonContent:
-                    `
-                <div class="balloon">
-                <div class="baloon__content">
-
-                <img class="map_baloon" src="../img/baloon.png">
-
+            balloonContent: 
+            `
+                <div class="balloon">          
+                <div class="baloon__content">               
+                
+                <img class="map_baloon" src="../img/baloon.png">                            
+                
                 </div>
                 `
             },
@@ -47,12 +47,12 @@ let yandexMapInit = function () {
 yandexMapInit();
 
 // `
-//                 <div class="balloon">
+//                 <div class="balloon">          
 //                 <div class="baloon__content">
 //                 <span>Niktea</span>
 //                 <div class="balloon__address">Хорошeвское ш.32А, <br>офис 109</div>
-//                 <img class="map_stars" src="/local/templates/isttrade/img/stars.png">
-//                 </div>
-//                 <img class="map_logo" src="/local/templates/isttrade/img/map_logo.png"></div>
+//                 <img class="map_stars" src="/local/templates/isttrade/img/stars.png">            
+//                 </div>              
+//                 <img class="map_logo" src="/local/templates/isttrade/img/map_logo.png"></div>          
 //                 </div>
 //                 `
