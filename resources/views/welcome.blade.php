@@ -189,7 +189,7 @@
 
                     <div class="input__group">
 
-                        <input class="registry__input--field form-control" type="text" name="code" id="promoCode"
+                        <input class="registry__input--field form-control" type="text" name="code[]" id="promoCode"
                                required>
                         <label for="promoCode" class="reg-label w-100">Добавьте пожалуйста код, который находится на
                             вкладыше внутри пачки</label>

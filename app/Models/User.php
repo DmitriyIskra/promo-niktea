@@ -45,4 +45,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function is_created($mail)
+    {
+        $search = self::query()
+            ->where('email', $mail)
+            ->first();
+        return $search;
+    }
 }

@@ -30,4 +30,14 @@ class Codes extends Model
             ]);
         return $active_mod;
     }
+
+    public function activator($id)
+    {
+        $active_mod = self::where('id', $id)
+            ->update([
+                'active' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+        return $active_mod;
+    }
 }

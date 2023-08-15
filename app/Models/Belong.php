@@ -9,6 +9,16 @@ class Belong extends Model
 {
     use HasFactory;
 
-    protected $table = 'belong';
+    protected $table = 'belongs';
     protected $guarded;
+
+    public function saver($ticket_id, $code_id, $user_id)
+    {
+        $limit = self::query()->create(
+            [
+                'ticket_id' => $ticket_id,
+                'code_id' => $code_id,
+                'user_id' => $user_id,
+            ]);
+    }
 }
