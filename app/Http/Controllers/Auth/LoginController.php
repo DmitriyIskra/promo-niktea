@@ -26,6 +26,7 @@ class LoginController extends Controller
         ], $messages);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
             $response = ["is_auth" => True];
             $code = 200;
         }

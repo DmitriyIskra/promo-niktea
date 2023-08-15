@@ -140,7 +140,7 @@
                 <div class="logo__modal--container">
                     <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="">
                 </div>
-                <form method="post" action="{{ route('auth.register') }}" class="reg__group needs-validation"
+                <form enctype="multipart/form-data" method="post" action="{{ route('auth.register') }}" class="reg__group needs-validation"
                       novalidate>
                     @csrf
                     <div class="input__group has-validation">
@@ -199,7 +199,7 @@
                     </div>
 
                     <div class="file-upload__group" required>
-                        <input class="uploadInputForm" type="file" id="upload" hidden/>
+                        <input class="uploadInputForm" type="file" name="check" id="upload" hidden/>
                         <label for="checkLoad" class="reg-label">Загрузите пожалуйста чек (внимание, чек должен быть
                             читабельным)<br></label>
                         <label class="file-upload__label " id="checkLoad" for="upload" required>ЗАГРУЗИТЬ ЧЕК</label>

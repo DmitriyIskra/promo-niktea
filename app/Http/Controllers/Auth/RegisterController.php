@@ -17,6 +17,9 @@ class RegisterController extends Controller
     {
         $code = 200;
         $data = $request->all();
+        //$file = $request->check->storeAs('files', 'file.txt');
+        $file = $request->file('check');
+        return $file;
         $response = [];
         $messages = [
             'required' => 'Поле :attribute обязательно.',
@@ -31,6 +34,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             //'password' => 'required|min:6|string',
             //'password' => $this->pass_gen(),
+            'check' => 'required|file'
         ], $messages);
 
         if (!$validator->fails()) {
