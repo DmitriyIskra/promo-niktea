@@ -53,4 +53,12 @@ class User extends Authenticatable
             ->first();
         return $search;
     }
+
+    public function get_by_id($id)
+    {
+        $search = self::query()
+            ->where('email', $mail)
+            ->first();
+        return $search;
+    }
 }

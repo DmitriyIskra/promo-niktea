@@ -21,4 +21,11 @@ class Belong extends Model
                 'user_id' => $user_id,
             ]);
     }
+
+    public function active_records($user_id)
+    {
+        $limit = self::query()
+            ->where('user_id', $user_id)
+            ->get();
+    }
 }

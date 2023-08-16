@@ -31,6 +31,12 @@
                         <li class="header__item" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
                             <a href="#" class="header__link">Регистрация</a>
                         </li>
+                        @auth
+                            You are not signed in.
+                            <li class="header__item">
+                                <a href="#" class="header__link">Выход</a>
+                            </li>
+                        @endauth
                         <li class="header__item">
                             <a href="#" class="header__link">Победители</a>
                         </li>
@@ -42,7 +48,7 @@
                             <a href="#" class="header__link">Призы</a>
                         </li>
                         <li class="header__item">
-                            <button class="header__button" ><a href="account.html">Личный кабинет</a></button>
+                            <button class="header__button" ><a href="/account">Личный кабинет</a></button>
                         </li>
                     </ul>
                 </div>

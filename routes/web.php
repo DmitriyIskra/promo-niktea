@@ -17,8 +17,9 @@ use App\Http\Controllers\CustomAuthController;
 Route::get('/', function () {
     return view('welcome');
 })->name('main');
-
-
+Route::get('/account', function () {
+    return view('account');
+})->name('account');
 
 
 

@@ -24,8 +24,8 @@ class LoginController extends Controller
             'password' => 'required',
             //'password' => $this->pass_gen(),
         ], $messages);
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        $data = $request->all();
+        if (Auth::attempt(['email' => $data["email"], 'password' => $data['password']], true)) {
             $request->session()->regenerate();
             $response = ["is_auth" => True];
             $response["user"] = Auth::user();
