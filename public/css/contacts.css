@@ -47,7 +47,7 @@
   padding-right: 15px;
   text-align: left;
   color: #FFF;
-  font-family: Blogger Sans;
+  font-family: 'Blogger Sans';
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
@@ -78,7 +78,7 @@
 
 .contacts__card > h1 {
     color: #FFC300;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 3.75rem;
     font-style: normal;
     font-weight: 200;
@@ -96,7 +96,7 @@
   }  
 
   .baloon__content {
-    font-family: Arsenal;   
+    font-family: 'Arsenal';   
   }
 
   .map_baloon {

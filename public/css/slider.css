@@ -95,7 +95,7 @@
   text-align: center;
 color: #FFF;
 text-align: center;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 28px;
 font-style: normal;
 font-weight: 700;
@@ -192,21 +192,12 @@ margin-bottom: 66px;
   margin-right: auto;
 }
 
+/* .code__slide {
+  font-size: ;
+} */
+
 }
 
-.roundSlider {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-around;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  height: 500px;
-  background: pink;
-}
 
 .swiper-slide__priz {
   background: lightskyblue;
@@ -240,7 +231,8 @@ margin-bottom: 66px;
 
 .code__text {
 color: #463E57;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 24px;
 font-weight: bold;
 }
+

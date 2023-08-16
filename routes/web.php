@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomAuthController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
 Route::post('/auth/login', [App\Http\Controllers\Auth\LoginController::class, 'action'])->name('auth.login');
 Route::post('/auth/register', [App\Http\Controllers\Auth\RegisterController::class, 'action'])->name('auth.register');
 Route::get('/auth/checker', [App\Http\Controllers\Auth\AuthChecker::class, 'action'])->name('auth.checker');

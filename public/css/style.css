@@ -16,48 +16,6 @@ body {
     position: relative;
 }
 
-/* .main-body::after {  
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url(../img/content/header-bg.png);
-  background-repeat: no-repeat;  
-  background-position: top center;
-  background-size: 100%;
-  margin-bottom: 10px;
-}
- */
-
-/* .header-wrapper__main-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url(../img/content/header-bg.png);
-  background-repeat: no-repeat;  
-  background-position-x: center;
-  background-position-y: top;
-  background-size: 100%;
-  margin-bottom: 10px;
-} */
-/* 
-body[data-variant=main-page] {
-  content: '';
-  width: 100%;
-  height: 100%;    
-  background:  url(../img/icons/account-bg.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-position-x: center, center; 
-  background-position-y: bottom, top;
-  background-repeat: no-repeat;
-  background-size: auto;
-  z-index: -10;  
-} */
-
 body[data-variant=main-page]::after {
   content: '';
   position: absolute;
@@ -67,11 +25,11 @@ body[data-variant=main-page]::after {
   bottom: 0;
   width: 100%;
   height: 100%;    
-  background:  url(../img/icons/account-bg.png),  url(../img/icons/flowers-main-bg.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-position-x: center, center; 
-  background-position-y: bottom, center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background:  url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-main-bg-right.png), url(../img/icons/main-bg-fl-right.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-position-x: center, -20%, 118%; 
+  background-position-y: bottom, 37%, 41%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: contain, initial, initial;
   z-index: -10;  
 }
 
@@ -79,18 +37,17 @@ body[data-variant=user-account] {
   content: '';
   width: 100%;
   height: 100%;    
-  /* background: url(../img/icons/account-bg.png) bottom no-repeat, linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      */
-  background: url(../img/icons/account-bg.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
   background-size:contain, contain;
   background-position-x: center, center; 
   background-position-y: bottom, top;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat, no-repeat, no-repeat;
   z-index: -10;  
 }
 
 
 @font-face {
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
     font-weight: 200;     
     font-style: normal;
@@ -98,7 +55,7 @@ body[data-variant=user-account] {
   }
 
   @font-face {
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
     font-weight: 400;     
     font-style: normal;
@@ -106,7 +63,7 @@ body[data-variant=user-account] {
   }
 
   @font-face {
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
     font-weight: 500;     
     font-style: normal;
@@ -115,13 +72,13 @@ body[data-variant=user-account] {
 
 
 @font-face {
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
     font-weight: 400;
 }
 
 @font-face {
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
     font-weight: 700;
     font-style: normal;
@@ -250,21 +207,21 @@ filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
   background: none;
   border: none;
   outline: none;
-  font-family: Arsenal;
+  font-family: 'Arsenal';
   font-size: 28px;
   color: #007653;
   
 }
 
 .header__button a {
-  font-family: Arsenal;
+  font-family: 'Arsenal';
   font-size: 28px;  
   color: #007653;
   text-decoration: none;
 }
 
 .header__button--white {
-  font-family: Arsenal;
+  font-family: 'Arsenal';
   font-size: 28px;  
   color: #fff;
   text-decoration: none;
@@ -339,7 +296,7 @@ filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
 .header__link {
     text-decoration: none;
         color: #ffffff;
-        font-family: Arsenal;
+        font-family: 'Arsenal';
         /* font-size: 28px; */
         /* font-size: 1.75rem; */
         font-size: clamp(1vw, 1.75rem, 1.45vw);         
@@ -411,7 +368,7 @@ padding: 0;
 
 .search__submit {
   position: absolute;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: clamp(1vw, 1.6rem, 1.45vw);
     font-style: normal;
     font-weight: 400;
@@ -467,11 +424,18 @@ padding: 0;
 
 .footer__list {
   padding: 0;
+  margin: 0;
 }
 
 .footer__item {
   list-style-type: none;  
 }
+
+.footer__item--phone {
+  display: flex;
+}
+
+
 
 .footer__link:hover {
   text-shadow:  1px 1px 4px rgba(255, 255, 255, 0.9);
@@ -483,26 +447,24 @@ padding: 0;
 }
 
 .footer__item span {
-  font-family: Blogger Sans;
-  font-size: 1rem;
+  font-family: 'Arsenal';
   color: #FFFFFF;
 }
 
 .footer__item:first-child {
     list-style-type: none;
     padding-top: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
   .footer__item:last-child {
     list-style-type: none;
     margin-bottom: 0px;
   }
-
+  
 .footer__link {
     color: #FFF;
-    font-family: Blogger Sans;
-    /* font-size: 24px; */
+    font-family: 'Arsenal';
     font-size: 1.25vw;
     font-style: normal;
     font-weight: 200;
@@ -511,7 +473,7 @@ padding: 0;
 }
 
 .footer__link__right {
-  padding-right: 80px;
+  padding-right: 35px;
 }
 
 
@@ -524,9 +486,15 @@ padding: 0;
     padding-bottom: 25px;
 }
 
+
+.logo-col {
+  margin-left: 5%;
+  margin-right: 15%;  
+  }
+
 .footer__container {      
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 20%;
+    padding-right: 20%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -551,16 +519,23 @@ padding: 0;
 
 .footer__rights-text {
     color: #FFF;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
+.phone-icon-col {
+  padding-top: 10px;
+}
 
 .phone-icon {
-  padding-right: 13px;
+  padding-right: 15px;
+}
+
+.phone-nimber {
+  font-size: 28px;
 }
 
   .svg-path {
@@ -571,8 +546,6 @@ padding: 0;
     bottom: 0;
     left: 0;
 }
-
- 
 
 
 /* оверлей */
@@ -609,7 +582,7 @@ padding: 0;
 }
 
 .construction-in-progress {
-  font-family: Arsenal;
+  font-family: 'Arsenal';
   font-size: 60px;  
   background-color:#F9EB40;
 }
@@ -626,7 +599,7 @@ padding: 0;
 .brand__description--text {
   text-align: left;
   color: #FFF;
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 200;
@@ -658,7 +631,7 @@ padding: 0;
 .breadcrumbs__item__link {
   color: #FFF;
   text-decoration: none;
-  font-family: Blogger Sans;
+  font-family: 'Blogger Sans';
   font-size: 16px;  
   font-weight: 200;
 }
@@ -667,7 +640,7 @@ padding: 0;
 .breadcrumbs__item:not(:first-child)::before {
   content: '/\00a0';
   color: #FFF;
-  font-family: Blogger Sans;
+  font-family: 'Blogger Sans';
   font-size: 16px;    
 }
 
@@ -703,16 +676,15 @@ ul.breadcrumbs__item li+li:before {
 }
 
 .main-page__container {
-  min-height: 2500px;
   padding-left: 5%;
   padding-right: 5%;
-  margin-bottom: 150px;
+  margin-bottom: 35%;
   text-align: center;
 }
 
 h1 {
   color: #FFF;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 64px;
 font-style: normal;
 font-weight: 700;
@@ -727,7 +699,7 @@ line-height: normal;
   .header__button a {
     padding-top: 4px;
     padding-bottom: 4px;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 20px;
     color: #007653;
     text-decoration: none;    
@@ -763,7 +735,7 @@ line-height: normal;
   padding-bottom: 0px;
   color: #FFF;
 text-align: center;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 20px;
 font-style: normal;
 font-weight: 700;
@@ -816,7 +788,7 @@ line-height: normal;
 
 .recepies__button {
   position: relative;
-  font-family: Arsenal;  
+  font-family: 'Arsenal';  
   font-size: clamp(1vw, 2.5vw, 1.2vw);
   font-style: normal;
   font-weight: 200;
@@ -857,7 +829,7 @@ box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.41);
 h2 {
   color: #FFF;
 text-align: center;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 64px;
 font-style: normal;
 font-weight: 700;
@@ -898,22 +870,27 @@ font-size: 24px;
   padding-right: 27px;
 }
 
-
+.logo-col {
+  order: 1;
+  }
+  
 
 .tg-col {
 order: 2;
+}
+
+.link-col {
+  order: 4;
 }
 
 .whats-col {
 order: 2;
 }
 
-.logo-col {
-order: 1;
-}
 
 .phone-col {
-order: 4;
+order: 3;
+padding-bottom: 0;
 }
 
 .rules__action {
@@ -932,7 +909,7 @@ align-items: center;
     height: 50px;
     border-radius: 50px;
     color: #FFF;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -954,7 +931,7 @@ h1, h2 {
 
 
   .main__slider {
-  display: none;
+  /* display: none; */
 }
 
 
@@ -980,14 +957,28 @@ body[data-variant=main-page]::after {
 .header__list {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
-  /* padding: 0; */
   padding-left: 20px;
   padding-top: 20px;
   flex-direction: column;
   align-items: flex-start;
   background: #97F8E4;
+  color: #00392D;
   z-index: 11;
+}
+
+
+.header-wrapper {
+  padding-top: 0;
+} 
+
+.header-wrapper--white a {
+  color: #007653;
+  font-family: 'Arsenal';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .header__button {
@@ -1015,7 +1006,6 @@ body[data-variant=main-page]::after {
   }
 
 .header-wrapper__main-page {
-  /* height: 100vh; */
   height: 500px;
 }
 
@@ -1035,17 +1025,37 @@ body[data-variant=main-page]::after {
 
 .header__link a{
   color: #007653;
-  font-family: Arsenal;
+  font-family: 'Arsenal';
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;  
 }
 
+.main__slider {
+  display: none;
+}
+
+
+.footer__logo img{
+  width: 115px;
+}
+
+.phone-nimber-col {
+  text-align: center;
+}
+
+.footer__column {
+  margin: 0;
+  padding-bottom: 0;
+}
+
 }
 
 .burgerChecked {
-  padding-left: 85%;
+  position: absolute;
+  right: 40px;
+  top: 10px
 }
 
 .navbar-toggler-icon--close {

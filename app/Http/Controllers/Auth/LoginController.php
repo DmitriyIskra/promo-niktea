@@ -28,8 +28,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $response = ["is_auth" => True];
+            $response["user"] = Auth::user();
             $code = 200;
         }
+        //return redirect()->route('main', ['response' => $response, "code" => $code]);
+
         return response()->json($response, $code);
     }
 }

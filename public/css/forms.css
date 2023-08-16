@@ -20,6 +20,37 @@
   box-shadow: 0px 0px 10px 6px #ffffffa9;
 }
 
+.modal-form_enter {
+    height: fit-content;
+    padding-bottom: 10%;
+    background: url(../img/icons/modal-bg-enter.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position-y: center;  
+    background-position-x: center;    
+    z-index: 0; 
+    border: 0 !important;
+    box-shadow: 0px 0px 10px 6px #ffffffa9; 
+}
+
+.modal__content {
+    position: relative;
+    display: flex;
+}
+
+.wewe {
+    background: #ccc;
+    width: 96%;
+    height: 500px;
+    padding-top: 96%;
+    margin: 2%;
+    border: solid;
+    border-image-source: url(/img/icons/pdf-icon.png);
+    border-image-slice: 34%;
+    border-image-width: auto;
+    border-image-outset: 36px 30px 58px 28px;
+}
+
  .new-user-form{
   height: 100%;    
   aspect-ratio: 7/6;  
@@ -104,14 +135,13 @@
     background-color: #8B89BD; 
     color: white;
     cursor: pointer;
-    /* width: 300px; */
     width: 100%;
     height: 50px;    
     padding-left: 24px;
     padding-right: 24px;
     margin-bottom: 20px;
     color: #FFF;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 28px;
     font-style: normal;
     font-weight: 200;
@@ -133,6 +163,14 @@
     linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
 }
 
+.modal-form_enter .registry__submit {
+    width: 65%;
+}
+
+.registry__submit--top {
+    margin-top: 25px;
+}
+
 .registry__input--field {
     order: 2;      
     box-sizing: border-box;
@@ -145,14 +183,13 @@
     outline: none;
     border: none;
     color: #463E57;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 20px;
     font-style: normal;
     font-weight: 200;
 }
 
 .new-user-form .registry__submit {
-    /* width: 60%; */
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 5px;
@@ -169,7 +206,7 @@
     border-radius: 50px;
     border: none;
     color: #FFF;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -215,7 +252,7 @@
     border-radius: 50px;
     border: none;
     color: #FFF;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -248,18 +285,43 @@
 
 .reg__group .file-upload__label {
     order: 2;
-    margin-top: 10px;
-    width: 60%;
-    height: 50px;
-    padding-top: 7px;
-    padding-bottom: 0;
+    text-align: center;
+}
+
+
+.reg__group .file-upload__label::before {
+    display: flex;
+    justify-content: center;
+    content: 'ЗАГРУЗИТЬ ЧЕК';
+    order: 2;    
+    width: 100%;
+    height: 100%;    
+    padding-bottom: 101px;
+    z-index: 111;
+}
+
+.reg__group .file-upload__label::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+.reg__group .file-upload__label::after {
+    content: '';
+    position: absolute;    
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));     
+    z-index: -1;
 }
 
 .reg-label { 
 padding-left: 20px;   
 padding-bottom: 3px;
 color: #FFF;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 13px;
 font-style: normal;
 font-weight: 200;
@@ -269,7 +331,7 @@ text-transform: uppercase;
 
 .reg-label--post--layout {
     white-space: nowrap;    
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     font-size: 12px;
     font-weight: 700;
     padding-left: 0;
@@ -278,7 +340,7 @@ text-transform: uppercase;
 .form-check {
     width: 100%;
         color: #FFF;
-        font-family: Arsenal;
+        font-family: 'Arsenal';
         font-size: 15px;
         font-style: normal;
         font-weight: 400;
@@ -309,7 +371,7 @@ text-transform: uppercase;
 
 .form-check-label a {
 color: #FFF;
-font-family: Arsenal;
+font-family: 'Arsenal';
 font-size: 15px;
 font-style: normal;
 font-weight: 400;
@@ -332,11 +394,16 @@ line-height: normal;
 }
 
 .file-upload__group .reg-label {
+    width: 100%;
     order: 1;
 }
 
 .file-upload__group .invalid-feedback {
     order: 1;
+}
+
+.invalid-feedback--check {
+    order: 2;
 }
 
 .was-validated .form-control {
@@ -347,25 +414,39 @@ line-height: normal;
     display: none;    
 }
 
-.file-upload__group .was-validated .form-control:invalid + .reg-label {
+.file-upload__group .was-validated .form-control:invalid + .reg-label {    
     display: none;    
 }
 
+.was-validated .form-control:valid {
+    margin-bottom: 7px;
+}
+
+
 .was-validated .form-control:invalid, .form-control.is-invalid {
+    box-sizing:border-box;
     border: 1px solid red;
     background-image: url(./img/icons/red-star.svg);
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
+
+.was-validated .form-check-input:invalid {
+    border: 1.5px solid #F00;    
+}
+
+/* .was-validated .form-check-input:invalid .form-check-input::after {
+    background: none;
+} */
 
 .invalid-feedback {
     order: 3;
     position: absolute;
-    top: -24px;
+    top: -7px;
     left: 14%;
-    text-align: left;   
-    /* height: 25px;     */
+    text-align: left;       
     color: #FFC0C0;
-    font-family: Arsenal;
+    font-family: 'Arsenal';
     font-size: 13px;
     font-style: normal;
     font-weight: 400;

@@ -11,7 +11,7 @@
 
 .catalog__title {
         color: #FFC300;
-        font-family: Arsenal;
+        font-family: 'Arsenal';
         font-size: 3.75rem;
         font-style: normal;
         font-weight: 200;
@@ -22,7 +22,7 @@
 
 .catalog__description--text {
     color: #FFF;
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 200;
@@ -84,7 +84,7 @@
     overflow: hidden;
     color: #FFF;
     text-align: center;
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     font-size: 2.25rem;
     font-style: normal;
     font-weight: 200;

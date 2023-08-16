@@ -125,7 +125,7 @@
 
 .recept__description h3 {
     color: #FFF;
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     /* font-size: 36px; */
     font-size: 1.875vw;
     font-style: normal;
@@ -139,7 +139,7 @@
     display: none;
     overflow: hidden;
     color: #FFF;
-    font-family: Blogger Sans;
+    font-family: 'Blogger Sans';
     font-size: 14px;
     /* font-size: 0.8vw; */
     font-style: normal;
