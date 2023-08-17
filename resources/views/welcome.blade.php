@@ -182,7 +182,7 @@
                     </div>
 
                     <div class="file-upload__group input__group" required>
-                        <input type="file" class="file-upload__label form-control" aria-label="file example" required>
+                        <input type="file" name="check" class="file-upload__label form-control" aria-label="file example" required>
                         <label for="checkLoad" class="reg-label">Загрузите пожалуйста чек (внимание, чек должен быть читабельным)<br></label>
                         <div class="invalid-feedback">Извините, но без чека вы не можете принять участие в акции</div>
                     </div>

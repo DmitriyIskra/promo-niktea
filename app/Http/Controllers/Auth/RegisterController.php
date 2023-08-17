@@ -31,7 +31,7 @@ class RegisterController extends Controller
             'name' => 'required|string',
             'second_name' => 'required|string',
             'patronymic' => 'required|string',
-            'phone' => 'required|max:16|string',
+            'phone' => 'required|max:17|string',
             'code' => 'required|array',
             'email' => 'required|email',
             //'password' => 'required|min:6|string',
@@ -90,9 +90,10 @@ class RegisterController extends Controller
                         $response['is_register'] = true;
                         $response['user_info'] = $check;
                         $response['code_activated'] = filter_var($disabler, FILTER_VALIDATE_BOOLEAN);
-                        $file = $request->check->storeAs('files', $this->img_name_gener($request->file('check')->extension()));
+                        $file = $request->file('check');
+                        $filename = $file->store('', ['disk' => 'public']);
                         $check_saver = new Tickets;
-                        $saved_file = $check_saver->saver($response['user_info']["id"]);
+                        $saved_file = $check_saver->saver($filename, $response['user_info']["id"]);
                         $belonger = new Belong;
                         $belonger->saver($saved_file["id"], $active_mod["id"], $response['user_info']["id"]);
                     } else {

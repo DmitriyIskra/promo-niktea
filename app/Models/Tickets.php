@@ -12,9 +12,9 @@ class Tickets extends Model
     protected $table = 'tickets';
     protected $guarded;
 
-    public function saver($user_id)
+    public function saver($filename, $user_id)
     {
-        $ticket_path = "/storage/app/files/";
+        $ticket_path = "/storage/$filename";
         $limit = self::query()->create(
             [
                 'ticket_path' => $ticket_path,

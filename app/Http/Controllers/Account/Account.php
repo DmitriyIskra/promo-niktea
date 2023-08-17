@@ -9,6 +9,7 @@ use App\Models\Codes;
 use App\Models\Tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -51,11 +52,11 @@ class Account extends Controller
         return $limits;
     }
     public function get_tickets_provider($user_id){
-        $tickets = DB::table('code_limits')
-            ->select('code_limits.counter_of_limit as counter_of_limit')
-            ->where('date_today', date("Y-m-d"))
+        $limits = DB::table('tickets')
+            ->select('tickets.ticket_path as ticket_path',
+            'tickets.created_at as time_created')
             ->where('user_id', $user_id)
             ->get();
-        return $tickets;
+        return $limits;
     }
 }
