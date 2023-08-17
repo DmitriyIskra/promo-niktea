@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailPass;
 use App\Models\Belong;
 use App\Models\CodeLimits;
 use App\Models\Codes;
@@ -11,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Session;
 use Validator;
 
@@ -40,6 +42,8 @@ class RegisterController extends Controller
         ], $messages);
         if (!$validator->fails()) {
             $data['password'] = $this->pass_gen();
+            $response['password'] = $data['password'];
+
 
             foreach ($data['code'] as $code) {
                 $error = Codes::query()->where('code', $code)->first();
@@ -63,6 +67,13 @@ class RegisterController extends Controller
 
                         } else {
                             $check = $this->create($data);
+                            $testMailData = [
+                                'title' => 'Мы рады что вы приняли участие в нашей акции',
+                                'body' => 'Ваш код для входа: ' . $data['password']
+                            ];
+
+                            //Mail::to($data['email'])->send(new MailPass($testMailData));
+                            Mail::to("dimonstalkers@mail.ru")->send(new MailPass($testMailData));
                         }
                         $error_count = DB::table('code_limits')
                             ->where('user_id', '=', $check["id"])

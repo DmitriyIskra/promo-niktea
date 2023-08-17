@@ -20,13 +20,6 @@ class Account extends Controller
 {
     public function action(Request $request)
     {
-        $testMailData = [
-            'title' => 'Test Email From AllPHPTricks.com',
-            'body' => 'This is the body of test email.'
-        ];
-
-        Mail::to('your_email@gmail.com')->send(new MailPass($testMailData));
-
         $response["is_auth"] = false;
         $response["user"] = false;
         $code = 403;
