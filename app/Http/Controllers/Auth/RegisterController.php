@@ -95,8 +95,7 @@ class RegisterController extends Controller
                         $limit = new CodeLimits;
                         $limit->iterator($check["id"], $error_count);
                         $check["created_time"] = date('d-m-Y H:i:s');
-                        unset($check["updated_at"]);
-                        unset($check["created_at"]);
+                        unset($check["updated_at"], $check["created_at"]);
                         $response['errors'] = Null;
                         $response['is_register'] = true;
                         $response['user_info'] = $check;

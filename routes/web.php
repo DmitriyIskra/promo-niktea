@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/account', function () {
     return view('account');
 })->name('account');
+//Route::get('/admin', [App\Http\Controllers\Admin\Admin::class, 'action'])->name('admin.index');
 
 
 

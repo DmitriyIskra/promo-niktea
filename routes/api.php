@@ -24,3 +24,5 @@ Route::post('/auth/register', [App\Http\Controllers\Auth\RegisterController::cla
 Route::get('/auth/checker', [App\Http\Controllers\Auth\AuthChecker::class, 'action'])->name('auth.checker');
 
 Route::get('/account/info', [App\Http\Controllers\Account\Account::class, 'action'])->name('account.info');
+Route::get('/admin', [App\Http\Controllers\Admin\Admin::class, 'action'])->name('admin.index');
+

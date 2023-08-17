@@ -3,15 +3,8 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
-use App\Mail\MailPass;
-use App\Models\Belong;
-use App\Models\CodeLimits;
-use App\Models\Codes;
-use App\Models\Tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Auth;
