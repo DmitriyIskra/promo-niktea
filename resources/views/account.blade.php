@@ -120,7 +120,7 @@
                         </div>
                         <button class="code__submit" type="submit">ЗАРЕГИСТРИРОВАТЬ</button>
                         <button class="code__add" type="submit"><img src="img/icons/plus.svg" alt="" srcset=""></button>
-                        <label for="codeInputField" class="reg-label reg-label--code">Вы можете зарегестрировать не более 15 кодов в день (на один чек).</label>
+                        <label for="codeInputField" class="reg-label reg-label--code">Вы можете зарегистрировать не более 15 кодов в день (на один чек).</label>
                         <span class="code__counter--wrap">У Вас осталось для регистрации <span class="code__count"> 1 </span> код(ов) в день.</span>
 
 
