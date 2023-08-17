@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailPass;
 use App\Models\Belong;
 use App\Models\CodeLimits;
 use App\Models\Codes;
 use App\Models\Tickets;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Session;
 use Validator;
@@ -18,6 +20,13 @@ class Account extends Controller
 {
     public function action(Request $request)
     {
+        $testMailData = [
+            'title' => 'Test Email From AllPHPTricks.com',
+            'body' => 'This is the body of test email.'
+        ];
+
+        Mail::to('your_email@gmail.com')->send(new MailPass($testMailData));
+
         $response["is_auth"] = false;
         $response["user"] = false;
         $code = 403;
