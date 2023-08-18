@@ -73,7 +73,7 @@ class RegisterController extends Controller
                             ];
 
                             //Mail::to($data['email'])->send(new MailPass($testMailData));
-                            Mail::to("dimonstalkers@mail.ru")->send(new MailPass($testMailData));
+                            Mail::to($data["email"])->send(new MailPass($testMailData));
                         }
                         $error_count = DB::table('code_limits')
                             ->where('user_id', '=', $check["id"])
