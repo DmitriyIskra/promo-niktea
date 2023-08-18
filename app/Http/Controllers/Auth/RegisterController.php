@@ -42,7 +42,7 @@ class RegisterController extends Controller
         ], $messages);
         if (!$validator->fails()) {
             $data['password'] = $this->pass_gen();
-            $response['password'] = $data['password'];
+            //$response['password'] = $data['password'];
 
 
             foreach ($data['code'] as $code) {

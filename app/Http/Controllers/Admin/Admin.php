@@ -25,4 +25,15 @@ class Admin extends Controller
             return "Not Admin";
         }
     }
+
+    public function search(Request $request)
+    {
+        return $request["search"];
+        $researcher = DB::table('users')
+            ->select()
+            ->join()
+            ->get();
+        $html = "<div><p>UWIOGBWEIVB</p></div>";
+        return $html;
+    }
 }

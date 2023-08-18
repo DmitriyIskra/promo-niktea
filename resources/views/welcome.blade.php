@@ -244,9 +244,9 @@
             <div class="rules__item">
                 <div class="rules__item-wrap">
                     <img class="rules__item--img" src="img/content/basket-prize.png" alt="">
-                    <span class="rules__item--text">Купите пачку чая<br>
-            в любом магазине<br>
-            сети: Перекресток, Окей, Лента</span>
+                    <span class="rules__item--text">Купите пачку чая Niktea<br>
+            в удобном для вас розничном<br>
+            или интернет-магазине</span>
                 </div>
             </div>
 
@@ -323,8 +323,8 @@
                                 </div>
 
                                 <div class="slide__container">
-                      <span class="slide__description">Годовой запас чая Niktea<br>
-                        24 упаковки (пакетированный), более 10 вкусов</span>
+                      <span class="slide__description">Подарочный чайный набор Niktea<br>
+                        (чай+кружка)</span>
                                     <div class="slide-img--wrap">
                                         <img class="main-slide__img" src="img/content/priz/niktea24.png" alt="niktea24">
                                     </div>

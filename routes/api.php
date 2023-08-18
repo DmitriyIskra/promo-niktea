@@ -25,4 +25,5 @@ Route::get('/auth/checker', [App\Http\Controllers\Auth\AuthChecker::class, 'acti
 
 Route::get('/account/info', [App\Http\Controllers\Account\Account::class, 'action'])->name('account.info');
 Route::get('/admin', [App\Http\Controllers\Admin\Admin::class, 'action'])->name('admin.index');
+Route::post('/admin/search/', [App\Http\Controllers\Admin\Admin::class, 'search']);
 
