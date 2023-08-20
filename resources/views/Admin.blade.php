@@ -73,7 +73,12 @@
         <input type="submit">
     </div>
     </form>
-    <div id="search_box-result"></div>
+    <div id="search_box-result">
+        @foreach ($researcher as $item)
+            <P>1123</P>
+        @endforeach
+
+    </div>
 </div>
 </body>
 <script>

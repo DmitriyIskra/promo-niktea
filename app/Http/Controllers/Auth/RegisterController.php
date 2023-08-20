@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 
 class RegisterController extends Controller
@@ -41,7 +42,6 @@ class RegisterController extends Controller
             'check' => 'required|file|image'
         ], $messages);
         if (!$validator->fails()) {
-            $data['password'] = $this->pass_gen();
             //$response['password'] = $data['password'];
 
 
@@ -66,6 +66,7 @@ class RegisterController extends Controller
                             $check = $is_created;
 
                         } else {
+                            $data['password'] = $this->pass_gen();
                             $check = $this->create($data);
                             $testMailData = [
                                 'title' => 'Мы рады что вы приняли участие в нашей акции',
@@ -119,6 +120,16 @@ class RegisterController extends Controller
                 $response['errors'][] = $message;
                 $response['is_register'] = false;
                 $response['user_info'] = Null;
+            }
+        }
+        if(isset($data['password'])) {
+            if ($http_code == 200) {
+                if (Auth::attempt(['email' => $data["email"], 'password' => $data['password']], true)) {
+                    $request->session()->regenerate();
+                    $response["is_auth"] = Auth::user();
+                }else{
+                        $response["is_auth"] = "something wrong";
+                    }
             }
         }
         return response()->json($response, $http_code);

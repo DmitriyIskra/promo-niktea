@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\View;
@@ -16,7 +17,8 @@ class Admin extends Controller
         if (Auth::check()) {
             $user =  Auth::user();
             if($user['admin'] == 1){
-                return View::make('Admin');
+                $researcher = [];
+        return View::make('Admin',["researcher" => $researcher]);
             }else{
                 return redirect('/');
             }
@@ -28,12 +30,27 @@ class Admin extends Controller
 
     public function search(Request $request)
     {
-        return $request["search"];
-        $researcher = DB::table('users')
-            ->select()
-            ->join()
+        $code = $request["search"];
+        $researcher = DB::table('belongs')
+            ->select('codes.id as code_id',
+                'codes.code as code_string',
+                'codes.updated_at as code_activated_time',
+                'belongs.code_id as belongs_client_code_id',
+                'belongs.user_id as belongs_user_id',
+                'belongs.ticket_id as belongs_ticket_id',
+                'tickets.ticket_path as ticket_path',
+                'users.name as user_name',
+                'users.second_name as user_second_name',
+                'users.patronymic as user_patronymic',
+                'users.phone as user_phone',
+                'users.email as user_email'
+            )
+            ->join('codes', 'codes.id', '=', 'belongs.code_id')
+            ->join('tickets', 'tickets.id', '=', 'belongs.ticket_id')
+            ->join('users', 'belongs.user_id', '=', 'users.id')
+            ->where('codes.code', "like", "%$code%")
+            ->groupBy('belongs_ticket_id')
             ->get();
-        $html = "<div><p>UWIOGBWEIVB</p></div>";
-        return $html;
+        return View::make('Admin',["researcher" => $researcher]);
     }
 }
