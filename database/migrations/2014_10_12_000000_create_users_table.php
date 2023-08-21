@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('winner')->default(0);
             $table->string('name');
             $table->string('second_name');
             $table->string('patronymic');
