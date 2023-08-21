@@ -16,7 +16,7 @@ class LogoutController extends Controller
         $response["is_auth"] = false;
         $response["user"] = false;
         $code = 403;
-        if (Auth::logout()) {
+        if (Auth::check()) {
             $response["is_auth"] = True;
             $response["user"] = Auth::logout();
             $code = 200;
