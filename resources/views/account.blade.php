@@ -36,170 +36,31 @@
                             <a href="#" class="header__link">Победители</a>
                         </li>
 
-                        <li class="nav-item header__logo d-none d-lg-block"> <a href="index.html"><img class="header__logo--img" src="img/icons/logo.svg"
+                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
                                                                                                        alt="logo"></a></li>
 
                         <li class="header__item">
                             <a href="#" class="header__link">Призы</a>
                         </li>
                         <li class="header__item">
-                            <button class="header__button" ><a href="account.html">Личный кабинет</a></button>
+                            <button class="header__button" ><a href="/account">Личный кабинет</a></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="account.html"><img src="img/icons/icon _person.svg"></a>
+        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon _person.svg"></a>
 
 
     </div>
 </header>
 
-<div class="modal fade" id="exampleModalToggle" aria-labelledby="userAccount" tabindex="-1" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-form">
-            <div class="modal-header">
-                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img src="../img/icons/close-white.svg" alt="close-form"></button>
-            </div>
-            <div class="modal-body ">
-                <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="">
-                </div>
-                <div class="buttons__group">
-                    <button class="registry__submit" type="submit" data-bs-target="#enterAccount" data-bs-toggle="modal">ВХОД</button>
-                    <button class="registry__submit" type="submit" data-bs-target="#registryForm" data-bs-toggle="modal">РЕГИСТРАЦИЯ</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="enterAccount" aria-labelledby="userAccount3" tabindex="-1" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-form">
-            <div class="modal-header">
-                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img src="../img/icons/close-white.svg" alt="clofe-form"></button>
-            </div>
-            <div class="modal-body">
-                <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="">
-                </div>
-                <form class="reg__group needs-validation"  novalidate>
-                    <div class="input__group has-validation">
-                        <label for="firstName" class="reg-label">Укажите почту, набранную при регистрации </label>
-                        <div class="invalid-feedback">Заполните пожалуйста данное поле</div>
-                        <input class="registry__input--field" type="text" name="" id="firstName" required>
-                    </div>
-                    <div class="input__group">
-                        <label for="emailInput" class="reg-label">Введите пожалуйста код из E-mail </label>
-                        <input class="registry__input--field" type="email" name="" id="emailInput" required>
-                        <button class="registry__submit" type="submit">ВОЙТИ</button>
-                        <button class="registry__submit" type="submit">ОТПРАВИТЬ КОД</button>
-                        <div class="invalid-feedback">
-                            <div class="enter__group">
-
-                                <button class="registry__submit" type="submit">ОТПРАВИТЬ КОД ПОВТОРНО</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="registryForm" aria-labelledby="userAccount2" tabindex="-1" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-form new-user-form" data-variant=registry-user>
-            <div class="modal-header">
-                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img src="../img/icons/close-white.svg" alt="clofe-form"></button>
-            </div>
-            <div class="modal-body">
-                <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="">
-                </div>
-                <form class="reg__group needs-validation" novalidate>
-                    <div class="input__group has-validation">
-                        <label for="firstName" class="reg-label">ИМЯ</label>
-                        <input class="registry__input--field form-control" type="text" name="" id="firstName" required>
-                        <div class="invalid-feedback">
-                            Заполните пожалуйста данное поле
-                        </div>
-                    </div>
-                    <div class="input__group">
-                        <label for="secondName" class="reg-label">ФАМИЛИЯ</label>
-                        <input class="registry__input--field form-control" type="text" name="" id="secondName" required>
-                    </div>
-                    <div class="input__group">
-                        <label for="fathersName" class="reg-label">ОТЧЕСТВО</label>
-                        <input class="registry__input--field form-control" type="text" name="" id="fathersName" required>
-                    </div>
-                    <div class="input__group">
-                        <label for="fathersName" class="reg-label">НОМЕР ТЕЛЕФОНА</label>
-                        <input class="registry__input--field form-control" type="text" name="" id="fathersName" required>
-                    </div>
-
-                    <div class="input__group">
-                        <label for="email" class="reg-label">ПОЧТА</label>
-                        <input class="registry__input--field form-control" type="text" name="" id="fathersName" required>
-                    </div>
-                    <label for="email" class="reg-label reg-label--post--layout">внимание! именно на электронную почту придет подтверждение выигрыша!</label>
-
-
-                    <label for="promoCode" class="reg-label">Добавьте пожалуйста код, который находится на вкладыше внутри пачки</label>
-                    <input class="registry__input--field form-control" type="text" name="" id="promoCode" required>
-
-
-                    <div class="file-upload__group" required>
-                        <label for="checkLoad" class="reg-label">Загрузите пожалуйста чек (внимание, чек должен быть читабельным)<br><br></label>
-                        <input type="file" id="upload" hidden/>
-                        <div class="invalid-feedback">
-                            Извините, но без чека вы не можете принять участие в акции
-                        </div>
-                        <label class="file-upload__label " id="checkLoad" for="upload" required>ЗАГРУЗИТЬ ЧЕК</label>
-                        <div class="invalid-feedback">Пример обратной связи неверной формы выбора файла</div>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                            Я прочитал и согласен с <a href="#">Правилами Акции и Пользовательским соглашением</a>,
-                            согласен на обработку персональных данных<br>
-                            Я согласен на получение e-mail рассылки
-                        </label>
-                        <!-- <div class="invalid-feedback">
-
-                        </div> -->
-                    </div>
-                    <!-- <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                      <label class="form-check-label" for="invalidCheck">
-                        Я согласен на получение e-mail рассылки
-                      </label>
-                      <div class="invalid-feedback">
-
-                      </div>
-                    </div> -->
-
-                    <button class="registry__submit" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <main class="main">
 
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="index.html">Главная</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="catalog.html"> Личный кабинет </a></li>
         </ul>
     </div>
@@ -208,7 +69,8 @@
 
         <section class="user-account">
 
-            <div class="account-form">
+            <form class="account-form">
+                <button class="log-out__button">ВЫХОД</button>
                 <h1>Личный кабинет</h1>
                 <div class="user__data">
                     <div class="data-item green--border">Косолапова</div>
@@ -218,7 +80,7 @@
                     <div class="data-item">Ваша_почта@mail.ru</div>
                 </div>
 
-                <div class="code__input--group">
+                <form class="code__input--group">
 
                     <div class="code__input--account--wrap">
                         <!-- <label for="codeInputField" class="reg-label reg-label--code">Вы ввели некорректный код (без кода участие в акции невозможно).</label>    -->
@@ -236,21 +98,6 @@
                                         <div class="swiper-slide">
                                             <span class="code__text">3548-QTNS5N</span>
                                         </div>
-                                        <!-- <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div>
-                                        <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div>
-                                        <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div>
-                                        <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div>
-                                        <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div> -->
                                     </div>
                                 </div>
 
@@ -259,14 +106,14 @@
                             <button class="code__carousel-next" type="button" data-bs-target="#codeCarousel" data-bs-slide="next"></button>
                         </div>
                         <button class="code__submit" type="submit">ЗАРЕГИСТРИРОВАТЬ</button>
-                        <button class="code__add" type="submit"><img src="img/icons/plus.svg" alt="" srcset=""></button>
+                        <button class="code__add" type="submit"><img src="img/icons/plus.svg" alt="add-icon"></button>
                         <label for="codeInputField" class="reg-label reg-label--code">Вы можете зарегестрировать не более 15 кодов в день (на один чек).</label>
                         <span class="code__counter--wrap">У Вас осталось для регистрации <span class="code__count"> 1 </span> код(ов) в день.</span>
 
 
                         <div class="file-upload__group">
                             <input type="file" id="uploadPhoto" hidden/>
-                            <label class="file-upload__label" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
+                            <label class="file-upload__label" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
                             <span>Вы можете зарегестрировать не более 15 чеков в день.<br>
                 ( с 00:00 по 23:59 по Московскому времени )</span>
@@ -275,7 +122,7 @@
                     </div>
 
 
-                </div>
+                </form>
 
 
                 <div class="code__group">
@@ -418,10 +265,15 @@
 
 </main>
 
-<footer>
+<footer class="footer">
     <div class="footer__top">
         <div class="footer__container">
 
+            <div class="footer__column link-col">
+                <li class="footer__item">
+                    <a href="#" class="footer__link">Сайт бренда NIKTEA</a>
+                </li>
+            </div>
 
             <div class="footer__column tg-col">
 
@@ -432,7 +284,6 @@
 
             </div>
 
-
             <div class="footer__column logo-col">
                 <a class="footer__logo">
                     <img src="img/icons/footer-logo.svg" alt="Logo">
@@ -440,10 +291,17 @@
             </div>
 
             <div class="footer__column phone-col">
+
                 <ul class="footer__list">
-                    <li class="footer__item">
-                        <a href="#" class="footer__link"><img class="phone-icon" src="img/icons/phone-icon.svg" alt=""> 8-903-798-85-98</a>
-                        <br>
+                    <li class="footer__item footer__item--phone">
+
+                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
+                        <div class="phone-nimber-col">
+                            <span class="phone-nimber">8-903-798-85-98</span>
+                            <div class="w-100"></div>
+                            <span>С 9:00 до 18:00 по МСК</span>
+                        </div>
+
                     </li>
                 </ul>
             </div>
@@ -451,6 +309,7 @@
         </div>
     </div>
 </footer>
+
 
 <script src="{{ asset("js/bootstrap.js") }}"></script>
 <script src="{{ asset("js/bootstrap.js.map") }}"></script>

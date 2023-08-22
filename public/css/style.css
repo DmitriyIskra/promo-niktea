@@ -1,10 +1,58 @@
 *root {
   --color-nav: #007653;
   --bs-modal-width: 700px !important;
+  --bs-navbar-toggler-transition: none !important;  
 }
 
 * {
   outline: none;
+}
+
+
+@font-face {
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
+  font-weight: 200;     
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
+  font-weight: 400;     
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
+  font-weight: 500;     
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Arsenal';
+  src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Arsenal';
+  src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+font-family: 'Snell Roundhand';
+src:  url(../fonts/SnellRoundhand/Snell\ Roundhand.ttf) format(woff2);
+font-style: normal;
+font-display: swap;
 }
 
 body {        
@@ -25,7 +73,7 @@ body[data-variant=main-page]::after {
   bottom: 0;
   width: 100%;
   height: 100%;    
-  background:  url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-main-bg-right.png), url(../img/icons/main-bg-fl-right.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background:  url(../img/icons/account-bg-2.webp),  url(../img/icons/flowers-main-bg-right.png), url(../img/icons/main-bg-fl-right.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
   background-position-x: center, -20%, 118%; 
   background-position-y: bottom, 37%, 41%;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -38,7 +86,7 @@ body[data-variant=user-account] {
   width: 100%;
   height: 100%;    
   background: url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-size:contain, contain;
+  background-size: 100%, 100%;
   background-position-x: center, center; 
   background-position-y: bottom, top;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -46,44 +94,18 @@ body[data-variant=user-account] {
 }
 
 
-@font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
-    font-weight: 200;     
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
-    font-weight: 400;     
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
-    font-weight: 500;     
-    font-style: normal;
-    font-display: swap;
-  }
-
-
-@font-face {
-    font-family: 'Arsenal';
-    src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
-    font-weight: 400;
+body[data-variant=winners] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
 }
 
-@font-face {
-    font-family: 'Arsenal';
-    src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 
 .header-wrapper {
   padding-top: 15px;
@@ -105,6 +127,7 @@ body[data-variant=user-account] {
 
 .navbar {
   border: none !important;
+  transition: none !important;
 }
 
 .navbar-toggler {
@@ -134,12 +157,14 @@ body[data-variant=user-account] {
   padding-right: 15px;
 }
 .header__logo--img:hover {
-filter: drop-shadow(1px 2px 3px rgba(255, 255, 255, 0.7));
--webkit-filter: drop-shadow(3px 2px 3px rgb(255, 255, 255));
+filter: drop-shadow(1px 2px 3px #E8E8E8);
+-webkit-filter: drop-shadow(3px 2px 3px #E8E8E8);
+transition: filter 0.3s ease;  
 }
 
 .header-wrapper--main .header__logo--img:hover {
 filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
+transition: filter 0.3s ease;  
 }
 
 
@@ -208,9 +233,9 @@ filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
   border: none;
   outline: none;
   font-family: 'Arsenal';
-  font-size: 28px;
+  /* font-size: 28px; */
   color: #007653;
-  
+  font-size: clamp(1vw, 1.75rem, 1.45vw);  
 }
 
 .header__button a {
@@ -234,7 +259,7 @@ filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(../img/content/header-bg.png);
+  background: url(../img/content/header-bg.webp);
   background-repeat: no-repeat;  
   background-position-x: center;
   background-position-y: top;
@@ -303,6 +328,26 @@ filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+}
+
+.header__link {
+  text-shadow: none;
+  transition: text-shadow 0.3s ease;   
+}
+
+.header__link:hover {
+  text-shadow: 5px 5px 4px #E8E8E8;
+  transition: text-shadow 0.3s ease;   
+}
+
+.header__button a:hover {
+  text-shadow: none;
+  transition: text-shadow 0.3s ease;   
+}
+
+.header__button a:hover {
+  text-shadow: 5px 5px 4px #E8E8E8;
+  transition: text-shadow 0.3s ease;   
 }
 
 .header-wrapper--main .header__link {
@@ -691,7 +736,7 @@ font-weight: 700;
 line-height: normal;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1520px) {
   .header-wrapper__main-page .header__link{
     font-size: 20px;   
   }
@@ -730,20 +775,19 @@ line-height: normal;
 }
 
 .rules__item {
-  width: 25%; 
+  width: 25%;
   padding-top: 9%;
   padding-bottom: 0px;
   color: #FFF;
-text-align: center;
-font-family: 'Arsenal';
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  text-align: center;
+  font-family: 'Arsenal';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .rules__item:first-child, .rules__item:last-child {
-  /* padding-bottom: 0px; */
   padding-top: 0px;
 }
 
@@ -789,15 +833,14 @@ line-height: normal;
 .recepies__button {
   position: relative;
   font-family: 'Arsenal';  
-  font-size: clamp(1vw, 2.5vw, 1.2vw);
+  font-size: 28px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
   text-transform: uppercase;    
-  border-radius: 50px;    
-  border-radius: 2.5vw;  
-  width: 20vw;
-  height: 3.6vw;
+  border-radius: 50px;      
+  width: 445px;
+  height: 70px;
   border: none;      
   background: #53A894;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);    
@@ -841,10 +884,22 @@ text-transform: uppercase;
 }
 
 .main__slider {
-  min-height: 1000px;
+  /* min-height: 1000px; */
   margin-top: 175px;
 }
 
+@media (max-width: 1265px) {
+
+  .header__item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .header__button a {
+    font-size: 18px;
+  }
+
+}
 
 @media (max-width: 992px) {
   .footer__container, .about, .cards  {
@@ -854,6 +909,7 @@ text-transform: uppercase;
   .footer__container {
     flex-direction: column;
     align-content: center;
+    margin-bottom: 25%;
   }
 
   .footer__column {
@@ -908,7 +964,7 @@ align-items: center;
 }
 
 .recepies__button {
-  width: 90%;
+    width: 90%;
     height: 50px;
     border-radius: 50px;
     color: #FFF;
@@ -934,9 +990,13 @@ h1, h2 {
 
 
   .main__slider {
-  /* display: none; */
+  display: none; 
 }
 
+.logo-col {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 
 body[data-variant=main-page]::after {
@@ -953,6 +1013,20 @@ body[data-variant=main-page]::after {
   background-position-y: bottom, top;
   background-repeat: no-repeat no-repeat;
   background-size: contain, contain;
+  z-index: -10;  
+}
+
+
+
+body[data-variant=user-account] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, top;
+  background-repeat: no-repeat, no-repeat, no-repeat;
   z-index: -10;  
 }
 

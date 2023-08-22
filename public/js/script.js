@@ -126,17 +126,16 @@
     // });  
     
 
-
   // формы
+
+  //Валидация
 
    if(document.querySelector('form')){
     (function () {
       'use strict'
-   
-  
+     
       var forms = document.querySelectorAll('.needs-validation')
-   
-  
+     
       Array.prototype.slice.call(forms)
         .forEach(function (form) {
           form.addEventListener('submit', function (event) {
@@ -150,13 +149,13 @@
         })
     })()
    }
-   
-
+  
 
   document.querySelector('.modal_close').addEventListener('click', function (){
     document.getElementById("enterAccountForm").reset();
   })
 
+  // Маска телефона
 
   document.addEventListener("DOMContentLoaded", function () {
       var eventCalllback = function (e) {
@@ -186,3 +185,69 @@
           }
       }
   });
+
+//Проверка файлов
+  
+  function fileValidation() {
+    let fileInput = document.querySelector('.file-upload__label');
+
+    let filePath = fileInput.value;
+    let allowedExtensions = /(\.jpg|\.jpeg|\.bmb|\.png|\.gif)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        let erer = document.getElementById('file-info');
+        erer.style.display = 'block';
+        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ';
+        fileInput.value = '';
+        return false;
+    } else {
+
+        if (fileInput.files && fileInput.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+ 
+                document.getElementById('info').style.display = 'block';
+                document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
+                document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+
+function checkValidation() {
+  let fileInput = document.querySelector('.uploadPhoto');
+
+  let filePath = fileInput.value;
+  let allowedExtensions = /(\.jpg|\.jpeg|\.bmb|\.png|\.gif|\.avif|\.raw|\.heif|\.heic|\.webp|\.jfif)$/i;
+  if (!allowedExtensions.exec(filePath)) {
+      let erer = document.getElementById('checkUploadPhoto');
+      erer.style.display = 'block';
+      erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ';
+      erer.console.log('Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ')
+      fileInput.value = '';
+      return false; 
+  
+    }
+    
+    else {
+
+      //Image preview - лишнее
+      if (fileInput.files && fileInput.files[0]) {
+          let reader = new FileReader();
+          reader.onload = function(e) {
+
+              document.getElementById('info').style.display = 'block';
+              document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
+              document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+      }
+  }
+}
+
+// Деавторизация
+
+let logOutButton = document.querySelector('.log-out__button');
+
+/*Запросы*/
+
