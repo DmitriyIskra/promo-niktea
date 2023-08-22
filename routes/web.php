@@ -20,6 +20,12 @@ Route::get('/', function () {
 Route::get('/account', function () {
     return view('account');
 })->name('account');
+Route::get('/winners', function () {
+    return view('winners');
+})->name('winners');
+Route::get('/rules', function () {
+    return view('rules');
+})->name('rules');
 
 
 
