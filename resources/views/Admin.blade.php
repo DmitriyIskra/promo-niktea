@@ -7,6 +7,9 @@
             width: 100%;
             border: none;
             margin-bottom: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: 1%;
         }
         table thead th {
             font-weight: bold;
@@ -39,7 +42,7 @@
             position: relative;
             width: 50%;
             padding-left: 25%;
-            padding-top: 7%;
+            padding-top: 3%;
         }
         .search_box input[type="text"] {
             display: block;
@@ -88,7 +91,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
-            flex-direction: row;
+            flex-direction: column;
             align-content: center;
         }
 
@@ -116,6 +119,10 @@
             margin-left: -35px;
             text-align: center;
             animation: preloader-rotate 2s infinite linear;
+        }
+        .description{
+            margin-bottom: 15px;
+            font-size: 20px;
         }
 
         .preloader__item {
@@ -162,7 +169,8 @@
 <div class="search_box">
     <form action="">
         <div class="flex">
-        <input type="text" name="search" id="search" placeholder="Введите город">
+            <label class="description">Для начала поиска начните вводить код</label>
+            <input type="text" name="search" id="search" placeholder="Введите город">
         <!--<input type="submit">-->
     </div>
     </form>
@@ -174,24 +182,23 @@
             <div class="preloader__item"></div>
         </div>
     </div>
-    <table>
-        <thead>
-        <tr>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Отчество</th>
-            <th>Телефон</th>
-            <th>Email</th>
-            <th>Код</th>
-            <th>Чек</th>
-            <th>Время регистрации чека</th></tr>
-        </thead>
-        <tbody id="for-parse">
-
-        </tbody>
-    </table>
 </div>
+<table>
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Код</th>
+        <th>Чек</th>
+        <th>Время регистрации чека</th></tr>
+    </thead>
+    <tbody id="for-parse">
 
+    </tbody>
+</table>
 </body>
 <script>
     $('.preloader').fadeOut().end().delay(400).fadeOut('slow');

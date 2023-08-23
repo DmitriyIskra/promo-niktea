@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('winner')->default(0);
+            $table->integer('winner')->default(0);  // 0 - участник, 1 - кандидат, 2 - победитель
             $table->string('name');
             $table->string('second_name');
             $table->string('patronymic');
