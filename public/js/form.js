@@ -44,9 +44,10 @@ formSignIn.addEventListener('submit', async event => {
 
     const formSignData = new FormData(formSignIn);
 
-//    for (var value of formSignData.values()) {
-//         console.log(value);
-//       }
+    formSignData.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+    });
+
 
     try {
         const res = await fetch(
@@ -60,7 +61,7 @@ formSignIn.addEventListener('submit', async event => {
 
         const resData = await res.json();
 
-        console.log(formSignData);
+        console.log(resData);
     } catch (err) {
         console.log(err.message);
     }
@@ -76,8 +77,8 @@ const checkAuth = document.getElementById('userAccount');
 checkAuth.addEventListener('click', async event => {
     event.preventDefault();
 //проверка авторизованности
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "nektia_session=F0dv16gjCbOHMu1iit8lzfW8p5lweUQ1igie6C4x");
+   // var myHeaders = new Headers();
+   // myHeaders.append("Cookie", "nektia_session=F0dv16gjCbOHMu1iit8lzfW8p5lweUQ1igie6C4x");
 
 
 
@@ -100,29 +101,8 @@ checkAuth.addEventListener('click', async event => {
 
 // получаем данные пользователя (без проверки)
 
-    var userData = {
-        method: 'GET',
-        // headers: myHeaders,
-        // body: raw,
-        redirect: 'follow'
-    };
-
-    try {
-        const resUser = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-    } catch (err) {
-        console.log(err.message);
-    }
 
 });
-
-
-
-
-
 
 // Данные пользователя Account info
 
