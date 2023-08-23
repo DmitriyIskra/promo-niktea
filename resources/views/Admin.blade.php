@@ -13,15 +13,15 @@
             text-align: left;
             border: none;
             padding: 10px 15px;
-            background: #d8d8d8;
+            background: #97f8e4;
             font-size: 14px;
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
+            border-left: 1px solid #4d9f9b;
+            border-right: 1px solid #4d9f9b;
         }
         table tbody td {
             text-align: left;
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
+            border-left: 1px solid #4d9f9b;
+            border-right: 1px solid #4d9f9b;
             padding: 10px 15px;
             font-size: 14px;
             vertical-align: top;
@@ -33,7 +33,7 @@
             border-right: none;
         }
         table tbody tr:nth-child(even){
-            background: #f3f3f3;
+            background: #d1ffe6;
         }
         .search_box {
             position: relative;
@@ -177,7 +177,11 @@
     <table>
         <thead>
         <tr>
-            <th>Пользователь</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Телефон</th>
+            <th>Email</th>
             <th>Код</th>
             <th>Чек</th>
             <th>Время регистрации чека</th></tr>
@@ -193,6 +197,7 @@
     $('.preloader').fadeOut().end().delay(400).fadeOut('slow');
 
     $(document).ready(function() {
+
         var $result = $('#search_box-result');
         $('#search').on('keyup', function(){
             var search = $(this).val();
@@ -209,7 +214,11 @@
                         const tableData = msg.map(value => {
                             return (
                                 `<tr>
-                                <td class='user' id=${ value.belongs_user_id }>${ value.user_email } <br> ${ value.user_name } <br> ${ value.user_second_name } <br> ${ value.user_patronymic } <br> ${ value.user_phone } </td>
+                                <td contentEditable="true" class='edit' id="name_${ value.belongs_user_id }">${ value.user_name }</td>
+                                <td contentEditable="true" class='edit' id="second_name_${ value.belongs_user_id }">${ value.user_second_name }</td>
+                                <td contentEditable="true" class='edit' id="patronymic_${ value.belongs_user_id }">${ value.user_patronymic }</td>
+                                <td contentEditable="true" class='edit' id="phone_${ value.belongs_user_id }">${ value.user_phone } </td>
+                                <td contentEditable="true" class='edit' id="email_${ value.belongs_user_id }">${ value.user_email } </td>
                                 <td>${value.code_string}</td>
                                 <td>${value.ticket_path}</td>
                                 <td>${value.code_activated_time}</td>
@@ -226,6 +235,29 @@
                         } else {
                             $result.fadeOut(100);
                         }
+                        $('.edit').click(function(){
+                            $(this).addClass('editMode');
+                        });
+
+                        // Save data
+                        $(".edit").focusout(function(){
+                            $(this).removeClass("editMode");
+                            var id = this.id;
+                            var split_id = id.split("_");
+                            var field_name = split_id[0];
+                            var edit_id = split_id[1];
+                            var value = $(this).text();
+
+                            $.ajax({
+                                url: 'handler.php',//файл с php скриптом, обновляющий данные в бд
+                                type: 'post',
+                                data: { field:field_name, value:value, id:edit_id },// отправляем имя поля, новое значение и id, чтобы определить, что конкретно и как надо обновить в таблице
+                                success:function(response){
+                                    console.log('Save successfully');
+                                }
+                            });
+
+                        });
                     }
                 });
             } else {
@@ -253,7 +285,6 @@
                 $result.fadeOut(100);
             }
         });
-
     });
 </script>
 </html>
