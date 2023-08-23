@@ -12,19 +12,19 @@
       console.log('Кнопка зарегистрировать код')
     })
   }
-    
+
 
   var swiperCheck = new Swiper(".checkSlider", {
     grabCursor: true,
-    keyboard: true,    
+    keyboard: true,
     slidesPerView: 3,
     spaceBetween: 10,
-    loop: true,      
+    loop: true,
     slideShadows: true,
     navigation: {
         nextEl: ".slider-button-next",
         prevEl: ".slider-button-prev",
-      },      
+      },
       pagination: {
         el: ".pagination",
         clickable: true,
@@ -32,7 +32,7 @@
           return '<span class="' + className + '">' + (index + 1) + "</span>";
         },
       },
-      breakpoints: {        
+      breakpoints: {
         1360: {
           slidesPerView: 3,
           spaceBetween: 15,
@@ -42,8 +42,8 @@
                 slidesPerView: 2,
                 spaceBetween: 5,
               },
-              
-              540: {             
+
+              540: {
                 slidesPerView: 2,
                 spaceBetween: 0,
               },
@@ -53,34 +53,34 @@
                 spaceBetween: 5,
               },
             }
-  });  
-  
+  });
 
-    
+
+
     let navToggler = document.querySelector('.navbar-toggler');
 
     navToggler.addEventListener('click', function(){
       navToggler.classList.toggle('burgerChecked');
-      document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')      
+      document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')
     })
-  
+
 
     var swiperCode = new Swiper(".codeSlider", {
       grabCursor: true,
-      keyboard: true,    
+      keyboard: true,
       slidesPerView: 3,
       spaceBetween: 2,
-      loop: true,  
-      centeredSlides: true,    
+      loop: true,
+      centeredSlides: true,
       slideShadows: true,
       initialSlide: 0,
       navigation: {
           nextEl: ".code__carousel-next",
           prevEl: ".code__carousel-prev",
-        },      
-        breakpoints: {        
+        },
+        breakpoints: {
           1360: {
-            centeredSlides: true, 
+            centeredSlides: true,
             initialSlide: 0,
             slidesPerView: 3,
             spaceBetween: 15,
@@ -90,9 +90,9 @@
                   slidesPerView: 1,
                   spaceBetween: 5,
                 },
-                
+
                 540: {
-                  centeredSlides: true,  
+                  centeredSlides: true,
                   slidesPerView: 1,
                   spaceBetween: 0,
                 },
@@ -102,7 +102,7 @@
                   spaceBetween: 1,
                 },
               }
-    });  
+    });
 
 
     // var roundSlider = new Swiper(".roundSlider", {
@@ -119,12 +119,12 @@
     //   navigation: {
     //     nextEl: ".slider-button-next",
     //     prevEl: ".slider-button-prev",
-    //   },        
-      
-    //   grabCursor: true,   
+    //   },
+
+    //   grabCursor: true,
     //   limitProgress: 1,
-    // });  
-    
+    // });
+
 
   // формы
 
@@ -133,9 +133,9 @@
    if(document.querySelector('form')){
     (function () {
       'use strict'
-     
+
       var forms = document.querySelectorAll('.needs-validation')
-     
+
       Array.prototype.slice.call(forms)
         .forEach(function (form) {
           form.addEventListener('submit', function (event) {
@@ -143,13 +143,13 @@
               event.preventDefault()
               event.stopPropagation()
             }
-    
+
             form.classList.add('was-validated')
           }, false)
         })
     })()
    }
-  
+
 
   document.querySelector('.modal_close').addEventListener('click', function (){
     document.getElementById("enterAccountForm").reset();
@@ -187,7 +187,7 @@
   });
 
 //Проверка файлов
-  
+
   function fileValidation() {
     let fileInput = document.querySelector('.file-upload__label');
 
@@ -196,7 +196,7 @@
     if (!allowedExtensions.exec(filePath)) {
         let erer = document.getElementById('file-info');
         erer.style.display = 'block';
-        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ';
+        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
         fileInput.value = '';
         return false;
     } else {
@@ -204,7 +204,7 @@
         if (fileInput.files && fileInput.files[0]) {
             let reader = new FileReader();
             reader.onload = function(e) {
- 
+
                 document.getElementById('info').style.display = 'block';
                 document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
                 document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
@@ -218,17 +218,17 @@ function checkValidation() {
   let fileInput = document.querySelector('.uploadPhoto');
 
   let filePath = fileInput.value;
-  let allowedExtensions = /(\.jpg|\.jpeg|\.bmb|\.png|\.gif|\.avif|\.raw|\.heif|\.heic|\.webp|\.jfif)$/i;
+  let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.avif|\.raw|\.heif|\.heic|\.webp|\.jfif)$/i;
   if (!allowedExtensions.exec(filePath)) {
       let erer = document.getElementById('checkUploadPhoto');
       erer.style.display = 'block';
-      erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ';
-      erer.console.log('Тип файла должен быть .jpg,.png,.bmb,.gif,.jpeg ')
+      erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
+      erer.console.log('Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ')
       fileInput.value = '';
-      return false; 
-  
+      return false;
+
     }
-    
+
     else {
 
       //Image preview - лишнее
@@ -245,9 +245,4 @@ function checkValidation() {
   }
 }
 
-// Деавторизация
-
-let logOutButton = document.querySelector('.log-out__button');
-
-/*Запросы*/
 

@@ -21,10 +21,10 @@
 <body data-variant="winners">
 
 <header>
-    <div class="header-wrapper header-wrapper--white">
+    <div class="header-wrapper header-wrapper__main-page fixed-top">
 
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid container-fluid--position">
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,23 +37,22 @@
                             <a href="#" class="header__link">Победители</a>
                         </li>
 
-                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/index.html"><img class="header__logo--img" src="img/icons/logo.svg"
+                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
                                                                                                         alt="logo"></a></li>
 
                         <li class="header__item">
-                            <a href="#" class="header__link">Призы</a>
+                            <a href="/winners" class="header__link">Призы</a>
                         </li>
                         <li class="header__item">
-                            <button class="header__button" ><a href="/account.html">Личный кабинет</a></button>
+                            <button class="header__button" ><a href="/account">Личный кабинет</a></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account.html"><img src="img/icons/icon _person.svg"></a>
-
-
+        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg" alt="logo-mobile"></a>
+        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg" alt="icon_person"></a>
+        <div class="header-wrapper__main-page--img"></div>
     </div>
 </header>
 
@@ -62,8 +61,8 @@
 
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="index.html">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="catalog.html"> Победители </a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Победители </a></li>
         </ul>
     </div>
 

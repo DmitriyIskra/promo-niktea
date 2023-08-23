@@ -33,7 +33,7 @@
                             <a href="#" class="header__link">Регистрация</a>
                         </li>
                         <li class="header__item">
-                            <a href="#" class="header__link">Победители</a>
+                            <a href="/winners" class="header__link">Победители</a>
                         </li>
 
                         <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
@@ -61,7 +61,7 @@
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="catalog.html"> Личный кабинет </a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Личный кабинет </a></li>
         </ul>
     </div>
 

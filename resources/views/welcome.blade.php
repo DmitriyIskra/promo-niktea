@@ -35,7 +35,7 @@
                             <a href="#" class="header__link">Регистрация</a>
                         </li>
                         <li class="header__item">
-                            <a href="/winners.html" class="header__link">Победители</a>
+                            <a href="/winners" class="header__link">Победители</a>
                         </li>
 
                         <li class="nav-item header__logo d-none d-lg-block"><a href="/"><img
@@ -99,7 +99,7 @@
                 <div class="logo__modal--container">
                     <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="logo-modal">
                 </div>
-                <form method="post" action="{{ route('auth.login') }}" class="reg__group needs-validation" novalidate>
+                <form method="post" action="{{ route('auth.login') }}" class="reg__group needs-validation" id="signinForm" novalidate>
                     @csrf
                     <div class="input__group">
                         <input class="registry__input--field form-control" type="text" name="email" id="email-auth"
@@ -278,7 +278,7 @@
 
         </section>
 
-        <a href="rules.html">
+        <a href="/rules">
             <button class="recepies__button">ПРАВИЛА ПРОВЕДЕНИЯ АКЦИИ</button>
         </a>
 
@@ -475,6 +475,7 @@
         'show': 9
     });
 </script>
+<script src="{{ asset("js/form.js") }}"></script>
 <script src="{{ asset("js/script.js") }}"></script>
 </body>
 </html>
