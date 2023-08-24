@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Result;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\View;
@@ -57,7 +58,6 @@ class Admin extends Controller
             ->join('tickets', 'tickets.id', '=', 'belongs.ticket_id')
             ->join('users', 'belongs.user_id', '=', 'users.id')
             ->where('codes.code', "LIKE", "%$code%")
-            ->groupBy('belongs_ticket_id')
             ->get();
 
         foreach($researcher as $key => $item){
@@ -69,6 +69,16 @@ class Admin extends Controller
                 ->where("winers.user_id", "=", $item->belongs_user_id)
                 ->get();
             $researcher[$key]->won = $won;
+            $result[$item->belongs_user_id]["user"]["user_name"] = $item->user_name;
+            $result[$item->belongs_user_id]["user"]["user_second_name"] = $item->user_second_name;
+            $result[$item->belongs_user_id]["user"]["user_patronymic"] = $item->user_patronymic;
+            $result[$item->belongs_user_id]["user"]["user_phone"] = $item->user_phone;
+            $result[$item->belongs_user_id]["user"]["user_email"] = $item->user_email;
+            $result[$item->belongs_user_id]["user"]["belongs_user_id"] = $item->belongs_user_id;
+            $result[$item->belongs_user_id]["codes"][] = $item;
+            $result[$item->belongs_user_id]["user"]["code_counter"] = count($result[$item->belongs_user_id]["codes"]);
+            unset($item->user_name, $item->user_second_name, $item->user_patronymic, $item->user_phone, $item->user_email);
+
         }
         /*$researcher = DB::table('belongs')
             ->select('codes.id as code_id',
@@ -105,7 +115,7 @@ class Admin extends Controller
             ->where('users.id', "=", $researcher[0]->belongs_user_id)
             ->get();
         */
-        return $researcher;
+        return $result;
         return View::make('Admin',["researcher" => $researcher]);
     }
 

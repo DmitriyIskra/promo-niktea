@@ -186,11 +186,7 @@
 <table>
     <thead>
     <tr>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Отчество</th>
-        <th>Телефон</th>
-        <th>Email</th>
+        <th>Пользователь</th>
         <th>Код</th>
         <th>Чек</th>
         <th>Время регистрации чека</th></tr>
@@ -218,24 +214,44 @@
 
                         $result.html(msg);
                         console.log(msg);
-                        const tableData = msg.map(value => {
-                            return (
-                                `<tr>
-                                <td contentEditable="true" class='edit' id="name_${ value.belongs_user_id }">${ value.user_name }</td>
-                                <td contentEditable="true" class='edit' id="second_name_${ value.belongs_user_id }">${ value.user_second_name }</td>
-                                <td contentEditable="true" class='edit' id="patronymic_${ value.belongs_user_id }">${ value.user_patronymic }</td>
-                                <td contentEditable="true" class='edit' id="phone_${ value.belongs_user_id }">${ value.user_phone } </td>
-                                <td contentEditable="true" class='edit' id="email_${ value.belongs_user_id }">${ value.user_email } </td>
-                                <td>${value.code_string}</td>
-                                <td>${value.ticket_path}</td>
-                                <td>${value.code_activated_time}</td>
-                                </tr>`
-                            );
-                        }).join('')
+                        let arr = [];
+                        $.each(msg, function(key, value){
+                            arr[key] = ''
+                            console.log(value)
+                            $.each(value, function(key2, value2){
+                                if(key2 == "user"){
+                                    arr[key] += `<tr><td rowspan="${ value2.code_counter }" id="name_${ value2.belongs_user_id }">${ value2.user_name } <br> ${ value2.user_second_name } <br> ${ value2.user_patronymic } <br> ${ value2.user_phone } <br> ${ value2.user_email } </td>`
+                                }else {
+                                    $.each(value2, function (key3, value3) {
+                                        if(key3 < 1){
+                                            arr[key] += `<td>${value3.code_string}</td><td><a href="${value3.ticket_path}">${value3.ticket_path}a></td><td>${value3.code_activated_time}</td></tr>`
+                                        }else {
+                                            arr[key] += `<tr><td>${value3.code_string}</td><td><a href="${value3.ticket_path}">${value3.ticket_path}a></td><td>${value3.code_activated_time}</td></tr>`
+                                        }
+                                    });
+                                }
+                            });
+                            console.log(arr[key])
+                            $("#for-parse").append(arr[key]);
+                        });
+
+                        console.log(arr)
+
+                            /*const tableData = msg.map(value => {
+                                return (
+                                    `<tr>
+                                    <td rowspan="${ value.code_counter }" id="name_${ value.belongs_user_id }">${ value.user_name } <br> ${ value.user_second_name } <br> ${ value.user_patronymic } <br> ${ value.user_phone } <br> ${ value.user_email } </td>
+                                    <td>${value.code_string}</td>
+                                    <td><a href="${value.ticket_path}">${value.ticket_path}a></td>
+                                    <td>${value.code_activated_time}</td>
+                                    </tr>`
+                                );
+                            }).join('')
+                            *
+                             */
                         $('.preloader').fadeOut();
 
-                        const tableBody = document.querySelector("#for-parse");
-                        tableBody.innerHTML = tableData;
+
 
                         if(msg != ''){
                             $result.fadeIn();
