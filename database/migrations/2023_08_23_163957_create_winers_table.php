@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('winers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')
+            $table->integer('user_id');
             $table->string('prize_type');
             $table->string('prize_item');
             $table->date('gift_time');

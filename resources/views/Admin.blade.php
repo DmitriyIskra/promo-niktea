@@ -208,7 +208,7 @@
         var $result = $('#search_box-result');
         $('#search').on('keyup', function(){
             var search = $(this).val();
-            if ((search != '') && (search.length > 1)){
+            if ((search != '') && (search.length > 3)){
                 $('.preloader').fadeIn();
                 $.ajax({
                     type: "POST",
@@ -256,8 +256,8 @@
                             var value = $(this).text();
 
                             $.ajax({
-                                url: 'handler.php',//файл с php скриптом, обновляющий данные в бд
-                                type: 'post',
+                                type: 'POST',
+                                url: '/api/admin/save',//файл с php скриптом, обновляющий данные в бд
                                 data: { field:field_name, value:value, id:edit_id },// отправляем имя поля, новое значение и id, чтобы определить, что конкретно и как надо обновить в таблице
                                 success:function(response){
                                     console.log('Save successfully');

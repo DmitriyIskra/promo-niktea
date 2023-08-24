@@ -27,4 +27,6 @@ Route::get('/auth/logout', [App\Http\Controllers\Auth\LogoutController::class, '
 Route::get('/account/info', [App\Http\Controllers\Account\Account::class, 'action'])->name('account.info');
 Route::get('/admin', [App\Http\Controllers\Admin\Admin::class, 'action'])->name('admin.index');
 Route::post('/admin/search/', [App\Http\Controllers\Admin\Admin::class, 'search']);
+Route::post('/admin/save/', [App\Http\Controllers\Admin\Admin::class, 'saver']);
+
 

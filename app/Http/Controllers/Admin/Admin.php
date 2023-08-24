@@ -10,6 +10,8 @@ use Session;
 use Validator;
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
+use App\Models\User;
+
 
 
 class Admin extends Controller
@@ -50,7 +52,6 @@ class Admin extends Controller
                 'users.phone as user_phone',
                 'users.email as user_email',
                 'users.winner as winner'
-
             )
             ->join('codes', 'codes.id', '=', 'belongs.code_id')
             ->join('tickets', 'tickets.id', '=', 'belongs.ticket_id')
@@ -59,6 +60,16 @@ class Admin extends Controller
             ->groupBy('belongs_ticket_id')
             ->get();
 
+        foreach($researcher as $key => $item){
+            $won = DB::table('winers')
+            ->select('winers.prize_type as prize_type',
+                'winers.prize_item as prize_item',
+                'winers.gift_time as gift_time'
+                )
+                ->where("winers.user_id", "=", $item->belongs_user_id)
+                ->get();
+            $researcher[$key]->won = $won;
+        }
         /*$researcher = DB::table('belongs')
             ->select('codes.id as code_id',
                 'codes.code as code_string',
@@ -97,4 +108,15 @@ class Admin extends Controller
         return $researcher;
         return View::make('Admin',["researcher" => $researcher]);
     }
+
+    public function saver(Request $request)
+    {
+        $code = $request["search"];
+        $saver = User::query()->updateOrCreate(['id' => $request["id"]],
+            [
+                $request["field"] => $request["value"],
+            ]);
+        return $saver;
+    }
+
 }

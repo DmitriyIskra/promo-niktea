@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("css/swiper-bundle.min.css") }}">
     <link rel="stylesheet" href="{{ asset("css/account.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/code-slider.css") }}">
     <link rel="stylesheet" href="{{ asset("css/slider.css") }}">
     <link rel="stylesheet" href="{{ asset("css/catalog.css") }}">
     <link rel="stylesheet" href="{{ asset("css/search.css") }}">
@@ -43,14 +42,14 @@
                             <a href="#" class="header__link">Призы</a>
                         </li>
                         <li class="header__item">
-                            <button class="header__button" ><a href="/account">Личный кабинет</a></button>
+                            <button class="header__button" id="userAccount" ><a href="/account">Личный кабинет</a></button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon _person.svg"></a>
+        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg"></a>
 
 
     </div>
@@ -70,6 +69,7 @@
         <section class="user-account">
 
             <form class="account-form">
+                <button class="test__button">ТЕСТ</button>
                 <button class="log-out__button">ВЫХОД</button>
                 <h1>Личный кабинет</h1>
                 <div class="user__data">
@@ -80,7 +80,7 @@
                     <div class="data-item">Ваша_почта@mail.ru</div>
                 </div>
 
-                <form class="code__input--group">
+                <div class="code__input--group">
 
                     <div class="code__input--account--wrap">
                         <!-- <label for="codeInputField" class="reg-label reg-label--code">Вы ввели некорректный код (без кода участие в акции невозможно).</label>    -->
@@ -96,8 +96,7 @@
                                 <div class="swiper codeSlider">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <span class="code__text">3548-QTNS5N</span>
-                                        </div>
+                                            <div class="swiper-wrapper codeslider-output">
                                     </div>
                                 </div>
 
@@ -122,7 +121,7 @@
                     </div>
 
 
-                </form>
+                </div>
 
 
                 <div class="code__group">
