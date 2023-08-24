@@ -1,3 +1,217 @@
+// Коды пользователя
+
+(async () => {
+    let response = await fetch('/test.json');
+    let userData = await response.json();
+
+
+// for (var key in userData) {
+//     console.log(key, userData[key])
+// }
+
+    const objectArray = Object.entries(userData);
+
+// objectArray.forEach(([key, value]) => {
+//   console.log(key);
+//   console.log(value);
+// });
+
+    let activatedCodes = {}
+    for (const [key, value] of Object.entries(userData)) {
+        if (key.includes('activated_codes')) {
+            activatedCodes[key] = value
+        }
+    }
+
+    let activatedCodesValue = {}
+    for (const [key, value] of Object.entries(activatedCodes)) {
+        if (key.includes('service_device_id')) {
+            activatedCodesValue[key] = value
+        }
+    }
+
+    console.log(activatedCodesValue)
+
+    let exampleCodes = {
+        codeN: [
+            '3548-QTNS5N',
+            '3549-QTNS5N',
+            '3550-QTNS5N',
+            '3551-QTNS5N',
+            '3552-QTNS5N',
+            '3554-QTNS5N',
+            '3554-QTNS5N',
+            '3555-QTNS5N',
+            '3556-QTNS5N',
+            '3551-QTNS5N',
+            '3552-QTNS5N',
+            '3554-QTNS5N',
+            '3554-QTNS5N',
+            '3555-QTNS5N',
+            '3556-QTNS5N',
+            '3552-QTNS5N',
+            '3554-QTNS5N',
+            '3554-QTNS5N',
+            '3555-QTNS5N',
+            '3556-QTNS5N'
+        ]
+    }
+
+    let codeList = document.querySelector('.code__list');
+
+// codeList.innerHTML = '';
+
+// exampleCodes.codeN.forEach((code, i) => {
+//   codeList.innerHTML += `
+//                   <li class="code__item">
+//                   <span class="code__value">${code}</span>
+//                   <span class="code__date">22.06.2023</span>
+//                   </li>
+//                   `
+// })
+
+})();
+
+const paginationNumbers = document.getElementById("pagination-numbers");
+const paginatedList = document.getElementById("paginated-list");
+const listItems = paginatedList.querySelectorAll("li");
+const nextButton = document.getElementById("next-button");
+const prevButton = document.getElementById("prev-button");
+
+
+let paginationLimit = '';
+
+if(window.screen.width < 1200){
+    paginationLimit = 7;
+}
+else
+{
+    paginationLimit =14;
+}
+
+const pageCount = Math.ceil(listItems.length / paginationLimit);
+let currentPage = 1;
+
+const disableButton = (button) => {
+    button.classList.add("disabled");
+    button.setAttribute("disabled", true);
+};
+
+const enableButton = (button) => {
+    button.classList.remove("disabled");
+    button.removeAttribute("disabled");
+};
+
+const handlePageButtonsStatus = () => {
+    if (currentPage === 1) {
+        disableButton(prevButton);
+    } else {
+        enableButton(prevButton);
+    }
+
+    if (pageCount === currentPage) {
+        disableButton(nextButton);
+    } else {
+        enableButton(nextButton);
+    }
+};
+
+const handleActivePageNumber = () => {
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+        button.classList.remove("active");
+        const pageIndex = Number(button.getAttribute("page-index"));
+        if (pageIndex == currentPage) {
+            button.classList.add("active");
+        }
+    });
+};
+
+const appendPageNumber = (index) => {
+    const pageNumber = document.createElement("button");
+    pageNumber.className = "pagination-number";
+    pageNumber.innerHTML = index;
+    pageNumber.setAttribute("page-index", index);
+    pageNumber.setAttribute("aria-label", "Page " + index);
+
+    paginationNumbers.appendChild(pageNumber);
+};
+
+const getPaginationNumbers = () => {
+    for (let i = 1; i <= pageCount; i++) {
+        appendPageNumber(i);
+    }
+};
+
+const setCurrentPage = (pageNum) => {
+    currentPage = pageNum;
+
+    handleActivePageNumber();
+    handlePageButtonsStatus();
+
+    const prevRange = (pageNum - 1) * paginationLimit;
+    const currRange = pageNum * paginationLimit;
+
+    listItems.forEach((item, index) => {
+        item.classList.add("hidden");
+        if (index >= prevRange && index < currRange) {
+            item.classList.remove("hidden");
+        }
+    });
+};
+
+window.addEventListener("load", () => {
+    getPaginationNumbers();
+    setCurrentPage(1);
+
+    prevButton.addEventListener("click", () => {
+        setCurrentPage(currentPage - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        setCurrentPage(currentPage + 1);
+    });
+
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+        const pageIndex = Number(button.getAttribute("page-index"));
+
+        if (pageIndex) {
+            button.addEventListener("click", () => {
+                setCurrentPage(pageIndex);
+            });
+        }
+    });
+});
+
+
+// Данные пользователя Account info
+
+
+let testButton = document.querySelector('.test__button');
+
+testButton.addEventListener('click', async event => {
+
+
+
+    try {
+        myHeaders.append("Cookie", "nektia_session=Ps2u4jm3pt9twSkj2VUgCNUqCWyyHt8Lt3dJ6Sr0");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+    } catch (err) {
+        console.log(err.message);
+    }
+
+
+});
 
 const form = document.getElementById('user-data');
 
@@ -77,8 +291,8 @@ const checkAuth = document.getElementById('userAccount');
 checkAuth.addEventListener('click', async event => {
     event.preventDefault();
 //проверка авторизованности
-   // var myHeaders = new Headers();
-   // myHeaders.append("Cookie", "nektia_session=F0dv16gjCbOHMu1iit8lzfW8p5lweUQ1igie6C4x");
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "nektia_session=F0dv16gjCbOHMu1iit8lzfW8p5lweUQ1igie6C4x");
 
 
 

@@ -20,10 +20,10 @@
 <body class="main-body__image" data-variant="main-page">
 
 <header>
-    <div class="header-wrapper header-wrapper__main-page fixed-top">
+    <div class="header-wrapper header-wrapper--white">
 
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+            <div class="container-fluid container-fluid--position">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -52,11 +52,8 @@
                 </div>
             </div>
         </nav>
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"
-                                                                          alt="logo-mobile"></a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg"
-                                                                                       alt="icon_person"></a>
-        <div class="header-wrapper__main-page--img"></div>
+        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
+        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg"></a>
     </div>
 </header>
 

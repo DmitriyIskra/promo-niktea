@@ -151,9 +151,9 @@
    }
 
 
-  document.querySelector('.modal_close').addEventListener('click', function (){
-    document.getElementById("enterAccountForm").reset();
-  })
+ // document.querySelector('.modal_close').addEventListener('click', function (){
+ //   document.getElementById("enterAccountForm").reset();
+ // })
 
   // Маска телефона
 
