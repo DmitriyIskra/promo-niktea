@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Codes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +44,12 @@ class Admin extends Controller
             ->select('codes.id as code_id',
                 'codes.code as code_string',
                 'codes.updated_at as code_activated_time',
+                'codes.code_tea_win as code_tea_win',
+                'codes.code_tea_win_discription as code_tea_win_discription',
+                'codes.code_tea_win_date_delivery as code_tea_win_date_delivery',
+                'codes.code_main_win as code_main_win',
+                'codes.code_main_win_discription as code_main_win_discription',
+                'codes.code_main_win_date_delivery as code_main_win_date_delivery',
                 'belongs.code_id as belongs_client_code_id',
                 'belongs.user_id as belongs_user_id',
                 'belongs.ticket_id as belongs_ticket_id',
@@ -51,8 +58,7 @@ class Admin extends Controller
                 'users.second_name as user_second_name',
                 'users.patronymic as user_patronymic',
                 'users.phone as user_phone',
-                'users.email as user_email',
-                'users.winner as winner'
+                'users.email as user_email'
             )
             ->join('codes', 'codes.id', '=', 'belongs.code_id')
             ->join('tickets', 'tickets.id', '=', 'belongs.ticket_id')
@@ -60,15 +66,14 @@ class Admin extends Controller
             ->where('codes.code', "LIKE", "%$code%")
             ->get();
 
+        $result = [];
         foreach($researcher as $key => $item){
-            $won = DB::table('winers')
-            ->select('winers.prize_type as prize_type',
-                'winers.prize_item as prize_item',
-                'winers.gift_time as gift_time'
-                )
-                ->where("winers.user_id", "=", $item->belongs_user_id)
-                ->get();
-            $researcher[$key]->won = $won;
+            if($item->code_tea_win == 1){
+                $item->code_tea_win = "checked";
+            }
+            if($item->code_main_win == 1){
+                $item->code_main_win = "checked";
+            }
             $result[$item->belongs_user_id]["user"]["user_name"] = $item->user_name;
             $result[$item->belongs_user_id]["user"]["user_second_name"] = $item->user_second_name;
             $result[$item->belongs_user_id]["user"]["user_patronymic"] = $item->user_patronymic;
@@ -78,7 +83,6 @@ class Admin extends Controller
             $result[$item->belongs_user_id]["codes"][] = $item;
             $result[$item->belongs_user_id]["user"]["code_counter"] = count($result[$item->belongs_user_id]["codes"]);
             unset($item->user_name, $item->user_second_name, $item->user_patronymic, $item->user_phone, $item->user_email);
-
         }
         /*$researcher = DB::table('belongs')
             ->select('codes.id as code_id',
@@ -122,7 +126,12 @@ class Admin extends Controller
     public function saver(Request $request)
     {
         $code = $request["search"];
-        $saver = User::query()->updateOrCreate(['id' => $request["id"]],
+        if($request["value"] == "true"){
+            $request["value"] = 1;
+        }elseif($request["value"] == "false"){
+            $request["value"] = 0;
+        }
+        $saver = Codes::query()->updateOrCreate(['id' => $request["id"]],
             [
                 $request["field"] => $request["value"],
             ]);

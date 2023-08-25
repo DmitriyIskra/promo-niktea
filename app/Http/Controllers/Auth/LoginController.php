@@ -29,6 +29,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $response = ["is_auth" => True];
             $response["user"] = Auth::user();
+            $response["auth_token"] = Session::getID();
             $code = 200;
         }
         //return redirect()->route('main', ['response' => $response, "code" => $code]);

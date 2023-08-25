@@ -11,6 +11,7 @@
             padding-right: 10%;
             margin-top: 1%;
         }
+
         table thead th {
             font-weight: bold;
             text-align: left;
@@ -21,6 +22,7 @@
             border-left: 1px solid #4d9f9b;
             border-right: 1px solid #4d9f9b;
         }
+
         table tbody td {
             text-align: left;
             border-left: 1px solid #4d9f9b;
@@ -29,13 +31,12 @@
             font-size: 14px;
             vertical-align: top;
         }
-        table thead tr th:first-child, table tbody tr td:first-child {
-            border-left: none;
-        }
+
         table thead tr th:last-child, table tbody tr td:last-child {
             border-right: none;
         }
-        table tbody tr:nth-child(even){
+
+        .tra{
             background: #d1ffe6;
         }
         .search_box {
@@ -44,6 +45,7 @@
             padding-left: 25%;
             padding-top: 3%;
         }
+
         .search_box input[type="text"] {
             display: block;
             width: 100%;
@@ -61,6 +63,7 @@
             color: #222;
             /*border-right: 0;*/
         }
+
         .search_box input[type="submit"] {
             display: inline-block;
             width: 40%;
@@ -84,9 +87,10 @@
             background: #fff;
             padding: 10px;
             z-index: 9999;
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
-        .flex{
+
+        .flex {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -120,7 +124,8 @@
             text-align: center;
             animation: preloader-rotate 2s infinite linear;
         }
-        .description{
+
+        .description {
             margin-bottom: 15px;
             font-size: 20px;
         }
@@ -171,8 +176,8 @@
         <div class="flex">
             <label class="description">Для начала поиска начните вводить код</label>
             <input type="text" name="search" id="search" placeholder="Введите город">
-        <!--<input type="submit">-->
-    </div>
+            <!--<input type="submit">-->
+        </div>
     </form>
     <div id="search_box-result">
     </div>
@@ -189,7 +194,14 @@
         <th>Пользователь</th>
         <th>Код</th>
         <th>Чек</th>
-        <th>Время регистрации чека</th></tr>
+        <th>Время регистрации чека</th>
+        <th>Выиграл чайный приз?</th>
+        <th>Название чайного приза</th>
+        <th>Когда вручение чайного приза (Пример: "2023-02-19")</th>
+        <th>Выиграл главный приз?</th>
+        <th>Название главного приза</th>
+        <th>Когда вручение главного приза (Пример: "2023-02-19")</th>
+    </tr>
     </thead>
     <tbody id="for-parse">
 
@@ -199,83 +211,107 @@
 <script>
     $('.preloader').fadeOut().end().delay(400).fadeOut('slow');
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         var $result = $('#search_box-result');
-        $('#search').on('keyup', function(){
+        $('#search').on('keyup', function () {
             var search = $(this).val();
-            if ((search != '') && (search.length > 3)){
+            if ((search != '') && (search.length > 3)) {
                 $('.preloader').fadeIn();
                 $.ajax({
                     type: "POST",
                     url: "/api/admin/search",
                     data: {'search': search},
-                    success: function(msg){
+                    success: function (msg) {
 
                         $result.html(msg);
                         console.log(msg);
                         let arr = [];
-                        $.each(msg, function(key, value){
-                            arr[key] = ''
+                        let verstka = ''
+                        $.each(msg, function (key, value) {
+                            arr[key] = '<tr>'
                             console.log(value)
-                            $.each(value, function(key2, value2){
-                                if(key2 == "user"){
-                                    arr[key] += `<tr><td rowspan="${ value2.code_counter }" id="name_${ value2.belongs_user_id }">${ value2.user_name } <br> ${ value2.user_second_name } <br> ${ value2.user_patronymic } <br> ${ value2.user_phone } <br> ${ value2.user_email } </td>`
-                                }else {
+                            $.each(value, function (key2, value2) {
+                                if (key2 == "user") {
+                                    arr[key] += `<tr class="tra"><td rowspan="${value2.code_counter}" id="name_${value2.belongs_user_id}">${value2.user_name} <br> ${value2.user_second_name} <br> ${value2.user_patronymic} <br> ${value2.user_phone} <br> ${value2.user_email} </td>`
+                                } else {
                                     $.each(value2, function (key3, value3) {
-                                        if(key3 < 1){
-                                            arr[key] += `<td>${value3.code_string}</td><td><a href="${value3.ticket_path}">${value3.ticket_path}a></td><td>${value3.code_activated_time}</td></tr>`
-                                        }else {
-                                            arr[key] += `<tr><td>${value3.code_string}</td><td><a href="${value3.ticket_path}">${value3.ticket_path}a></td><td>${value3.code_activated_time}</td></tr>`
+                                        if (key3 < 1) {
+                                            arr[key] += `
+                                            <td>${value3.code_string}</td>
+                                            <td><a href="${value3.ticket_path}">${value3.ticket_path}</a></td>
+                                            <td>${value3.code_activated_time}</td>
+                                            <td contenteditable="true" class="edit" id="input">
+                                            <input type="checkbox" id="code_tea_win-${value3.code_id}" class="code_tea_win" ${value3.code_tea_win}></input>
+                                            </td>
+                                            <td contenteditable="true" class="edit" id="code_tea_win_discription-${value3.code_id}">${value3.code_tea_win_discription ? value3.code_tea_win_discription : ''}</td>
+                                            <td contenteditable="true" class="edit" id="code_tea_win_date_delivery-${value3.code_id}">${value3.code_tea_win_date_delivery ? value3.code_tea_win_date_delivery : ''}</td>
+                                            <td contenteditable="true" class="edit" id="input">
+                                            <input type="checkbox" id="code_main_win-${value3.code_id}" class="code_main_win" ${value3.code_main_win}></input>
+                                            </td>
+                                            <td contenteditable="true" class="edit" id="code_main_win_discription-${value3.code_id}">${value3.code_main_win_discription ? value3.code_main_win_discription : ''}</td>
+                                            <td contenteditable="true" class="edit" id="code_main_win_date_delivery-${value3.code_id}">${value3.code_main_win_date_delivery ? value3.code_main_win_date_delivery : ''}</td>
+                                            </tr>`
+                                        } else {
+                                            arr[key] += `
+                                            <tr>
+                                            <td>${value3.code_string}</td>
+                                            <td><a href="${value3.ticket_path}">${value3.ticket_path}</a></td>
+                                            <td>${value3.code_activated_time}</td>
+                                            <td contenteditable="true" class="edit" id="input">
+                                            <input type="checkbox" id="code_tea_win-${value3.code_id}" class="code_tea_win" ${value3.code_tea_win}></input>
+                                            </td>
+                                            <td contenteditable="true" class="edit" id="code_tea_win_discription-${value3.code_id}">${value3.code_tea_win_discription ? value3.code_tea_win_discription : ''}</td>
+                                            <td contenteditable="true" class="edit" id="code_tea_win_date_delivery-${value3.code_id}">${value3.code_tea_win_date_delivery ? value3.code_tea_win_date_delivery : ''}</td>
+                                            <td contenteditable="true" class="edit" id="input">
+                                            <input type="checkbox" id="code_main_win-${value3.code_id}" class="code_main_win" ${value3.code_main_win}></input>
+                                            </td>
+                                            <td contenteditable="true" class="edit" id="code_main_win_discription-${value3.code_id}">${value3.code_main_win_discription ? value3.code_main_win_discription : '' }</td>
+                                            <td contenteditable="true" class="edit" id="code_main_win_date_delivery-${value3.code_id}">${value3.code_main_win_date_delivery ? value3.code_main_win_date_delivery : ''}</td>
+                                            </tr>`
                                         }
                                     });
                                 }
                             });
+                            arr[key] += "</tr>"
                             console.log(arr[key])
-                            $("#for-parse").append(arr[key]);
+                            verstka += arr[key];
                         });
-
-                        console.log(arr)
-
-                            /*const tableData = msg.map(value => {
-                                return (
-                                    `<tr>
-                                    <td rowspan="${ value.code_counter }" id="name_${ value.belongs_user_id }">${ value.user_name } <br> ${ value.user_second_name } <br> ${ value.user_patronymic } <br> ${ value.user_phone } <br> ${ value.user_email } </td>
-                                    <td>${value.code_string}</td>
-                                    <td><a href="${value.ticket_path}">${value.ticket_path}a></td>
-                                    <td>${value.code_activated_time}</td>
-                                    </tr>`
-                                );
-                            }).join('')
-                            *
-                             */
+                        const tableBody = document.querySelector("#for-parse");
+                        tableBody.innerHTML = verstka;
                         $('.preloader').fadeOut();
 
 
-
-                        if(msg != ''){
+                        if (msg != '') {
                             $result.fadeIn();
                         } else {
                             $result.fadeOut(100);
                         }
-                        $('.edit').click(function(){
+                        $('.edit').click(function () {
                             $(this).addClass('editMode');
                         });
 
                         // Save data
-                        $(".edit").focusout(function(){
+                        $(".edit").focusout(function () {
                             $(this).removeClass("editMode");
                             var id = this.id;
-                            var split_id = id.split("_");
-                            var field_name = split_id[0];
-                            var edit_id = split_id[1];
-                            var value = $(this).text();
-
+                            if(id == "input"){
+                                value = $($(this).children().eq(0)).is(":checked");
+                                id = $($(this).children().eq(0)).attr("id")
+                                var split_id = id.split("-");
+                                var field_name = split_id[0];
+                                var edit_id = split_id[1];
+                            }else {
+                                var split_id = id.split("-");
+                                var field_name = split_id[0];
+                                var edit_id = split_id[1];
+                                var value = $(this).text();
+                            }
                             $.ajax({
                                 type: 'POST',
                                 url: '/api/admin/save',//файл с php скриптом, обновляющий данные в бд
-                                data: { field:field_name, value:value, id:edit_id },// отправляем имя поля, новое значение и id, чтобы определить, что конкретно и как надо обновить в таблице
-                                success:function(response){
+                                data: {field: field_name, value: value, id: edit_id},// отправляем имя поля, новое значение и id, чтобы определить, что конкретно и как надо обновить в таблице
+                                success: function (response) {
                                     console.log('Save successfully');
                                 }
                             });
@@ -289,21 +325,21 @@
             }
         });
 
-        $(document).on('click', function(e){
-            if (!$(e.target).closest('.search_box').length){
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.search_box').length) {
                 $result.html('');
                 $result.fadeOut(100);
             }
         });
 
-        $(document).on('click', '.search_result-name a', function(){
+        $(document).on('click', '.search_result-name a', function () {
             $('#search').val($(this).text());
             $result.fadeOut(100);
             return false;
         });
 
-        $(document).on('click', function(e){
-            if (!$(e.target).closest('.search_box').length){
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.search_box').length) {
                 $result.html('');
                 $result.fadeOut(100);
             }

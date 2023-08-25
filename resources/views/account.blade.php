@@ -35,14 +35,14 @@
                             <a href="/winners" class="header__link">Победители</a>
                         </li>
 
-                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
-                                                                                                       alt="logo"></a></li>
+                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img" src="img/icons/logo.svg"
+                                                                                                   alt="logo"></a></li>
 
                         <li class="header__item">
                             <a href="#" class="header__link">Призы</a>
                         </li>
                         <li class="header__item">
-                            <button class="header__button" id="userAccount" ><a href="/account">Личный кабинет</a></button>
+                            <button class="header__button"  id="userAccount"><a href="/account">Личный кабинет</a></button>
                         </li>
                     </ul>
                 </div>
@@ -55,11 +55,164 @@
     </div>
 </header>
 
+<!-- Вход, регистрация -->
+
+<div class="modal fade" id="exampleModalToggle"  tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-form">
+            <div class="modal-header">
+                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img src="img/icons/close-white.svg" alt="clofe-form"></button>
+            </div>
+            <div class="modal-body">
+                <div class="logo__modal--container">
+                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="logo-modal">
+                </div>
+                <div class="buttons__group">
+                    <button class="registry__submit" type="submit" data-bs-target="#enterAccount" data-bs-toggle="modal">ВХОД</button>
+                    <button class="registry__submit" type="submit" data-bs-target="#registryForm" data-bs-toggle="modal">РЕГИСТРАЦИЯ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма входа -->
+
+<div class="modal fade modal-form--enter" id="enterAccount" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-form modal-form_enter">
+            <div class="modal-header">
+                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="img/icons/close-white.svg" alt="close-form"></button>
+            </div>
+            <div class="modal-body">
+                <div class="logo__modal--container">
+                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="logo-modal">
+                </div>
+
+                <form class="reg__group needs-validation" id="signinForm" novalidate>
+
+                    <div class="input__group">
+                        <input class="registry__input--field form-control" type="text" name="email" id="email-auth" required>
+                        <label for="promoCode" class="reg-label">Укажите почту, набранную при регистрации</label>
+                        <div class="invalid-feedback">
+                            Заполните пожалуйста данное поле
+                        </div>
+                    </div>
+
+                    <div class="input__group">
+                        <input class="registry__input--field form-control" type="text" name="password" id="promoCode" required>
+                        <label for="promoCode" class="reg-label">Введите пожалуйста код из E-mail</label>
+                        <div class="invalid-feedback">
+                            Вы указали неверный код или вышло время ожидания
+                        </div>
+                    </div>
+                    <button class="registry__submit registry__submit--top" type="submit">ВОЙТИ</button>
+                    <button class="registry__submit" type="submit">ОТПРАВИТЬ КОД</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Форма регистрации -->
+
+<div class="modal fade" id="registryForm" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-form new-user-form" data-variant=registry-user>
+            <div class="modal-header">
+                <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img src="img/icons/close-white.svg" alt="clofe-form"></button>
+            </div>
+            <div class="modal-body">
+                <div class="logo__modal--container">
+                    <img class="logo__modal--img" src="img/icons/logo-modal.svg"  alt="">
+                </div>
+                <form class="reg__group needs-validation" id="user-data" novalidate>
+                    <div class="input__group has-validation">
+                        <input class="registry__input--field form-control" type="text" name="name" id="firstName" required>
+                        <label for="firstName" class="reg-label">ИМЯ</label>
+                        <div class="invalid-feedback">
+                            Заполните пожалуйста данное поле
+                        </div>
+                    </div>
+                    <div class="input__group has-validation">
+                        <input class="registry__input--field form-control" type="text" name="second_name" id="second_name" required>
+                        <label for="secondName" class="reg-label">ФАМИЛИЯ</label>
+                        <div class="invalid-feedback">
+                            Заполните пожалуйста данное поле
+                        </div>
+                    </div>
+                    <div class="input__group">
+                        <input class="registry__input--field form-control" type="text" name="patronymic" id="patronymic" required>
+                        <label for="fathersName" class="reg-label">ОТЧЕСТВО</label>
+                        <div class="invalid-feedback">
+                            Заполните пожалуйста данное поле
+                        </div>
+                    </div>
+                    <div class="input__group">
+                        <input class="registry__input--field form-control" type="text" name="phone" data-phone-pattern id="phone" required>
+                        <label for="fathersName" class="reg-label">НОМЕР ТЕЛЕФОНА</label>
+                        <div class="invalid-feedback">
+                            Некорректный номер телефона, повторите попытку
+                        </div>
+                    </div>
+
+                    <div class="input__group">
+                        <input class="registry__input--field form-control" type="text" name="email" id="email" required>
+                        <label for="email" class="reg-label">ПОЧТА</label>
+                        <div class="invalid-feedback">
+                            Некорректная электронная почта, повторите попытку
+                        </div>
+                    </div>
+                    <label for="email" class="reg-label reg-label--post--layout">внимание! именно на электронную почту придет подтверждение выигрыша!</label>
+
+                    <div class="input__group">
+
+                        <input class="registry__input--field form-control" type="text" name="code[]" id="codeauth" required>
+                        <label for="promoCode" class="reg-label w-100">Добавьте пожалуйста код, который находится на вкладыше внутри пачки</label>
+                        <div class="invalid-feedback">
+                            Извините, но без кода вы не можете принять участие в акции
+                        </div>
+                    </div>
+
+                    <div class="file-upload__group input__group" required>
+                        <input type="file" class="file-upload__label form-control" onchange="return fileValidation()" name="check" aria-label="file example" required>
+                        <label for="checkLoad" class="reg-label" id="checkLoadLabel">Загрузите пожалуйста чек (внимание, чек должен быть читабельным)<br></label>
+                        <div class="invalid-feedback" id="file-info">Извините, но без чека вы не можете принять участие в акции</div>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                <span>
+                  Я прочитал и согласен с <a href="#">Правилами Акции и Пользовательским соглашением</a>,
+                  согласен на обработку персональных данных
+                </span>
+                            <span>
+                  Я согласен на получение e-mail рассылки
+                </span>
+
+                        </label>
+
+                    </div>
+
+                    <button class="registry__submit" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <main class="main">
 
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/index">Главная</a></li>
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Личный кабинет </a></li>
         </ul>
     </div>
@@ -68,8 +221,8 @@
 
         <section class="user-account">
 
-            <form class="account-form">
-                <button class="test__button">ТЕСТ</button>
+            <div class="account-form">
+
                 <button class="log-out__button">ВЫХОД</button>
                 <h1>Личный кабинет</h1>
                 <div class="user__data">
@@ -83,7 +236,6 @@
                 <div class="code__input--group">
 
                     <div class="code__input--account--wrap">
-                        <!-- <label for="codeInputField" class="reg-label reg-label--code">Вы ввели некорректный код (без кода участие в акции невозможно).</label>    -->
                         <input class="code__input__field code__input__field--account" type="text" name="" id="codeInputField" placeholder="Введите Ваш код">
                         <div class="invalid-feedback">
                             Вы ввели некорректный код (без кода участие в акции невозможно).
@@ -94,9 +246,10 @@
                             <div class="code-carousel--wrap">
 
                                 <div class="swiper codeSlider">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="swiper-wrapper codeslider-output">
+                                    <div class="swiper-wrapper codeslider-output">
+                                        <!-- <div class="swiper-slide">
+                                          <span class="code__text">3548-QTNS5N</span>
+                                        </div>-->
                                     </div>
                                 </div>
 
@@ -106,7 +259,7 @@
                         </div>
                         <button class="code__submit" type="submit">ЗАРЕГИСТРИРОВАТЬ</button>
                         <button class="code__add" type="submit"><img src="img/icons/plus.svg" alt="add-icon"></button>
-                        <label for="codeInputField" class="reg-label reg-label--code">Вы можете зарегестрировать не более 15 кодов в день (на один чек).</label>
+                        <label for="codeInputField" class="reg-label reg-label--code">Вы можете зарегистрировать не более 15 кодов в день (на один чек).</label>
                         <span class="code__counter--wrap">У Вас осталось для регистрации <span class="code__count"> 1 </span> код(ов) в день.</span>
 
 
@@ -120,7 +273,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -129,134 +281,118 @@
                     <h1>Активные коды</h1>
                     <div class="code__container">
 
-                        <ul class="code__list">
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
+
+                        <ul class="code__list" id="paginated-list" data-current-page="1" aria-live="polite">
+
+                            <!-- <li class="code__item">
+                              <span class="code__value">3548-QTNS5N</span>
+                            <span class="code__date">22.06.2023</span>
                             </li>
 
                             <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
-                            <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li>
+                              <span class="code__value">Третья-QTNS5N</span>
+                            <span class="code__date">22.06.2023</span>
+                            </li> -->
+
 
                         </ul>
 
-                    </div>
+                        <div class="pagination-container">
+                            <button class="pagination-button pagination-prev" id="prev-button" aria-label="Previous page" title="Previous page">
+                                <img src="img/icons/pagination-arrow-left.svg" alt="pagination-arrow-left">
+                            </button>
 
+                            <div id="pagination-numbers">
 
-                    <div class="pagination__container pagination__container--display">
-                        <div class="pagination-prev">&lt;</div>
-                        <div class="code__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
+                            </div>
+
+                            <button class="pagination-button pagination-next" id="next-button" aria-label="Next page" title="Next page">
+                                <!-- &gt; -->
+                                <img src="img/icons/pagination-arrow-right.svg" alt="pagination-arrow-right">
+                            </button>
                         </div>
-                        <div class="pagination-next">&gt;</div>
+
+
+                        <!-- <ul class="code__list">
+                          <li class="code__item">
+                            <span class="code__value">3548-QTNS5N</span>
+                          <span class="code__date">22.06.2023</span>
+                          </li>
+
+                        </ul> -->
+
                     </div>
 
-                </div>
 
 
-                <div class="slider__group">
+                    <!-- <div class="pagination__container pagination__container--display">
+                      <div class="pagination-prev" id="next-button">&lt;</div>
+                      <div class="code__pagination">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                      </div>
+                      <div class="pagination-next">&gt;</div>
+                    </div>
 
-                    <h1>Ваши чеки</h1>
+                  </div> -->
 
-                    <div class="check__slider-container">
-                        <div class="slider-button-prev" tabindex="0" role="button" aria-label="Previous slide"
-                             aria-controls="swiper-wrapper-3e10d8cd416d215ef"></div>
 
-                        <div class="swiper checkSlider">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide slide__check">
-                                    <div class="slider__check-box">
-                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                    <div class="slider__group">
+
+                        <h1>Ваши чеки</h1>
+
+                        <div class="check__slider-container">
+                            <div class="slider-button-prev" tabindex="0" role="button" aria-label="Previous slide"
+                                 aria-controls="swiper-wrapper-3e10d8cd416d215ef"></div>
+
+                            <div class="swiper checkSlider">
+                                <div class="swiper-wrapper checkSlides">
+                                    <div class="swiper-slide slide__check">
+                                        <div class="slider__check-box">
+                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide slide__check">
+                                        <div class="slider__check-box">
+                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide slide__check">
+                                        <div class="slider__check-box">
+                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide slide__check">
+                                        <div class="slider__check-box">
+                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide slide__check">
+                                        <div class="slider__check-box">
+                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide slide__check">
-                                    <div class="slider__check-box">
-                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                <div class="pagination__container">
+                                    <div class="pagination-prev">
+                                        <img src="img/icons/pagination-arrow-left.svg" alt="pagination-arrow-left">
                                     </div>
-                                </div>
-                                <div class="swiper-slide slide__check">
-                                    <div class="slider__check-box">
-                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide slide__check">
-                                    <div class="slider__check-box">
-                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide slide__check">
-                                    <div class="slider__check-box">
-                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                    <div class="pagination"></div>
+                                    <div class="pagination-next">
+                                        <img src="img/icons/pagination-arrow-right.svg" alt="pagination-arrow-right">
                                     </div>
                                 </div>
                             </div>
-                            <div class="pagination__container">
-                                <div class="pagination-prev">&lt;</div>
-                                <div class="pagination"></div>
-                                <div class="pagination-next">&gt;</div>
-                            </div>
+                            <div class="slider-button-next" tabindex="0" role="button" aria-label="Next slide"
+                                 aria-controls="swiper-wrapper-3e10d8cd416d215ef"></div>
+
                         </div>
-                        <div class="slider-button-next" tabindex="0" role="button" aria-label="Next slide"
-                             aria-controls="swiper-wrapper-3e10d8cd416d215ef"></div>
+
 
                     </div>
 
-
                 </div>
-
-            </div>
         </section>
 
     </div>
@@ -308,6 +444,7 @@
         </div>
     </div>
 </footer>
+
 
 
 <script src="{{ asset("js/bootstrap.js") }}"></script>

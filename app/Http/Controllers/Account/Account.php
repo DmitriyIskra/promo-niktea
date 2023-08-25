@@ -21,7 +21,7 @@ class Account extends Controller
             $response["user"] = Auth::user();
             $code = 200;
             $response["activated_codes"] = $this->get_activated_codes_provider(Auth::user()["id"]);
-            $response["today_codes_limits"] = $this->get_codes_limit_provider(Auth::user()["id"]);
+            $response["today_activated_codes"] = $this->get_codes_limit_provider(Auth::user()["id"]);
             $response["registered_tickets"] = $this->get_tickets_provider(Auth::user()["id"]);
 
         }
@@ -40,10 +40,13 @@ class Account extends Controller
     }
     public function get_codes_limit_provider($user_id){
         $limits = DB::table('code_limits')
-            ->select('code_limits.counter_of_limit as counter_of_limit')
+            ->select('code_limits.counter_of_limit as activated_today')
             ->where('date_today', date("Y-m-d"))
             ->where('user_id', $user_id)
             ->get();
+        if(!isset($limits[0]->activated_today)){
+            $limits[0] = (object)["activated_today" => 0];
+        }
         return $limits;
     }
     public function get_tickets_provider($user_id){

@@ -19,6 +19,7 @@ class AuthChecker extends Controller
         if (Auth::check()) {
             $response["is_auth"] = True;
             $response["user"] = Auth::user();
+            $response["auth_token"] = Session::getID();
             $code = 200;
         }
         return response()->json($response, $code);

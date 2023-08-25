@@ -14,6 +14,12 @@ return new class extends Migration {
             $table->id();
             $table->string('code');
             $table->boolean('active')->default(1);
+            $table->boolean('code_tea_win')->default(0);
+            $table->string('code_tea_win_discription')->nullable();
+            $table->string('code_tea_win_date_delivery')->nullable();
+            $table->boolean('code_main_win')->default(0);
+            $table->string('code_main_win_discription')->nullable();
+            $table->string('code_main_win_date_delivery')->nullable();
             $table->timestamps();
         });
     }

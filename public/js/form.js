@@ -2,76 +2,47 @@
 
 // Получаем данные пользователя и выводим в форму
 
-(async () => {
-    let response = await fetch('test.json');
-    let userData = await response.json();
+// (async () => {
+//   let response = await fetch('test.json');
+//   let userData = await response.json();
 
-    // JSON.parse(userData, function(k,v){
-    //   console.log(k);
-    //   return v;
-    // });
+//   JSON.parse(userData, function(k,v){
+//     console.log(k);
+//     return v;
+//   });
 
 // for (var key in userData) {
 //     console.log(key, userData[key])
 // }
 
-    const objectArray = Object.entries(userData);
+// const objectArray = Object.entries(userData);
 
 // objectArray.forEach(([key, value]) => {
 //   console.log(key);
 //   console.log(value);
 // });
 
-    let activatedCodes = {}
-    for (const [key, value] of Object.entries(userData)) {
-        if (key.includes('activated_codes')) {
-            activatedCodes[key] = value
-        }
-    }
+// let activatedCodes = {}
+// for (const [key, value] of Object.entries(userData)) {
+//   if (key.includes('activated_codes')) {
+//     activatedCodes[key] = value
+//   }
+// }
 
-    let activatedCodesValue = {}
-    for (const [key, value] of Object.entries(activatedCodes)) {
-        if (key.includes('service_device_id')) {
-            activatedCodesValue[key] = value
-        }
-    }
+// let activatedCodesValue = {}
+// for (const [key, value] of Object.entries(activatedCodes)) {
+//   if (key.includes('service_device_id')) {
+//     activatedCodesValue[key] = value
+//   }
+// }
 
-    console.log(activatedCodesValue)
+// console.log(activatedCodesValue)
 
-})();
-
-
+// })();
 
 
-// Данные пользователя Account info
 
-
-let testButton = document.querySelector('.test__button');
-
-testButton.addEventListener('click', async event => {
-
-
-    try {
-        // myHeaders.append("Cookie", "nektia_session=Ps2u4jm3pt9twSkj2VUgCNUqCWyyHt8Lt3dJ6Sr0");
-
-        var requestOptions = {
-            method: 'GET',
-            // headers: myHeaders,
-            redirect: 'follow'
-        };
-
-        const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-    } catch (err) {
-        console.log(err.message);
-    }
-
-
-});
-
+// Регистрация
 
 const form = document.getElementById('user-data');
 
@@ -82,19 +53,14 @@ form.addEventListener('submit', async event => {
 
     console.log(formData)
 
-    // for (var value of formData.values()) {
-    //     console.log(value);
-    //   }
 
 
-    const headersReg = '';
 
     try {
         const res = await fetch(
             'https://dev.nikteaworld.com/api/auth/register',
             {
                 method: 'POST',
-                // headers: headersReg,
                 body: formData,
                 redirect: 'follow'
             },
@@ -112,17 +78,10 @@ form.addEventListener('submit', async event => {
 // Вход в систему. Авторизация
 
 const formSignIn = document.getElementById('signinForm');
-
 formSignIn.addEventListener('submit', async event => {
     event.preventDefault();
 
     const formSignData = new FormData(formSignIn);
-
-
-    formSignData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-    });
-
 
 
     try {
@@ -135,47 +94,116 @@ formSignIn.addEventListener('submit', async event => {
             },
         );
 
-        const resData = await res.json();
+        var resData = await res.json();
 
         console.log(resData);
+
+
+
     } catch (err) {
         console.log(err.message);
     }
 
 });
 
+
+// Данные пользователя Account info
+
+
+// let testButton = document.querySelector('.test__button');
+
+// testButton.addEventListener('click', async event => {
+
+
+//   var requestOptions = {
+//     method: 'GET',
+
+//     redirect: 'follow'
+//   };
+
+//   await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+//     .then(response => response.text())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+
+
+// try {
+
+
+
+//   myHeaders.append("Cookie", "nektia_session=lIqZm3LaPTP1qXUKDwgc9gdDW9OeYhi4i3NCvK6c");
+
+//   var requestOptions = {
+//     method: 'GET',
+//     headers: myHeaders,
+//     redirect: 'follow'
+//   };
+
+//   const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+//   .then(response => response.text())
+//   .then(result => console.log(result + ' данные пользователя'))
+//   .catch(error => console.log('error', error));
+
+// } catch (err) {
+//   console.log(err.message);
+// }
+
+
+// });
 
 
 // Проверка авторизованности
 
-const checkAuth = document.getElementById('userAccount');
+// const checkAuth = document.querySelector('.checkAuth');
 
-checkAuth.addEventListener('click', async event => {
-    event.preventDefault();
-//проверка авторизованности
-    // var myHeaders = new Headers();
-    // myHeaders.append("Cookie", "nektia_session=F0dv16gjCbOHMu1iit8lzfW8p5lweUQ1igie6C4x");
+// checkAuth.addEventListener('click', async event => {
+//   event.preventDefault();
+// //проверка авторизованности
+//   // var myHeaders = new Headers();
+//   // myHeaders.append("Cookie", `"nektia_session=${authToken}"`);
 
+
+//   var requestOptions = {
+//     method: 'GET',
+//     // headers: myHeaders,
+//     // body: raw,
+//     redirect: 'follow'
+//   };
+
+//   try {
+//     const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
+//     .then(response => response.text())
+//     .then(result => console.log(result + 'проверка авторизованности'))
+//     .catch(error => console.log('error', error));
+
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+
+// });
+
+
+// Деавторизация
+
+let logOut = document.querySelector('.log-out__button');
+
+logOut.addEventListener('click', async ()=>{
+
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "niktea_session=lPUKTPP6xZO4N14tRyD8uD513QKsok47OSsQeF50");
 
     var requestOptions = {
         method: 'GET',
-        // headers: myHeaders,
-        // body: raw,
+        headers: myHeaders,
         redirect: 'follow'
     };
 
-    try {
-        const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+    await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
-    } catch (err) {
-        console.log(err.message);
-    }
-
-});
-
+})
 
 
 // const myHeaders = '';
@@ -250,7 +278,6 @@ let exampleCodes = {
 // Коды для таблицы
 
 
-
 for(var codeAndDate in window.userDataObject) {
     if(window.userDataObject.hasOwnProperty(codeAndDate)) {
         //   console.log(codeAndDate);
@@ -302,20 +329,20 @@ let exampleChecks = {
         'img/check/check2.jpg',
         'img/check/check2.jpg',
         'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
-        // 'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
+        'img/check/check2.jpg',
         'img/check/check2.jpg'
 
     ]
@@ -338,17 +365,15 @@ exampleChecks.checkIMAGE.forEach((check, i) => {
 document.addEventListener("DOMContentLoaded", function(event) {
 
 
-
 });
 
-
+// Пагинация блока кодов
 
 const paginationNumbers = document.getElementById("pagination-numbers");
 const paginatedList = document.getElementById("paginated-list");
 const listItems = paginatedList.querySelectorAll("li");
 const nextButton = document.getElementById("next-button");
 const prevButton = document.getElementById("prev-button");
-
 
 let paginationLimit = '';
 
@@ -453,4 +478,45 @@ window.addEventListener("load", () => {
     });
 });
 
-let x = document.cookie;
+// let x = document.cookie;
+
+// console.log(x);
+
+
+
+// DGSogOnn5y
+// miliakhin@alephtrade.com
+
+
+// Коды для таблицы
+
+// for(var codeAndDate in window.userDataObject) {
+//   if(window.userDataObject.hasOwnProperty(codeAndDate)) {
+//   //   console.log(codeAndDate);
+//     for (var i = 0, j = window.userDataObject[codeAndDate].length; i < j; i++) {
+//       console.log("Код и время создания", window.userDataObject[codeAndDate][i].service_device_id, window.userDataObject[codeAndDate][i].created_time);
+//     }
+//   }
+// }
+
+// // Коды для слайдера
+
+// for(var codeSlide in window.userDataObject) {
+//   if(window.userDataObject.hasOwnProperty(codeSlide)) {
+//   //   console.log(codeSlide);
+//     for (var i = 0, j = window.userDataObject[codeSlide].length; i < j; i++) {
+//       console.log("Код", window.userDataObject[codeSlide][i].service_device_id);
+//     }
+//   }
+// }
+
+// // Изображения чеков
+
+// for(var checkImg in window.userDataObject) {
+//   if(window.userDataObject.hasOwnProperty(checkImg)) {
+//   //   console.log(checkImg);
+//     for (var i = 0, j = window.userDataObject[checkImg].length; i < j; i++) {
+//       console.log("Изображение чека", window.userDataObject[checkImg][i].ticket_path);
+//     }
+//   }
+// } 
