@@ -20,20 +20,19 @@ class Admin extends Controller
 {
     public function action(Request $request)
     {
-        $researcher = [];
-        return View::make('Admin',["researcher" => $researcher]);
+
 
         if (Auth::check()) {
             $user =  Auth::user();
             if($user['admin'] == 1){
                 $researcher = [];
-        return View::make('Admin',["researcher" => $researcher]);
+                return View::make('Admin',["researcher" => $researcher]);
             }else{
                 return redirect('/');
             }
             //return Auth::user();
         }else{
-            return "Not Admin";
+            return redirect('/');
         }
     }
 
