@@ -53,9 +53,6 @@ form.addEventListener('submit', async event => {
 
     console.log(formData)
 
-
-
-
     try {
         const res = await fetch(
             'https://dev.nikteaworld.com/api/auth/register',
@@ -78,33 +75,53 @@ form.addEventListener('submit', async event => {
 // Вход в систему. Авторизация
 
 const formSignIn = document.getElementById('signinForm');
-formSignIn.addEventListener('submit', async event => {
-    event.preventDefault();
 
-    const formSignData = new FormData(formSignIn);
+const formSignData = new FormData(formSignIn);
+
+(async function main() {
+    var myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    var raw = JSON.stringify({
+        formSignIn
+    });
+    const res = await fetch('/api/auth/login', {
+        headers: myHeaders,
+        method: 'POST',
+        body: formSignData,
+        redirect: 'follow',
+    });
+
+    console.log(await res.json());
+})();
 
 
-    try {
-        const res = await fetch(
-            'https://dev.nikteaworld.com/api/auth/login',
-            {
-                method: 'POST',
-                body: formSignData,
-                redirect: 'follow'
-            },
-        );
+// formSignIn.addEventListener('submit', async event => {
+//   event.preventDefault();
 
-        var resData = await res.json();
-
-        console.log(resData);
+//   const formSignData = new FormData(formSignIn);
 
 
+// try {
+//     const res = await fetch(
+//       'https://dev.nikteaworld.com/api/auth/login',
+//       {
+//         method: 'POST',
+//         body: formSignData,
+//         redirect: 'follow'
+//       },
+//     );
 
-    } catch (err) {
-        console.log(err.message);
-    }
+//     var resData = await res.json();
 
-});
+//     console.log(resData);
+
+
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+
+// });
 
 
 // Данные пользователя Account info
@@ -205,32 +222,6 @@ logOut.addEventListener('click', async ()=>{
 
 })
 
-
-// const myHeaders = '';
-
-// console.log(localStorage.getItem('number'))
-// localStorage.setItem('number', myNumber.toString())
-// console.log(localStorage.getItem('number'))
-// // localStorage.clear()// очищает localstorage
-
-// const object = {
-//   name: 'Username',
-//   code: '3918-2CCNA39'
-// }
-
-//  const raw = localStorage.getItem('person');
-
-//  const person = JSON.parse(raw);
-
-// person.name = 'User2'
-
-// window.addEventListener('storage', event => {
-//   console.log(event);
-// })
-
-//  console.log(person)
-
-
 // Тестовый набор кодов
 
 let exampleCodes = {
@@ -253,6 +244,23 @@ let exampleCodes = {
         '3552-QTNS5N',
         '3554-QTNS5N',
         '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        'два5-QTNS5N',
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
         '3555-QTNS5N',
         '3556-QTNS5N',
         '3554-QTNS5N',
@@ -519,4 +527,4 @@ window.addEventListener("load", () => {
 //       console.log("Изображение чека", window.userDataObject[checkImg][i].ticket_path);
 //     }
 //   }
-// } 
+// }

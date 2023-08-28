@@ -96,11 +96,6 @@ var swiperCode = new Swiper(".codeSlider", {
 });
 
 
-document.querySelector('.code__add').addEventListener('click', ()=> {
-
-    console.log('тест')
-
-})
 
 // var roundSlider = new Swiper(".roundSlider", {
 //   slidesPerView: 8,
@@ -211,36 +206,63 @@ function fileValidation() {
     }
 }
 
-function checkValidation() {
-    let fileInput = document.querySelector('.uploadPhoto');
+// document.querySelector('.file-upload__in').addEventListener('click', function
+//  checkValidation() {
+//   let fileInput = document.querySelector('.uploadPhoto');
 
-    let filePath = fileInput.value;
-    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.avif|\.raw|\.heif|\.heic|\.webp|\.jfif)$/i;
-    if (!allowedExtensions.exec(filePath)) {
-        let erer = document.getElementById('checkUploadPhoto');
-        erer.style.display = 'block';
-        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
-        erer.console.log('Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ')
-        fileInput.value = '';
-        return false;
+//   let filePath = fileInput.value;
+//   let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.avif|\.raw|\.heif|\.heic|\.webp|\.jfif)$/i;
+//   if (!allowedExtensions.exec(filePath)) {
+//       let erer = document.getElementById('checkUploadPhoto');
+//       erer.style.display = 'block';
+//       erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
+//       erer.console.log('Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ')
+//       fileInput.value = '';
+//       return false;
 
-    }
+//     }
 
-    else {
+//     else {
 
-        //Image preview - лишнее
-        if (fileInput.files && fileInput.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
+//       //Image preview - лишнее
+//       if (fileInput.files && fileInput.files[0]) {
+//           let reader = new FileReader();
+//           reader.onload = function(e) {
 
-                document.getElementById('info').style.display = 'block';
-                document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
-                document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
+//               document.getElementById('info').style.display = 'block';
+//               document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
+//               document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+//           };
+//           reader.readAsDataURL(fileInput.files[0]);
+//       }
+//   }
+// }
+// )
+
+
+
+
+
+
+// Валидация e-mail
+
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const input = document.querySelector('.email-auth');
+
+function isEmailValid(value) {
+    return EMAIL_REGEXP.test(value);
+}
+
+function onInput() {
+    if (isEmailValid(input.value)) {
+        input.style.borderColor = 'green';
+    } else {
+        input.style.borderColor = 'red';
     }
 }
+
+// input.addEventListener('input', onInput);
+
 
 // email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi,
 
