@@ -389,13 +389,6 @@
     border: none;
     box-shadow: 0px 0px 20px 8px rgba(255, 255, 255, 0);
     transition: box-shadow 0.3s ease;
-    /* background: radial-gradient(circle at 100% 100%, #7775B6 0, #7775B6 28px, transparent 28px) 0% 0%/30px 30px no-repeat,
-    radial-gradient(circle at 0 100%, #7775B6 0, #7775B6 28px, transparent 28px) 100% 0%/30px 30px no-repeat,
-    radial-gradient(circle at 100% 0, #7775B6 0, #7775B6 28px, transparent 28px) 0% 100%/30px 30px no-repeat,
-    radial-gradient(circle at 0 0, #7775B6 0, #7775B6 28px, transparent 28px) 100% 100%/30px 30px no-repeat,
-    linear-gradient(#7775B6, #7775B6) 50% 50%/calc(100% - 4px) calc(100% - 60px) no-repeat,
-    linear-gradient(#7775B6, #7775B6) 50% 50%/calc(100% - 60px) calc(100% - 4px) no-repeat,
-    linear-gradient(0deg, #00392d 0%, #00bd8d 100%); */
     border-radius: 50px;
     box-sizing: border-box;
 }
@@ -630,8 +623,8 @@ h1 {
     line-height: 100%;
     text-decoration: none;
     background: none;
-    text-align: end;
 
+    text-align: end;
 }
 
 .pagination-number:hover,
@@ -650,20 +643,22 @@ h1 {
 
 @media (max-width: 1710px) {
     .code__input--account--wrap .code__submit {
-        margin-left: 40%;
+        margin-left: 45%;
     }
 }
 
 @media (max-width: 1500px) {
     .code__input--account--wrap .code__submit {
-        margin-left: 30%;
+        margin-left: 45%;
     }
+
+
 
     .user-account__container {
         margin-left: auto;
         margin-right: auto;
         margin-top: 35px;
-        margin-bottom: 145%;
+        margin-bottom: 400px;
         padding-left: 34px;
         padding-right: 34px;
         margin-top: 35px;
@@ -675,6 +670,20 @@ h1 {
     }
 
 }
+
+@media (max-width: 1366px) {
+    .code__input--account--wrap .code__submit {
+        margin-left: 45%;
+    }
+}
+
+
+@media (max-width: 1280px) {
+    .code__input--account--wrap .code__submit {
+        margin-left: 40%;
+    }
+}
+
 
 @media (max-width: 1200px) {
 
@@ -714,7 +723,7 @@ h1 {
     }
 
     .slider__check-image {
-        width: 100px;
+        width: 84px;
         height: 135px;
         object-fit: cover;
         border-radius:20px;

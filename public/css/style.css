@@ -148,6 +148,7 @@ body[data-variant=winners] {
 .navbar-toggler-icon {
     background-image: url(../img/icons/burger.svg);
     border: none;
+
 }
 
 .burgerChecked {
@@ -165,10 +166,11 @@ body[data-variant=winners] {
     height: 30px;
 }
 
+
 .header__logo {
     text-align: center;
     padding-left: 15px;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 .header__logo--img:hover {
     filter: drop-shadow(1px 2px 3px #E8E8E8);
@@ -202,7 +204,7 @@ body[data-variant=winners] {
     position: absolute;
     top: 30px;
     right: 5%;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 
@@ -210,6 +212,7 @@ body[data-variant=winners] {
     width: 60px;
     padding-left: 20px;
     padding-top: 35px;
+
 }
 
 .header__list {
@@ -521,20 +524,20 @@ body[data-variant=winners] {
     transition: filter 0.3s ease;
 }
 
-.phone-nimber {
+.phone-number {
     filter: none;
     -webkit-filter: none;
     transition: filter 0.3s ease;
 }
 
 
-.phone-nimber:hover {
+.phone-number:hover {
     filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
     -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
     transition: filter 0.3s ease;
 }
 
-.phone-nimber:hover .phone-icon{
+.phone-number:hover .phone-icon{
     filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
     -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
     transition: filter 0.3s ease;
@@ -639,15 +642,44 @@ body[data-variant=winners] {
 }
 
 .phone-icon-col {
+    display: flex;
+    flex-direction: column;
     padding-top: 10px;
 }
 
 .phone-icon {
+    filter: none;
+    -webkit-filter: none;
+    transition: filter 0.3s ease;
     padding-right: 15px;
 }
 
-.phone-nimber {
+.phone-icon:hover {
+    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+    transition: filter 0.3s ease;
+}
+
+.phone-icon:hover {
+    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+    transition: filter 0.3s ease;
+}
+
+.phone-number:hover .phone-icon-col{
+    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+    transition: filter 0.3s ease;
+}
+
+.phone-number {
     font-size: 28px;
+}
+
+.phone-number__link {
+    color: #FFF;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .svg-path {
@@ -1185,8 +1217,14 @@ h2 {
         width: 115px;
     }
 
-    .phone-nimber-col {
+    .phone-number-col {
         text-align: center;
+    }
+
+    .phone-number-col a{
+        text-decoration: none;
+        color: #FFF;
+        cursor: pointer;
     }
 
     .footer__column {
@@ -1199,3 +1237,6 @@ h2 {
     }
 
 }
+
+
+

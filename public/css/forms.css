@@ -1,23 +1,23 @@
 
 .modal-backdrop.show {
     background: rgba(0, 0, 0, 0.40);
-/* backdrop-filter: blur(5px) !important; */
+    /* backdrop-filter: blur(5px) !important; */
 }
 
 .modal-form {
-  width: 100%;
-  aspect-ratio: 7/6;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 30px;
-  background: url(../img/icons/modal-bg-1.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-y: center;
-  background-position-x: center;
-  z-index: 0;
-  border: 0 !important;
-  box-shadow: 0px 0px 10px 6px #ffffffa9;
+    width: 100%;
+    aspect-ratio: 7/6;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 30px;
+    background: url(../img/icons/modal-bg-1.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+    z-index: 0;
+    border: 0 !important;
+    box-shadow: 0px 0px 10px 6px #ffffffa9;
 }
 
 .modal-form_enter {
@@ -41,7 +41,6 @@
 .br-mob {
     display: none;
 }
-
 .wewe {
     background: #ccc;
     width: 96%;
@@ -55,10 +54,10 @@
     border-image-outset: 36px 30px 58px 28px;
 }
 
- .new-user-form{
-  height: 100%;
-  aspect-ratio: 7/6;
-  background: url(../img/icons/registration-bg.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+.new-user-form{
+    height: 100%;
+    aspect-ratio: 7/6;
+    background: url(../img/icons/registration-bg.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
 }
 
 .new-user-form .reg__group {
@@ -89,10 +88,6 @@
     border: none;
 }
 
-.modal_close img {
-    content: url("../img/icons/modal-close.svg");
-
-}
 
 .logo__modal--container {
     margin-left: auto;
@@ -314,7 +309,7 @@
 
 .reg__group .file-upload__label::-webkit-file-upload-button {
     visibility: hidden;
-  }
+}
 
 .reg__group .file-upload__label::after {
     content: '';
@@ -334,15 +329,15 @@
 }
 
 .reg-label {
-padding-left: 20px;
-padding-bottom: 3px;
-color: #FFF;
-font-family: 'Arsenal';
-font-size: 13px;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-text-transform: uppercase;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
 }
 
 .reg-label--post--layout {
@@ -353,14 +348,17 @@ text-transform: uppercase;
     padding-left: 0;
 }
 
+
+
+
 .form-check {
     width: 100%;
-        color: #FFF;
-        font-family: 'Arsenal';
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .form-check-input {
@@ -386,14 +384,14 @@ text-transform: uppercase;
 }
 
 .form-check-label a {
-color: #FFF;
-font-family: 'Arsenal';
-font-size: 15px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-decoration: none;
-border-bottom: 1px solid rgba(255, 255, 255, 1);
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
 }
 
 .input__group {
@@ -444,7 +442,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 .was-validated .form-control:invalid, .form-control.is-invalid {
     box-sizing:border-box;
     border: 1px solid red;
-    /*background-image: url(./img/icons/red-star.svg);*/
+    /* background-image: url(./img/icons/red-star.svg); */
     margin-bottom: 10px;
     margin-top: 15px;
 }
@@ -472,11 +470,11 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
     text-transform: uppercase;
 }
 
- .uploadInputForm {
+.uploadInputForm {
     order: 1;
- }
+}
 
- .log-out__button {
+.log-out__button {
     position: absolute;
     top: 30px;
     right: 30px;
@@ -488,15 +486,15 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
     filter: none;
     -webkit-filter: none;
     transition: filter 0.3s ease;
- }
+}
 
 
 
-  .log-out__button:hover {
+.log-out__button:hover {
     filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
     -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
     transition: filter 0.3s ease;
-  }
+}
 
 
 
@@ -506,7 +504,6 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         height: 465px;
         margin-left: auto;
         margin-right: auto;
-        /* aspect-ratio: 7/6;   */
         flex-direction: column;
         justify-content: center;
         border-radius: 30px;
@@ -519,6 +516,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         border: 0 !important;
         box-shadow: 0px 0px 10px 6px #ffffffa9;
     }
+
 
     .modal-form_enter {
         height: 574px;
@@ -533,31 +531,38 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         background-position: center;
         background-repeat: no-repeat;
         font-size: 10px;
-      }
+    }
 
-      .logo__modal--img {
+    .logo__modal--img {
         max-width: 129px;
-      }
+    }
 
-      .reg__group {
+    .reg__group {
         width: 100%;
-      }
+    }
 
-      .reg-label {
+    .reg-label {
+        white-space: nowrap;
         font-size: 10px;
-          white-space: nowrap;
-          font-size: 10px;
-          padding-left: 0px;
-          white-space: wrap;
-      }
+        padding-left: 0px;
+    }
 
-      .form-check-label {
+    .reg-label {
         font-size: 10px;
-      }
-      .reg-label--post--layout {
-          width: 240px;
+        white-space: wrap;
+    }
+
+    .form-check-label {
+        font-size: 10px;
+    }
+    .reg-label--post--layout {
+        width: 240px;
         white-space: normal;
-      }
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+
     .registry__submit {
         height: 50px;
         font-size: 16px;
@@ -595,10 +600,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         font-size: 10px;
     }
 
-    .reg-label--post--layout {
-        font-size: 12px;
-        margin-bottom: 15px;
-    }
+
 
     .buttons__group {
         width: 75%;
@@ -619,6 +621,17 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 
     .br-mob {
         display: block;
+    }
+
+
+    .pagination-numbers {
+        display: inline;
+        height: 35px;
+        overflow: hidden;
+    }
+
+    .file-upload__group .file-upload__label--width {
+        width: 100%;
     }
 
 }

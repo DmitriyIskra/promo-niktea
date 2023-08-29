@@ -21,32 +21,32 @@
 <header>
     <div class="header-wrapper header-wrapper--white">
 
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid container-fluid--position">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav header__list">
-                        <li class="header__item" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                            <a href="#" class="header__link">Регистрация</a>
-                        </li>
-                        <li class="header__item">
-                            <a href="/winners" class="header__link">Победители</a>
-                        </li>
+        <nav class="navbar__wrap navbar-expand-lg">
 
-                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img" src="img/icons/logo.svg"
-                                                                                                   alt="logo"></a></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-navq header__list">
+                    <li class="header__item" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                        <a href="#" class="header__link">Регистрация</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Победители</a>
+                    </li>
 
-                        <li class="header__item">
-                            <a href="#" class="header__link">Призы</a>
-                        </li>
-                        <li class="header__item">
-                            <button class="header__button"  id="userAccount"><a href="/account">Личный кабинет</a></button>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img" src="img/icons/logo.svg"
+                                                                                               alt="logo"></a></li>
+
+                    <li class="header__item">
+                        <a href="/winners" class="header__link">Призы</a>
+                    </li>
+                    <li class="header__item">
+                        <button class="header__button" id="userAccount"><a href="/account">Личный кабинет</a></button>
+                    </li>
+                </ul>
             </div>
+
         </nav>
         <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
         <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg"></a>
@@ -265,7 +265,7 @@
 
                         <div class="file-upload__group">
                             <input type="file" id="uploadPhoto" hidden/>
-                            <label class="file-upload__label" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
+                            <label class="file-upload__label file-upload__label--width" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
                             <span>Вы можете зарегестрировать не более 15 чеков в день.<br>
                 ( с 00:00 по 23:59 по Московскому времени )</span>
@@ -274,7 +274,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="code__group">
 
@@ -323,8 +322,6 @@
 
                     </div>
 
-
-
                     <!-- <div class="pagination__container pagination__container--display">
                       <div class="pagination-prev" id="next-button">&lt;</div>
                       <div class="code__pagination">
@@ -337,7 +334,6 @@
 
                   </div> -->
 
-
                     <div class="slider__group">
 
                         <h1>Ваши чеки</h1>
@@ -348,31 +344,31 @@
 
                             <div class="swiper checkSlider">
                                 <div class="swiper-wrapper checkSlides">
-                                    <div class="swiper-slide slide__check">
-                                        <div class="slider__check-box">
-                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                        </div>
+                                    <!-- <div class="swiper-slide slide__check">
+                                      <div class="slider__check-box">
+                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                      </div>
                                     </div>
                                     <div class="swiper-slide slide__check">
-                                        <div class="slider__check-box">
-                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                        </div>
+                                      <div class="slider__check-box">
+                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                      </div>
                                     </div>
                                     <div class="swiper-slide slide__check">
-                                        <div class="slider__check-box">
-                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                        </div>
+                                      <div class="slider__check-box">
+                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                      </div>
                                     </div>
                                     <div class="swiper-slide slide__check">
-                                        <div class="slider__check-box">
-                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                        </div>
+                                      <div class="slider__check-box">
+                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                      </div>
                                     </div>
                                     <div class="swiper-slide slide__check">
-                                        <div class="slider__check-box">
-                                            <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
-                                        </div>
-                                    </div>
+                                      <div class="slider__check-box">
+                                        <img class="slider__check-image" src="img/check/check2.jpg" alt="check2">
+                                      </div>
+                                    </div> -->
                                 </div>
                                 <div class="pagination__container">
                                     <div class="pagination-prev">
@@ -396,8 +392,6 @@
         </section>
 
     </div>
-
-
 </main>
 
 <footer class="footer">
@@ -431,8 +425,8 @@
                     <li class="footer__item footer__item--phone">
 
                         <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
-                        <div class="phone-nimber-col">
-                            <span class="phone-nimber">8-903-798-85-98</span>
+                        <div class="phone-number-col">
+                            <a class="phone-number" href="tel:+7-903-798-85-98"></a>
                             <div class="w-100"></div>
                             <span>С 9:00 до 18:00 по МСК</span>
                         </div>
@@ -444,8 +438,6 @@
         </div>
     </div>
 </footer>
-
-
 
 <script src="{{ asset("js/bootstrap.js") }}"></script>
 <script src="{{ asset("js/bootstrap.js.map") }}"></script>

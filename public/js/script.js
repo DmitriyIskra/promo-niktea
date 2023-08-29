@@ -14,6 +14,8 @@ if(document.querySelector('.code__add')){
 }
 
 
+// Слайдер чеков
+
 var swiperCheck = new Swiper(".checkSlider", {
     grabCursor: true,
     keyboard: true,
@@ -25,13 +27,17 @@ var swiperCheck = new Swiper(".checkSlider", {
         nextEl: ".slider-button-next",
         prevEl: ".slider-button-prev",
     },
+
     pagination: {
         el: ".pagination",
         clickable: true,
         renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
         },
+
     },
+
+
     breakpoints: {
         1360: {
             slidesPerView: 3,
@@ -80,7 +86,7 @@ var swiperCode = new Swiper(".codeSlider", {
     },
     breakpoints: {
         300: {
-            // with: 300,
+            with: 300,
             slidesPerView: 3,
             // spaceBetween: 0,
         },
@@ -95,6 +101,9 @@ var swiperCode = new Swiper(".codeSlider", {
 
 });
 
+document.querySelector('.code__add').addEventListener('click', function(){
+    swiperCode.slideNext();
+})
 
 
 // var roundSlider = new Swiper(".roundSlider", {
@@ -266,3 +275,36 @@ function onInput() {
 
 // email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi,
 
+// Оверлей
+
+
+let scrollBarWidth = window.innerWidth - document.body.clientWidth;
+
+let overlayOpen = function() {
+
+    overlayBackground.style.display = "flex";
+    carouselOverlay.style.display = "flex";
+    document.body.style.position = 'fixed';
+    document.body.style.paddingRight =  scrollBarWidth + 'px';
+    console.log('Оверлей открыт');
+}
+
+carouselContent.addEventListener('click', function(event){
+    event.preventDefault();
+    overlayOpen();
+});
+
+// Закрытие модального окна
+
+let overlayClose = function() {
+    overlayBackground.style.display = "none";
+    carouselOverlay.style.display = "none";
+    document.body.style.position = 'relative';
+    document.body.style.paddingRight = 0 + 'px';
+    carouselOverlay.innerHTML = '';
+    console.log('Оверлей закрыт');
+}
+
+overlayBackground.addEventListener('click', function(event){
+    overlayClose();
+}, )
