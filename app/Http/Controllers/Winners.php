@@ -42,7 +42,7 @@ class Winners extends Controller
                     unset($response[$key]);
                     array_unshift($response, $value);
                 }
-                unset($value->belongs_user_id);
+                //unset($value->belongs_user_id);
             }
             $response = $this->blur_data($response);
         }
@@ -72,7 +72,7 @@ class Winners extends Controller
                     unset($response[$key]);
                     array_unshift($response, $value);
                 }
-                unset($value->belongs_user_id);
+                //unset($value->belongs_user_id);
             }
             $response = $this->blur_data($response);
         }
