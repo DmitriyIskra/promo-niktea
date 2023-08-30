@@ -33,7 +33,7 @@ class Account extends Controller
             ->select('belongs.ticket_id as ticket_id',
                 'belongs.code_id as code_id',
                 'belongs.created_at as created_time',
-                'codes.code as service_device_id',
+                'codes.code as code_string',
                 'codes.code_tea_win as code_tea_win',
                 'codes.code_main_win as code_main_win',
             )
