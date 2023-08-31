@@ -26,7 +26,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon navbar-toggler-icon2"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-navq header__list">
@@ -50,8 +50,13 @@
                     </ul>
                 </div>
         </nav>
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#"><img src="img/icons/logo-mobile.svg"></a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account"><img src="img/icons/icon_person.svg"></a>
+        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
+            <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
+        </a>
+        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account">
+            <!-- <img src="img/icons/icon_person.svg" alt="icon_person"> -->
+        </a>
+
     </div>
 </header>
 
@@ -399,6 +404,82 @@
 
                 </div>
         </section>
+        <div class="priz-mobile">
+
+            <div class="priz__item">
+          <span class="priz__item__text priz__item__text--big">Главный подарок<br>
+            - сертификат на путешествие</span>
+                <img class="priz__item__img priz__item__img--layout" src="img/content/mobile/certif-mobile.png" alt="" srcset="">
+            </div>
+
+
+            <div class="priz__item">
+                <span class="priz__item__text">Macbook air m2<br>midnight</span>
+                <img class="priz__item__img" src="img/content/mobile/notebook.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Iphone 14 pro 256<br>deep purple</span>
+                <img class="priz__item__img" src="img/content/mobile/iphone.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Ipad mini 256 space<br>grey</span>
+                <img class="priz__item__img" src="img/content/mobile/ipad.png" alt="" srcset="">
+            </div>
+
+
+            <div class="priz__item">
+                <span class="priz__item__text">Очиститель воздуха<br>Dyson HP05</span>
+                <img class="priz__item__img" src="img/content/mobile/dyson.png" alt="" srcset="">
+            </div>
+
+
+            <div class="priz__item">
+                <span class="priz__item__text">Bork Электросамокат</span>
+                <img class="priz__item__img" src="img/content/mobile/scooter-mobile.png" alt="" srcset="">
+            </div>
+
+
+            <div class="priz__item">
+                <span class="priz__item__text">Sony Playstation 5</span>
+                <img class="priz__item__img" src="img/content/mobile/playstation-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Фен Dyson</span>
+                <img class="priz__item__img" src="img/content/mobile/fan-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Портативный<br>аккумулятор Bork</span>
+                <img class="priz__item__img" src="img/content/mobile/bork-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Яндекс станция 2<br>с Алисой</span>
+                <img class="priz__item__img" src="img/content/mobile/alice-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Air Pods 2</span>
+                <img class="priz__item__img" src="img/content/mobile/airbods-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Чайник Bork</span>
+                <img class="priz__item__img" src="img/content/mobile/teapot-mobile.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">300 подарочных наборов<br>Niktea</span>
+                <img class="priz__item__img" src="img/content/mobile/300.png" alt="" srcset="">
+            </div>
+
+            <div class="priz__item">
+                <span class="priz__item__text">Годовой запас чая<br>Niktea</span>
+                <img class="priz__item__img" src="img/content/mobile/tea-mobile.png" alt="" srcset="">
+            </div>
 
     </div>
 
@@ -411,7 +492,7 @@
 
             <div class="footer__column link-col">
                 <li class="footer__item">
-                    <a href="#" class="footer__link">Сайт бренда NIKTEA</a>
+                    <a href="https://nikteaworld.com/" class="footer__link">Сайт бренда NIKTEA</a>
                 </li>
             </div>
 

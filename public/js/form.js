@@ -74,153 +74,168 @@ form.addEventListener('submit', async event => {
 
 // Вход в систему. Авторизация
 
-const formSignIn = document.getElementById('signinForm');
-
-const formSignData = new FormData(formSignIn);
-
-(async function main() {
-    var myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
-
-    var raw = JSON.stringify({
-        formSignIn
-    });
-    const res = await fetch('/api/auth/login', {
-        headers: myHeaders,
-        method: 'POST',
-        body: formSignData,
-        redirect: 'follow',
-    });
-
-    console.log(await res.json());
-})();
-
-
-// formSignIn.addEventListener('submit', async event => {
-//   event.preventDefault();
+//   const formSignIn = document.getElementById('signinForm');
 
 //   const formSignData = new FormData(formSignIn);
 
-
-// try {
-//     const res = await fetch(
-//       'https://dev.nikteaworld.com/api/auth/login',
-//       {
-//         method: 'POST',
-//         body: formSignData,
-//         redirect: 'follow'
-//       },
-//     );
-
-//     var resData = await res.json();
-
-//     console.log(resData);
+//   (async function main() {
+//     // var myHeaders = new Headers();
+//     // myHeaders.append('Content-Type', 'application/json');
 
 
-//   } catch (err) {
-//     console.log(err.message);
-//   }
 
-// });
+// var raw = formSignData
+
+//     const res = await fetch('https://dev.nikteaworld.com/api/auth/login', {
+//       // headers: myHeaders,
+//       method: 'POST',
+//       body: raw,
+//       redirect: 'follow',
+//     });
+
+//     console.log(await res.json());
+//   })();
+
+
+
+// Прошлый вариант загрузки
+const formSignIn = document.getElementById('signinForm');
+
+formSignIn.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const formSignData = new FormData(formSignIn);
+
+
+    try {
+        const res = await fetch(
+            'https://dev.nikteaworld.com/api/auth/login',
+            {
+                method: 'POST',
+                body: formSignData,
+                redirect: 'follow'
+            },
+        );
+
+        var resData = await res.json();
+
+        console.log(resData);
+
+
+    } catch (err) {
+        console.log(err.message);
+    }
+
+});
 
 
 // Данные пользователя Account info
+if(document.querySelector('.test__button')){
+
+    let testButton = document.querySelector('.test__button');
+
+    testButton.addEventListener('click', async event => {
 
 
-// let testButton = document.querySelector('.test__button');
+        var requestOptions = {
+            method: 'GET',
 
-// testButton.addEventListener('click', async event => {
+            redirect: 'follow'
+        };
 
-
-//   var requestOptions = {
-//     method: 'GET',
-
-//     redirect: 'follow'
-//   };
-
-//   await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-//     .then(response => response.text())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
+        await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
 
 
-// try {
+        try {
 
 
 
-//   myHeaders.append("Cookie", "nektia_session=lIqZm3LaPTP1qXUKDwgc9gdDW9OeYhi4i3NCvK6c");
+            myHeaders.append("Cookie", "nektia_session=lIqZm3LaPTP1qXUKDwgc9gdDW9OeYhi4i3NCvK6c");
 
-//   var requestOptions = {
-//     method: 'GET',
-//     headers: myHeaders,
-//     redirect: 'follow'
-//   };
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
 
-//   const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result + ' данные пользователя'))
-//   .catch(error => console.log('error', error));
+            const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result + ' данные пользователя'))
+                .catch(error => console.log('error', error));
 
-// } catch (err) {
-//   console.log(err.message);
-// }
+        } catch (err) {
+            console.log(err.message);
+        }
 
 
-// });
+    });
+}
+
 
 
 // Проверка авторизованности
 
-// const checkAuth = document.querySelector('.checkAuth');
+if(document.querySelector('.checkAuth')){
+    const checkAuth = document.querySelector('.checkAuth');
 
-// checkAuth.addEventListener('click', async event => {
-//   event.preventDefault();
-// //проверка авторизованности
-//   // var myHeaders = new Headers();
-//   // myHeaders.append("Cookie", `"nektia_session=${authToken}"`);
+    checkAuth.addEventListener('click', async event => {
+        event.preventDefault();
 
-
-//   var requestOptions = {
-//     method: 'GET',
-//     // headers: myHeaders,
-//     // body: raw,
-//     redirect: 'follow'
-//   };
-
-//   try {
-//     const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
-//     .then(response => response.text())
-//     .then(result => console.log(result + 'проверка авторизованности'))
-//     .catch(error => console.log('error', error));
-
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-
-// });
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", `"nektia_session=${authToken}"`);
 
 
-// Деавторизация
+        var requestOptions = {
+            method: 'GET',
+            // headers: myHeaders,
+            // body: raw,
+            redirect: 'follow'
+        };
 
-let logOut = document.querySelector('.log-out__button');
+        try {
+            const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result + 'проверка авторизованности'))
+                .catch(error => console.log('error', error));
 
-logOut.addEventListener('click', async ()=>{
+        } catch (err) {
+            console.log(err.message);
+        }
 
-    var myHeaders = new Headers();
-    myHeaders.append("Cookie", "niktea_session=lPUKTPP6xZO4N14tRyD8uD513QKsok47OSsQeF50");
+    });
+}
 
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
 
-    await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
 
-})
+
+// Деавторизация выход
+
+if(document.querySelector('.log-out__button')){
+    let logOut = document.querySelector('.log-out__button');
+
+    logOut.addEventListener('click', async ()=>{
+
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", "niktea_session=lPUKTPP6xZO4N14tRyD8uD513QKsok47OSsQeF50");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+    })
+}
+
+
 
 // Тестовый набор кодов
 
@@ -310,7 +325,7 @@ let exampleCodes = {
         '3554-QTNS5N',
         'два5-QTNS5N',
         '3556-QTNS5N',
-        'три4-QTNS5N',    '3556-QTNS5N',
+        'три4-QTNS5N',
         'три4-QTNS5N',
         'три5-QTNS5N',
         '3556-QTNS5N',
@@ -328,7 +343,7 @@ let exampleCodes = {
         '3554-QTNS5N',
         'два5-QTNS5N',
         '3556-QTNS5N',
-        'три4-QTNS5N',    '3556-QTNS5N',
+        'три4-QTNS5N',
         'три4-QTNS5N',
         'три5-QTNS5N',
         '3556-QTNS5N',
@@ -375,9 +390,393 @@ let exampleCodes = {
         '3554-QTNS5N',
         '3554-QTNS5N',
         '3555-QTNS5N',
-        '3556-QTNS5N'
+
+
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        'два5-QTNS5N',
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+
+
+
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        'два5-QTNS5N',
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+
+
+
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        'два5-QTNS5N',
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+
+
+
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3554-QTNS5N',
+        '3555-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+        'два5-QTNS5N',
+        '3556-QTNS5N',
+        'три4-QTNS5N',
+        'три5-QTNS5N',
+        '3556-QTNS5N',
+        '3552-QTNS5N',
+        '3554-QTNS5N',
+        '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+
+
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3554-QTNS5N',
+        // '3555-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+        // 'два5-QTNS5N',
+        // '3556-QTNS5N',
+        // 'три4-QTNS5N',
+        // 'три5-QTNS5N',
+        // '3556-QTNS5N',
+        // '3552-QTNS5N',
+        // '3554-QTNS5N',
+        // '3554-QTNS5N',
+
+        '3555-QTNS5N'
+
+
+
+        // '3556-QTNS5N'
     ]
 }
+
 
 
 // Коды для таблицы
@@ -408,6 +807,24 @@ exampleCodes.codeN.forEach((code, i) => {
                   `
 })
 
+if(document.querySelector('.winners__list')) {
+
+    let winnersList = document.querySelector('.winners__list');
+
+    winnersList.innerHTML = '';
+
+    exampleCodes.codeN.forEach((code, i) => {
+        winnersList.innerHTML += `
+  <tr>
+  <td>Сертификат на путешествие 300 000р</td>
+  <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+  <td>20.12.2023</td>
+</tr>
+                  `
+    })
+
+}
+
 
 // Слайдер кодов
 
@@ -417,7 +834,7 @@ codeSlides.innerHTML = '';
 
 exampleCodes.codeN.forEach((codeS, i) => {
     codeSlides.innerHTML += `
-                  <div class="swiper-slide">
+                  <div class="swiper-slide swiper-slide--width">
                   <span class="code__text">${codeS}</span>
                   </div>
                   `
@@ -437,17 +854,17 @@ let exampleChecks = {
         'img/check/check2.jpg',
         'img/check/check2.jpg',
         'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
-        'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
+        // 'img/check/check2.jpg',
         'img/check/check2.jpg'
 
     ]
@@ -583,9 +1000,9 @@ window.addEventListener("load", () => {
     });
 });
 
-// let x = document.cookie;
+let x = document.cookie;
 
-// console.log(x);
+console.log(x);
 
 
 
@@ -625,3 +1042,20 @@ window.addEventListener("load", () => {
 //     }
 //   }
 // }
+
+// var myHeaders = new Headers();
+// myHeaders.append("Cookie", "niktea_session=DznQy3hhFrBCRmn90pTWVLZDvfdUK3zHqIqfM3aO");
+
+// var requestOptions = {
+//   method: 'GET',
+//   headers: myHeaders,
+//   redirect: 'follow'
+// };
+
+// fetch("https://dev.nikteaworld.com/api/winners", requestOptions)
+//   .then(response => response.text())
+//   .then(response => response.headers)
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
+
+

@@ -1,65 +1,140 @@
 
-let codeAddbutton = document.querySelector('.code__add');
-let codeSlider = document.querySelector('.code__slider');
-
+// Слайдер кодов
 
 if(document.querySelector('.code__add')){
-    codeAddbutton.addEventListener('click', ()=> {
-        codeSlider.classList.toggle('code__sleder--display');
+
+    let codeAddbutton = document.querySelector('.code__add');
+    let codeSlider = document.querySelector('.code__slider');
+
+
+    if(document.querySelector('.code__add')){
+        codeAddbutton.addEventListener('click', ()=> {
+            codeSlider.classList.toggle('code__sleder--display');
+        })
+
+        document.querySelector('.code__submit').addEventListener('click', function(){
+            console.log('Кнопка зарегистрировать код')
+        })
+    }
+
+    var swiperCode = new Swiper(".codeSlider", {
+        grabCursor: true,
+        keyboard: true,
+        slidesPerView: 3,
+        spaceBetween: 2,
+        loop: true,
+        centeredSlides: true,
+        slideShadows: true,
+        // initialSlide: 2,
+        navigation: {
+            nextEl: ".code__carousel-next",
+            prevEl: ".code__carousel-prev",
+        },
+        breakpoints: {
+
+            992: {
+                centeredSlides: true,
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 0
+            },
+
+
+            300: {
+                with: 200,
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+        },
+
+    });
+
+
+    document.querySelector('.code__add').addEventListener('click', function(){
+        if(document.querySelectorAll('.swiper-slide').length > 1){
+            swiperCode.slideNext();
+        }
+        else{
+            console.log(document.querySelectorAll('.swiper-slide').length)
+        }
+
     })
 
-    document.querySelector('.code__submit').addEventListener('click', function(){
-        console.log('Кнопка зарегистрировать код')
-    })
+
+
 }
 
 
-// Слайдер чеков
+if(document.querySelector('.checkSlider')) {
 
-var swiperCheck = new Swiper(".checkSlider", {
-    grabCursor: true,
-    keyboard: true,
-    slidesPerView: 3,
-    spaceBetween: 10,
-    loop: true,
-    slideShadows: true,
-    navigation: {
-        nextEl: ".slider-button-next",
-        prevEl: ".slider-button-prev",
-    },
 
-    pagination: {
-        el: ".pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
+    // Слайдер чеков
+
+    var swiperCheck = new Swiper(".checkSlider", {
+        grabCursor: true,
+        keyboard: true,
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        slideShadows: true,
+        navigation: {
+            nextEl: ".slider-button-next",
+            prevEl: ".slider-button-prev",
         },
 
-    },
+        pagination: {
+            el: ".pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+            },
 
 
-    breakpoints: {
-        1360: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-        960: {
-            width: 940,
-            slidesPerView: 2,
-            spaceBetween: 5,
         },
 
-        540: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-        },
-        300: {
-            with: 300,
-            slidesPerView: 2,
-            spaceBetween: 5,
-        },
-    }
-});
+
+        breakpoints: {
+            1360: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            960: {
+                width: 940,
+                slidesPerView: 2,
+                spaceBetween: 5,
+            },
+
+            540: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+            },
+            300: {
+                // with: 300,
+                slidesPerView: 2,
+                spaceBetween: 5,
+            },
+        }
+    });
+
+    let checkPaginationNext = document.querySelector('.pagination-next--check')
+    let checkPaginationPrev = document.querySelector('.pagination-prev--check')
+
+
+    checkPaginationNext.addEventListener('click', function(){
+        swiperCheck.slideNext();
+    })
+
+    checkPaginationPrev.addEventListener('click', function(){
+        swiperCheck.slidePrev();
+    })
+
+}
+
+
 
 
 
@@ -71,39 +146,7 @@ navToggler.addEventListener('click', function(){
 })
 
 
-var swiperCode = new Swiper(".codeSlider", {
-    grabCursor: true,
-    keyboard: true,
-    slidesPerView: 3,
-    spaceBetween: 2,
-    loop: true,
-    centeredSlides: true,
-    slideShadows: true,
-    // initialSlide: 2,
-    navigation: {
-        nextEl: ".code__carousel-next",
-        prevEl: ".code__carousel-prev",
-    },
-    breakpoints: {
-        300: {
-            with: 300,
-            slidesPerView: 3,
-            // spaceBetween: 0,
-        },
-    },
 
-    992: {
-        centeredSlides: true,
-        slidesPerView: 3,
-        spaceBetween: 10,
-    },
-
-
-});
-
-document.querySelector('.code__add').addEventListener('click', function(){
-    swiperCode.slideNext();
-})
 
 
 // var roundSlider = new Swiper(".roundSlider", {
@@ -278,33 +321,35 @@ function onInput() {
 // Оверлей
 
 
-let scrollBarWidth = window.innerWidth - document.body.clientWidth;
+// let scrollBarWidth = window.innerWidth - document.body.clientWidth;
 
-let overlayOpen = function() {
+// let overlayOpen = function() {
 
-    overlayBackground.style.display = "flex";
-    carouselOverlay.style.display = "flex";
-    document.body.style.position = 'fixed';
-    document.body.style.paddingRight =  scrollBarWidth + 'px';
-    console.log('Оверлей открыт');
-}
+//   overlayBackground.style.display = "flex";
+//   carouselOverlay.style.display = "flex";
+//   document.body.style.position = 'fixed';
+//   document.body.style.paddingRight =  scrollBarWidth + 'px';
+//   console.log('Оверлей открыт');
+// }
 
-carouselContent.addEventListener('click', function(event){
-    event.preventDefault();
-    overlayOpen();
-});
+// carouselContent.addEventListener('click', function(event){
+//   event.preventDefault();
+//   overlayOpen();
+// });
 
-// Закрытие модального окна
+// // Закрытие модального окна
 
-let overlayClose = function() {
-    overlayBackground.style.display = "none";
-    carouselOverlay.style.display = "none";
-    document.body.style.position = 'relative';
-    document.body.style.paddingRight = 0 + 'px';
-    carouselOverlay.innerHTML = '';
-    console.log('Оверлей закрыт');
-}
+// let overlayClose = function() {
+//   overlayBackground.style.display = "none";
+//   carouselOverlay.style.display = "none";
+//   document.body.style.position = 'relative';
+//   document.body.style.paddingRight = 0 + 'px';
+//   carouselOverlay.innerHTML = '';
+//   console.log('Оверлей закрыт');
+// }
 
-overlayBackground.addEventListener('click', function(event){
-    overlayClose();
-}, )
+// overlayBackground.addEventListener('click', function(event){
+//   overlayClose();
+// }, )
+
+
