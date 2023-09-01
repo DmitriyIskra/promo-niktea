@@ -54,7 +54,7 @@
 }
 
  #toggle:checked + label:after {
-  content: url("../img/icons/close-white.svg");  
+  content: url("../img/icons/modal-close.svg");  
   height: 2.6vw;      
 }
 

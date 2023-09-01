@@ -1,127 +1,125 @@
 *root {
-    /* --color-nav: #007653;
-    --bs-modal-width: 700px !important;
-    --bs-navbar-toggler-transition: none !important;   */
+ 
 }
 
 * {
-    outline: none;
+  outline: none;
 }
 
 
 @font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans-Light.otf);
+  font-weight: 200;     
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans.otf);
+  font-weight: 400;     
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Blogger Sans';
-    src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Blogger Sans';
+  src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
+  font-weight: 500;     
+  font-style: normal;
+  font-display: swap;
 }
 
 
 @font-face {
-    font-family: 'Arsenal';
-    src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
-    font-weight: 400;
+  font-family: 'Arsenal';
+  src: url(../fonts/Arsenal/Arsenal-Regular.ttf);
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Arsenal';
-    src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Arsenal';
+  src: url(../fonts/Arsenal/Arsenal-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Snell Roundhand';
-    src:  url(../fonts/SnellRoundhand/SnellRoundhand.ttf);
-    font-style: normal;
-    font-display: swap;
+font-family: 'Snell Roundhand';
+src:  url(../fonts/SnellRoundhand/SnellRoundhand.ttf);
+font-style: normal;
+font-display: swap;
 }
 
-body {
+body {        
     height: 100%;
     background-color: #00BD8D;
     background-image: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
     margin: 0;
-    padding: 0;
+    padding: 0;    
     position: relative;
 }
 
 body[data-variant=main-page]::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background:  url(../img/icons/account-bg-2.webp),  url(../img/icons/flowers-main-bg-right.png), url(../img/icons/main-bg-fl-right.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
-    background-position-x: center, -20%, 118%;
-    background-position-y: bottom, 37%, 41%;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100%, auto, auto;
-    z-index: -10;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;    
+  background:  url(../img/icons/account-bg-2.webp),  url(../img/icons/flowers-main-bg-right.png), url(../img/icons/main-bg-fl-right.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-position-x: center, -20%, 118%; 
+  background-position-y: bottom, 37%, 41%;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100%, auto, auto;
+  z-index: -10;  
 }
 
-body[data-variant=user-account] {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
-    background-size: 100%, 100%;
-    background-position-x: center, center;
-    background-position-y: bottom, top;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    z-index: -10;
+body[data-variant=user-account] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, top;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  z-index: -10;  
 }
 
 
-body[data-variant=winners] {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: url(../img/icons/account-bg-2.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
-    background-size: 100%, 100%;
-    background-position-x: center, center;
-    background-position-y: bottom, 3%;
-    background-repeat: no-repeat, no-repeat;
-    z-index: -10;
+body[data-variant=winners] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
 }
 
 
 .header-wrapper {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 
-.header-wrapper--main {
+.header-wrapper--main {    
     position: relative;
-    z-index: 100;
+    z-index: 100;        
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .header-wrapper .header--catalog {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 /* .navbar {
@@ -130,93 +128,109 @@ body[data-variant=winners] {
 } */
 
 .navbar__wrap {
-
+  margin-right: 2.5%;
 }
 
 .navbar-toggler {
-    outline: none;
-    border: none;
-    z-index: 100;
+  outline: none;
+  border: none;
+  z-index: 100;  
 }
 
 .navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus {
-    outline: none;
-    border: none;
-    color: transparent;
+  outline: none;
+  border: none;
+  color: transparent;
 }
 
 .navbar-toggler-icon {
-    background-image: url(../img/icons/burger.svg);
-    border: none;
-
+  width: 30px;
+  height: 20px;
+  background-image: url(../img/icons/burger.svg);
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 .burgerChecked {
-    position: absolute;
-    right: 40px;
-    top: 10px
+  position: absolute;
+  right: 40px;
+  top: 10px
 }
 
 .navbar-toggler-icon--close {
-    position: absolute;
-    top: 15px;
-    background-image: url(../img/icons/burger-close.svg);
-    padding-top: 20px;
-    width: 30px;
-    height: 30px;
+  position: absolute;
+  top: 15px;
+  background-image: url(../img/icons/burger-close.svg); 
+  padding-top: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 
 .header__logo {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
+  text-align: center;
+  /* padding-left: 15px;
+  padding-right: 15px; */
 }
 .header__logo--img:hover {
-    filter: drop-shadow(1px 2px 3px #E8E8E8);
-    -webkit-filter: drop-shadow(3px 2px 3px #E8E8E8);
-    transition: filter 0.3s ease;
+filter: drop-shadow(1px 2px 3px #E8E8E8);
+-webkit-filter: drop-shadow(3px 2px 3px #E8E8E8);
+transition: filter 0.3s ease;  
 }
 
 .header-wrapper--main .header__logo--img:hover {
-    filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
-    transition: filter 0.3s ease;
+filter: drop-shadow(1px 2px 3px rgba(102, 100, 100, 0.37));
+transition: filter 0.3s ease;  
 }
 
 
 .header__logo--img {
-    max-width: 6vw;
-    opacity: 1;
+  max-width: 6vw;
+  opacity: 1;
 }
 
 .logo__disabled {
-    opacity: 0;
+  opacity: 0;  
 }
 
 
 .logo-mobile--wrap {
-    position: absolute;
-    top: 20px;
-    right: 45%;
+  position: absolute;
+  top: 13px;
+  right: 45%;
+}
+  
+.account-logo-mobile {
+  position: absolute;
+  top: 20px;
+  right: 5%;
+  padding-right: 10px;
+  width: 30px;
+  height: 22px;
+  background-image: url(../img/icons/icon_person.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+  background-size: 21px 30px;
 }
 
-.account-logo-mobile {
-    position: absolute;
-    top: 30px;
-    right: 5%;
-    padding-right: 10px;
-}
+
 
 
 .navbar-toggler {
-    width: 60px;
-    padding-left: 20px;
-    padding-top: 35px;
-
+  width: 60px;
+  line-height: 0;
+  padding-left: 20px;
+  padding-top: 20px;
+  
 }
 
 .header__list {
-    width: 55%;
+    gap: 80px;
+    padding: 0;
+    /* width: 50%; */
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -229,155 +243,105 @@ body[data-variant=winners] {
 }
 
 .header__item, .header__item:hover, .search-item, .header__logo {
-    flex-grow: 1;
-    flex-basis: content;
-}
+  flex-grow: 1;
+  flex-basis: content;
+} 
 
 
 
-.header__item {
-    box-sizing: border-box;
-    border: 2px solid rgba(255, 255, 255, 0.0);
-    padding-left: 15px;
-    padding-right: 15px;
+.header__item {         
+    flex-shrink: 1;
+    box-sizing: border-box; 
+    border: none;
+    /* padding-left: 15px;
+    padding-right: 15px; */
     padding-top: 4px;
-    padding-bottom: 4px;
-    text-align: center;
+    padding-bottom: 4px;    
+    text-align: center;    
 }
 
 .header__button {
-    background: none;
-    border: none;
-    outline: none;
-    font-family: 'Arsenal';
-    /* font-size: 28px; */
-    color: #007653;
-    font-size: clamp(1vw, 1.75rem, 1.45vw);
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Arsenal';
+  /* font-size: 28px; */
+  color: #007653;
+  font-size: clamp(1vw, 1.75rem, 1.45vw);  
 }
 
 .header__button a {
-    font-family: 'Arsenal';
-    font-size: 28px;
-    color: #007653;
-    text-decoration: none;
+  font-family: 'Arsenal';
+  font-size: 28px;  
+  color: #007653;
+  text-decoration: none;
 }
 
 .header__button--white {
-    font-family: 'Arsenal';
-    font-size: 28px;
-    color: #fff;
-    text-decoration: none;
+  font-family: 'Arsenal';
+  font-size: 28px;  
+  color: #fff;
+  text-decoration: none;
 }
 
 
 .header-wrapper__main-page--img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url(../img/content/header-bg.webp);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: top;
-    background-size: 100%;
-    margin-bottom: 10px;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/content/header-bg.webp);
+  background-repeat: no-repeat;  
+  background-position-x: center;
+  background-position-y: top;
+  background-size: 100%;
+  margin-bottom: 10px;
+  z-index: -1;
 }
 
-
-/* .header-wrapper--main .header__item:hover {
-  box-sizing: border-box;
-  border-color: #FFF;
-  border-radius: 10px;
-  border-top-right-radius: 0;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  -webkit-border-radius: 10p;
-  -moz-border-radius: 10p;
-  -ms-border-radius: 10p;
-  -o-border-radius: 10p;
-  border-radius: 50px 0px 19px 50px;
-  border: 2px solid #FFF;
-  background: linear-gradient(180deg, rgba(0, 189, 141, 0.5) 45%, rgba(0, 189, 141, 0.8) 50%);
-  box-shadow: 0px 0px 6px 2px rgba(24, 23, 23, 0.41);
-}
-
-.header__item:hover .header__link {
-  color: white;
-} */
-
-
-/* .header__item:hover {
- box-sizing: border-box;
- border-color: #FFF;
- border-radius: 10px;
- border-top-right-radius: 0;
- padding-left: 15px;
- padding-right: 15px;
- padding-top: 4px;
- padding-bottom: 4px;
- -webkit-border-radius: 10p;
- -moz-border-radius: 10p;
- -ms-border-radius: 10p;
- -o-border-radius: 10p;
- border-radius: 50px 0px 19px 50px;
- border: 2px solid #FFF;
- background: #00ffb3 linear-gradient(180deg, rgb(93, 236, 201) 30%, rgb(17, 189, 146) 50%);
- box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.685);
-}
-
-.header__item:last-child {
- border-radius: 10px 0px 10px 10px;
- padding-left: 5px;
- padding-right: 5px;
-} */
 
 .header__link {
     text-decoration: none;
-    color: #ffffff;
-    font-family: 'Arsenal';
-    /* font-size: 28px; */
-    /* font-size: 1.75rem; */
-    font-size: clamp(1vw, 1.75rem, 1.45vw);
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+        color: #ffffff;
+        font-family: 'Arsenal';
+        font-size: clamp(1vw, 1.75rem, 1.45vw);         
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
 }
 
 .header__link {
-    text-shadow: none;
-    transition: text-shadow 0.3s ease;
+  text-shadow: none;
+  transition: text-shadow 0.3s ease;   
 }
 
 .header__link:hover {
-    text-shadow: 5px 5px 4px #E8E8E8;
-    transition: text-shadow 0.3s ease;
+  text-shadow: 5px 5px 4px #E8E8E8;
+  transition: text-shadow 0.3s ease;   
 }
 
 .header__button a:hover {
-    text-shadow: none;
-    transition: text-shadow 0.3s ease;
+  text-shadow: none;
+  transition: text-shadow 0.3s ease;   
 }
 
 .header__button a:hover {
-    text-shadow: 5px 5px 4px #E8E8E8;
-    transition: text-shadow 0.3s ease;
+  text-shadow: 5px 5px 4px #E8E8E8;
+  transition: text-shadow 0.3s ease;   
 }
 
 .header-wrapper--main .header__link {
-    color: #236B66;
+  color: #236B66;
 }
 
 .header-wrapper--white a{
-    color: #FFF;
+  color: #FFF;
 }
 
 .search-icon {
-    stroke: #236B66;
-    /* width: 2vw; */
+  stroke: #236B66;
+  /* width: 2vw; */
 }
 
 /* .serch-icon--close {
@@ -385,51 +349,51 @@ body[data-variant=winners] {
 } */
 
 .header__search--button {
-    position: relative;
-    /* width: 45px;
-    height: 45px; */
-    width:  2rem;
-    padding: 0;
-    display: flex;
-    background: none;
-    border: none;
-    cursor: pointer;
+position: relative;
+/* width: 45px;
+height: 45px; */
+width:  2rem;
+padding: 0;
+ display: flex;
+ background: none;
+ border: none;
+ cursor: pointer;
 }
 
 .search-item {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .search-wrap:hover .search-icon {
-    box-sizing: border-box;
-    filter: drop-shadow(0px 2px 3px rgba(24, 23, 23, 0.658));
-    /* border-color: #FFF;
-    stroke: #FFF;       */
-    border-color: #818181;
-    /* stroke: #FFF;       */
+  box-sizing: border-box;        
+  filter: drop-shadow(0px 2px 3px rgba(24, 23, 23, 0.658));
+  /* border-color: #FFF;    
+  stroke: #FFF;       */
+  border-color: #818181;    
+  /* stroke: #FFF;       */
 }
 
 .search__input {
-    display: none;
-    color: #7775B6;
+  display: none;  
+  color: #7775B6;  
 }
 
 .search__form--container {
-    width: 0;
+  width: 0;  
 }
 
 .search__form--container--active {
-    position: absolute;
-    left: 16vw;
-    display: flex;
-    width: 500px;
-    background:#00392D;
+  position: absolute;
+  left: 16vw;
+  display: flex;    
+  width: 500px;
+  background:#00392D;
 }
 
 
 .search__submit {
-    position: absolute;
+  position: absolute;
     font-family: 'Arsenal';
     font-size: clamp(1vw, 1.6rem, 1.45vw);
     font-style: normal;
@@ -459,20 +423,20 @@ body[data-variant=winners] {
 }
 
 .search__input {
-    display: flex;
-    right: 3vw;
-    width: 57vw;
-    height: 2.6vw;
-    margin-left: auto;
-    margin-right: auto;
-    border-top-left-radius: 2.6vw;
-    border-bottom-left-radius: 2.6vw;
-    border-bottom-right-radius: 2.6vw;
-    padding-left: 1.6vw;
-    border: 2px solid #FFF;
-    background-image: linear-gradient(0deg, #EBFFFA, #EBFFFA), linear-gradient(0deg, #FFFFFF, #FFFFFF);
-    box-shadow: 0px 0px 6px 2px rgba(24, 23, 23, 0.41);
-    outline: none;
+  display: flex;  
+  right: 3vw;
+  width: 57vw;
+  height: 2.6vw;
+  margin-left: auto;
+  margin-right: auto; 
+  border-top-left-radius: 2.6vw;
+  border-bottom-left-radius: 2.6vw;
+  border-bottom-right-radius: 2.6vw;
+  padding-left: 1.6vw;
+  border: 2px solid #FFF;
+  background-image: linear-gradient(0deg, #EBFFFA, #EBFFFA), linear-gradient(0deg, #FFFFFF, #FFFFFF);  
+  box-shadow: 0px 0px 6px 2px rgba(24, 23, 23, 0.41);
+  outline: none; 
 }
 
 
@@ -481,101 +445,101 @@ body[data-variant=winners] {
 }
 
 .footer__top {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .footer__list {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .footer__item {
-    list-style-type: none;
+  list-style-type: none;  
 }
 
 .footer__item--phone {
-    display: flex;
+  display: flex;
 }
 
 .footer__item--icons {
-    display: flex;
+  display: flex;
 }
 
 
 .footer__link:hover {
-    text-shadow:  1px 1px 4px rgba(255, 255, 255, 0.9);
+  text-shadow:  1px 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 
 .footer__link:hover img{
-    text-shadow:  1px 1px 4px rgba(255, 255, 255, 0.9);
+  text-shadow:  1px 1px 4px rgba(255, 255, 255, 0.9);
 }
 
 .footer__link--img {
-    filter: none;
-    -webkit-filter: none;
-    transition: filter 0.3s ease;
+  filter: none;
+  -webkit-filter: none;
+  transition: filter 0.3s ease; 
 }
 
 
 .footer__link--img:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .phone-number {
-    filter: none;
-    -webkit-filter: none;
-    transition: filter 0.3s ease;
+  filter: none;
+  -webkit-filter: none;
+  transition: filter 0.3s ease; 
 }
 
 
 .phone-number:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .phone-number:hover .phone-icon{
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .footer__logo--img {
-    filter: none;
-    -webkit-filter: none;
-    transition: filter 0.3s ease;
+  filter: none;
+  -webkit-filter: none;
+  transition: filter 0.3s ease; 
 }
 
 
 .footer__logo--img:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .footer__item span {
-    font-family: 'Arsenal';
-    color: #FFFFFF;
+  font-family: 'Arsenal';
+  color: #FFFFFF;
 }
 
 .footer__item:first-child {
     list-style-type: none;
     padding-top: 10px;
     /* margin-bottom: 20px; */
-}
+  }
 
-.footer__item:last-child {
+  .footer__item:last-child {
     list-style-type: none;
     margin-bottom: 0px;
-}
+  }
+  
 
-
-.footer__item--right {
+  .footer__item--right {
     padding-right: 35px;
-}
+  }
 
 .footer__link {
     color: #FFF;
@@ -603,11 +567,11 @@ body[data-variant=winners] {
 
 
 .logo-col {
-    margin-left: 5%;
-    margin-right: 15%;
-}
+  margin-left: 5%;
+  margin-right: 15%;  
+  }
 
-.footer__container {
+.footer__container {      
     padding-left: 20%;
     padding-right: 20%;
     margin-left: auto;
@@ -627,7 +591,7 @@ body[data-variant=winners] {
     margin-right: auto;
 }
 
-.footer__bottom-container {
+.footer__bottom-container {    
     margin-left: auto;
     margin-right: auto;
 }
@@ -642,47 +606,47 @@ body[data-variant=winners] {
 }
 
 .phone-icon-col {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
 }
 
 .phone-icon {
-    filter: none;
-    -webkit-filter: none;
-    transition: filter 0.3s ease;
-    padding-right: 15px;
+  filter: none;
+  -webkit-filter: none;
+  transition: filter 0.3s ease; 
+  padding-right: 15px;
 }
 
 .phone-icon:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .phone-icon:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
 .phone-number:hover .phone-icon-col{
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease;
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+  -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: filter 0.3s ease; 
 }
 
-.phone-number {
-    font-size: 28px;
+.phone-number { 
+  font-size: 28px;    
 }
 
 .phone-number__link {
-    color: #FFF;
-    cursor: pointer;
-    text-decoration: none;
+  color: #FFF !important;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.svg-path {
+  .svg-path {
     stroke: gray;
     stroke-width: 4;
     fill: none;
@@ -694,55 +658,55 @@ body[data-variant=winners] {
 
 /* оверлей */
 
-.overlay__background {
+  .overlay__background {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 10;    
     height: 100vh;
     width: 100%;
-    background-color: rgba(0,0,0,0.45);
+    background-color: rgba(0,0,0,0.45);     
 }
 
-.overlay {
-    display: none;
+  .overlay {
+    display: none;    
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0;    
     height: 100vh;
     width: 100%;
     justify-content: center;
     align-items:center;
     overflow: hidden;
-}
+  }
 
 .about-tea {
-    height: 1000px;
-    margin-top: 150px;
-    margin-bottom: 150px;
-    margin-left: 150px;
-    margin-right: 150px;
+  height: 1000px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 .construction-in-progress {
-    font-family: 'Arsenal';
-    font-size: 60px;
-    background-color:#F9EB40;
+  font-family: 'Arsenal';
+  font-size: 60px;  
+  background-color:#F9EB40;
 }
 
 .brand__description {
-    text-align: center;
+  text-align: center;
 }
 
 .brand__description--img {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .brand__description--text {
-    text-align: left;
-    color: #FFF;
+  text-align: left;
+  color: #FFF;
     font-family: 'Blogger Sans';
     font-size: 1.5rem;
     font-style: normal;
@@ -750,159 +714,159 @@ body[data-variant=winners] {
     line-height: 1.875;
 }
 
-.breadcrumbs__container {
-    width: 100%;
-    max-width: 137.9rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 24px;
-    /* margin-top: 60px; */
+.breadcrumbs__container {  
+  width: 100%;
+  max-width: 137.9rem;
+  margin-left: auto;
+  margin-right: auto;  
+  margin-top: 24px;
+  /* margin-top: 60px; */
 }
 
 .breadcrumbs__list {
-    display: flex;
-    direction: rtl;
-    list-style: none;
-    padding-left: 150px;
-    padding-right: 150px;
+  display: flex;
+  direction: rtl;
+  list-style: none;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 .breadcrumbs__item {
-    padding-left: 5px;
-    padding-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .breadcrumbs__item__link {
-    color: #FFF;
-    text-decoration: none;
-    font-family: 'Blogger Sans';
-    font-size: 16px;
-    font-weight: 200;
+  color: #FFF;
+  text-decoration: none;
+  font-family: 'Blogger Sans';
+  font-size: 16px;  
+  font-weight: 200;
 }
 
 
 .breadcrumbs__item:not(:first-child)::before {
-    content: '/\00a0';
-    color: #FFF;
-    font-family: 'Blogger Sans';
-    font-size: 16px;
+  content: '/\00a0';
+  color: #FFF;
+  font-family: 'Blogger Sans';
+  font-size: 16px;    
 }
 
 ul.breadcrumbs__item li+li:before {
-    list-style: none;
-    padding: 8px;
-    content: "/\00a0";
+  list-style: none;
+  padding: 8px;
+  content: "/\00a0";
 }
 
 .breadcrumbs__item:last-child a {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 
 .slider__preview {
-    background: url();
+  background: url();
 }
 
 .header-wrapper__main-page {
-    position: relative;
-    height: 60vw;
-    padding-top: 15px;
+  position: relative;
+  height: 60vw;
+  padding-top: 15px;  
 }
 
 
 .header-wrapper__main-page .header__link{
-    font-size: 28px;
-    color: rgba(0, 118, 83, 1);
+  font-size: 28px;
+  color: rgba(0, 118, 83, 1);
 }
 
 .header__link a {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .main-page__container {
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-bottom: 35%;
-    text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 35%;
+  text-align: center;
 }
 
 h1 {
-    color: #FFF;
-    font-family: 'Arsenal';
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #FFF;
+font-family: 'Arsenal';
+font-size: 64px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
 
 @media (max-width: 1520px) {
-    .header-wrapper__main-page .header__link{
-        font-size: 20px;
-    }
+  .header-wrapper__main-page .header__link{
+    font-size: 20px;   
+  }
 
-    .header__button a {
-        padding-top: 4px;
-        padding-bottom: 4px;
-        font-family: 'Arsenal';
-        font-size: 20px;
-        color: #007653;
-        text-decoration: none;
-    }
+  .header__button a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-family: 'Arsenal';
+    font-size: 20px;
+    color: #007653;
+    text-decoration: none;    
+}
 
-    /* .header__button {
-      font-size: clamp(1vw, 1.75rem, 1.45vw);
-    }
-     */
-    .header__list {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+  /* .header__button {
+    font-size: clamp(1vw, 1.75rem, 1.45vw); 
+  }
+   */
+  /* .header__list {
+    padding-left: 15px;
+    padding-right: 15px;
+  } */
 
 }
 
 .main-page__content {
-    height: 3000px;
+  height: 3000px;
 }
 
 .rules__action {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 96px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 96px;
 }
 
 .rules__item {
-    width: 25%;
-    padding-top: 9%;
-    padding-bottom: 0px;
-    color: #FFF;
-    text-align: center;
-    font-family: 'Arsenal';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  width: 25%;
+  padding-top: 9%;
+  padding-bottom: 0px;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Arsenal';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .rules__item:first-child, .rules__item:last-child {
-    padding-top: 0px;
+  padding-top: 0px;
 }
 
 
 .rules__item-wrap {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0px;
 }
 
 /* .rules__item-wrap::before {
   content: '';
   position: absolute;
-  border-radius: 50%;
+  border-radius: 50%; 
   width: 100%;
   height: 100%;
   max-width: 290px;
@@ -914,327 +878,393 @@ h1 {
 } */
 
 /* .rules__item:hover .rules__item-wrap::before {
-  box-shadow: 0px 0px 30px 10px #F9EB40;
+  box-shadow: 0px 0px 30px 10px #F9EB40;   
   transition:  0.1s ease-in-out;
 } */
 
 
 .rules__item--img {
-    width: 100%;
-    max-width: 308px;
+  width: 100%;
+  max-width: 308px;
 }
 
 .rules__item--text {
-    margin-top: 28px;
-    text-align: center;
+  margin-top: 28px;
+  text-align: center;
 }
 
 .recepies__button {
-    position: relative;
-    font-family: 'Arsenal';
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: normal;
-    text-transform: uppercase;
-    border-radius: 50px;
-    width: 445px;
-    height: 70px;
-    border: none;
-    background: #53A894;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
-    cursor: pointer;
-    box-shadow: none;
-    transition: box-shadow 0.3s ease;
+  position: relative;
+  font-family: 'Arsenal';  
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  text-transform: uppercase;    
+  border-radius: 50px;      
+  width: 445px;
+  height: 70px;
+  border: none;      
+  background: #53A894;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);    
+  color: #FFF;
+  cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease; 
 }
 
 
 
 
-.recepies__button::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    bottom: -2px;
-    right: -2px;
-    background: linear-gradient(180deg, #00bd8e1f 32.29%, #00392D 100%), transparent;
-    border-image-slice: 21;
-    border-radius: 50px;
-    z-index: -2;
+ .recepies__button::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  background: linear-gradient(180deg, #00bd8e1f 32.29%, #00392D 100%), transparent;
+  border-image-slice: 21;
+  border-radius: 50px;
+  z-index: -2;        
 }
 
 .recepies__button:hover {
-    border-radius: 50px 50px 50px 50px;
-    box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.41);
-    transition: box-shadow 0.3s ease;
+border-radius: 50px 50px 50px 50px;  
+box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.41);
+transition: box-shadow 0.3s ease; 
 }
 
 h2 {
-    color: #FFF;
-    text-align: center;
-    font-family: 'Arsenal';
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
+  color: #FFF;
+text-align: center;
+font-family: 'Arsenal';
+font-size: 64px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
 }
 
 .main__slider {
-    /* min-height: 1000px; */
-    margin-top: 175px;
+  /* min-height: 1000px; */
+  margin-top: 175px;
+}
+
+
+.priz-mobile {
+  display: none;
+}
+
+.priz__item {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 43px;
+}
+
+.priz__item:first-child {
+  margin-top: 0;
+}
+
+.priz__item__text {
+    margin-bottom: 10px;
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.priz__item__text--big{
+  font-size: 24px;
+  margin-bottom: 49px;
+}
+
+.priz__item__img {
+  width: 100%;
+}
+
+.priz__item__img--layout {
+  padding-top: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1280px) {
+  .code__text{
+    font-size: 22px;
+  } 
 }
 
 @media (max-width: 1265px) {
 
-    .header__item {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .header__button a {
-        font-size: 18px;
-    }
+  .header__item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .header__button a {
+    font-size: 18px;
+  }
 
 }
 
 @media (max-width: 992px) {
-    .footer__container, .about, .cards  {
-        padding-left: unset;
-        padding-right: unset;
-    }
-    .footer__container {
-        flex-direction: column;
-        align-content: center;
-        margin-bottom: 25%;
-    }
 
-    .footer__column {
-        justify-content: center;
-    }
+  .priz-mobile {
+    display: flex;    
+    flex-direction: column;
+    margin-top: 70px;
+  }
 
-    .footer__link {
-        font-size: 24px;
-    }
+  .footer__container, .about, .cards  {
+    padding-left: unset;
+    padding-right: unset;
+  }
+  .footer__container {
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 25%;
+  }
 
-    .footer__link--phone {
-        display: flex;
-        flex-direction: column;
-    }
+  .footer__column {
+    justify-content: center;
+  }
 
-    .footer__link__right {
-        padding-right: 27px;
-    }
+.footer__link {
+font-size: 24px;
+}
 
-    .logo-col {
-        order: 1;
-    }
+.footer__link--phone {
+  display: flex;
+  flex-direction: column;
+}
 
+.footer__link__right {
+  padding-right: 27px;
+}
 
-    .tg-col {
-        order: 2;
-    }
+.logo-col {
+  order: 1;
+  }
+  
 
-    .link-col {
-        order: 4;
-    }
+.tg-col {
+order: 2;
+}
 
-    .whats-col {
-        order: 2;
-    }
+.link-col {
+  order: 4;
+}
 
-
-    .phone-col {
-        order: 3;
-        padding-bottom: 0;
-    }
-
-    .rules__action {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .rules__item {
-        width: max-content;
-    }
-
-    .recepies__button {
-        width: 90%;
-        height: 50px;
-        border-radius: 50px;
-        color: #FFF;
-        font-family: 'Arsenal';
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-transform: uppercase;
-    }
-
-    .button--green {
-        position: relative;
-        background: linear-gradient(#53A894, #53A894) padding-box,
-        linear-gradient(to bottom, #00BD8D 32.29%, #00392D 100%) border-box;
-        border-radius: 50em;
-        border: 2px solid transparent;
-    }
-
-    h1, h2 {
-        font-size: 24px;
-    }
+.whats-col {
+order: 2;
+}
 
 
-    .main__slider {
-        display: none;
-    }
+.phone-col {
+order: 3;
+padding-bottom: 0;
+}
 
-    .logo-col {
-        margin-left: 0;
-        margin-right: 0;
-    }
+.rules__action {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-bottom: 70px;
+}
 
+.rules__item {
+  width: max-content;
+}
 
-    body[data-variant=main-page]::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-main-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
-        background-position-x: center, left;
-        background-position-y: bottom, top;
-        background-repeat: no-repeat no-repeat;
-        background-size: contain, contain;
-        z-index: -10;
-    }
+.recepies__button {
+    width: 90%;
+    height: 50px;
+    border-radius: 50px;
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
 
+.button--green {
+  position: relative;
+  background: linear-gradient(#53A894, #53A894) padding-box,
+  linear-gradient(to bottom, #00BD8D 32.29%, #00392D 100%) border-box;              
+  border-radius: 50em;
+  border: 2px solid transparent;
+}
 
-
-    body[data-variant=user-account] {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);
-        background-size: 100%, 100%;
-        background-position-x: center, center;
-        background-position-y: bottom, top;
-        background-repeat: no-repeat, no-repeat, no-repeat;
-        z-index: -10;
-    }
-
-
-    .header__list {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding-left: 20px;
-        padding-top: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        background: #97F8E4;
-        color: #00392D;
-        z-index: 11;
-    }
+h1, h2 {
+  font-size: 24px;
+}
 
 
-    .header-wrapper {
-        padding-top: 0;
-    }
+  .main__slider {
+  display: none; 
+}
 
-    .header-wrapper--white a {
-        color: #007653;
-        font-family: 'Arsenal';
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-    }
+.logo-col {
+  margin-left: 0;
+  margin-right: 0;
+}
 
-    .header__button {
-        padding: 0;
-    }
 
-    .header__button a{
-        font-size: 20px;
-    }
+body[data-variant=main-page]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;    
+  background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-main-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-position-x: center, left; 
+  background-position-y: bottom, 8.5%;
+  background-repeat: no-repeat no-repeat;
+  background-size: contain, 100% auto;
+  z-index: -10;  
+}
 
-    .container-fluid {
-        /* padding: 0; */
-    }
 
-    .container-fluid--position {
 
-    }
+body[data-variant=user-account] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, top;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  z-index: -10;  
+}
+
+
+.header__list {
+  gap: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #97F8E4;
+  color: #00392D;
+  z-index: 11;
+}
+
+
+
+.header-wrapper {
+  padding-top: 0;
+} 
+
+.header-wrapper--white a {
+  color: #007653;
+  font-family: 'Arsenal';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.header__button {
+  padding: 0;
+}
+
+.header__button a{
+  font-size: 20px;
+}
+
+.container-fluid {
+  /* padding: 0; */
+}
+
+.container-fluid--position {
+ 
+}
+
+.codeSlider .swiper-wrapper {
+  width: 300px;
+}
 
 }
 
 @media (max-width: 540px) {
 
-    .header-wrapper {
-        padding-top: 0;
-    }
+  .header-wrapper {
+    padding-top: 0;
+  }
 
-    .header-wrapper__main-page {
-        height: 500px;
-    }
+.header-wrapper__main-page {
+  /* height: 500px; */
+  height: 105vw;
+}
 
-    .header-wrapper__main-page--img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url(../img/content/header-bg-mobile.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-position-y: top;
-        background-size: 100%;
-        margin-bottom: 10px;
-    }
+.header-wrapper__main-page--img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/content/header-bg-mobile.png);
+  background-repeat: no-repeat;  
+  background-position-x: center;
+  background-position-y: -8%;
+  background-size: 100%;
+  margin-bottom: 10px;
+}
 
-    .header__link a{
-        color: #007653;
-        font-family: 'Arsenal';
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
+.header__link a{
+  color: #007653;
+  font-family: 'Arsenal';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;  
+}
 
-    .main__slider {
-        display: none;
-    }
+.main__slider {
+  display: none;
+}
 
 
-    .footer__logo img{
-        width: 115px;
-    }
+.footer__logo img{
+  width: 115px;
+}
 
-    .phone-number-col {
-        text-align: center;
-    }
+.phone-number-col {
+  text-align: center;
+}
 
-    .phone-number-col a{
-        text-decoration: none;
-        color: #FFF;
-        cursor: pointer;
-    }
+.phone-number-col a{
+  text-decoration: none;
+  color: #FFF;
+  cursor: pointer;
+}
 
-    .footer__column {
-        margin: 0;
-        padding-bottom: 0;
-    }
+.footer__column {
+  margin: 0;
+  padding-bottom: 0;
+}
 
-    .footer__item--right {
-        padding-right: 0px;
-    }
+.footer__item--right {
+  padding-right: 0px;
+}
+
+.main-page__container {
+  margin-bottom: 85%;
+}
 
 }
 
