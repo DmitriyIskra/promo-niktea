@@ -386,3 +386,53 @@ EasySlides = function (selector, options) {
     });
 }
 
+//   function recurcy (element) {
+
+//             element.childNodes.forEach(node =>{
+//                 console.log(node);
+//                 if(node.nodeName === "#text") {
+    
+//                     recurcy(node);
+//                 }
+//            });    
+    
+//         }  
+        
+//         recurcy(clickedSlide);
+
+
+// let clickedSlide =  document.querySelector('.slider_circle_10'); 
+    
+// let slidesContainers = document.querySelectorAll('.slide__description');
+
+// let activeSlideDescription = document.querySelector('.active-slide__description');
+
+// for (const [key, value] of Object.entries(slidesContainers)) {
+//     console.log(`${value.textContent}`);   
+
+//   }
+
+//   clickedSlide.addEventListener('click', function(e){
+//     console.log(e.target.previousSibling.innerHTML);              
+    
+//      activeSlideDescription.innerHTML = e.target.parentElement.innerHTML 
+
+//     })
+
+
+//     let sliderItems = document.body.querySelectorAll('slide__container');
+
+//     var item = document.getElementsByClassName('slide__container');
+    
+// for (let i = 0; i < item.length; i++) {
+//   item[i].addEventListener('click', function() {
+//     for (let i = 0; i < item.length; i++) {
+//       item[i].classList.remove('active');
+//     }
+//     item[i].classList.add('active');
+//     console.log('индекс элемента---', i);
+//     activeSlideDescription.innerHTML = item;
+//   })
+
+// }
+

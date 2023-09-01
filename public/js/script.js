@@ -3,6 +3,9 @@
 
   if(document.querySelector('.code__add')){
     
+
+
+
     let codeAddbutton = document.querySelector('.code__add');
     let codeSlider = document.querySelector('.code__slider');
   
@@ -16,57 +19,62 @@
         console.log('Кнопка зарегистрировать код')
       })
     }
-  
-    var swiperCode = new Swiper(".codeSlider", {    
-      grabCursor: true,
-      keyboard: true,    
-      slidesPerView: 3,
-      spaceBetween: 2,
-      loop: true,  
-      centeredSlides: true,    
-      slideShadows: true,
-      // initialSlide: 2,
-      navigation: {
-          nextEl: ".code__carousel-next",
-          prevEl: ".code__carousel-prev",
-        },      
-        breakpoints: {     
-       
-          992: {
-            centeredSlides: true,  
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-  
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 0
-          },
-  
-          
-          300: {
-            with: 200,
-            slidesPerView: 1,
-            spaceBetween: 0,
-          },
-        },             
-    
-      });  
-
-
-        document.querySelector('.code__add').addEventListener('click', function(){     
-          if(document.querySelectorAll('.swiper-slide').length > 1){
-            swiperCode.slideNext();
-          }  
-          else{
-            console.log(document.querySelectorAll('.swiper-slide').length)
-          }         
-
-    })
-
-
 
   }
+
+    
+  var swiperCode = new Swiper(".codeSlider", {    
+    grabCursor: true,
+    keyboard: true,    
+    slidesPerView: 3,
+    spaceBetween: 2,
+    loop: true,  
+    centeredSlides: true,    
+    slideShadows: true,
+    navigation: {
+        nextEl: ".code__carousel-next",
+        prevEl: ".code__carousel-prev",
+      },      
+      breakpoints: {     
+     
+        992: {
+          centeredSlides: true,  
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0
+        },
+
+        
+        300: {
+          // with: 200,
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+      },             
+  
+    });  
+
+
+    if(document.querySelector('.code__add')){
+      
+
+
+      document.querySelector('.code__add').addEventListener('click', function(){     
+        if(document.querySelectorAll('.swiper-slide').length > 1){
+          swiperCode.slideNext();
+        }  
+
+        
+        // else{
+        //   console.log(document.querySelectorAll('.swiper-slide').length)
+        // }         
+
+  })
+}
 
 
   if(document.querySelector('.checkSlider')) {
@@ -232,15 +240,21 @@
 
 //Проверка файлов
   
+
+document.querySelector('.file__upload--input').addEventListener('onchange', ()=>{
+  fileValidation()
+})
+ 
+
   function fileValidation() {
-    let fileInput = document.querySelector('.file-upload__label');
+    let fileInput = document.querySelector('.file__upload--input');
 
     let filePath = fileInput.value;
-    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif)$/i;
+    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
     if (!allowedExtensions.exec(filePath)) {
         let erer = document.getElementById('file-info');
         erer.style.display = 'block';
-        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
+        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
         fileInput.value = '';
         return false;
     } else {
@@ -250,13 +264,47 @@
             reader.onload = function(e) {
  
                 document.getElementById('info').style.display = 'block';
-                document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
+                document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
                 document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
             };
             reader.readAsDataURL(fileInput.files[0]);
         }
     }
 }
+
+
+
+document.querySelector('.file-upload__input--user').addEventListener('onchange', ()=>{
+  fileValidation()
+})
+ 
+
+  function fileValidation() {
+    let fileInput = document.querySelector('.file-upload__input--user');
+
+    let filePath = fileInput.value;
+    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        let erer = document.getElementById('file-info');
+        erer.style.display = 'block';
+        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
+        fileInput.value = '';
+        return false;
+    } else {
+
+        if (fileInput.files && fileInput.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+ 
+                document.getElementById('info').style.display = 'block';
+                document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
+                document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+
 
 // document.querySelector('.file-upload__in').addEventListener('click', function
 //  checkValidation() {
