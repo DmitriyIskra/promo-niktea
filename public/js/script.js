@@ -1,238 +1,238 @@
 
 // Слайдер кодов
 
-  if(document.querySelector('.code__add')){
-    
+if(document.querySelector('.code__add')){
+
     let codeAddbutton = document.querySelector('.code__add');
     let codeSlider = document.querySelector('.code__slider');
-  
-  
+
+
     if(document.querySelector('.code__add')){
-      codeAddbutton.addEventListener('click', ()=> {
-        codeSlider.classList.toggle('code__sleder--display');
-      })
-  
-      document.querySelector('.code__submit').addEventListener('click', function(){
-        console.log('Кнопка зарегистрировать код')
-      })
+        codeAddbutton.addEventListener('click', ()=> {
+            codeSlider.classList.toggle('code__sleder--display');
+        })
+
+        document.querySelector('.code__submit').addEventListener('click', function(){
+            console.log('Кнопка зарегистрировать код')
+        })
     }
-  
-    var swiperCode = new Swiper(".codeSlider", {    
-      grabCursor: true,
-      keyboard: true,    
-      slidesPerView: 3,
-      spaceBetween: 2,
-      loop: true,  
-      centeredSlides: true,    
-      slideShadows: true,
-      // initialSlide: 2,
-      navigation: {
-          nextEl: ".code__carousel-next",
-          prevEl: ".code__carousel-prev",
-        },      
-        breakpoints: {     
-       
-          992: {
-            centeredSlides: true,  
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-  
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 0
-          },
-  
-          
-          300: {
-            with: 200,
-            slidesPerView: 1,
-            spaceBetween: 0,
-          },
-        },             
-    
-      });  
+
+    var swiperCode = new Swiper(".codeSlider", {
+        grabCursor: true,
+        keyboard: true,
+        slidesPerView: 3,
+        spaceBetween: 2,
+        loop: true,
+        centeredSlides: true,
+        slideShadows: true,
+        // initialSlide: 2,
+        navigation: {
+            nextEl: ".code__carousel-next",
+            prevEl: ".code__carousel-prev",
+        },
+        breakpoints: {
+
+            992: {
+                centeredSlides: true,
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 0
+            },
 
 
-        document.querySelector('.code__add').addEventListener('click', function(){     
-          if(document.querySelectorAll('.swiper-slide').length > 1){
+            300: {
+                with: 200,
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+        },
+
+    });
+
+
+    document.querySelector('.code__add').addEventListener('click', function(){
+        if(document.querySelectorAll('.swiper-slide').length > 1){
             swiperCode.slideNext();
-          }  
-          else{
+        }
+        else{
             console.log(document.querySelectorAll('.swiper-slide').length)
-          }         
+        }
 
     })
 
 
 
-  }
+}
 
 
-  if(document.querySelector('.checkSlider')) {
+if(document.querySelector('.checkSlider')) {
 
-    
- // Слайдер чеков 
 
-  var swiperCheck = new Swiper(".checkSlider", {
-    grabCursor: true,
-    keyboard: true,    
-    slidesPerView: 3,
-    spaceBetween: 10,
-    loop: true,      
-    slideShadows: true,
-    navigation: {
-        nextEl: ".slider-button-next",
-        prevEl: ".slider-button-prev",
-      },      
+    // Слайдер чеков
 
-      pagination: {
-        el: ".pagination",
-        clickable: true,        
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (index + 1) + "</span>";
+    var swiperCheck = new Swiper(".checkSlider", {
+        grabCursor: true,
+        keyboard: true,
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        slideShadows: true,
+        navigation: {
+            nextEl: ".slider-button-next",
+            prevEl: ".slider-button-prev",
         },
- 
-  
-      },
 
-      
-      breakpoints: {        
-        1360: {
-          slidesPerView: 3,
-          spaceBetween: 15,
+        pagination: {
+            el: ".pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+            },
+
+
         },
-              960: {
+
+
+        breakpoints: {
+            1360: {
+                slidesPerView: 3,
+                spaceBetween: 15,
+            },
+            960: {
                 width: 940,
                 slidesPerView: 2,
                 spaceBetween: 5,
-              },
-              
-              540: {             
+            },
+
+            540: {
                 slidesPerView: 2,
                 spaceBetween: 0,
-              },
-              300: {
+            },
+            300: {
                 // with: 300,
                 slidesPerView: 2,
                 spaceBetween: 5,
-              },
-            }
-  });  
-  
-  let checkPaginationNext = document.querySelector('.pagination-next--check')
-  let checkPaginationPrev = document.querySelector('.pagination-prev--check')
-  
-  
-  checkPaginationNext.addEventListener('click', function(){
-    swiperCheck.slideNext();
-  })
+            },
+        }
+    });
 
-  checkPaginationPrev.addEventListener('click', function(){
-    swiperCheck.slidePrev();
-  })
-
-  }
-
-  
+    let checkPaginationNext = document.querySelector('.pagination-next--check')
+    let checkPaginationPrev = document.querySelector('.pagination-prev--check')
 
 
-
-  let navToggler = document.querySelector('.navbar-toggler');
-
-    navToggler.addEventListener('click', function(){
-      navToggler.classList.toggle('burgerChecked');
-      document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')      
+    checkPaginationNext.addEventListener('click', function(){
+        swiperCheck.slideNext();
     })
-  
+
+    checkPaginationPrev.addEventListener('click', function(){
+        swiperCheck.slidePrev();
+    })
+
+}
 
 
-     
- 
-    // var roundSlider = new Swiper(".roundSlider", {
-    //   slidesPerView: 8,
-    //   spaceBetween: 10,
-    //   loop: true,
-    //   centeredSlides: true,
-    //   height: 500,
-    //   centeredSlidesBounds: true,
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    //   },
-    //   navigation: {
-    //     nextEl: ".slider-button-next",
-    //     prevEl: ".slider-button-prev",
-    //   },        
-      
-    //   grabCursor: true,   
-    //   limitProgress: 1,
-    // });  
-    
 
-  // формы
 
-  //Валидация
 
-   if(document.querySelector('form')){
+let navToggler = document.querySelector('.navbar-toggler');
+
+navToggler.addEventListener('click', function(){
+    navToggler.classList.toggle('burgerChecked');
+    document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')
+})
+
+
+
+
+
+// var roundSlider = new Swiper(".roundSlider", {
+//   slidesPerView: 8,
+//   spaceBetween: 10,
+//   loop: true,
+//   centeredSlides: true,
+//   height: 500,
+//   centeredSlidesBounds: true,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   navigation: {
+//     nextEl: ".slider-button-next",
+//     prevEl: ".slider-button-prev",
+//   },
+
+//   grabCursor: true,
+//   limitProgress: 1,
+// });
+
+
+// формы
+
+//Валидация
+
+if(document.querySelector('form')){
     (function () {
-      'use strict'
-     
-      var forms = document.querySelectorAll('.needs-validation')
-     
-      Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-    
-            form.classList.add('was-validated')
-          }, false)
-        })
+        'use strict'
+
+        var forms = document.querySelectorAll('.needs-validation')
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
     })()
-   }
-  
+}
 
-  // document.querySelector('.modal_close').addEventListener('click', function (){
-  //   document.getElementById("enterAccountForm").reset();
-  // })
 
-  // Маска телефона
+// document.querySelector('.modal_close').addEventListener('click', function (){
+//   document.getElementById("enterAccountForm").reset();
+// })
 
-  document.addEventListener("DOMContentLoaded", function () {
-      var eventCalllback = function (e) {
-          var el = e.target,
-          clearVal = el.dataset.phoneClear,
-          pattern = el.dataset.phonePattern,
-          matrix_def = "+7(___) ___-__-__",
-          matrix = pattern ? pattern : matrix_def,
-          i = 0,
-          def = matrix.replace(/\D/g, ""),
-          val = e.target.value.replace(/\D/g, "");
-          if (clearVal !== 'false' && e.type === 'blur') {
-              if (val.length < matrix.match(/([\_\d])/g).length) {
-                  e.target.value = '';
-                  return;
-              }
-          }
-          if (def.length >= val.length) val = def;
-          e.target.value = matrix.replace(/./g, function (a) {
-              return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-          });
-      }
-      var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
-      for (let elem of phone_inputs) {
-          for (let ev of ['input', 'blur', 'focus']) {
-              elem.addEventListener(ev, eventCalllback);
-          }
-      }
-  });
+// Маска телефона
+
+document.addEventListener("DOMContentLoaded", function () {
+    var eventCalllback = function (e) {
+        var el = e.target,
+            clearVal = el.dataset.phoneClear,
+            pattern = el.dataset.phonePattern,
+            matrix_def = "+7(___) ___-__-__",
+            matrix = pattern ? pattern : matrix_def,
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = e.target.value.replace(/\D/g, "");
+        if (clearVal !== 'false' && e.type === 'blur') {
+            if (val.length < matrix.match(/([\_\d])/g).length) {
+                e.target.value = '';
+                return;
+            }
+        }
+        if (def.length >= val.length) val = def;
+        e.target.value = matrix.replace(/./g, function (a) {
+            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+        });
+    }
+    var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+    for (let elem of phone_inputs) {
+        for (let ev of ['input', 'blur', 'focus']) {
+            elem.addEventListener(ev, eventCalllback);
+        }
+    }
+});
 
 //Проверка файлов
-  
-  function fileValidation() {
+
+function fileValidation() {
     let fileInput = document.querySelector('.file-upload__label');
 
     let filePath = fileInput.value;
@@ -248,7 +248,7 @@
         if (fileInput.files && fileInput.files[0]) {
             let reader = new FileReader();
             reader.onload = function(e) {
- 
+
                 document.getElementById('info').style.display = 'block';
                 document.getElementById('info').innerHTML = '<i class="fa fa-check"></i> Okay, Great. This file is accepted';
                 document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
@@ -270,10 +270,10 @@
 //       erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ';
 //       erer.console.log('Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg ')
 //       fileInput.value = '';
-//       return false; 
-  
+//       return false;
+
 //     }
-    
+
 //     else {
 
 //       //Image preview - лишнее
@@ -302,15 +302,15 @@ const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@((
 const input = document.querySelector('.email-auth');
 
 function isEmailValid(value) {
- 	return EMAIL_REGEXP.test(value);
+    return EMAIL_REGEXP.test(value);
 }
 
 function onInput() {
-	if (isEmailValid(input.value)) {
-		input.style.borderColor = 'green';
-	} else {
-		input.style.borderColor = 'red';
-	}
+    if (isEmailValid(input.value)) {
+        input.style.borderColor = 'green';
+    } else {
+        input.style.borderColor = 'red';
+    }
 }
 
 // input.addEventListener('input', onInput);
@@ -323,16 +323,16 @@ function onInput() {
 
 // let scrollBarWidth = window.innerWidth - document.body.clientWidth;
 
-// let overlayOpen = function() {  
+// let overlayOpen = function() {
 
-//   overlayBackground.style.display = "flex";     
-//   carouselOverlay.style.display = "flex";    
-//   document.body.style.position = 'fixed';       
-//   document.body.style.paddingRight =  scrollBarWidth + 'px';                             
-//   console.log('Оверлей открыт');        
+//   overlayBackground.style.display = "flex";
+//   carouselOverlay.style.display = "flex";
+//   document.body.style.position = 'fixed';
+//   document.body.style.paddingRight =  scrollBarWidth + 'px';
+//   console.log('Оверлей открыт');
 // }
 
-// carouselContent.addEventListener('click', function(event){    
+// carouselContent.addEventListener('click', function(event){
 //   event.preventDefault();
 //   overlayOpen();
 // });
@@ -340,15 +340,15 @@ function onInput() {
 // // Закрытие модального окна
 
 // let overlayClose = function() {
-//   overlayBackground.style.display = "none"; 
+//   overlayBackground.style.display = "none";
 //   carouselOverlay.style.display = "none";
 //   document.body.style.position = 'relative';
-//   document.body.style.paddingRight = 0 + 'px';                             
+//   document.body.style.paddingRight = 0 + 'px';
 //   carouselOverlay.innerHTML = '';
 //   console.log('Оверлей закрыт');
 // }
 
-// overlayBackground.addEventListener('click', function(event){       
+// overlayBackground.addEventListener('click', function(event){
 //   overlayClose();
 // }, )
 

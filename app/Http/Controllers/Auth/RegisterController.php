@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -102,7 +103,9 @@ class RegisterController extends Controller
                         $response['user_info'] = $check;
                         $response['code_activated'] = filter_var($disabler, FILTER_VALIDATE_BOOLEAN);
                         $file = $request->file('check');
-                        $filename = $file->store('', ['disk' => 'public']);
+                        $filename = $file->store('', ['disk' => 's3']);
+                        //$files = Storage::disk('s3')->files();
+                        //return $files;
                         $check_saver = new Tickets;
                         $saved_file = $check_saver->saver($filename, $response['user_info']["id"]);
                         $belonger = new Belong;

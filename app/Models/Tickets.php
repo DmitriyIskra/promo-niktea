@@ -14,7 +14,7 @@ class Tickets extends Model
 
     public function saver($filename, $user_id)
     {
-        $ticket_path = "/storage/$filename";
+        $ticket_path = "https://storage.yandexcloud.net/nektia/$filename";
         $limit = self::query()->create(
             [
                 'ticket_path' => $ticket_path,
