@@ -99,144 +99,38 @@ form.addEventListener('submit', async event => {
 
   
 // Прошлый вариант загрузки
-const formSignIn = document.getElementById('signinForm');
+// const formSignIn = document.getElementById('signinForm');
 
-  formSignIn.addEventListener('submit', async event => {
-    event.preventDefault();
+//   formSignIn.addEventListener('submit', async event => {
+//     event.preventDefault();
   
-    const formSignData = new FormData(formSignIn);  
+//     const formSignData = new FormData(formSignIn);  
   
 
-  try {
-      const res = await fetch(
-        'https://dev.nikteaworld.com/api/auth/login',
-        {
-          method: 'POST',    
-          body: formSignData,
-          redirect: 'follow'
-        },
-      );
+//   try {
+//       const res = await fetch(
+//         'https://dev.nikteaworld.com/api/auth/login',
+//         {
+//           method: 'POST',    
+//           body: formSignData,
+//           redirect: 'follow'
+//         },
+//       );
   
-      var resData = await res.json();
+//       var resData = await res.json();
   
-      console.log(resData);
+//       console.log(resData);
       
-      return res.json();
+//       return res.json();
 
      
-    } catch (err) {
-      console.log(err.message);
-    }
+//     } catch (err) {
+//       console.log(err.message);
+//     }
     
-  });
+//   });
 
-  
-// Данные пользователя Account info
-if(document.querySelector('.test__button')){
-  
-let testButton = document.querySelector('.test__button');
-
-testButton.addEventListener('click', async event => {
-
-
-  var requestOptions = {
-    method: 'GET',
-
-    redirect: 'follow'
-  };
-  
-  await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-
-
-try {
-  
-  
-
-   myHeaders.append("Cookie", "nektia_session=lIqZm3LaPTP1qXUKDwgc9gdDW9OeYhi4i3NCvK6c");
-
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };
-
-  const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result + ' данные пользователя'))
-  .catch(error => console.log('error', error));
-  
-} catch (err) {
-  console.log(err.message);    
-}
-
-
-});
-}
-
-
-
-// Проверка авторизованности
-
-if(document.querySelector('.checkAuth')){
-  const checkAuth = document.querySelector('.checkAuth');
-
-  checkAuth.addEventListener('click', async event => {
-    event.preventDefault();
  
-    var myHeaders = new Headers();
- myHeaders.append("Cookie", `"nektia_session=${authToken}"`);
-     
-    
-    var requestOptions = {
-      method: 'GET',
-      // headers: myHeaders,
-      // body: raw,
-      redirect: 'follow'
-    };
-    
-    try {
-      const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result + 'проверка авторизованности'))
-      .catch(error => console.log('error', error));
-      
-    } catch (err) {
-      console.log(err.message);    
-    }
-  
-  });
-}
-
-
-
-
-// Деавторизация выход
-
-if(document.querySelector('.log-out__button')){
-  let logOut = document.querySelector('.log-out__button');
-
-  logOut.addEventListener('click', async ()=>{
-  
-    var myHeaders = new Headers();
-  myHeaders.append("Cookie", "niktea_session=lPUKTPP6xZO4N14tRyD8uD513QKsok47OSsQeF50");
-  
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };
-  
-  await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-  
-  })
-}
-
 
  
 // Тестовый набор кодов
@@ -509,14 +403,14 @@ let exampleCodes = {
 // Коды для таблицы
 
 
-for(var codeAndDate in window.userDataObject) {
-  if(window.userDataObject.hasOwnProperty(codeAndDate)) {
-  //   console.log(codeAndDate); 
-    for (var i = 0, j = window.userDataObject[codeAndDate].length; i < j; i++) {
-      console.log("Код и время создания", window.userDataObject[codeAndDate][i].service_device_id, window.userDataObject[codeAndDate][i].created_time);
-    }
-  }
-}
+// for(var codeAndDate in window.userDataObject) {
+//   if(window.userDataObject.hasOwnProperty(codeAndDate)) {
+//   //   console.log(codeAndDate); 
+//     for (var i = 0, j = window.userDataObject[codeAndDate].length; i < j; i++) {
+//       console.log("Код и время создания", window.userDataObject[codeAndDate][i].service_device_id, window.userDataObject[codeAndDate][i].created_time);
+//     }
+//   }
+// }
 
 
 // Таблица кодов. Для даты заглушка
@@ -610,11 +504,6 @@ exampleChecks.checkIMAGE.forEach((check, i) => {
 </div>
 `
 })
-
-document.addEventListener("DOMContentLoaded", function(event) {  
- 
-
-});
 
 // Пагинация блока кодов
 
@@ -785,4 +674,216 @@ window.addEventListener("load", () => {
             //   .then(result => console.log(result))
             //   .catch(error => console.log('error', error));
             
-            
+   
+
+
+// Вход в систему
+
+// const formSignIn = document.getElementById('signinForm');
+
+// formSignIn.addEventListener('submit', async event => {
+//   event.preventDefault();
+
+//   const formSignData = new FormData(formSignIn);  
+
+//   console.log('форма работает')
+
+//   formSignData.forEach((value, key) => {
+//     console.log(`${key}: ${value}`);
+//   });
+
+// try {
+//     const res = await fetch('https://dev.nikteaworld.com/api/auth/login',
+//       {
+//         method: 'POST',    
+//         body: formSignData,
+//         redirect: 'follow'
+//       },
+//     );
+
+//     const resData = await res.json();
+
+//     console.log(resData);
+
+    
+
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+
+// });
+
+const formSignIn = document.getElementById('signinForm');
+
+formSignIn.addEventListener('submit', function postData() {
+
+  const formSignData = new FormData(formSignIn);  
+
+  fetch('https://dev.nikteaworld.com/api/auth/login', {
+      method: 'POST',      
+      body: formSignData,
+      redirect: 'follow'     
+                   
+  })
+      .then(response => {
+          // console.log(response);
+          if (!response.ok) {                
+              throw Error('ERROR')
+          }
+          return response.json();
+      })              
+      .then(data => {
+      
+
+        for (const [key, value] of Object.entries(data)) {
+
+          if(key.includes('auth_token')){
+            // console.log("токен " + value);
+
+            document.cookie = `nektia_session=${value}`
+
+            console.log(document.cookie)
+
+          }          
+        }
+      
+      })
+      .catch(error => {
+          console.log(error);
+      });
+})
+
+
+
+let cookies = document.cookie
+  .split(';')
+  .map(cookie => cookie.split('='))
+  .reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
+
+
+  let keyCookie = cookies.nektia_session;
+  
+
+  console.log('передаваемый ключ из куки: ' + keyCookie)
+
+
+
+  // очищаем куки
+
+  function deleteAllCookies() {
+    document.cookie.split(';').forEach(function(c) {
+      document.cookie = c.trim().split('=')[0] + '=;' + 'expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    });
+}
+
+
+  // Деавторизация выход
+
+if(document.querySelector('.log-out__button')){
+  let logOut = document.querySelector('.log-out__button');
+
+  logOut.addEventListener('click', async ()=>{
+  
+    var myHeaders = new Headers();
+  myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`);
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'  
+  };
+  
+  await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+
+    deleteAllCookies()
+  })
+}
+
+// Проверка авторизованности
+
+if(document.querySelector('.checkAuth')){
+  const checkAuth = document.querySelector('.checkAuth');
+
+  checkAuth.addEventListener('click', async event => {
+    event.preventDefault();
+
+    console.log('проверка авторизованнсоти- куки: ' + document.cookie)
+    
+    var myHeaders = new Headers();
+ 
+    myHeaders.append('Cookie', `'nektia_session=${keyCookie}'`)
+       
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      // body: raw,
+      redirect: 'follow'
+    };
+    
+    try {
+      const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result + 'проверка авторизованности'))
+      .catch(error => console.log('error', error));
+      
+    } catch (err) {
+      console.log(err.message);    
+    }
+  
+  });
+}
+
+
+// Данные пользователя Account info
+if(document.querySelector('.test__button')){
+  
+let testButton = document.querySelector('.test__button');
+
+testButton.addEventListener('click', async event => {
+ 
+  var myHeaders = new Headers();
+
+  myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`)
+
+  var requestOptions = {
+    method: 'GET',
+    headers:  myHeaders,
+    redirect: 'follow',
+    credentials: "same-origin"
+  };
+  
+  await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+
+try {
+  
+  
+
+   myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`);
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+    credentials: "same-origin"
+  };
+
+  const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result + ' данные пользователя'))
+  .catch(error => console.log('error', error));
+  
+} catch (err) {
+  console.log(err.message);    
+}
+
+});
+}

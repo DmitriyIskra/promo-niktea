@@ -250,12 +250,15 @@
 }
 
 .reg-label--code {
+    padding-left: 20px;
+    padding-bottom: 3px;
     color: #FFF;
-font-family: 'Arsenal';
-font-size: 20px;
-font-style: normal;
-font-weight: 200;
-line-height: 125%; 
+    font-family: 'Arsenal';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
 
 }
 
@@ -628,11 +631,11 @@ text-align: center;
     }
 
 
-    main {
+    /* .main-pagination {
         position: relative;
         padding: 1rem 0rem 3rem;
         min-height: calc(100vh - 4rem);
-      }
+      } */
       
       h1 {
         margin-top: 0;
@@ -682,6 +685,30 @@ text-align: center;
         color: #fff;
         background: #0086b600;
         filter: drop-shadow(1px 1px 5px rgba(255, 255, 255, 0.856));      
+      }
+      
+
+
+      .log-out__button {
+        position: absolute;    
+        top: 30px;
+        right: 30px;
+        border: none;
+        background: none;
+        font-family: 'Arsenal';
+        font-size: 28px;
+        color: #FFF;
+        filter: none;
+        -webkit-filter: none;
+        transition: filter 0.3s ease; 
+     }
+    
+     
+      
+      .log-out__button:hover {
+        filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
+        -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+        transition: filter 0.3s ease; 
       }
       
 
@@ -743,6 +770,7 @@ text-align: center;
     
         .user-account {
             width: 100%;
+            margin-top: 35px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -896,17 +924,33 @@ text-transform: inherit !important;
         
 
 @media (max-width: 992px) {
-    .log-out__button {
+    /* .log-out__button {
+        bottom: 10px;
+        left: 0;
+        right: 0;
         font-size: 18px;
-    }
+    } */
 
     .reg-label--code {
         font-size: 12px;
     }
 
+    .user-account {
+        margin-top: 45px;
+    }
+
 }
 
 @media (max-width: 540px) {
+
+    .user-account {
+        margin-top: 85px;
+    }
+
+    .user-account__container {
+        margin-top: 0px;
+    }
+
     .account-form  {
         padding-left: 16px;
         padding-right: 16px;

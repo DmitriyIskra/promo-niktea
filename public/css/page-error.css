@@ -1,5 +1,80 @@
  
-.rules-body {
+ .back-buttons__wrap {    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 54px;
+    margin-top: 40px;
+ }
+
+ .back-button {
+    position: relative;
+    text-align: center;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
+    color: white;
+    cursor: pointer;
+    width: 300px;
+    height: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 20px;
+    color: #FFF;
+    font-family: 'Arsenal';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;  
+ }
+
+ .back-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
+ }
+
+ .back-button:hover {
+    box-shadow: 0px 0px 15px 5px #FFF;
+    transition: box-shadow 0.3s ease;  
+ }
+
+ .warning__error {
+    display: flex;
+     color: #FFF;
+     text-align: center;
+     font-family: Arsenal;
+     font-size: 64px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: normal;
+     text-align: center;
+ }
+
+ .warning__oi {
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: Arsenal;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    width: 100%;
+ }
+
+.error-body {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,10 +93,10 @@
     box-shadow: 0px 0px 20px 8px #FFF;
 }
 
-.rules__container {
+.error-page__container {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 40%;
+    margin-bottom: 27%;
     padding-left: 1.8rem;
     padding-right: 1.8rem;            
     margin-top: 65px;
@@ -34,12 +109,22 @@
     align-content: center;
 }
 
-.rules {
+.error__page__section {
     max-width: 1350px;
     /* width: 100%; */
     margin-left: 150px;
     margin-right: 150px;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
+}
+
+.error__head {
+    color: #FFF;
+text-align: center;
+font-family: Arsenal;
+font-size: 200px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
 
 .rules-article {

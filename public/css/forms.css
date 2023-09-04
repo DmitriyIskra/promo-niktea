@@ -473,28 +473,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
     order: 1;
  }
 
- .log-out__button {
-    position: absolute;    
-    top: 30px;
-    right: 30px;
-    border: none;
-    background: none;
-    font-family: 'Arsenal';
-    font-size: 28px;
-    color: #FFF;
-    filter: none;
-    -webkit-filter: none;
-    transition: filter 0.3s ease; 
- }
 
- 
-  
-  .log-out__button:hover {
-    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.7));
-    -webkit-filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-    transition: filter 0.3s ease; 
-  }
-  
 
 
 @media (max-width: 992px) {
@@ -547,12 +526,13 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
       }
 
       .reg-label {
-        width: 85% !important;
+        width: 85%;
         font-size: 10px;
         white-space: wrap;
       }
 
       .reg-label--code {
+        width: 100%;
         font-size: 12px;
       }
 

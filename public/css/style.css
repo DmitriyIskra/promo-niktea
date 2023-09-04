@@ -104,6 +104,31 @@ body[data-variant=winners] {
   z-index: -10;  
 }
 
+body[data-variant=rules] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
+}
+
+
+body[data-variant=error-page] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/account-bg-2.png),  url(../img/icons/error-page-flowers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
+}
+
 
 .header-wrapper {
   padding-top: 15px;
@@ -205,7 +230,7 @@ transition: filter 0.3s ease;
   
 .account-logo-mobile {
   position: absolute;
-  top: 20px;
+  top: 22px;
   right: 5%;
   padding-right: 10px;
   width: 30px;
@@ -224,7 +249,7 @@ transition: filter 0.3s ease;
   width: 60px;
   line-height: 0;
   padding-left: 20px;
-  padding-top: 22px;
+  padding-top: 9px;
   
 }
 
@@ -810,7 +835,6 @@ line-height: normal;
     padding-bottom: 4px;
     font-family: 'Arsenal';
     font-size: 20px;
-    color: #007653;
     text-decoration: none;    
 }
 
@@ -1011,7 +1035,7 @@ text-transform: uppercase;
 
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
 
   .priz-mobile {
     display: flex;    
@@ -1074,6 +1098,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin-top: 35px;
 margin-bottom: 70px;
 }
 
@@ -1149,6 +1174,31 @@ body[data-variant=user-account] {
 }
 
 
+body[data-variant=winners] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
+}
+
+body[data-variant=rules] {  
+  content: '';
+  width: 100%;
+  height: 100%;    
+  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+  background-size: 100%, 100%;
+  background-position-x: center, center; 
+  background-position-y: bottom, 3%;
+  background-repeat: no-repeat, no-repeat;
+  z-index: -10;  
+}
+
+
 .header__list {
   gap: 0;
   position: absolute;
@@ -1166,9 +1216,9 @@ body[data-variant=user-account] {
 
 
 
-.header-wrapper {
+/* .header-wrapper {
   padding-top: 0;
-} 
+}  */
 
 .header-wrapper--white a {
   color: #007653;
@@ -1202,8 +1252,16 @@ body[data-variant=user-account] {
 
 @media (max-width: 540px) {
 
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+
   .header-wrapper {
-    padding-top: 0;
+    padding-top: 15px;
   }
 
 .header-wrapper__main-page {
@@ -1212,7 +1270,8 @@ body[data-variant=user-account] {
 }
 
 .header-wrapper__main-page--img {
-  position: absolute;
+  position: relative;
+  height: 105vw;
   top: 0;
   left: 0;
   right: 0;
@@ -1221,7 +1280,7 @@ body[data-variant=user-account] {
   background-repeat: no-repeat;  
   background-position-x: center;
   background-position-y: -8%;
-  background-size: 100%;
+  background-size: 100% 100%;
   margin-bottom: 10px;
 }
 

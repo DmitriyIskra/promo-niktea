@@ -1,7 +1,7 @@
 
 // Слайдер кодов
 
-  if(document.querySelector('.code__add')){
+
     
 
 
@@ -20,7 +20,7 @@
       })
     }
 
-  }
+
 
     
   var swiperCode = new Swiper(".codeSlider", {    
@@ -274,9 +274,9 @@ document.querySelector('.file__upload--input').addEventListener('onchange', ()=>
 
 
 
-document.querySelector('.file-upload__input--user').addEventListener('onchange', ()=>{
-  fileValidation()
-})
+// document.querySelector('.file-upload__input--user').addEventListener('onchange', ()=>{
+//   fileValidation()
+// })
  
 
   function fileValidation() {
