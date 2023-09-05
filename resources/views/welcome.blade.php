@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset("css/forms.css") }}">
     <link rel="stylesheet" href="{{ asset("css/round-slider.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <script src="{{ asset("js/form.js") }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <title>Главная</title>
 </head>
 
@@ -30,9 +32,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-navq header__list">
-                    <li class="header__item" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                        <a href="#" class="header__link">Регистрация</a>
-                    </li>
+                    <script>
+                        cookie_cache = getCookie("niktea_session")
+                        let div = document.createElement('div');
+                        if(cookie_cache) {
+                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='/account' class='header__link'>Регистрация</a> </li>"
+                        }else{
+                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='#' class='header__link'>Регистрация</a> </li>"
+                        }
+                        $(".navbar-navq").prepend(div);
+                    </script>
                     <li class="header__item">
                         <a href="#" class="header__link">Победители</a>
                     </li>
@@ -114,7 +123,7 @@
                             Вы указали неверный код или вышло время ожидания
                         </div>
                     </div>
-                    <button class="registry__submit registry__submit--top" type="submit">ВОЙТИ</button>
+                    <button class="registry__submit registry__submit--top" id="loginreport" type="submit">ВОЙТИ</button>
                     <button class="registry__submit" type="submit">ОТПРАВИТЬ КОД</button>
                 </form>
             </div>
@@ -571,7 +580,6 @@
         'show': 9
     });
 </script>
-<script src="{{ asset("js/form.js") }}"></script>
 <script src="{{ asset("js/script.js") }}"></script>
 </body>
 </html>

@@ -15,13 +15,11 @@ class AuthChecker extends Controller
     {
         $response["is_auth"] = false;
         $response["user"] = false;
-        $code = 403;
         if (Auth::check()) {
             $response["is_auth"] = True;
-            $response["user"] = Auth::user();
             $response["auth_token"] = Session::getID();
-            $code = 200;
         }
-        return response()->json($response, $code);
+        return response()->json($response, 200);
     }
+
 }

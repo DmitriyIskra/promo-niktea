@@ -29,5 +29,3 @@ Route::get('/account/info', [App\Http\Controllers\Account\Account::class, 'actio
 Route::get('/admin', [App\Http\Controllers\Admin\Admin::class, 'action'])->name('admin.index');
 Route::post('/admin/search/', [App\Http\Controllers\Admin\Admin::class, 'search']);
 Route::post('/admin/save/', [App\Http\Controllers\Admin\Admin::class, 'saver']);
-
-
