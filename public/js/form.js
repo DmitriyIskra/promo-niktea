@@ -4,17 +4,20 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 function CurrentAuthorizeCheck(){
+    let a = null
     console.log(getCookie("niktea_session"))
     cookie_auth = getCookie("niktea_session")
     var settings = {
         "url": "http://niktea/api/auth/checker",
         "method": "GET",
         "timeout": 0,
+        "async": false
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        a = response;
     });
+    return a;
 }
 function authorize() {
     const formSignIn = document.getElementById('signinForm');
@@ -48,9 +51,8 @@ function authorize() {
     }
 }
 
+
 $( document ).ready(function() {
-
-
     CurrentAuthorizeCheck()
     authorize()
    // })

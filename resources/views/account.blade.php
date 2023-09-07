@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset("css/recept.css") }}">
     <link rel="stylesheet" href="{{ asset("css/forms.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset("js/form.js") }}"></script>
     <title>Личный кабинет</title>
 </head>
 
@@ -20,6 +22,11 @@
 
 <body data-variant="user-account">
 
+<script>
+    console.log(1)
+    //console.log(CurrentAuthorizeCheck())
+
+</script>
 <header>
     <div class="header-wrapper header-wrapper--white">
 
@@ -30,14 +37,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-navq header__list">
-                    <li class="header__item" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                        <a href="#" class="header__link">Регистрация</a>
-                    </li>
+                    <script>
+                        cookie_cache = getCookie("niktea_session")
+                        let div = document.createElement('div');
+                        if(cookie_cache) {
+                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='/account' class='header__link'>Регистрация</a> </li>"
+                        }else{
+                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='#' class='header__link'>Регистрация</a> </li>"
+                        }
+                        $(".navbar-navq").prepend(div);
+                    </script>
                     <li class="header__item">
                         <a href="#" class="header__link">Победители</a>
                     </li>
 
-                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img" src="img/icons/logo.svg"
+                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
                                                                                                alt="logo"></a></li>
 
                     <li class="header__item">
@@ -232,7 +246,7 @@
 
     <div class="breadcrumbs__container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/index">Главная</a></li>
+            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
             <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Личный кабинет </a></li>
         </ul>
     </div>
@@ -244,9 +258,6 @@
             <div class="account-form">
 
                 <button class="log-out__button">ВЫХОД</button>
-
-                <button class="checkAuth">Проверка авторизованности</button>
-                <button class="test__button">Account info</button>
                 <h1>Личный кабинет</h1>
                 <div class="user__data">
                     <div class="data-item green--border">Косолапова</div>

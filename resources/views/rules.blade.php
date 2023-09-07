@@ -37,7 +37,7 @@
                         <li class="header__item">
                             <a href="#" class="header__link">Победители</a>
                         </li>
-                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img" src="img/icons/logo.svg"
+                        <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
                                                                                                    alt="logo"></a></li>
                         <li class="header__item">
                             <a href="#" class="header__link">Призы</a>

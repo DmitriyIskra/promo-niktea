@@ -326,6 +326,7 @@
 
 .code__carousel-prev {   
     transform: translateX(-25px);
+    width: 12px;
     background: none;   
     background-image: url(../img/icons/code-slider-left.svg);
     background-repeat: no-repeat;
@@ -334,6 +335,7 @@
 
   .code__carousel-next {    
     transform: translateX(25px);
+    width: 12px;
     background: none;
     background-image: url(../img/icons/code-slider-right.svg);
     background-repeat: no-repeat;

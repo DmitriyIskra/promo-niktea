@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{ asset("css/forms.css") }}">
     <link rel="stylesheet" href="{{ asset("css/round-slider.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    <script src="{{ asset("js/form.js") }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset("js/form.js") }}"></script>
     <title>Главная</title>
 </head>
 
@@ -45,15 +45,18 @@
                     <li class="header__item">
                         <a href="#" class="header__link">Победители</a>
                     </li>
-
-                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/index"><img class="header__logo--img"
-                                                                                               src="img/icons/logo.svg" alt="logo"></a></li>
-
+                    <li class="nav-item header__logo d-none d-lg-block">
+                        <a href="/">
+                            <img class="header__logo--img" src="img/icons/logo.svg" alt="logo">
+                        </a>
+                    </li>
                     <li class="header__item">
                         <a href="/winners" class="header__link">Призы</a>
                     </li>
                     <li class="header__item">
-                        <button class="header__button" id="userAccount"><a href="/account">Личный кабинет</a></button>
+                        <button class="header__button" id="userAccount">
+                            <a href="/account">Личный кабинет</a>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -117,7 +120,7 @@
                     </div>
 
                     <div class="input__group">
-                        <input class="registry__input--field form-control" type="text" name="password" id="promoCode" required>
+                        <input class="registry__input--field form-control" type="password" name="password" id="promoCode" required>
                         <label for="promoCode" class="reg-label">Введите пожалуйста код из E-mail</label>
                         <div class="invalid-feedback">
                             Вы указали неверный код или вышло время ожидания
