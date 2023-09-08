@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AllPHPTricks.com</title>
+    <title>Niktea</title>
 </head>
 <body>
 <h1>{{ $testMailData['title'] }}</h1>

@@ -1,6 +1,3 @@
-*root {
- 
-}
 
 * {
   outline: none;
@@ -995,14 +992,14 @@ text-transform: uppercase;
     color: #FFF;
     text-align: center;
     font-family: Arsenal;
-    font-size: 16px;
+    font-size: 4.27vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
 .priz__item__text--big{
-  font-size: 24px;
+  font-size: 6.40vw;
   margin-bottom: 49px;
 }
 
@@ -1104,6 +1101,8 @@ margin-bottom: 70px;
 
 .rules__item {
   width: max-content;
+
+  font-size: 5.33vw;
 }
 
 .recepies__button {
@@ -1128,7 +1127,7 @@ margin-bottom: 70px;
 }
 
 h1, h2 {
-  font-size: 24px;
+  font-size: 6.40vw;
 }
 
 
@@ -1236,14 +1235,6 @@ body[data-variant=rules] {
   font-size: 20px;
 }
 
-.container-fluid {
-  /* padding: 0; */
-}
-
-.container-fluid--position {
- 
-}
-
 .codeSlider .swiper-wrapper {
   width: 200px;
 }
@@ -1323,6 +1314,11 @@ body[data-variant=rules] {
 
 .main-page__container {
   margin-bottom: 85%;
+}
+
+div.invalid-feedback--code {
+  top: -18px;
+  width: 90%;
 }
 
 .invalid-feedback {

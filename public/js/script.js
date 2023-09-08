@@ -2,10 +2,6 @@
 // Слайдер кодов
 
 
-    
-
-
-
     let codeAddbutton = document.querySelector('.code__add');
     let codeSlider = document.querySelector('.code__slider');
   
@@ -26,7 +22,7 @@
   var swiperCode = new Swiper(".codeSlider", {    
     grabCursor: true,
     keyboard: true,    
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 2,
     loop: true,  
     centeredSlides: true,    
@@ -86,7 +82,7 @@
     grabCursor: true,
     keyboard: true,    
     slidesPerView: 3,
-    spaceBetween: 10,
+    // spaceBetween: 10,
     loop: true,      
     slideShadows: true,
     navigation: {
@@ -104,28 +100,30 @@
   
       },
 
-      
-      breakpoints: {        
-        1360: {
+      // медиа запросы min-width
+      breakpoints: {    
+        1536: {
           slidesPerView: 3,
-          spaceBetween: 15,
+          // spaceBetween: 15,
+        },    
+        1280: {
+          slidesPerView: 2,
+          // spaceBetween: 15,
         },
-              960: {
-                width: 940,
-                slidesPerView: 2,
-                spaceBetween: 5,
-              },
-              
-              540: {             
-                slidesPerView: 2,
-                spaceBetween: 0,
-              },
-              300: {
-                // with: 300,
-                slidesPerView: 2,
-                spaceBetween: 5,
-              },
-            }
+        768: {
+          // width: 940,
+          slidesPerView: 3,
+          // spaceBetween: 5,
+        },
+        // 540: {             
+        //   slidesPerView: 1,
+        //   // spaceBetween: 0,
+        // },
+        300: {
+          slidesPerView: 1,
+          // spaceBetween: 5,
+        },
+      }
   });  
   
   let checkPaginationNext = document.querySelector('.pagination-next--check')
@@ -279,7 +277,7 @@ document.querySelector('.file__upload--input').addEventListener('onchange', ()=>
 // })
  
 
-  function fileValidation() {
+function fileValidation() {
     let fileInput = document.querySelector('.file-upload__input--user');
 
     let filePath = fileInput.value;

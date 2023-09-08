@@ -45,7 +45,7 @@ function authorize() {
 
         $.ajax(settings).done(function (response) {
             console.log(document.cookie = `niktea_session=${response.auth_token}`)
-            //window.location.href = "http://niktea/account";
+            window.location.href = "http://niktea/account";
             console.log(response);
         });
     }

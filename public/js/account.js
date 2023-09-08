@@ -269,7 +269,6 @@ let exampleCodes = {
   
   // Коды для таблицы
   
-  
   for(var codeAndDate in window.userDataObject) {
     if(window.userDataObject.hasOwnProperty(codeAndDate)) {
     //   console.log(codeAndDate); 
@@ -286,7 +285,7 @@ let exampleCodes = {
   
   let codeList = document.querySelector('.code__list'); 
   
-  codeList.innerHTML = '';
+  codeList.innerHTML = ''; 
   
   exampleCodes.codeN.forEach((code, i) => {
     codeList.innerHTML += `

@@ -2,20 +2,7 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/swiper-bundle.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/account.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/slider.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/catalog.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/search.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/recept.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/forms.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/round-slider.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="{{ asset("js/form.js") }}"></script>
+    @include('template_parts.header_css_js')
     <title>Главная</title>
 </head>
 
@@ -24,44 +11,7 @@
 <header>
     <div class="header-wrapper header-wrapper__main-page">
 
-        <nav class="navbar__wrap navbar-expand-lg">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon navbar-toggler-icon2"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-navq header__list">
-                    <script>
-                        cookie_cache = getCookie("niktea_session")
-                        let div = document.createElement('div');
-                        if(cookie_cache) {
-                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='/account' class='header__link'>Регистрация</a> </li>"
-                        }else{
-                            div.innerHTML = "<li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'><a href='#' class='header__link'>Регистрация</a> </li>"
-                        }
-                        $(".navbar-navq").prepend(div);
-                    </script>
-                    <li class="header__item">
-                        <a href="#" class="header__link">Победители</a>
-                    </li>
-                    <li class="nav-item header__logo d-none d-lg-block">
-                        <a href="/">
-                            <img class="header__logo--img" src="img/icons/logo.svg" alt="logo">
-                        </a>
-                    </li>
-                    <li class="header__item">
-                        <a href="/winners" class="header__link">Призы</a>
-                    </li>
-                    <li class="header__item">
-                        <button class="header__button" id="userAccount">
-                            <a href="/account">Личный кабинет</a>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
+        @include('template_parts.header_menu')
         <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
             <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
         </a>
@@ -86,9 +36,11 @@
                 </div>
                 <div class="buttons__group">
                     <button class="registry__submit" type="submit" data-bs-target="#enterAccount"
-                            data-bs-toggle="modal">ВХОД</button>
+                            data-bs-toggle="modal">ВХОД
+                    </button>
                     <button class="registry__submit" type="submit" data-bs-target="#registryForm"
-                            data-bs-toggle="modal">РЕГИСТРАЦИЯ</button>
+                            data-bs-toggle="modal">РЕГИСТРАЦИЯ
+                    </button>
                 </div>
             </div>
         </div>
@@ -112,7 +64,8 @@
                 <form class="reg__group needs-validation" id="signinForm" novalidate>
 
                     <div class="input__group">
-                        <input class="registry__input--field form-control" type="text" name="email" id="email-auth" required>
+                        <input class="registry__input--field form-control" type="text" name="email" id="email-auth"
+                               required>
                         <label for="promoCode" class="reg-label">Укажите почту, набранную при регистрации</label>
                         <div class="invalid-feedback">
                             Заполните пожалуйста данное поле
@@ -120,7 +73,8 @@
                     </div>
 
                     <div class="input__group">
-                        <input class="registry__input--field form-control" type="password" name="password" id="promoCode" required>
+                        <input class="registry__input--field form-control" type="password" name="password"
+                               id="promoCode" required>
                         <label for="promoCode" class="reg-label">Введите пожалуйста код из E-mail</label>
                         <div class="invalid-feedback">
                             Вы указали неверный код или вышло время ожидания
@@ -151,14 +105,16 @@
                 </div>
                 <form class="reg__group needs-validation" id="user-data" novalidate>
                     <div class="input__group has-validation">
-                        <input class="registry__input--field form-control" type="text" name="name" id="firstName" required>
+                        <input class="registry__input--field form-control" type="text" name="name" id="firstName"
+                               required>
                         <label for="firstName" class="reg-label">ИМЯ</label>
                         <div class="invalid-feedback">
                             Заполните, пожалуйста, имя
                         </div>
                     </div>
                     <div class="input__group has-validation">
-                        <input class="registry__input--field form-control" type="text" name="second_name" id="second_name"
+                        <input class="registry__input--field form-control" type="text" name="second_name"
+                               id="second_name"
                                required>
                         <label for="secondName" class="reg-label">ФАМИЛИЯ</label>
                         <div class="invalid-feedback">
@@ -166,14 +122,16 @@
                         </div>
                     </div>
                     <div class="input__group">
-                        <input class="registry__input--field form-control" type="text" name="patronymic" id="patronymic" required>
+                        <input class="registry__input--field form-control" type="text" name="patronymic" id="patronymic"
+                               required>
                         <label for="fathersName" class="reg-label">ОТЧЕСТВО</label>
                         <div class="invalid-feedback">
-                            Заполните, пожалуйста,  отчество
+                            Заполните, пожалуйста, отчество
                         </div>
                     </div>
                     <div class="input__group">
-                        <input class="registry__input--field form-control" type="text" name="phone" data-phone-pattern id="phone"
+                        <input class="registry__input--field form-control" type="text" name="phone" data-phone-pattern
+                               id="phone"
                                required>
                         <label for="fathersName" class="reg-label">НОМЕР ТЕЛЕФОНА</label>
                         <div class="invalid-feedback">
@@ -189,12 +147,15 @@
                         </div>
                     </div>
                     <label for="email" class="reg-label reg-label--post--layout">внимание!<br class="br-mob"> именно на
-                        электронную почту придет<br class="br-mob"> подтверждение выигрыша!</label>
+                        электронную почту придет<br class="br-mob"> подтверждение выигрыша!
+                    </label>
 
                     <div class="input__group">
 
-                        <input class="registry__input--field form-control" type="text" name="code" id="codeauth" required>
-                        <label for="promoCode" class="reg-label reg-label--promo">Добавьте пожалуйста код, который находится на
+                        <input class="registry__input--field form-control" type="text" name="code" id="codeauth"
+                               required>
+                        <label for="promoCode" class="reg-label reg-label--promo">Добавьте пожалуйста код, который
+                            находится на
                             вкладыше внутри пачки</label>
                         <div class="invalid-feedback invalid-feedback--code">
                             Извините, но без кода вы не можете принять участие в акции
@@ -203,15 +164,18 @@
 
                     <div class="file-upload__group input__group" required>
 
-                        <label class="reg-label reg-label--check">Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)</label>
+                        <label class="reg-label reg-label--check">Загрузите, пожалуйста, чек (внимание, чек должен быть
+                            читабельным)</label>
 
                         <label class="file-upload__label" for="checkLoadLabel">
 
-                            <input class="file__upload--input form-control" id="checkLoadLabel" type="file" name="check" aria-label="file example" required>
+                            <input class="file__upload--input form-control" id="checkLoadLabel" type="file" name="check"
+                                   aria-label="file example" required>
 
                         </label>
 
-                        <div class="invalid-feedback invalid-feedback--check" id="file-info">Извините, но без чека вы не можете принять<br class="br-mob"> участие в акции
+                        <div class="invalid-feedback invalid-feedback--check" id="file-info">Извините, но без чека вы не
+                            можете принять<br class="br-mob"> участие в акции
                         </div>
 
                     </div>
@@ -288,12 +252,12 @@
 
         </section>
 
-        <a href="/rules"><button class="recepies__button">ПРАВИЛА ПРОВЕДЕНИЯ АКЦИИ</button></a>
+        <a href="/rules">
+            <button class="recepies__button">ПРАВИЛА ПРОВЕДЕНИЯ АКЦИИ</button>
+        </a>
 
 
         <section class="main__slider">
-
-
 
             <div class="main__slider--wrap">
                 <!-- <div class="slider-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div> -->
@@ -302,7 +266,7 @@
 
                     <div class="testSlider roundSlider">
 
-                        <section>
+                        <section class="wr-slider-content">
                             <h2>ВСЕ ПРИЗЫ</h2>
 
                             <div class="active-slide__description"></div>
@@ -311,7 +275,8 @@
                                 <div class="slide__container">
                                     <span class="slide__description">Сертификат на путешествие 300 000р</span>
                                     <div class="slide-img--wrap slide-img--wrap-certif">
-                                        <img class="main-slide__img main-slide__img--light" src="img/content/priz/certif.png"
+                                        <img class="main-slide__img main-slide__img--light"
+                                             src="img/content/priz/certif.png"
                                              alt="certif">
                                     </div>
                                 </div>
@@ -328,7 +293,8 @@
                     <span class="slide__description">Смартфон Apple iPhone 14 Pro 256GB<br>
                       Цвет: Deep Purple</span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/phone-priz.png" alt="phone-priz">
+                                        <img class="main-slide__img" src="img/content/priz/phone-priz.png"
+                                             alt="phone-priz">
                                     </div>
                                 </div>
 
@@ -352,7 +318,8 @@
                     <span class="slide__description">Чайник Bork K 703 CH<br>
                       Цвет: Champagne</span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/teapot-priz.png" alt="teapot-priz">
+                                        <img class="main-slide__img" src="img/content/priz/teapot-priz.png"
+                                             alt="teapot-priz">
                                     </div>
                                 </div>
 
@@ -360,7 +327,8 @@
                     <span class="slide__description">Наушники Apple AirPods Pro (2 поколение)<br>
                       Цвет: Белый </span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/headphones.png" alt="headphones">
+                                        <img class="main-slide__img" src="img/content/priz/headphones.png"
+                                             alt="headphones">
                                     </div>
                                 </div>
 
@@ -402,7 +370,8 @@
                     <span class="slide__description">Консоль Sony PlayStation 5<br>
                       Blu-Ray Edition </span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/playstation.png" alt="playstation">
+                                        <img class="main-slide__img" src="img/content/priz/playstation.png"
+                                             alt="playstation">
                                     </div>
                                 </div>
 
@@ -410,7 +379,8 @@
                     <span class="slide__description">Воздухоотчиститель Dyson (HP05)<br>
                       Pure Hot + Cool </span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/cleaner-priz.png" alt="cleaner-priz">
+                                        <img class="main-slide__img" src="img/content/priz/cleaner-priz.png"
+                                             alt="cleaner-priz">
                                     </div>
                                 </div>
 
@@ -441,35 +411,36 @@
             <div class="priz__item">
           <span class="priz__item__text priz__item__text--big">Главный подарок<br>
             - сертификат на путешествие</span>
-                <img class="priz__item__img priz__item__img--layout" src="img/content/mobile/certif-mobile.png" alt="certif-mobile">
+                <img class="priz__item__img priz__item__img--layout" src="img/content/mobile/certif-mobile.png"
+                     alt="certif-mobile">
             </div>
 
 
             <div class="priz__item">
                 <span class="priz__item__text">Macbook air m2<br>midnight</span>
-                <img class="priz__item__img" src="img/content/mobile/notebook.png" alt="notebook.png" >
+                <img class="priz__item__img" src="img/content/mobile/notebook.png" alt="notebook.png">
             </div>
 
             <div class="priz__item">
                 <span class="priz__item__text">Iphone 14 pro 256<br>deep purple</span>
-                <img class="priz__item__img" src="img/content/mobile/iphone.png" alt="iphone" >
+                <img class="priz__item__img" src="img/content/mobile/iphone.png" alt="iphone">
             </div>
 
             <div class="priz__item">
                 <span class="priz__item__text">Ipad mini 256 space<br>grey</span>
-                <img class="priz__item__img" src="img/content/mobile/ipad.png" alt="ipad" >
+                <img class="priz__item__img" src="img/content/mobile/ipad.png" alt="ipad">
             </div>
 
 
             <div class="priz__item">
                 <span class="priz__item__text">Очиститель воздуха<br>Dyson HP05</span>
-                <img class="priz__item__img" src="img/content/mobile/dyson.png" alt="dyson" >
+                <img class="priz__item__img" src="img/content/mobile/dyson.png" alt="dyson">
             </div>
 
 
             <div class="priz__item">
                 <span class="priz__item__text">Bork Электросамокат</span>
-                <img class="priz__item__img" src="img/content/mobile/scooter-mobile.png" alt="scooter-mobile" >
+                <img class="priz__item__img" src="img/content/mobile/scooter-mobile.png" alt="scooter-mobile">
             </div>
 
 
@@ -533,9 +504,10 @@
             <div class="footer__column tg-col">
 
                 <div class="footer__item footer__item--icons">
-                    <div class="footer__item--right"> <a href="#" class="footer__link  footer__link__right"><img
+                    <div class="footer__item--right"><a href="#" class="footer__link  footer__link__right"><img
                                 class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a></div>
-                    <div><a href="#" class="footer__link"><img class="footer__link--img" src="img/icons/whatsapp-icon.svg"
+                    <div><a href="#" class="footer__link"><img class="footer__link--img"
+                                                               src="img/icons/whatsapp-icon.svg"
                                                                alt="Logo"></a></div>
                 </div>
 
@@ -551,9 +523,11 @@
 
                 <div class="footer__list">
                     <div class="footer__item footer__item--phone">
-                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
+                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg"
+                                                         alt="phone-icon"></div>
                         <div class="phone-number-col">
-                            <div class="phone-number"><a class="phone-number__link" href="tel:+7-903-798-85-98">8-903-798-85-98</a></div>
+                            <div class="phone-number"><a class="phone-number__link" href="tel:+7-903-798-85-98">8-903-798-85-98</a>
+                            </div>
                             <div class="w-100"></div>
                             <span>С 9:00 до 18:00 по МСК</span>
                         </div>
@@ -565,8 +539,6 @@
         </div>
     </div>
 </footer>
-
-
 
 
 <script src="{{ asset("js/bootstrap.js") }}"></script>
