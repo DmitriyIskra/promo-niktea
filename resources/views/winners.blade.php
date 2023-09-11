@@ -18,6 +18,8 @@
     </div>
 </header>
 
+@include('template_parts.modal')
+
 <main class="main">
 
     <div class="winners__container">

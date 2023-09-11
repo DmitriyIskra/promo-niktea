@@ -1,58 +1,110 @@
-// Коды пользователя
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
 
-// Получаем данные пользователя и выводим в форму
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+function CurrentAuthorizeCheck(){
+    let a = null
+    console.log(getCookie("niktea_session"))
+    cookie_auth = getCookie("niktea_session")
+    var settings = {
+        "url": "http://niktea/api/auth/checker",
+        "method": "GET",
+        "timeout": 0,
+        "async": false
+    };
 
-// (async () => {
-//   let response = await fetch('test.json');
-//   let userData = await response.json();
+    $.ajax(settings).done(function (response) {
+        a = response;
+    });
+    return a;
+}
+function authorize() {
+    const formSignIn = document.getElementById('signinForm');
+    formSignIn.addEventListener('submit', SendAuth);
 
-//   JSON.parse(userData, function(k,v){
-//     console.log(k);
-//     return v;
-//   });
-  
-// for (var key in userData) {
-//     console.log(key, userData[key])      
-// }    
+    function SendAuth(event) {
+        event.preventDefault();
+        const name = formSignIn.querySelector('[name="email"]'), //получаем поле name
+            password = formSignIn.querySelector('[name="password"]') //получаем поле age
+        data = JSON.stringify({
+            "email": name.value,
+            "password": password.value
+        })
 
-// const objectArray = Object.entries(userData);
+        console.log(data)
+        var settings = {
+            "url": "http://niktea/api/auth/login",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json",
+            },
+            "data": data
+        };
 
-// objectArray.forEach(([key, value]) => {
-//   console.log(key);
-//   console.log(value);
-// }); 
+        $.ajax(settings).done(function (response) {
+            console.log(document.cookie = `niktea_session=${response.auth_token}`)
+            window.location.href = "http://niktea/account";
+            console.log(response);
+        });
+    }
+}
+function logout() {
+    const logOut = document.querySelector('.log-out__button');
 
-// let activatedCodes = {}
-// for (const [key, value] of Object.entries(userData)) {
-//   if (key.includes('activated_codes')) {
-//     activatedCodes[key] = value
-//   }
-// }
+        logOut.addEventListener('click', logouter);
 
-// let activatedCodesValue = {}
-// for (const [key, value] of Object.entries(activatedCodes)) {
-//   if (key.includes('service_device_id')) {
-//     activatedCodesValue[key] = value
-//   }
-// }
+        function logouter() {
+            var settings = {
+                "url": "http://niktea/api/auth/logout",
+                "method": "GET",
+                "timeout": 0,
+            };
 
-// console.log(activatedCodesValue)
+            $.ajax(settings).done(function (response) {
+                console.log(response)
+                if(response.is_auth === true) {
+                    deleteAllCookies()
+                    window.location.href = "/";
+                }
+            });
+        }
+}
+async function accountInfo() {
+  const resp = await fetch('https://dev.nikteaworld.com/api/account/info');
+  const result = await resp.json();
 
-// })();
+  console.log(result)
+}
 
 
+$( document ).ready(function() {
+    authorize()
+    logout()
+    accountInfo()
+   // })
 
-// Регистрация
-
+    /*
 const form = document.getElementById('user-data');
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
 
-  const formData = new FormData(form);  
+  const formData = new FormData(form);
 
     console.log(formData)
-  
+
   try {
     const res = await fetch(
       'https://dev.nikteaworld.com/api/auth/register',
@@ -72,68 +124,7 @@ form.addEventListener('submit', async event => {
 });
 
 
-// Вход в систему. Авторизация
 
-//   const formSignIn = document.getElementById('signinForm');
-
-//   const formSignData = new FormData(formSignIn);  
-
-//   (async function main() {
-//     // var myHeaders = new Headers();
-//     // myHeaders.append('Content-Type', 'application/json');
-  
-
-
-// var raw = formSignData
-
-//     const res = await fetch('https://dev.nikteaworld.com/api/auth/login', {
-//       // headers: myHeaders,
-//       method: 'POST',
-//       body: raw,
-//       redirect: 'follow',
-//     });
-  
-//     console.log(await res.json());
-//   })();
-
-
-  
-// Прошлый вариант загрузки
-// const formSignIn = document.getElementById('signinForm');
-
-//   formSignIn.addEventListener('submit', async event => {
-//     event.preventDefault();
-  
-//     const formSignData = new FormData(formSignIn);  
-  
-
-//   try {
-//       const res = await fetch(
-//         'https://dev.nikteaworld.com/api/auth/login',
-//         {
-//           method: 'POST',    
-//           body: formSignData,
-//           redirect: 'follow'
-//         },
-//       );
-  
-//       var resData = await res.json();
-  
-//       console.log(resData);
-      
-//       return res.json();
-
-     
-//     } catch (err) {
-//       console.log(err.message);
-//     }
-    
-//   });
-
- 
-
- 
-// Тестовый набор кодов
 
 let exampleCodes = {
   codeN: [
@@ -221,7 +212,7 @@ let exampleCodes = {
     '3554-QTNS5N',
     'два5-QTNS5N',
     '3556-QTNS5N',
-    'три4-QTNS5N',    
+    'три4-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
     '3556-QTNS5N',
@@ -239,7 +230,7 @@ let exampleCodes = {
     '3554-QTNS5N',
     'два5-QTNS5N',
     '3556-QTNS5N',
-    'три4-QTNS5N', 
+    'три4-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
     '3556-QTNS5N',
@@ -259,35 +250,8 @@ let exampleCodes = {
     '3556-QTNS5N',
     'три4-QTNS5N',
 
-    
 
-    '3556-QTNS5N',
-    'три4-QTNS5N',
-    'три5-QTNS5N',
-    '3556-QTNS5N',
-    '3552-QTNS5N',
-    '3554-QTNS5N',
-    '3554-QTNS5N',
-    '3555-QTNS5N',
-    '3555-QTNS5N',
-    '3556-QTNS5N',
-    '3554-QTNS5N',
-    '3555-QTNS5N',
-    '3556-QTNS5N',
-    '3552-QTNS5N',
-    '3554-QTNS5N',
-    '3554-QTNS5N',
-    'два5-QTNS5N',
-    '3556-QTNS5N',
-    'три4-QTNS5N',
-    'три5-QTNS5N',
-    '3556-QTNS5N',
-    '3552-QTNS5N',
-    '3554-QTNS5N',
-    '3554-QTNS5N',
-    '3555-QTNS5N',
 
-    
     '3556-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
@@ -312,9 +276,9 @@ let exampleCodes = {
     '3552-QTNS5N',
     '3554-QTNS5N',
     '3554-QTNS5N',
+    '3555-QTNS5N',
 
-    
-    
+
     '3556-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
@@ -340,8 +304,8 @@ let exampleCodes = {
     '3554-QTNS5N',
     '3554-QTNS5N',
 
-    
-    
+
+
     '3556-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
@@ -367,8 +331,8 @@ let exampleCodes = {
     '3554-QTNS5N',
     '3554-QTNS5N',
 
-    
-    
+
+
     '3556-QTNS5N',
     'три4-QTNS5N',
     'три5-QTNS5N',
@@ -392,30 +356,42 @@ let exampleCodes = {
     '3556-QTNS5N',
     '3552-QTNS5N',
     '3554-QTNS5N',
-    '3554-QTNS5N',   
+    '3554-QTNS5N',
+
+
+
+    '3556-QTNS5N',
+    'три4-QTNS5N',
+    'три5-QTNS5N',
+    '3556-QTNS5N',
+    '3552-QTNS5N',
+    '3554-QTNS5N',
+    '3554-QTNS5N',
+    '3555-QTNS5N',
+    '3555-QTNS5N',
+    '3556-QTNS5N',
+    '3554-QTNS5N',
+    '3555-QTNS5N',
+    '3556-QTNS5N',
+    '3552-QTNS5N',
+    '3554-QTNS5N',
+    '3554-QTNS5N',
+    'два5-QTNS5N',
+    '3556-QTNS5N',
+    'три4-QTNS5N',
+    'три5-QTNS5N',
+    '3556-QTNS5N',
+    '3552-QTNS5N',
+    '3554-QTNS5N',
+    '3554-QTNS5N',
     '3555-QTNS5N'
 
   ]
 }
 
-
-
-// Коды для таблицы
-
-
-// for(var codeAndDate in window.userDataObject) {
-//   if(window.userDataObject.hasOwnProperty(codeAndDate)) {
-//   //   console.log(codeAndDate); 
-//     for (var i = 0, j = window.userDataObject[codeAndDate].length; i < j; i++) {
-//       console.log("Код и время создания", window.userDataObject[codeAndDate][i].service_device_id, window.userDataObject[codeAndDate][i].created_time);
-//     }
-//   }
-// }
-
-
 // Таблица кодов. Для даты заглушка
 
-let codeList = document.querySelector('.code__list'); 
+        let codeList = document.getElementsByClassName('code__list');
 
 codeList.innerHTML = '';
 
@@ -428,9 +404,9 @@ exampleCodes.codeN.forEach((code, i) => {
                   `
 })
 
-if(document.querySelector('.winners__list')) {
+        if (document.getElementsByClassName('winners__list')) {
 
-  let winnersList = document.querySelector('.winners__list'); 
+            let winnersList = document.getElementsByClassName('winners__list');
 
 winnersList.innerHTML = '';
 
@@ -449,7 +425,7 @@ exampleCodes.codeN.forEach((code, i) => {
 
 // Слайдер кодов
 
-let codeSlides = document.querySelector('.codeslider-output'); 
+        let codeSlides = document.getElementsByClassName('codeslider-output');
 
 codeSlides.innerHTML = '';
 
@@ -491,7 +467,7 @@ let exampleChecks = {
   ]
 }
 
-let checkSlides = document.querySelector('.checkSlides'); 
+        let checkSlides = document.getElementsByClassName('checkSlides');
 
 checkSlides.innerHTML = '';
 
@@ -509,7 +485,7 @@ exampleChecks.checkIMAGE.forEach((check, i) => {
 
 const paginationNumbers = document.getElementById("pagination-numbers");
 const paginatedList = document.getElementById("paginated-list");
-const listItems = paginatedList.querySelectorAll("li");
+        const listItems = paginatedList.getElementsByTagName("li");
 const nextButton = document.getElementById("next-button");
 const prevButton = document.getElementById("prev-button");
 
@@ -581,7 +557,7 @@ const setCurrentPage = (pageNum) => {
 
   handleActivePageNumber();
   handlePageButtonsStatus();
-  
+
   const prevRange = (pageNum - 1) * paginationLimit;
   const currRange = pageNum * paginationLimit;
 
@@ -618,135 +594,6 @@ window.addEventListener("load", () => {
 
 
 
-            // Коды для таблицы
-
-            // for(var codeAndDate in window.userDataObject) {
-            //   if(window.userDataObject.hasOwnProperty(codeAndDate)) {
-            //   //   console.log(codeAndDate); 
-            //     for (var i = 0, j = window.userDataObject[codeAndDate].length; i < j; i++) {
-            //       console.log("Код и время создания", window.userDataObject[codeAndDate][i].service_device_id, window.userDataObject[codeAndDate][i].created_time);
-            //     }
-            //   }
-            // }
-
-            // // Коды для слайдера
-
-            // for(var codeSlide in window.userDataObject) {
-            //   if(window.userDataObject.hasOwnProperty(codeSlide)) {
-            //   //   console.log(codeSlide); 
-            //     for (var i = 0, j = window.userDataObject[codeSlide].length; i < j; i++) {
-            //       console.log("Код", window.userDataObject[codeSlide][i].service_device_id);
-            //     }
-            //   }
-            // } 
-
-            // // Изображения чеков
-
-            // for(var checkImg in window.userDataObject) {
-            //   if(window.userDataObject.hasOwnProperty(checkImg)) {
-            //   //   console.log(checkImg); 
-            //     for (var i = 0, j = window.userDataObject[checkImg].length; i < j; i++) {
-            //       console.log("Изображение чека", window.userDataObject[checkImg][i].ticket_path);
-            //     }
-            //   }
-            // } 
-
-            // var myHeaders = new Headers();
-            // myHeaders.append("Cookie", "niktea_session=DznQy3hhFrBCRmn90pTWVLZDvfdUK3zHqIqfM3aO");
-            
-            // var requestOptions = {
-            //   method: 'GET',
-            //   headers: myHeaders,
-            //   redirect: 'follow'
-            // };
-            
-            // fetch("https://dev.nikteaworld.com/api/winners", requestOptions)
-            //   .then(response => response.text())
-            //   .then(response => response.headers)
-            //   .then(result => console.log(result))
-            //   .catch(error => console.log('error', error));
-            
-   
-
-
-// Вход в систему
-
-// const formSignIn = document.getElementById('signinForm');
-
-// formSignIn.addEventListener('submit', async event => {
-//   event.preventDefault();
-
-//   const formSignData = new FormData(formSignIn);  
-
-//   console.log('форма работает')
-
-//   formSignData.forEach((value, key) => {
-//     console.log(`${key}: ${value}`);
-//   });
-
-// try {
-//     const res = await fetch('https://dev.nikteaworld.com/api/auth/login',
-//       {
-//         method: 'POST',    
-//         body: formSignData,
-//         redirect: 'follow'
-//       },
-//     );
-
-//     const resData = await res.json();
-
-//     console.log(resData);
-
-    
-
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-
-// });
-
-const formSignIn = document.getElementById('signinForm');
-
-formSignIn.addEventListener('submit', function postData() {
-
-  const formSignData = new FormData(formSignIn);  
-
-  fetch('https://dev.nikteaworld.com/api/auth/login', {
-      method: 'POST',      
-      body: formSignData,
-      redirect: 'follow'     
-                   
-  })
-      .then(response => {
-          // console.log(response);
-          if (!response.ok) {                
-              throw Error('ERROR')
-          }
-          return response.json();
-      })              
-      .then(data => {
-      
-
-        for (const [key, value] of Object.entries(data)) {
-
-          if(key.includes('auth_token')){
-            // console.log("токен " + value);
-
-            document.cookie = `nektia_session=${value}`
-
-            console.log(document.cookie)
-
-          }          
-        }
-      
-      })
-      .catch(error => {
-          console.log(error);
-      });
-})
-
-
-
 let cookies = document.cookie
   .split(';')
   .map(cookie => cookie.split('='))
@@ -754,7 +601,7 @@ let cookies = document.cookie
 
 
   let keyCookie = cookies.nektia_session;
-  
+
 
   console.log('передаваемый ключ из куки: ' + keyCookie)
 
@@ -775,21 +622,21 @@ if(document.querySelector('.log-out__button')){
   let logOut = document.querySelector('.log-out__button');
 
   logOut.addEventListener('click', async ()=>{
-  
+
     var myHeaders = new Headers();
   myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`);
-  
+
   var requestOptions = {
     method: 'GET',
     headers: myHeaders,
-    redirect: 'follow'  
+    redirect: 'follow'
   };
-  
+
   await fetch("https://dev.nikteaworld.com/api/auth/logout", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-  
+
 
     deleteAllCookies()
   })
@@ -803,12 +650,12 @@ if(document.querySelector('.checkAuth')){
   checkAuth.addEventListener('click', async event => {
     event.preventDefault();
 
-    console.log('проверка авторизованности- куки: ' + document.cookie)
-    
+                console.log('проверка авторизованнсоти- куки: ' + document.cookie)
+
     var myHeaders = new Headers();
- 
+
     myHeaders.append('Cookie', `'nektia_session=${keyCookie}'`)
-       
+
 
     var requestOptions = {
       method: 'GET',
@@ -816,54 +663,68 @@ if(document.querySelector('.checkAuth')){
       // body: raw,
       redirect: 'follow'
     };
-    
+
     try {
       const res = await fetch("https://dev.nikteaworld.com/api/auth/checker", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result + 'проверка авторизованности'))
       .catch(error => console.log('error', error));
-      
+
     } catch (err) {
-      console.log(err.message);    
+      console.log(err.message);
     }
-  
+
   });
 }
 
 
 // Данные пользователя Account info
 if(document.querySelector('.test__button')){
-  
+
 let testButton = document.querySelector('.test__button');
 
 testButton.addEventListener('click', async event => {
- 
+
   var myHeaders = new Headers();
 
-  myHeaders.append("Cookie", `nektia_session=${keyCookie}`)
+                myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`)
 
-    
   var requestOptions = {
     method: 'GET',
     headers: myHeaders,
-    redirect: 'follow'
+                    redirect: 'follow',
+                    credentials: "same-origin"
   };
-  
-  fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+
+                await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-});
-}
 
 
+                try {
 
 
-// let x = document.cookie;
+                    myHeaders.append("Cookie", `"nektia_session=${keyCookie}"`);
 
-// console.log(x);
+                    var requestOptions = {
+                        method: 'GET',
+                        headers: myHeaders,
+                        redirect: 'follow',
+                        credentials: "same-origin"
+                    };
 
+                    const res = await fetch("https://dev.nikteaworld.com/api/account/info", requestOptions)
+                        .then(response => response.text())
+                        .then(result => console.log(result + ' данные пользователя'))
+                        .catch(error => console.log('error', error));
 
+                } catch (err) {
+                    console.log(err.message);
+                }
 
-// DGSogOnn5y
-// miliakhin@alephtrade.com
+            });
+        }
+        */
+
+})

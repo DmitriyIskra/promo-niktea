@@ -469,6 +469,10 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
     text-transform: uppercase;    
 }
 
+.invalid-feedback_active {
+    display: block;
+}
+
  .uploadInputForm {
     order: 1;
  }
@@ -606,11 +610,10 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         font-size: 13px;
         margin-bottom: 10px;
     }
-
+ 
     .br-mob {
         display: block;
-    }
-
+    } 
 
     .pagination-numbers {
         display: inline;
@@ -619,7 +622,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
     }
 
     .file-upload__group .file-upload__label--width {
-        width: 100%;
+        width: 88%;
     }
 
     .registry__input--field {

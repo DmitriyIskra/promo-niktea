@@ -63,6 +63,7 @@
     </div>
 </header>
 
+@include('template_parts.modal')
 
 <main class="main">
 

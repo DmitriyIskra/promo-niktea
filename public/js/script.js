@@ -1,25 +1,29 @@
+window.addEventListener('load', () => {
+  // Слайдер кодов
 
-// Слайдер кодов
+  // let codeArr = [];
+  // let codePlace = null;
 
+  // const codeAddbutton = document.querySelector('.code__add');
+  // const codeSlider = document.querySelector('.code__slider');
+  // const codeSubmit = document.querySelector('.code__submit')
 
-    let codeAddbutton = document.querySelector('.code__add');
-    let codeSlider = document.querySelector('.code__slider');
-  
-  
-    if(document.querySelector('.code__add')){
-      codeAddbutton.addEventListener('click', ()=> {
-        codeSlider.classList.toggle('code__sleder--display');
-      })
-  
-      document.querySelector('.code__submit').addEventListener('click', function(){
-        console.log('Кнопка зарегистрировать код')
-      })
-    }
+  // function registerEvents() {
+  //   codeAddbutton.addEventListener('click', () => {
+  //     codeSlider.classList.add('code__sleder--display');
+  //   })
+  // }
 
-
-
+  // if(codeAddbutton){
     
-  var swiperCode = new Swiper(".codeSlider", {    
+
+  //   codeSubmit.addEventListener('click', (e) => {
+  //     console.log('Кнопка зарегистрировать код')
+  //   })
+  // }
+
+  
+  let swiperCode = new Swiper(".codeSlider", {    
     grabCursor: true,
     keyboard: true,    
     slidesPerView: 1,
@@ -30,126 +34,123 @@
     navigation: {
         nextEl: ".code__carousel-next",
         prevEl: ".code__carousel-prev",
-      },      
-      breakpoints: {     
-     
-        992: {
-          centeredSlides: true,  
-          slidesPerView: 3,
-          spaceBetween: 10,
-        },
-
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        },
-
-        
-        300: {
-          // with: 200,
-          slidesPerView: 1,
-          spaceBetween: 0,
-        },
-      },             
+    },      
+    breakpoints: {     
+      992: {
+        centeredSlides: true,  
+        slidesPerView: 3,
+        spaceBetween: 10,
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      300: {
+        // with: 200,
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+    },             
   
-    });  
+  });
+
+})
 
 
-    if(document.querySelector('.code__add')){
-      
 
 
-      document.querySelector('.code__add').addEventListener('click', function(){     
-        if(document.querySelectorAll('.swiper-slide').length > 1){
-          swiperCode.slideNext();
-        }  
 
-        
-        // else{
-        //   console.log(document.querySelectorAll('.swiper-slide').length)
-        // }         
-
-  })
-}
+  
 
 
-  if(document.querySelector('.checkSlider')) {
 
-    
- // Слайдер чеков 
 
-  var swiperCheck = new Swiper(".checkSlider", {
-    grabCursor: true,
+
+
+//--------------------- СЛАЙДЕР ЧЕКОВ 
+
+
+if(document.querySelector('.checkSlider')) {
+
+  let swiperCheck = new Swiper(".checkSlider", {
+    // grabCursor: true,
     keyboard: true,    
     slidesPerView: 3,
     // spaceBetween: 10,
-    loop: true,      
+    // loop: true,      
     slideShadows: true,
+    // отменили перетаскивание на ПК
+    simulateTouch: false,
     navigation: {
-        nextEl: ".slider-button-next",
-        prevEl: ".slider-button-prev",
-      },      
-
-      pagination: {
-        el: ".pagination",
-        clickable: true,        
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (index + 1) + "</span>";
-        },
+      nextEl: ".slider-button-next",
+      prevEl: ".slider-button-prev",
+    },      
  
-  
+    pagination: {
+      el: ".pagination",
+      type: "bullets",
+      // динамические булеты
+      dynamicBullets: true,
+      clickable: true,        
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
       },
-
-      // медиа запросы min-width
-      breakpoints: {    
-        1536: {
-          slidesPerView: 3,
-          // spaceBetween: 15,
-        },    
-        1280: {
-          slidesPerView: 2,
-          // spaceBetween: 15,
-        },
-        768: {
-          // width: 940,
-          slidesPerView: 3,
-          // spaceBetween: 5,
-        },
-        // 540: {             
-        //   slidesPerView: 1,
-        //   // spaceBetween: 0,
-        // },
-        300: {
-          slidesPerView: 1,
-          // spaceBetween: 5,
-        },
-      }
+    },
+ 
+    // медиа запросы min-width
+    breakpoints: {    
+      1920: {
+        slidesPerView: 3,
+        // spaceBetween: 15,
+      },
+      1536: {
+        slidesPerView: 2,
+        // spaceBetween: 15,
+      },    
+      1280: {
+        slidesPerView: 1,
+        // spaceBetween: 15,
+      },
+      768: {
+        // width: 940,
+        slidesPerView: 3,
+        // spaceBetween: 5,
+      },
+      // 540: {             
+      //   slidesPerView: 1,
+      //   // spaceBetween: 0,
+      // },
+      300: {
+        slidesPerView: 1,
+        // spaceBetween: 5,
+      },
+    }
   });  
-  
+   
   let checkPaginationNext = document.querySelector('.pagination-next--check')
   let checkPaginationPrev = document.querySelector('.pagination-prev--check')
-  
-  
+   
+   
   checkPaginationNext.addEventListener('click', function(){
     swiperCheck.slideNext();
   })
-
+ 
   checkPaginationPrev.addEventListener('click', function(){
     swiperCheck.slidePrev();
   })
+ 
+}
 
-  }
+//--------------------- END СЛАЙДЕР ЧЕКОВ 
 
-  
+//   ------------ !!!!!!!!!!!!!!!!!!!!!!!!!!
 
+  // let add = document.querySelector('.navbar-toggler');
 
-
-  let navToggler = document.querySelector('.navbar-toggler');
-
-    navToggler.addEventListener('click', function(){
-      navToggler.classList.toggle('burgerChecked');
-      document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')      
-    })
+  //   navToggler.addEventListener('click', function(){
+  //     navToggler.classList.toggle('burgerChecked');
+  //     document.querySelector('.navbar-toggler-icon').classList.toggle('navbar-toggler-icon--close')      
+  //   })
   
 
 
@@ -238,10 +239,10 @@
 
 //Проверка файлов
   
-
-document.querySelector('.file__upload--input').addEventListener('onchange', ()=>{
-  fileValidation()
-})
+// ------------------------ pfrjvtynbk !!!!!!!!!!!!!!!!!!!!
+// document.querySelector('.file__upload--input').addEventListener('onchange', ()=>{
+//   fileValidation()
+// })
  
 
   function fileValidation() {

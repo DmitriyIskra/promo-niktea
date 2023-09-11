@@ -18,4 +18,9 @@
 <link rel="stylesheet" href="{{ asset("css/forms.css") }}">
 <link rel="stylesheet" href="{{ asset("css/style.css") }}">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
+<script src="{{ asset("js/slider.js") }}"></script>
 <script src="{{ asset("js/form.js") }}"></script>
+<script src="{{ asset("js/script.js") }}"></script> 
+<script src="{{ asset("js/app.js") }}" type="module"></script>
+

@@ -1326,6 +1326,10 @@ div.invalid-feedback--code {
   left: 5%;
 }
 
+.invalid-feedback_active {
+  display: block;
+}
+
 
 }
 
