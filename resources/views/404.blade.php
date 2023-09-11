@@ -41,7 +41,7 @@
                         <a href="#" class="header__link">Победители</a>
                     </li>
 
-                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="img/icons/logo.svg"
+                    <li class="nav-item header__logo d-none d-lg-block"> <a href="/"><img class="header__logo--img" src="{{ asset('img/icons/logo.svg") }}"
                                                                                                alt="logo"></a></li>
 
                     <li class="header__item">
@@ -55,7 +55,7 @@
 
         </nav>
         <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
-            <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
+            <img src="{{ asset('img/icons/logo-mobile.svg') }}" alt="logo-mobile">
         </a>
         <a class="navbar-brand d-lg-none account-logo-mobile" href="/account">
         </a>
@@ -111,8 +111,8 @@
 
                 <div class="footer__item footer__item--icons">
                     <div class="footer__item--right"> <a href="#" class="footer__link  footer__link__right"><img
-                                class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a></div>
-                    <div><a href="#" class="footer__link"><img class="footer__link--img" src="img/icons/whatsapp-icon.svg"
+                                class="footer__link--img" src="{{ asset('img/icons/telegram-icon.svg') }}" alt="Logo"></a></div>
+                    <div><a href="#" class="footer__link"><img class="footer__link--img" src="{{ asset('img/icons/whatsapp-icon.svg') }}"
                                                                alt="Logo"></a></div>
                 </div>
 
@@ -120,7 +120,7 @@
 
             <div class="footer__column logo-col">
                 <a class="footer__logo">
-                    <img class="footer__logo--img" src="img/icons/footer-logo.svg" alt="Logo">
+                    <img class="footer__logo--img" src="{{ asset('img/icons/footer-logo.svg') }}" alt="Logo">
                 </a>
             </div>
 
@@ -128,7 +128,7 @@
 
                 <div class="footer__list">
                     <div class="footer__item footer__item--phone">
-                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
+                        <div class="phone-icon-col"><img class="phone-icon" src="{{ asset('img/icons/phone-icon.svg') }}" alt="phone-icon"></div>
                         <div class="phone-number-col">
                             <div class="phone-number"><a class="phone-number__link" href="tel:+7-903-798-85-98">8-903-798-85-98</a></div>
                             <div class="w-100"></div>

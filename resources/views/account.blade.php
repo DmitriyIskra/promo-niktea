@@ -10,23 +10,17 @@
 
 <body data-variant="user-account">
 
-<script>
-    console.log(1)
-    //console.log(CurrentAuthorizeCheck())
-
-</script>
 <header>
     <div class="header-wrapper header-wrapper--white">
-
         @include('template_parts.header_menu')
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
-            <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
-        </a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account">
-        </a>
-
     </div>
 </header>
+<script>
+        if (auther.is_auth === false) {
+            window.location.href = "/";
+        }
+</script>
+
 
 <!-- Вход, регистрация -->
 
@@ -35,11 +29,11 @@
         <div class="modal-content modal-form">
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
-                        src="img/icons/modal-close.svg" alt="clofe-form"></button>
+                        src="{{ asset('img/icons/modal-close.svg') }}" alt="clofe-form"></button>
             </div>
             <div class="modal-body">
                 <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="logo-modal">
+                    <img class="logo__modal--img" src="{{ asset('img/icons/logo-modal.svg') }}" alt="logo-modal">
                 </div>
                 <div class="buttons__group">
                     <button class="registry__submit" type="submit" data-bs-target="#enterAccount"
@@ -59,11 +53,11 @@
         <div class="modal-content modal-form modal-form_enter">
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
-                        src="img/icons/modal-close.svg" alt="clofe-form"></button>
+                        src="{{ asset('img/icons/modal-close.svg') }}" alt="clofe-form"></button>
             </div>
             <div class="modal-body">
                 <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="logo-modal">
+                    <img class="logo__modal--img" src="{{ asset('img/icons/logo-modal.svg') }}" alt="logo-modal">
                 </div>
 
                 <form class="reg__group needs-validation" id="signinForm" novalidate>
@@ -100,11 +94,11 @@
         <div class="modal-content modal-form new-user-form" data-variant=registry-user>
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
-                        src="img/icons/modal-close.svg" alt="clofe-form"></button>
+                        src="{{ asset('img/icons/modal-close.svg') }}" alt="clofe-form"></button>
             </div>
             <div class="modal-body">
                 <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="">
+                    <img class="logo__modal--img" src="{{ asset('img/icons/logo-modal.svg') }}" alt="Logo">
                 </div>
                 <form class="reg__group needs-validation" id="user-data" novalidate>
                     <div class="input__group has-validation">
@@ -199,12 +193,7 @@
 
 <main class="main">
 
-    <div class="breadcrumbs__container">
-        <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Личный кабинет </a></li>
-        </ul>
-    </div>
+
 
     <div class="user-account__container">
 
@@ -247,7 +236,7 @@
                             <button class="code__carousel-next" type="button" data-bs-target="#codeCarousel" data-bs-slide="next"></button>
                         </div>
                         <button class="code__submit" type="submit">ЗАРЕГИСТРИРОВАТЬ</button>
-                        <button class="code__add" type="submit"><img src="img/icons/plus.svg" alt="add-icon"></button>
+                        <button class="code__add" type="submit"><img src="{{ asset('img/icons/plus.svg') }}" alt="add-icon"></button>
                         <label for="codeInputField" class="reg-label--code">Вы можете зарегистрировать не более 15 кодов в день (на один чек).</label>
                         <span class="code__counter--wrap">У Вас осталось для регистрации<br class="br-mob"> <span class="code__count"> 1 </span> код(ов) в день.</span>
 
@@ -301,7 +290,7 @@
 
                     <div class="pagination-container">
                         <button class="pagination-button pagination-prev" id="prev-button" aria-label="Previous page" title="Previous page">
-                            <img src="img/icons/pagination-arrow-left.svg" alt="pagination-arrow-left">
+                            <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
                         </button>
 
                         <div id="pagination-numbers" style="text-align: center;">
@@ -309,7 +298,7 @@
                         </div>
 
                         <button class="pagination-button pagination-next" id="next-button" aria-label="Next page" title="Next page">
-                            <img src="img/icons/pagination-arrow-right.svg" alt="pagination-arrow-right">
+                            <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
                         </button>
                     </div>
 
@@ -344,11 +333,11 @@
                         </div>
                         <div class="pagination__container">
                             <div class="pagination-prev pagination-prev--check">
-                                <img src="img/icons/pagination-arrow-left.svg" alt="pagination-arrow-left">
+                                <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
                             </div>
                             <div class="pagination"></div>
                             <div class="pagination-next pagination-next--check">
-                                <img src="img/icons/pagination-arrow-right.svg" alt="pagination-arrow-right">
+                                <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
                             </div>
                         </div>
 
@@ -361,58 +350,8 @@
 
 </main>
 
-<footer class="footer">
-    <div class="footer__top">
-        <div class="footer__container">
+@include('template_parts.footer')
 
-            <div class="footer__column link-col">
-                <div class="footer__item">
-                    <a href="https://nikteaworld.com/" class="footer__link">Сайт бренда NIKTEA</a>
-                </div>
-            </div>
-
-            <div class="footer__column tg-col">
-
-                <div class="footer__item footer__item--icons">
-                    <div class="footer__item--right"> <a href="#" class="footer__link  footer__link__right"><img
-                                class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a></div>
-                    <div><a href="#" class="footer__link"><img class="footer__link--img" src="img/icons/whatsapp-icon.svg"
-                                                               alt="Logo"></a></div>
-                </div>
-
-            </div>
-
-            <div class="footer__column logo-col">
-                <a class="footer__logo">
-                    <img class="footer__logo--img" src="img/icons/footer-logo.svg" alt="Logo">
-                </a>
-            </div>
-
-            <div class="footer__column phone-col">
-
-                <div class="footer__list">
-                    <div class="footer__item footer__item--phone">
-                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
-                        <div class="phone-number-col">
-                            <div class="phone-number"><a class="phone-number__link" href="tel:+7-903-798-85-98">8-903-798-85-98</a></div>
-                            <div class="w-100"></div>
-                            <span>С 9:00 до 18:00 по МСК</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</footer>
-
-
-
-<script src="{{ asset("js/bootstrap.js") }}"></script>
-<script src="{{ asset("js/bootstrap.js.map") }}"></script>
-<script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
-<script src="{{ asset("js/script.js") }}"></script>
 
 </body>
 </html>

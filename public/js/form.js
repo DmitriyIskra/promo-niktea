@@ -3,6 +3,16 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
 function CurrentAuthorizeCheck(){
     let a = null
     console.log(getCookie("niktea_session"))
@@ -50,11 +60,31 @@ function authorize() {
         });
     }
 }
+function logout() {
+    const logOut = document.querySelector('.log-out__button');
 
+        logOut.addEventListener('click', logouter);
+
+        function logouter() {
+            var settings = {
+                "url": "http://niktea/api/auth/logout",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response)
+                if(response.is_auth === true) {
+                    deleteAllCookies()
+                    window.location.href = "/";
+                }
+            });
+        }
+}
 
 $( document ).ready(function() {
-    CurrentAuthorizeCheck()
     authorize()
+    logout()
    // })
 
     /*

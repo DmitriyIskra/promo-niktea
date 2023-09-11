@@ -4,20 +4,14 @@
 <head>
     @include('template_parts.header_css_js')
     <title>Главная</title>
+    <link rel="stylesheet" href="{{ asset("css/round-slider.css") }}">
 </head>
 
 <body class="main-body__image" data-variant="main-page">
 
 <header>
     <div class="header-wrapper header-wrapper__main-page">
-
         @include('template_parts.header_menu')
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
-            <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
-        </a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account">
-        </a>
-
     </div>
 </header>
 
@@ -94,14 +88,14 @@
 
 <div class="modal fade" id="registryForm" tabindex="-1" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-form new-user-form" data-variant=registry-user>
+        <div class="modal-content modal-form new-user-form" data-variant="registry-user">
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
                         src="img/icons/modal-close.svg" alt="clofe-form"></button>
             </div>
             <div class="modal-body">
                 <div class="logo__modal--container">
-                    <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="">
+                    <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="Logo">
                 </div>
                 <form class="reg__group needs-validation" id="user-data" novalidate>
                     <div class="input__group has-validation">
@@ -218,7 +212,7 @@
 
             <div class="rules__item">
                 <div class="rules__item-wrap">
-                    <img class="rules__item--img" src="img/content/basket-prize.png" alt="">
+                    <img class="rules__item--img" src="img/content/basket-prize.png" alt="Basket">
                     <span class="rules__item--text">Купите пачку чая Niktea<br>
               в удобном для вас розничном<br>
               или интернет-магазине</span>
@@ -226,7 +220,7 @@
             </div>
             <div class="rules__item">
                 <div class="rules__item-wrap">
-                    <img class="rules__item--img" src="img/content/registry-comp.png" alt="">
+                    <img class="rules__item--img" src="img/content/registry-comp.png" alt="Registry">
                     <span class="rules__item--text">
               Зарегестрируйте код и чек<br>
               на сайте в личном кабинете</span>
@@ -491,60 +485,10 @@
 
 </main>
 
-<footer class="footer">
-    <div class="footer__top">
-        <div class="footer__container">
-
-            <div class="footer__column link-col">
-                <div class="footer__item">
-                    <a href="https://nikteaworld.com/" class="footer__link">Сайт бренда NIKTEA</a>
-                </div>
-            </div>
-
-            <div class="footer__column tg-col">
-
-                <div class="footer__item footer__item--icons">
-                    <div class="footer__item--right"><a href="#" class="footer__link  footer__link__right"><img
-                                class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a></div>
-                    <div><a href="#" class="footer__link"><img class="footer__link--img"
-                                                               src="img/icons/whatsapp-icon.svg"
-                                                               alt="Logo"></a></div>
-                </div>
-
-            </div>
-
-            <div class="footer__column logo-col">
-                <a class="footer__logo">
-                    <img class="footer__logo--img" src="img/icons/footer-logo.svg" alt="Logo">
-                </a>
-            </div>
-
-            <div class="footer__column phone-col">
-
-                <div class="footer__list">
-                    <div class="footer__item footer__item--phone">
-                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg"
-                                                         alt="phone-icon"></div>
-                        <div class="phone-number-col">
-                            <div class="phone-number"><a class="phone-number__link" href="tel:+7-903-798-85-98">8-903-798-85-98</a>
-                            </div>
-                            <div class="w-100"></div>
-                            <span>С 9:00 до 18:00 по МСК</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</footer>
 
 
-<script src="{{ asset("js/bootstrap.js") }}"></script>
-<script src="{{ asset("js/bootstrap.js.map") }}"></script>
-<script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
-<script src="{{ asset("js/slider.js") }}"></script>
+@include('template_parts.footer')
+
 <script>
     EasySlides('.slider_circle_10', {
         'autoplay': false,
@@ -555,6 +499,5 @@
         'show': 9
     });
 </script>
-<script src="{{ asset("js/script.js") }}"></script>
 </body>
 </html>

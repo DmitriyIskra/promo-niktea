@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>AllPHPTricks.com</title>
+    <title>Админка</title>
     <style>
         table {
             width: 100%;

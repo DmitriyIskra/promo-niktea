@@ -4,34 +4,21 @@
 <head>
     @include('template_parts.header_css_js')
     <link rel="stylesheet" href="{{ asset("css/winners.css") }}">
-    <title>Главная</title>
+    <title>Призы</title>
 </head>
 
 <body data-variant="winners">
 
 <header>
     <div class="header-wrapper header-wrapper--white">
-
+        <title>Победители</title>
         @include('template_parts.header_menu')
-
-        <a class="navbar-brand d-lg-none logo-mobile--wrap" href="#">
-            <img src="img/icons/logo-mobile.svg" alt="logo-mobile">
-        </a>
-        <a class="navbar-brand d-lg-none account-logo-mobile" href="/account">
-        </a>
+        <link rel="stylesheet" href="{{ asset("css/winners.css") }}">
 
     </div>
 </header>
 
-
 <main class="main">
-
-    <div class="breadcrumbs__container">
-        <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/index">Главная</a></li>
-            <li class="breadcrumbs__item"><a class="breadcrumbs__item__link" href="/catalog"> Победители </a></li>
-        </ul>
-    </div>
 
     <div class="winners__container">
 
@@ -71,137 +58,137 @@
                     <tbody class="winners__list winners__list--main">
                     <tr>
                         <td>Сертификат на путешествие 300 000р</td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Планшет Apple iPad mini 256GB </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Планшет Apple iPad mini 256GB</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Смартфон Apple iPhone 14 Pro 256GB </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Смартфон Apple iPhone 14 Pro 256GB</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
                         <td>Умная колонка Яндекс Станция 2, с Алисой</td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
                         <td>Чайник Bork K 703 CH</td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Наушники Apple AirPods Pro (2 поколение)  </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Наушники Apple AirPods Pro (2 поколение)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Портативный аккумулятор Bork (L787)  </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Портативный аккумулятор Bork (L787)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Фен Dyson Supersonic (hd07) </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Фен Dyson Supersonic (hd07)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
                         <td>Электросамокат Bork L602</td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Консоль Sony PlayStation 5  </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Консоль Sony PlayStation 5</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
-                        <td>Воздухоотчиститель Dyson (HP05) </td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>Воздухоотчиститель Dyson (HP05)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     <tr>
                         <td>Ноутбук Apple MacBook Air 13 M2, 16/256</td>
-                        <td>8-925-***-**-91    /    mo****002@mail.ru</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
                         <td>20.12.2023</td>
                     </tr>
                     </tbody>
-                    <!--
-                                <tbody class="winners__list winners__list--tea">
-                                  <tr>
-                                    <td>Сертификат на путешествие 300 000р</td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Планшет Apple iPad mini 256GB </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Смартфон Apple iPhone 14 Pro 256GB </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Умная колонка Яндекс Станция 2, с Алисой</td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Чайник Bork K 703 CH</td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Наушники Apple AirPods Pro (2 поколение)  </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Портативный аккумулятор Bork (L787)  </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Фен Dyson Supersonic (hd07) </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Электросамокат Bork L602</td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Консоль Sony PlayStation 5  </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Воздухоотчиститель Dyson (HP05) </td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Ноутбук Apple MacBook Air 13 M2, 16/256</td>
-                                    <td>8-925-***-**-91    /    mo****002@mail.ru</td>
-                                    <td>20.12.2023</td>
-                                  </tr>
-                                </tbody> -->
-
+                    <tbody class="winners__list winners__list--tea">
+                    <tr>
+                        <td>Сертификат на путешествие 300 000р</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Планшет Apple iPad mini 256GB</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Смартфон Apple iPhone 14 Pro 256GB</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Умная колонка Яндекс Станция 2, с Алисой</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Чайник Bork K 703 CH</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Наушники Apple AirPods Pro (2 поколение)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Портативный аккумулятор Bork (L787)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Фен Dyson Supersonic (hd07)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Электросамокат Bork L602</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Консоль Sony PlayStation 5</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Воздухоотчиститель Dyson (HP05)</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    <tr>
+                        <td>Ноутбук Apple MacBook Air 13 M2, 16/256</td>
+                        <td>8-925-***-**-91 / mo****002@mail.ru</td>
+                        <td>20.12.2023</td>
+                    </tr>
+                    </tbody>
                 </table>
 
                 <div class="winners__table__pagination">
-                    <button class="pagination-number"><img src="img/icons/pagination-arrow-left.svg" alt="pagination-arrow-left"></button>
+                    <button class="pagination-number"><img src="{{ asset('img/icons/pagination-arrow-left.svg') }}"
+                                                           alt="pagination-arrow-left"></button>
                     <button class="pagination-number active">1</button>
                     <button class="pagination-number">2</button>
                     <button class="pagination-number">3</button>
-                    <button class="pagination-number"><img src="img/icons/pagination-arrow-right.svg" alt="pagination-arrow-right"></button>
+                    <button class="pagination-number"><img src="{{ asset('img/icons/pagination-arrow-right.svg') }}"
+                                                           alt="pagination-arrow-right"></button>
                 </div>
 
                 <div class="winners__button--wrap">
@@ -211,78 +198,25 @@
 
             </div>
 
-
-
-    </div>
-
-
-
-    </section>
+        </section>
 
     </div>
 
 </main>
 
-
-<footer class="footer">
-    <div class="footer__top">
-        <div class="footer__container">
-
-            <div class="footer__column link-col">
-                <li class="footer__item">
-                    <a href="#" class="footer__link">Сайт бренда NIKTEA</a>
-                </li>
-            </div>
-
-            <div class="footer__column tg-col">
-
-                <li class="footer__item">
-                    <a href="#" class="footer__link  footer__link__right"><img class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a>
-                    <a href="#" class="footer__link"><img src="img/icons/whatsapp-icon.svg" alt="Logo"></a>
-                </li>
-
-            </div>
-
-            <div class="footer__column logo-col">
-                <a class="footer__logo">
-                    <img src="img/icons/footer-logo.svg" alt="Logo">
-                </a>
-            </div>
-
-            <div class="footer__column phone-col">
-
-                <ul class="footer__list">
-                    <li class="footer__item footer__item--phone">
-
-                        <div class="phone-icon-col"><img class="phone-icon" src="img/icons/phone-icon.svg" alt="phone-icon"></div>
-                        <div class="phone-nimber-col">
-                            <span class="phone-nimber">8-903-798-85-98</span>
-                            <div class="w-100"></div>
-                            <span>С 9:00 до 18:00 по МСК</span>
-                        </div>
-
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-</footer>
+@include('template_parts.footer')
 
 <!-- переход на главную -->
 <script>
-    if(document.querySelector('.button__return')) {
+    if (document.querySelector('.button__return')) {
 
         buttonReturn = document.querySelector('.button__return');
 
-        buttonReturn.addEventListener('click', function(){
-            window.location.href = 'index.html';
+        buttonReturn.addEventListener('click', function () {
+            window.location.href = '/';
         })
 
-        document.querySelector('.prize-button--mobile').addEventListener('click', {
-
-        })
+        document.querySelector('.prize-button--mobile').addEventListener('click', {})
 
     }
 </script>
@@ -294,25 +228,20 @@
 
     const prizeButtonMobile = document.querySelector('.prize-button--mobile')
 
-    prizeButtonWrap.addEventListener('click', function(){
+    prizeButtonWrap.addEventListener('click', function () {
 
-        if(window.screen.width > 991){
+        if (window.screen.width > 991) {
             prizePutton.classList.toggle('prize-button--right')
         }
 
     })
 
-    prizeButtonMobile.addEventListener('click', function(){
+    prizeButtonMobile.addEventListener('click', function () {
 
         prizeButtonMobile.classList.toggle('.prize-button--mobile--active')
 
     })
 
 </script>
-<script src="{{ asset("js/bootstrap.js") }}"></script>
-<script src="{{ asset("js/bootstrap.js.map") }}"></script>
-<script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
-<script src="{{ asset("js/script.js") }}"></script>
-
 </body>
 </html>
