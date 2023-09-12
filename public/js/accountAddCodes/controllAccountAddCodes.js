@@ -5,7 +5,7 @@ export default class ControllAccountAddCodes {
 
         this.onClick = this.onClick.bind(this);
         this.onInput = this.onInput.bind(this);
-        // this.onChange = this.onChange.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
 
     init() {
@@ -16,10 +16,12 @@ export default class ControllAccountAddCodes {
         this.draw.addButton.addEventListener('click', this.onClick);
         this.draw.submitButton.addEventListener('click', this.onClick);
         this.draw.typeCode.addEventListener('input', this.onInput);
+        this.draw.addFile.addEventListener('change', this.onChange);
+        this.draw.addFileLabel.addEventListener('click', this.onClick);
     }
 
     onClick(e) {
-
+        console.log(e.target)
         // открываем поле отрисовки и сохраняем код
         if(e.target.closest('.code__add')) {
             const value = this.draw.typeCode.value;
@@ -29,8 +31,11 @@ export default class ControllAccountAddCodes {
 
         // отправляем коды и очищаем массив
         if(e.target.closest('.code__submit')) {
-            console.log('code__submit', this.draw.arrCodes)
+            console.log('code__submit', this.draw.arrCodes);
         }
+
+        // если клик по загрузить фото чека
+        if(e.target.closest('.file-upload__label')) this.draw.infoAboutUpload();
     }
 
 
@@ -39,5 +44,12 @@ export default class ControllAccountAddCodes {
         if(value) {
             this.draw.hideInvalidCode();
         }
+    }
+
+    onChange(e) {
+        console.log(e)
+        
+        const file = e.target.files && e.target.files[0];
+        this.draw.saveFile(file);
     }
 }

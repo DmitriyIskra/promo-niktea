@@ -4,7 +4,7 @@
 <head>
     @include('template_parts.header_css_js')
     <title>Главная</title>
-    <link rel="stylesheet" href="{{ asset("css/round-slider.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/round-slider.css?v=").time()}}">
 </head>
 
 <body class="main-body__image" data-variant="main-page">

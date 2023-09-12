@@ -16,9 +16,21 @@
     </div>
 </header>
 <script>
+        // если пользователь не авторизован, редирект на главную
         if (auther.is_auth === false) {
             window.location.href = "/";
         }
+
+        // каждый раз при загрузке страницы вызывается 
+        // для заполнения данных о пользователе
+        (async () => {
+            const responce = await accountInfo()
+            const result = await responce.json()
+            console.log(result)
+            // разделяем потому что иногда нужно получить данные
+            // без отрисовки данных на всей странице
+            document.addEventListener('DOMContentLoaded', fillAccountData(result))
+        })()
 </script>
 
 
@@ -41,11 +53,11 @@
                 </div>
                 <h1>Личный кабинет</h1>
                 <div class="user__data">
-                    <div class="data-item green--border">Косолапова</div>
-                    <div class="data-item btn-gradient-2">Надежда</div>
-                    <div class="data-item">Сергеевна</div>
-                    <div class="data-item">+7 (925) 785-64-37</div>
-                    <div class="data-item">Ваша_почта@mail.ru</div>
+                    <div class="data-item green--border account__lastname"></div>
+                    <div class="data-item btn-gradient-2 account__firstname"></div>
+                    <div class="data-item account__patronymic"></div>
+                    <div class="data-item account__phone"></div>
+                    <div class="data-item account__mail"></div>
                 </div>
 
                 <div class="code__input--group">
@@ -79,11 +91,13 @@
 
 
                         <div class="file-upload__group">
+                            <div class="account__file-result account__file_valid">Ваш чек успешно загружен</div>
+                            <div class="account__file-result account__file_invalid">Не удалось загрузить чек, попробуйте еще раз</div>
                             <input type="file" class="file-upload__input--user" id="uploadPhoto" hidden/>
                             <label class="file-upload__label file-upload__label--width" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
                             <span>Вы можете зарегестрировать не более 15 чеков в день.<br>
-                ( с 00:00 по 23:59 по Московскому времени )</span>
+                            ( с 00:00 по 23:59 по Московскому времени )</span>
                         </div>
 
                     </div>
@@ -188,7 +202,9 @@
 </main>
 
 @include('template_parts.footer')
-
-
+<!-- событие на кнопку выход -->
+<script>
+    logout()
+</script>
 </body>
 </html>

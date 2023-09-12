@@ -359,6 +359,19 @@
     z-index: 0;
 }
 
+.account__file-result {
+    display: none;
+    margin-bottom: 10px;
+}
+
+.account__file_invalid {
+    color: #FFC0C0;
+}
+
+.account__file-result_active {
+    display: block;
+}
+
 .file-upload__group span {
     color: #FFF;
 }

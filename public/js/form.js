@@ -63,11 +63,11 @@ function authorize() {
 
 function registration() {
     const formSignIn = document.getElementById('registerprovider');
-    console.log(formSignIn)
+
     formSignIn.addEventListener('submit', SendRegister);
 
     function SendRegister(event) {
-        event.preventDefault();
+        event.preventDefault(); 
 
         const name = formSignIn.querySelector('[name="name"]'), //получаем поле name
             second_name = formSignIn.querySelector('[name="second_name"]'), //получаем поле age
@@ -125,23 +125,37 @@ function logout() {
         }
 }
 async function accountInfo() {
-    var requestOptions = {
+    const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
 
-    fetch("/api/account/info", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+    return await fetch("/api/account/info", requestOptions)
+}
+// отрисовка данных о пользователе на всей странице личный кабинет
+function fillAccountData(data) {
+
+    const accountLastname = document.querySelector('.account__lastname');
+    const accountFirstname = document.querySelector('.account__firstname');
+    const accountPatronymic = document.querySelector('.account__patronymic');
+    const accountPhone = document.querySelector('.account__phone');
+    const accountMail = document.querySelector('.account__mail');
+
+    accountLastname.textContent = data.user.second_name;
+    accountFirstname.textContent = data.user.name;
+    accountPatronymic.textContent = data.user.patronymic;
+    accountPhone.textContent = data.user.phone;
+    accountMail.textContent = data.user.email;
+
+    sessionStorage.todayCodesActivated = data.today_activated_codes[0].activated_today;
 }
 
 
 $( document ).ready(function() {
     authorize()
     registration()
-    logout()
-    accountInfo()
+    
+    
    // })
 
     /*

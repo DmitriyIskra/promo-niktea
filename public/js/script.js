@@ -245,31 +245,31 @@ if(document.querySelector('.checkSlider')) {
 // })
  
 
-  function fileValidation() {
-    let fileInput = document.querySelector('.file__upload--input');
+// function fileValidation() {
+//     let fileInput = document.querySelector('.file__upload--input');
 
-    let filePath = fileInput.value;
-    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
-    if (!allowedExtensions.exec(filePath)) {
-        let erer = document.getElementById('file-info');
-        erer.style.display = 'block';
-        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
-        fileInput.value = '';
-        return false;
-    } else {
+//     let filePath = fileInput.value;
+//     let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
+//     if (!allowedExtensions.exec(filePath)) {
+//         let erer = document.getElementById('file-info');
+//         erer.style.display = 'block';
+//         erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
+//         fileInput.value = '';
+//         return false;
+//     } else {
 
-        if (fileInput.files && fileInput.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
+//         if (fileInput.files && fileInput.files[0]) {
+//             let reader = new FileReader();
+//             reader.onload = function(e) {
  
-                document.getElementById('info').style.display = 'block';
-                document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
-                document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-    }
-}
+//                 document.getElementById('info').style.display = 'block';
+//                 document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
+//                 document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+//             };
+//             reader.readAsDataURL(fileInput.files[0]);
+//         }
+//     }
+// }
 
 
 
