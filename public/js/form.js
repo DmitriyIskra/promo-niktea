@@ -44,7 +44,7 @@ function authorize() {
 
         console.log(data)
         var settings = {
-            "url": "http://niktea/api/auth/login",
+            "url": "/api/auth/login",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -57,6 +57,49 @@ function authorize() {
             console.log(document.cookie = `niktea_session=${response.auth_token}`)
             window.location.href = "http://niktea/account";
             console.log(response);
+        });
+    }
+}
+
+function registration() {
+    const formSignIn = document.getElementById('registerprovider');
+    console.log(formSignIn)
+    formSignIn.addEventListener('submit', SendRegister);
+
+    function SendRegister(event) {
+        event.preventDefault();
+
+        const name = formSignIn.querySelector('[name="name"]'), //получаем поле name
+            second_name = formSignIn.querySelector('[name="second_name"]'), //получаем поле age
+            patronymic = formSignIn.querySelector('[name="patronymic"]'), //получаем поле age
+            phone = formSignIn.querySelector('[name="phone"]'), //получаем поле age
+            email = formSignIn.querySelector('[name="email"]'), //получаем поле age
+            code = formSignIn.querySelector('[name="code"]'), //получаем поле age
+            check = formSignIn.querySelector('[name="check"]') //получаем поле age
+
+        var formdata = new FormData();
+        formdata.append("name", name.value);
+        formdata.append("second_name", second_name.value);
+        formdata.append("patronymic", patronymic.value);
+        formdata.append("phone", phone.value);
+        formdata.append("email", email.value);
+        formdata.append("code[]", code.value);
+        formdata.append("check", check.files[0]);
+
+        var settings = {
+            "url": "/api/auth/register",
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": formdata
+        };
+
+        $.ajax(settings).done(function (response) {
+            auth_token = JSON.parse(response).auth_token
+            console.log(document.cookie = `niktea_session=${auth_token}`)
+            window.location.href = "http://niktea/account";
         });
     }
 }
@@ -82,15 +125,21 @@ function logout() {
         }
 }
 async function accountInfo() {
-  const resp = await fetch('https://dev.nikteaworld.com/api/account/info');
-  const result = await resp.json();
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
 
-  console.log(result)
+    fetch("/api/account/info", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
 
 
 $( document ).ready(function() {
     authorize()
+    registration()
     logout()
     accountInfo()
    // })

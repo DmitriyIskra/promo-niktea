@@ -21,6 +21,6 @@
 <script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
 <script src="{{ asset("js/slider.js") }}"></script>
 <script src="{{ asset("js/form.js") }}"></script>
-<script src="{{ asset("js/script.js") }}"></script> 
+<script src="{{ asset("js/script.js") }}"></script>
 <script src="{{ asset("js/app.js") }}" type="module"></script>
 

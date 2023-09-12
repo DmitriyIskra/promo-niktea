@@ -8,7 +8,7 @@
 
 <body data-variant="user-account">
 
-<body data-variant="user-account"> 
+<body data-variant="user-account">
 
 <header>
     <div class="header-wrapper header-wrapper--white">
@@ -83,7 +83,7 @@
                             <label class="file-upload__label file-upload__label--width" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
                             <span>Вы можете зарегестрировать не более 15 чеков в день.<br>
-                            ( с 00:00 по 23:59 по Московскому времени )</span>
+                ( с 00:00 по 23:59 по Московскому времени )</span>
                         </div>
 
                     </div>

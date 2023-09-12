@@ -1,4 +1,3 @@
-
 <nav class="navbar__wrap navbar-expand-lg">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

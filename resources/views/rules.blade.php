@@ -16,9 +16,7 @@
         @include('template_parts.header_menu')
     </div>
 </header>
-
 @include('template_parts.modal')
-
 <main class="main">
 
     <div class="breadcrumbs__container">

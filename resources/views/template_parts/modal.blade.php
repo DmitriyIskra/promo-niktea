@@ -80,7 +80,7 @@
                 <div class="logo__modal--container">
                     <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="Logo">
                 </div>
-                <form class="reg__group needs-validation" id="user-data" novalidate>
+                <form class="reg__group needs-validation" id="registerprovider" novalidate>
                     <div class="input__group has-validation">
                         <input class="registry__input--field form-control" type="text" name="name" id="firstName"
                                required>

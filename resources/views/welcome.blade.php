@@ -15,6 +15,8 @@
     </div>
 </header>
 
+<!-- Вход, регистрация -->
+
 @include('template_parts.modal')
 
 <main class="main">
