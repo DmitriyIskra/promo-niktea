@@ -1,10 +1,21 @@
 export default class FetchAccountAddCodes {
     constructor (domain) {
-        this.domain = domain;
+        this.domainReg = domain[0];
+        this.domainCheck = domain[1]
     }
 
-    async create(data) {
-        return await fetch(`${domain}`, {
+    async create(formData) {
+        return await fetch(`${this.domainReg}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+             },
+            body: formData,
+        })
+    }
+
+    async validate(data) {
+        return await fetch(`${this.domainCheck}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

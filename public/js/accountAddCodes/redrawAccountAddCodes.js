@@ -19,18 +19,20 @@ export default class RedrawAccountAddCodes {
         this.storageFile = null;
         // Выражение для проверки файла
         this.regExpFile = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
+        // значение валидности или не валидности кода (true или false)
+        this.isValidCode = null;
     }
 
     // показываем поле для отображения введенных кодов
     // и последующим действием добавляем коды
     showSlider(value) {
-        // если пользователь не ввел код и пытается нажать плюс
-        // или зарегистрировать показываем ошибку
-        if(!value) {
+        // если пользователь не ввел код или исчерпан лимит или код не валиден
+        //  и пытается нажать плюс даже не ткрываем поле для показа
+        if(!value || !this.isValidCode || +sessionStorage.todayCodesActivated >= 15) {
             this.showInvalidCode();
             return;
         }
-        // если поле активно ничего не делаем
+        // если поле активно ничего не делаем (заново не переопределяем класс)
         if(this.activeSlider) return;
 
         // активируем поле для отображения кодов
@@ -46,9 +48,13 @@ export default class RedrawAccountAddCodes {
         // колличество кодов уже добавленных сегодня
         // и колличество новых (сумма)
         const totalCodes = +sessionStorage.todayCodesActivated + this.arrCodes.length;
-        console.log(totalCodes)
         // если кодов в массиве 15 дальше ничего не делаем
-        if(totalCodes === 15) return;
+        if(totalCodes >= 15) return;
+        // если код не валиден
+        if(!this.isValidCode) {
+            this.showInvalidCode();
+            return;
+        }
 
         // добавляем код в массив
         this.arrCodes.unshift(code);
@@ -59,16 +65,26 @@ export default class RedrawAccountAddCodes {
         // очищаем поле ввода
         this.typeCode.value = '';
     }
-    // валидация кода
-    validateCode() {
-        
-    }
+    
     // отрисовываем введенные коды
     addCodeInPlace(code) {
         console.log('code added to place')
     }
     
-                                // ВАЛИДАЦИЯ КОЛИЧЕСТВА ЧЕКОВ ЗА ДЕНЬ
+    // вешаем класс invalid на элемент показывающий не валидность, но если его нет
+    showInvalidCode() {
+        if(!this.invalidCode.closest('.invalid-feedback_active')) {
+            this.invalidCode.classList.add('invalid-feedback_active');
+        }
+    }
+    // снимаем класс с элемента показывающего невалидность если он есть, но если он есть
+    hideInvalidCode() {
+        if(this.invalidCode.closest('.invalid-feedback_active')) {
+            this.invalidCode.classList.remove('invalid-feedback_active');
+        }
+    }
+
+
     // сохраняем файл 
     saveFile(file) {
         if(!file) return;
@@ -116,18 +132,7 @@ export default class RedrawAccountAddCodes {
     }
 
 
-    // вешаем класс invalid на элемент показывающий не валидность, но если его нет
-    showInvalidCode() {
-        if(!this.invalidCode.closest('.invalid-feedback_active')) {
-            this.invalidCode.classList.add('invalid-feedback_active');
-        }
-    }
-    // снимаем класс с элемента показывающего невалидность если он есть, но если он есть
-    hideInvalidCode() {
-        if(this.invalidCode.closest('.invalid-feedback_active')) {
-            this.invalidCode.classList.remove('invalid-feedback_active');
-        }
-    }
+    
 }
 
 // Нажав на плюс 

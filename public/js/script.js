@@ -143,6 +143,41 @@ if(document.querySelector('.checkSlider')) {
 
 //--------------------- END СЛАЙДЕР ЧЕКОВ 
 
+
+//--------------------- М А С К А  Т Е Л Е Ф О Н А
+
+document.addEventListener("DOMContentLoaded", function () {
+  var eventCalllback = function (e) {
+      var el = e.target,
+      clearVal = el.dataset.phoneClear,
+      pattern = el.dataset.phonePattern,
+      matrix_def = "+7(___) ___-__-__",
+      matrix = pattern ? pattern : matrix_def,
+      i = 0,
+      def = matrix.replace(/\D/g, ""),
+      val = e.target.value.replace(/\D/g, "");
+      if (clearVal !== 'false' && e.type === 'blur') {
+          if (val.length < matrix.match(/([\_\d])/g).length) {
+              e.target.value = '';
+              return;
+          }
+      }
+      if (def.length >= val.length) val = def;
+      e.target.value = matrix.replace(/./g, function (a) {
+          return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+      });
+  }
+  var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+  for (let elem of phone_inputs) {
+      for (let ev of ['input', 'blur', 'focus']) {
+          elem.addEventListener(ev, eventCalllback);
+      }
+  }
+});
+
+//--------------------- E N D  М А С К А  Т Е Л Е Ф О Н А
+
+
 //   ------------ !!!!!!!!!!!!!!!!!!!!!!!!!!
 
   // let add = document.querySelector('.navbar-toggler');
@@ -181,61 +216,32 @@ if(document.querySelector('.checkSlider')) {
 
   //Валидация
 
-   if(document.querySelector('form')){
-    (function () {
-      'use strict'
+  //  if(document.querySelector('form')){
+  //   (function () {
+  //     'use strict'
      
-      var forms = document.querySelectorAll('.needs-validation')
+  //     var forms = document.querySelectorAll('.needs-validation')
      
-      Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
+  //     Array.prototype.slice.call(forms)
+  //       .forEach(function (form) {
+  //         form.addEventListener('submit', function (event) {
+  //           if (!form.checkValidity()) {
+  //             event.preventDefault()
+  //             event.stopPropagation()
+  //           }
     
-            form.classList.add('was-validated')
-          }, false)
-        })
-    })()
-   }
+  //           form.classList.add('was-validated')
+  //         }, false)
+  //       })
+  //   })()
+  //  }
   
 
   // document.querySelector('.modal_close').addEventListener('click', function (){
   //   document.getElementById("enterAccountForm").reset();
   // })
 
-  // Маска телефона
-
-  document.addEventListener("DOMContentLoaded", function () {
-      var eventCalllback = function (e) {
-          var el = e.target,
-          clearVal = el.dataset.phoneClear,
-          pattern = el.dataset.phonePattern,
-          matrix_def = "+7(___) ___-__-__",
-          matrix = pattern ? pattern : matrix_def,
-          i = 0,
-          def = matrix.replace(/\D/g, ""),
-          val = e.target.value.replace(/\D/g, "");
-          if (clearVal !== 'false' && e.type === 'blur') {
-              if (val.length < matrix.match(/([\_\d])/g).length) {
-                  e.target.value = '';
-                  return;
-              }
-          }
-          if (def.length >= val.length) val = def;
-          e.target.value = matrix.replace(/./g, function (a) {
-              return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-          });
-      }
-      var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
-      for (let elem of phone_inputs) {
-          for (let ev of ['input', 'blur', 'focus']) {
-              elem.addEventListener(ev, eventCalllback);
-          }
-      }
-  });
+  
 
 //Проверка файлов
   
@@ -278,31 +284,31 @@ if(document.querySelector('.checkSlider')) {
 // })
  
 
-function fileValidation() {
-    let fileInput = document.querySelector('.file-upload__input--user');
+// function fileValidation() {
+//     let fileInput = document.querySelector('.file-upload__input--user');
 
-    let filePath = fileInput.value;
-    let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
-    if (!allowedExtensions.exec(filePath)) {
-        let erer = document.getElementById('file-info');
-        erer.style.display = 'block';
-        erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
-        fileInput.value = '';
-        return false;
-    } else {
+//     let filePath = fileInput.value;
+//     let allowedExtensions = /(\.jpg|\.jpeg|\.bmp|\.png|\.gif|\.jfif)$/i;
+//     if (!allowedExtensions.exec(filePath)) {
+//         let erer = document.getElementById('file-info');
+//         erer.style.display = 'block';
+//         erer.innerHTML = 'Тип файла должен быть .jpg,.png,.bmp,.gif,.jpeg, .jfif ';
+//         fileInput.value = '';
+//         return false;
+//     } else {
 
-        if (fileInput.files && fileInput.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
+//         if (fileInput.files && fileInput.files[0]) {
+//             let reader = new FileReader();
+//             reader.onload = function(e) {
  
-                document.getElementById('info').style.display = 'block';
-                document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
-                document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-    }
-}
+//                 document.getElementById('info').style.display = 'block';
+//                 document.getElementById('info').innerHTML = 'Загрузите, пожалуйста, чек (внимание, чек должен быть читабельным)';
+//                 document.getElementById('imagePreview').innerHTML = '<img width="140" src="' + e.target.result + '"/>';
+//             };
+//             reader.readAsDataURL(fileInput.files[0]);
+//         }
+//     }
+// }
 
 
 // document.querySelector('.file-upload__in').addEventListener('click', function

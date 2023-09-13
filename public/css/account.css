@@ -63,15 +63,19 @@
 
 .data-item {
     position: relative;
-    box-sizing: border-box;
-    padding: 16px;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.50);
+
+    height: 3.2vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    color: #463E57;    
+    padding: 16px;
+    box-sizing: border-box;
+
     font-size: 18px;
     font-weight: 200;
+
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.50);
+    color: #463E57;    
 }
 
 .data-item::after {

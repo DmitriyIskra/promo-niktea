@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const accAddCodeGroup = document.querySelector('.code__input--group');
 
     if(accAddCodeGroup) {
-        const domain = 'https://dev.nikteaworld.com/api/auth/register'
+        const domainReg = 'https://dev.nikteaworld.com/api/auth/register';
+        const domainCheck = `http://niktea/api/code/checkout`;
+        const domains = [domainReg, domainCheck]
 
         const drawAccAddCodes = new RedrawAccountAddCodes(accAddCodeGroup);
-        const fetchAccAddCodes = new FetchAccountAddCodes(domain);
+        const fetchAccAddCodes = new FetchAccountAddCodes(domains);
         const arr = [drawAccAddCodes, fetchAccAddCodes]
         const controllAccAddCodes = new ControllAccountAddCodes(arr);
 

@@ -156,6 +156,11 @@ $( document ).ready(function() {
     registration()
     
     
+
+
+
+
+    
    // })
 
     /*

@@ -44,6 +44,8 @@ class Codes extends Controller
                             'counter' => ($limit[0]->counter ?? 0) + 1,
                             'updated_at' => now()
                         ]);
+                        $response = ["error" => null];
+                        $code = 200;
                         return $searcher;
                     } else {
                         $response = ["error" => "Неверный код"];

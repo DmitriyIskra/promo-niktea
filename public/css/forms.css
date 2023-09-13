@@ -455,18 +455,21 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 } */
 
 .invalid-feedback {
-    order: 3;
+    
     position: absolute;
-    top: -7px;
-    left: 14%;
-    text-align: left;       
-    color: #FFC0C0;
+    top: 18px;      
+    
     font-family: 'Arsenal';
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-transform: uppercase;    
+    text-transform: uppercase;
+    text-align: center; 
+
+    color: #FFC0C0;
+
+    order: 3;    
 }
 
 .invalid-feedback_active {

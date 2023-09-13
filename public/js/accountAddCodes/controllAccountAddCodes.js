@@ -31,7 +31,31 @@ export default class ControllAccountAddCodes {
 
         // отправляем коды и очищаем массив
         if(e.target.closest('.code__submit')) {
-            console.log('code__submit', this.draw.arrCodes);
+            // отправляем данные на сервер (если они есть)
+            if(this.draw.arrCodes.length > 0 && this.draw.storageFile) {
+                const formData = new FormData;
+                formData.append('check', this.draw.storageFile);
+                this.draw.arrCodes.forEach( el => formData.append('code[]', el));
+                сщт
+                // (async () => {
+                //     const res = await this.fetch.create(formData);
+                //     const result = await res.json();
+                //     console.log(result)
+                //     // далее нужно вызвать account info и перерисовывать страницу
+                // })();
+            
+                return;
+            }
+            
+            // если не введено ни одного кода показываем сообщение об оошибке
+            if(this.draw.arrCodes.length === 0) {
+                this.draw.showInvalidCode();
+            }
+            // если чек не загружен сообщаем что это обязательно
+            if(!this.draw.storageFile) {
+                console.log('novalidate')
+                this.draw.infoAboutUpload(this.draw.textFileInvalid)
+            }
         }
 
         // если клик по загрузить фото чека
@@ -41,8 +65,14 @@ export default class ControllAccountAddCodes {
 
     onInput() {
         const value = this.draw.typeCode.value;
+        // если есть сообщение о невалидности кода, при изменении поля убираем это сообщение
         if(value) {
             this.draw.hideInvalidCode();
+        }
+
+        // отправляем код на проверку
+        if(value.length >= 9) {
+            this.validateCode(value);
         }
     }
 
@@ -52,4 +82,23 @@ export default class ControllAccountAddCodes {
         const file = e.target.files && e.target.files[0];
         this.draw.saveFile(file);
     }
+
+    // валидация кода прежде чем добавить в массив для отправки
+    async validateCode(code) {
+        const data = JSON.stringify({code});
+
+        try { // 4009-16H53TT, 2660-777MPV, 1623-15QA3G, 2583-1NL5RN5
+            const resp = await this.fetch.validate(data);
+            const result = await resp.json();
+
+            // проверяем ответ и отмечаем валидность
+            if(result?.error) this.draw.isValidCode = false;
+            if(result[0]?.code) this.draw.isValidCode = true;
+        } 
+        catch(error) {
+            console.log(error)
+        }
+    }
 }
+
+// Нажимая кнопку зарегистрировать мы понимаем что там коды прошедшие валидацию 
