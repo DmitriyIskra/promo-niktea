@@ -134,12 +134,13 @@ async function accountInfo() {
 }
 // отрисовка данных о пользователе на всей странице личный кабинет
 function fillAccountData(data) {
-
     const accountLastname = document.querySelector('.account__lastname');
     const accountFirstname = document.querySelector('.account__firstname');
     const accountPatronymic = document.querySelector('.account__patronymic');
     const accountPhone = document.querySelector('.account__phone');
     const accountMail = document.querySelector('.account__mail');
+
+    
 
     accountLastname.textContent = data.user.second_name;
     accountFirstname.textContent = data.user.name;
@@ -160,7 +161,7 @@ $( document ).ready(function() {
 
 
 
-    
+
    // })
 
     /*
