@@ -40,6 +40,28 @@ class Winners extends Controller
         return response()->json($response, $code);
     }
 
+    public function get_info_by_winners(Request $request)
+    {
+        $res = false;
+        $data = $request->all();
+        if(isset($data['type']) && $data) {
+            $string = "code_".$data['type']."_win";
+            $response = DB::table('codes')
+                ->select('code')
+                ->where($string, '=', '1')
+                ->limit(1)
+                ->get();
+            if (isset($response[0])) {
+                $res = true;
+            }else{
+                $res = false;
+            }
+        }else {
+            $res = false;
+        }
+        return response()->json($res);
+    }
+
     public function get_main_prisez($user_id, $page){
 
         $response = DB::table('belongs')

@@ -6,6 +6,41 @@
     <link rel="stylesheet" href="{{ asset("css/winners.css?v=").time()}}">
     <title>Призы</title>
 </head>
+<script>
+    let ready_main = false
+    let ready_tea = false
+    function check(PrizeName) {
+        var settings = {
+            "url": "http://niktea/api/winners/status",
+            "method": "POST",
+            "timeout": 0,
+            "async": false,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+                "type": PrizeName
+            }),
+        };
+
+        $.ajax(settings).done(function (response2) {
+            if(PrizeName == "main"){
+                ready_main = response2
+            }else{
+                ready_tea = response2
+            }
+            if (response2 === false) {
+                verstka = ''
+                var $result = $('#' + PrizeName);
+                $result.empty()
+                console.log(verstka)
+                $result.append(verstka);
+            }
+        });
+    }
+    check("main")
+    check("tea")
+</script>
 <body data-variant="winners">
 
 <header>
@@ -88,33 +123,63 @@
     </tr>
     </thead>
         <tbody id='PrizeNamebody'>`
-        var settings = {
-            "url": "/api/winners",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "data": JSON.stringify({
-                "type": PrizeName,
-                "page": page
-            }),
-        };
+        let ready
+        if(PrizeName == "main"){
+            ready = ready_main
+        }else{
+            ready = ready_tea
+        }
+        ready = false
+        if(ready) {
+            var settings = {
+                "url": "/api/winners",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({
+                    "type": PrizeName,
+                    "page": page
+                }),
+            };
 
-        $.ajax(settings).done(function (response) {
-            $.each(response, function(index, element) {
-                element.forEach(function(entry) {
-                    parser(entry);
+            $.ajax(settings).done(function (response) {
+                $.each(response, function (index, element) {
+                    element.forEach(function (entry) {
+                        parser(entry);
+                    });
+                    verstka += `</table>`
+                    pagerender(page)
+                    var $result = $('#' + PrizeName);
+                    $result.empty()
+                    console.log(verstka)
+                    $result.append(verstka);
+                    link_pagi()
                 });
-                verstka += `</table>`
-                pagerender(page)
-                var $result = $('#'+PrizeName);
-                $result.empty()
-                console.log(verstka)
-                $result.append(verstka);
-                link_pagi()
             });
-        });
+        }else{
+            zaglushka(PrizeName);
+        }
+
+        function zaglushka(PrizeName){
+            if($('.attention')){
+                $('.attention').remove()
+            }
+            let string = ''
+            var div = document.createElement('div');
+            div.className = 'attention';
+            let winners_body = $(".winners-body")
+            if(PrizeName == "main"){
+                string = `<h1 style='text-align: center'>Список победителей будет определен после 15 октября.</h1>`
+            }else{
+                string = `<h1 style='text-align: center'>Список победителей будет определен после 15 декабря.</h1>`
+            }
+            div.innerHTML = string;
+            var ele = document.querySelector('.winners__button--wrap');
+            ele.parentNode.insertBefore(div, ele);
+
+        }
 
         function pagerender(){
             console.log(page)
