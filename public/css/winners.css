@@ -3,7 +3,7 @@
     margin-right: auto;
     /* padding-top: 15%; */
     padding-left: 1.8rem;
-    padding-right: 1.8rem;            
+    padding-right: 1.8rem;
     /* margin-top: 110px; */
     max-width: 137.9rem;
     display: flex;
@@ -28,14 +28,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;   
+    justify-content: center;
     width: 100%;
     height: 100%;
-    border-radius: 30px;       
-    background: url(../img/icons/form-flowers-top.svg), url(../img/icons/winners-bottom-bg.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+    border-radius: 30px;
+    background: url(../img/icons/form-flowers-top.svg), url(../img/icons/winners-bottom-bg.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
-    background-position-y: top, bottom;    
+    background-position-y: top, bottom;
     padding-left: 86px;
     padding-right: 86px;
     padding-top: 110px;
@@ -57,12 +57,12 @@
 .winners__head {
     margin-bottom: 88px;
     color: #FFF;
-    font-size: 150px;    
+    font-size: 150px;
     font-weight: 500;
     line-height: normal;
 }
 
-.winners__head h1{  
+.winners__head h1{
     color: #FFF;
     font-family: 'Snell Roundhand';
     font-size: 150px;
@@ -91,7 +91,7 @@ tr {
 }
 
 td {
-    text-align: left; 
+    text-align: left;
     padding-top: 15px;
     padding-bottom: 15px;
     color: #FFF;
@@ -124,7 +124,7 @@ td:last-child {
 
 
 
-fieldset { 
+fieldset {
     box-sizing: border-box;
     position: relative;
     width: fit-content;
@@ -161,7 +161,7 @@ box-sizing: border-box;
 
 .tea-prizes:hover {
   box-shadow: none;
-  transition: box-shadow 0.3s ease;  
+  transition: box-shadow 0.3s ease;
 }
 
   legend,
@@ -175,7 +175,7 @@ box-sizing: border-box;
     position: absolute;
     width: 1px;
   }
-  
+
   label {
     z-index: 10;
     box-sizing: border-box;
@@ -183,9 +183,9 @@ box-sizing: border-box;
       font-family: sans-serif;
       display: inline-block;
       height: 60px;
-      width: 300px;   
+      width: 300px;
       padding-top: 11px;
-      padding-bottom: 14px;     
+      padding-bottom: 14px;
       text-align: center;
       text-transform: uppercase;
       color: #FFF;
@@ -199,47 +199,47 @@ box-sizing: border-box;
 
   .label-back {
     content: '';
-    position: absolute;  
+    position: absolute;
     top: -2px;
     right: -2px;
     bottom: -2px;
     left: -2px;
     border-radius: 50px;
     background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
+    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
     z-index: -1;
   }
 
-  
+
   label {
     position: relative;
     z-index: 1;
   }
-  
+
   /* label:first-of-type::after {
     position: absolute;
     content: '';
-    height: 100%;    
+    height: 100%;
     width: 300px;
-    border-radius: 50px;   
-    background: var(--unnamed, linear-gradient(180deg, #7775B6 0%, #494694 69.79%));    
+    border-radius: 50px;
+    background: var(--unnamed, linear-gradient(180deg, #7775B6 0%, #494694 69.79%));
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1; 
-    right: 80%;   
+    z-index: -1;
+    right: 80%;
     transform: translateX(102%);
     transition: all .2s ease-in-out;
   } */
 
   label:first-of-type:hover::after {
     box-shadow: 0px 0px 15px 5px #FFF;
-    transition: box-shadow 0.3s ease;        
+    transition: box-shadow 0.3s ease;
   }
-  
+
   input:checked + label:first-of-type::after {
     transform: translateX(0);
-    right: 0%;   
+    right: 0%;
     width: 100%;
   }
 
@@ -266,7 +266,7 @@ box-sizing: border-box;
     color: white;
     cursor: pointer;
     width: 99%;
-    height: 41px;     
+    height: 41px;
     color: #FFF;
     font-family: 'Arsenal';
     font-size: 20px;
@@ -277,14 +277,14 @@ box-sizing: border-box;
     border: none;
     z-index: 2;
     box-shadow: none;
-    transition: box-shadow 0.3s ease;  
+    transition: box-shadow 0.3s ease;
   }
 
   .button__return:hover {
     box-shadow: 0px 0px 15px 5px #FFF;
-    transition: box-shadow 0.3s ease;  
+    transition: box-shadow 0.3s ease;
   }
- 
+
 
   .button__return--back {
     content: '';
@@ -307,10 +307,10 @@ box-sizing: border-box;
     margin-top: 0;
     margin-left: 0;
     border-radius: 50px;
-    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);    
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
     border: none;
     box-shadow: none;
-    transition: box-shadow 0.3s ease; 
+    transition: box-shadow 0.3s ease;
     /* transition: all  0.5s linear; */
 }
 
@@ -343,12 +343,12 @@ margin-left: 50%;
   left: -2px;
   border-radius: 50px;
   background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
-  linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
-} 
+  linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
+}
 
 .prize-button:hover {
   box-shadow: 0px 0px 15px 5px #FFF;
-  transition: box-shadow 0.3s ease;  
+  transition: box-shadow 0.3s ease;
 }
 
 
@@ -362,16 +362,44 @@ margin-left: 50%;
   left: -2px;
   border-radius: 50px;
   background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
-  linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
-} 
+  linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
+}
 
 .prize-button--mobile:hover {
   box-shadow: 0px 0px 15px 5px #FFF;
-  transition: box-shadow 0.3s ease;  
+  transition: box-shadow 0.3s ease;
 }
 
-
+    button.tablinks{
+        background: transparent;
+        position: relative;
+        text-align: center;
+        width: 300px;
+        height: 60px;
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 50px;
+        border: none;
+        box-shadow: none;
+        transition: box-shadow 0.3s ease;
+        color: #FFF;
+        font-family: 'Arsenal';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    button.tablinks.active{
+        border: solid #00BD8D 0.5px;
+        background: linear-gradient(180deg, #7775b6 0%, #494694 69.79%);
+    }
+    .tabcontent{
+        width: 100%;
+        text-align: -webkit-center;
+    }
   .prize-button--wrap {
+    display: flex;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -381,7 +409,7 @@ margin-left: 50%;
     cursor: pointer;
     width: 600px;
     height: 60px;
-    margin-bottom: 47px;     
+    margin-bottom: 47px;
     margin-top: 15px;
     color: #FFF;
     font-family: 'Arsenal';
@@ -393,7 +421,9 @@ margin-left: 50%;
     border: none;
     z-index: 2;
     box-shadow: none;
-    transition: box-shadow 0.3s ease; 
+    transition: box-shadow 0.3s ease;
+    outline: none;
+    float: left;
   }
 
   .prize-button--back {
@@ -406,8 +436,8 @@ margin-left: 50%;
     left: -2px;
     border-radius: 50px;
     background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
-  } 
+    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
+  }
 
   .prize__span--group {
     pointer-events: none;
@@ -430,7 +460,15 @@ margin-left: 50%;
   .prize__tea {
     cursor: pointer;
   }
+@media (max-width: 870px) {
+    .prize-button--wrap {
+        width: 100%;
+    }
 
+    .prize__span--group {
+        width: 100%;
+    }
+}
 @media (max-width: 540px) {
 
   .winners__container {
@@ -448,10 +486,10 @@ margin-left: 50%;
     background: url(../img/icons/form-flowers-top-mobile.svg), url(../img/icons/form-flowers-bottom-mobile.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
     background-repeat: no-repeat, no-repeat;
     background-size: contain, contain;
-    background-position-y: top, bottom;    
+    background-position-y: top, bottom;
   }
 
-  
+
 
   .winners__head {
     margin-top: 40px;
@@ -492,10 +530,10 @@ margin-left: 50%;
     margin-top: 0;
     margin-left: 0;
     border-radius: 50px;
-    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);    
+    background: linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
     border: none;
     box-shadow: none;
-    transition: box-shadow 0.3s ease; 
+    transition: box-shadow 0.3s ease;
     /* transition: all  0.5s linear; */
 }
 

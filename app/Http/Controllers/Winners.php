@@ -15,12 +15,32 @@ class Winners extends Controller
     public function action(Request $request)
     {
         $response = [];
-        $response["main_prizes"] = $this->get_main_prisez(Auth::user() ? Auth::user()["id"] : "-1");
-        $response["tea_prizes"] = $this->get_tea_prisez(Auth::user() ? Auth::user()["id"] : "-1");
-        return response()->json($response);
+        $code = 418;
+        $data = $request->all();
+        if(isset($data['type'], $data['page']) && $data) {
+            if($data['page'] === 1){
+                $data['page'] = 0;
+            }else {
+                $data['page'] -= 1;
+            }
+            if ($data['type'] == 'main') {
+                $code = 200;
+                $response["result"] = $this->get_main_prisez(Auth::user() ? Auth::user()["id"] : "-1", $data['page']);
+            }elseif ($data['type'] == 'tea'){
+                $code = 200;
+                $response["result"] = $this->get_tea_prisez(Auth::user() ? Auth::user()["id"] : "-1", $data['page']);
+            }else{
+                $response["error"] = "no type of winners";
+                $code = 400;
+            }
+        }else{
+            $response["error"] = "no type of winners";
+            $code = 400;
+        }
+        return response()->json($response, $code);
     }
 
-    public function get_main_prisez($user_id){
+    public function get_main_prisez($user_id, $page){
 
         $response = DB::table('belongs')
             ->select(
@@ -28,11 +48,14 @@ class Winners extends Controller
                 'users.phone as user_phone',
                 'users.email as user_email',
                 'codes.code_main_win as code_main_win',
-                'codes.code_main_win as code_main_description',
+                'codes.code_main_win_discription as code_description',
+                'code_main_win_date_delivery as code_delivery'
             )
             ->join('codes', 'codes.id', '=', 'belongs.code_id')
             ->join('users', 'belongs.user_id', '=', 'users.id')
             ->Where('code_main_win', '=', '1')
+            ->offset($page*20)
+            ->limit(20)
             ->get()->toArray();
 
         if($user_id == "-1"){
@@ -50,7 +73,7 @@ class Winners extends Controller
         return $response;
     }
 
-    public function get_tea_prisez($user_id){
+    public function get_tea_prisez($user_id, $page){
 
         $response = DB::table('belongs')
             ->select(
@@ -58,11 +81,14 @@ class Winners extends Controller
                 'users.phone as user_phone',
                 'users.email as user_email',
                 'codes.code_tea_win as code_tea_win',
-                'codes.code_tea_win as code_tea_description',
+                'codes.code_tea_win_discription as code_description',
+                'code_tea_win_date_delivery as code_delivery'
             )
             ->join('codes', 'codes.id', '=', 'belongs.code_id')
             ->join('users', 'belongs.user_id', '=', 'users.id')
             ->Where('code_tea_win', '=', '1')
+            ->offset($page*20)
+            ->limit(20)
             ->get()->toArray();
 
         if($user_id == "-1"){

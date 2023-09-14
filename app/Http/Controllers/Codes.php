@@ -37,16 +37,8 @@ class Codes extends Controller
                         ->limit(1)
                         ->get();
                     if (isset($searcher[0])) {
-
-                        Entries::query()->updateOrCreate(['user_id' => $user_id, 'date' => date("Y-m-d")],[
-                            'user_id' => $user_id,
-                            'date' => date("Y-m-d"),
-                            'counter' => ($limit[0]->counter ?? 0) + 1,
-                            'updated_at' => now()
-                        ]);
                         $response = ["error" => null];
                         $code = 200;
-                        return $searcher;
                     } else {
                         $response = ["error" => "Неверный код"];
                         $code = 412;
@@ -59,6 +51,12 @@ class Codes extends Controller
                 $response = ["error" => "Превышен лимит проверок кода"];
                 $code = 429;
             }
+            Entries::query()->updateOrCreate(['user_id' => $user_id, 'date' => date("Y-m-d")],[
+                'user_id' => $user_id,
+                'date' => date("Y-m-d"),
+                'counter' => ($limit[0]->counter ?? 0) + 1,
+                'updated_at' => now()
+            ]);
         }else{
             $response = ["error" => "Ошибка авторизации"];
             $code = 403;

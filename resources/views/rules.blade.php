@@ -4,15 +4,15 @@
 <head>
     @include('template_parts.header_css_js')
     <title>Главная</title>
-    <link rel="stylesheet" href="{{ asset("css/rules.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/winners.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/rules.css?v=").time()}}">
+    <link rel="stylesheet" href="{{ asset("css/winners.css?v=").time()}}">
 
 </head>
 
 <body class="main-body__image" data-variant="main-page">
 
 <header>
-    <div class="header-wrapper header-wrapper__main-page">
+    <div class="header-wrapper header-wrapper--white">
         @include('template_parts.header_menu')
     </div>
 </header>
@@ -68,3 +68,9 @@
     </div>
 
 </main>
+
+@include('template_parts.footer')
+</body>
+</html>
+
+

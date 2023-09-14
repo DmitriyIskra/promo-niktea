@@ -8,19 +8,19 @@
 <link rel="icon" type="image/png" href="{{ asset("img/icons/fav192.svg") }}" sizes="192x192">
 <link rel="icon" type="image/png" href="{{ asset("img/icons/fav194.svg") }}" sizes="194x194">
 <link rel="icon" type="image/png" href="{{ asset("img/icons/fav256.svg") }}" sizes="256x256">
-<link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
-<link rel="stylesheet" href="{{ asset("css/swiper-bundle.min.css") }}">
-<link rel="stylesheet" href="{{ asset("css/account.css") }}">
-<link rel="stylesheet" href="{{ asset("css/slider.css") }}">
-<link rel="stylesheet" href="{{ asset("css/catalog.css") }}">
-<link rel="stylesheet" href="{{ asset("css/search.css") }}">
-<link rel="stylesheet" href="{{ asset("css/recept.css") }}">
-<link rel="stylesheet" href="{{ asset("css/forms.css") }}">
-<link rel="stylesheet" href="{{ asset("css/style.css") }}">
+<link rel="stylesheet" href="{{ asset("css/bootstrap.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/swiper-bundle.min.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/account.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/slider.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/catalog.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/search.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/recept.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/forms.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/style.css?v=").time()}}">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
-<script src="{{ asset("js/slider.js") }}"></script>
-<script src="{{ asset("js/form.js") }}"></script>
-<script src="{{ asset("js/script.js") }}"></script>
-<script src="{{ asset("js/app.js") }}" type="module"></script>
+<script src="{{ asset("js/swiper-bundle.min.js?v=").time()}}"></script>
+<script src="{{ asset("js/slider.js?v=").time()}}"></script>
+<script src="{{ asset("js/form.js?v=").time()}}"></script>
+<script src="{{ asset("js/script.js?v=").time()}}"></script>
+<script src="{{ asset("js/app.js?v=").time()}}"></script>
 
