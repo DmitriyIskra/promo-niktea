@@ -139,14 +139,26 @@ function fillAccountData(data) {
     const accountPatronymic = document.querySelector('.account__patronymic');
     const accountPhone = document.querySelector('.account__phone');
     const accountMail = document.querySelector('.account__mail');
+    const codeList = document.querySelector('.code__list')
 
-    
-
+    // Заполнение данных о пользователе
     accountLastname.textContent = data.user.second_name;
     accountFirstname.textContent = data.user.name;
     accountPatronymic.textContent = data.user.patronymic;
     accountPhone.textContent = data.user.phone;
     accountMail.textContent = data.user.email;
+
+    // Заполнение кодов
+    // data.activated_codes.forEach( el => {
+    //   const codeItem = document.createElement('li');
+    //   codeItem.classList.add('code__list');
+    //   const codeValue = document.createElement('span');
+    //   codeValue.classList.add('code__value');
+    //   const codeDate = document.createElement('span');
+    //   codeDate.classList.add('code__date');
+    // })
+    
+
 
     sessionStorage.todayCodesActivated = data.today_activated_codes[0].activated_today;
 }
@@ -458,7 +470,9 @@ let exampleCodes = {
   ]
 }
 
-// Таблица кодов. Для даты заглушка
+
+
+// _____________________ Таблица кодов. Для даты заглушка
 
         let codeList = document.getElementsByClassName('code__list');
 
@@ -550,7 +564,7 @@ exampleChecks.checkIMAGE.forEach((check, i) => {
 `
 })
 
-// Пагинация блока кодов
+        // Пагинация блока кодов
 
 const paginationNumbers = document.getElementById("pagination-numbers");
 const paginatedList = document.getElementById("paginated-list");
@@ -674,7 +688,7 @@ let cookies = document.cookie
 
   console.log('передаваемый ключ из куки: ' + keyCookie)
 
-
+  // ___________________________________________
 
   // очищаем куки
 

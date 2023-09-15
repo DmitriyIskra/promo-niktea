@@ -4,6 +4,16 @@ export default class FetchAccountAddCodes {
         this.domainCheck = domain[1]
     }
 
+    // получаем account-info
+    async read() {
+        const requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        return await fetch("/api/account/info", requestOptions);
+    }
+
     async create(formData) {
         return await fetch(`${this.domainReg}`, {
             method: 'POST',

@@ -2,6 +2,7 @@ export default class ControllAccountAddCodes {
     constructor(arr) {
         this.draw = arr[0];
         this.fetch = arr[1];
+        this.accountInfo = null;
 
         this.onClick = this.onClick.bind(this);
         this.onInput = this.onInput.bind(this);
@@ -10,6 +11,7 @@ export default class ControllAccountAddCodes {
 
     init() {
         this.registerEvents();
+        this.getAccountInfo();
     }
 
     registerEvents() {
@@ -21,7 +23,6 @@ export default class ControllAccountAddCodes {
     }
 
     onClick(e) {
-        console.log(e.target)
         // открываем поле отрисовки и сохраняем код
         if(e.target.closest('.code__add')) {
             const value = this.draw.typeCode.value;
@@ -34,16 +35,23 @@ export default class ControllAccountAddCodes {
             // отправляем данные на сервер (если они есть)
             if(this.draw.arrCodes.length > 0 && this.draw.storageFile) {
                 const formData = new FormData;
-                formData.append('check', this.draw.storageFile);
+                formData.append('name', this.accountInfo.user.name);
+                formData.append('name', this.accountInfo.user.second_name);
+                formData.append('name', this.accountInfo.user.patronymic);
+                formData.append('name', this.accountInfo.user.phone);
+                formData.append('name', this.accountInfo.user.email);
                 this.draw.arrCodes.forEach( el => formData.append('code[]', el));
-                сщт
-                // (async () => {
-                //     const res = await this.fetch.create(formData);
-                //     const result = await res.json();
-                //     console.log(result)
-                //     // далее нужно вызвать account info и перерисовывать страницу
-                // })();
-            
+                formData.append('check', this.draw.storageFile);
+                
+                (async () => {
+                    const res = await this.fetch.create(formData);
+                    const result = await res.json();
+                    console.log(result)
+                    // далее нужно вызвать account info и перерисовывать страницу
+                })();
+            // отправить коды
+            // получить новый акк инфо
+            // отрисовать его
                 return;
             }
             
@@ -85,9 +93,10 @@ export default class ControllAccountAddCodes {
 
     // валидация кода прежде чем добавить в массив для отправки
     async validateCode(code) {
+        console.log('code', code)
         const data = JSON.stringify({code});
 
-        try { // 4009-16H53TT, 2660-777MPV, 1623-15QA3G, 2583-1NL5RN5
+        try { // 4009-16H53TT, 2660-777MPV, 1623-15QA3G, 2583-1NL5RN5,   3918-21LCLF2
             const resp = await this.fetch.validate(data);
             const result = await resp.json();
 
@@ -99,6 +108,15 @@ export default class ControllAccountAddCodes {
             console.log(error)
         }
     }
+
+    async getAccountInfo() {
+        const res = await this.fetch.read();
+        this.accountInfo = await res.json();
+    }
+
+    // async sendCodes() {
+
+    // }
 }
 
 // Нажимая кнопку зарегистрировать мы понимаем что там коды прошедшие валидацию 

@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
   //   })
   // }
 
-  
+  // слайдер кодов при добавлении
   let swiperCode = new Swiper(".codeSlider", {    
     grabCursor: true,
     keyboard: true,    
@@ -55,14 +55,6 @@ window.addEventListener('load', () => {
   });
 
 })
-
-
-
-
-
-  
-
-
 
 
 
