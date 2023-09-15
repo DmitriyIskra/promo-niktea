@@ -109,33 +109,13 @@
 
                     <h1>Активные коды</h1>
                     <div class="code__container">
-
-
                         <ul class="code__list" id="paginated-list" data-current-page="1" aria-live="polite">
 
                             <!-- <li class="code__item">
-                              <span class="code__value">3548-QTNS5N</span>
-                            <span class="code__date">22.06.2023</span>
-                            </li>
-
-                            <li class="code__item">
-                              <span class="code__value">Третья-QTNS5N</span>
-                            <span class="code__date">22.06.2023</span>
+                                <span class="code__value">3548-QTNS5N</span>
+                                <span class="code__date">22.06.2023</span>
                             </li> -->
-
-
                         </ul>
-
-
-
-
-                        <!-- <ul class="code__list">
-                          <li class="code__item">
-                            <span class="code__value">3548-QTNS5N</span>
-                          <span class="code__date">22.06.2023</span>
-                          </li>
-
-                        </ul> -->
 
                     </div>
 
