@@ -42,19 +42,19 @@ export default class ControllAccountAddCodes {
                 formData.append('name', this.accountInfo.user.email);
                 this.draw.arrCodes.forEach( el => formData.append('code[]', el));
                 formData.append('check', this.draw.storageFile);
-                
+
                 (async () => {
                     const res = await this.fetch.create(formData);
                     const result = await res.json();
                     console.log(result)
                     // далее нужно вызвать account info и перерисовывать страницу
                 })();
-            // отправить коды
-            // получить новый акк инфо
-            // отрисовать его
+                // отправить коды
+                // получить новый акк инфо
+                // отрисовать его
                 return;
             }
-            
+
             // если не введено ни одного кода показываем сообщение об оошибке
             if(this.draw.arrCodes.length === 0) {
                 this.draw.showInvalidCode();
@@ -86,7 +86,7 @@ export default class ControllAccountAddCodes {
 
     onChange(e) {
         console.log(e)
-        
+
         const file = e.target.files && e.target.files[0];
         this.draw.saveFile(file);
     }
@@ -103,7 +103,7 @@ export default class ControllAccountAddCodes {
             // проверяем ответ и отмечаем валидность
             if(result?.error) this.draw.isValidCode = false;
             if(result[0]?.code) this.draw.isValidCode = true;
-        } 
+        }
         catch(error) {
             console.log(error)
         }
@@ -119,4 +119,4 @@ export default class ControllAccountAddCodes {
     // }
 }
 
-// Нажимая кнопку зарегистрировать мы понимаем что там коды прошедшие валидацию 
+// Нажимая кнопку зарегистрировать мы понимаем что там коды прошедшие валидацию

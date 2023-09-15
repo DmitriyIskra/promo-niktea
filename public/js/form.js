@@ -67,7 +67,7 @@ function registration() {
     formSignIn.addEventListener('submit', SendRegister);
 
     function SendRegister(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const name = formSignIn.querySelector('[name="name"]'), //получаем поле name
             second_name = formSignIn.querySelector('[name="second_name"]'), //получаем поле age
@@ -106,23 +106,23 @@ function registration() {
 function logout() {
     const logOut = document.querySelector('.log-out__button');
 
-        logOut.addEventListener('click', logouter);
+    logOut.addEventListener('click', logouter);
 
-        function logouter() {
-            var settings = {
-                "url": "http://niktea/api/auth/logout",
-                "method": "GET",
-                "timeout": 0,
-            };
+    function logouter() {
+        var settings = {
+            "url": "http://niktea/api/auth/logout",
+            "method": "GET",
+            "timeout": 0,
+        };
 
-            $.ajax(settings).done(function (response) {
-                console.log(response)
-                if(response.is_auth === true) {
-                    deleteAllCookies()
-                    window.location.href = "/";
-                }
-            });
-        }
+        $.ajax(settings).done(function (response) {
+            console.log(response)
+            if(response.is_auth === true) {
+                deleteAllCookies()
+                window.location.href = "/";
+            }
+        });
+    }
 }
 async function accountInfo() {
     const requestOptions = {
@@ -157,7 +157,7 @@ function fillAccountData(data) {
     //   const codeDate = document.createElement('span');
     //   codeDate.classList.add('code__date');
     // })
-    
+
 
 
     sessionStorage.todayCodesActivated = data.today_activated_codes[0].activated_today;
@@ -167,14 +167,14 @@ function fillAccountData(data) {
 $( document ).ready(function() {
     authorize()
     registration()
-    
-    
 
 
 
 
 
-   // })
+
+
+    // })
 
     /*
 const form = document.getElementById('user-data');

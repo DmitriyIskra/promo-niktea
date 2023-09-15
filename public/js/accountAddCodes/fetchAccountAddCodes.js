@@ -19,7 +19,7 @@ export default class FetchAccountAddCodes {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
-             },
+            },
             body: formData,
         })
     }
@@ -29,7 +29,7 @@ export default class FetchAccountAddCodes {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
-             },
+            },
             body: data,
         })
     }

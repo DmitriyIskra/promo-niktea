@@ -16,21 +16,21 @@
     </div>
 </header>
 <script>
-        // если пользователь не авторизован, редирект на главную
-        if (auther.is_auth === false) {
-            window.location.href = "/";
-        }
+    // если пользователь не авторизован, редирект на главную
+    if (auther.is_auth === false) {
+        window.location.href = "/";
+    }
 
-        // каждый раз при загрузке страницы вызывается 
-        // для заполнения данных о пользователе
-        (async () => {
-            const responce = await accountInfo()
-            const result = await responce.json()
-            console.log(result)
-            // разделяем потому что иногда нужно получить данные
-            // без отрисовки данных на всей странице
-            document.addEventListener('DOMContentLoaded', fillAccountData(result))
-        })()
+    // каждый раз при загрузке страницы вызывается
+    // для заполнения данных о пользователе
+    (async () => {
+        const responce = await accountInfo()
+        const result = await responce.json()
+        console.log(result)
+        // разделяем потому что иногда нужно получить данные
+        // без отрисовки данных на всей странице
+        document.addEventListener('DOMContentLoaded', fillAccountData(result))
+    })()
 </script>
 
 
