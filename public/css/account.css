@@ -67,7 +67,7 @@
     height: 3.2vw;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 16px;
+    padding: 16px; 
     box-sizing: border-box;
 
     font-size: 18px;
@@ -467,46 +467,131 @@
 
 
 
-
+/* БЛОК ВЫВОДА ВСЕХ ЗАРЕГЕСТРИРОВАННЫХ КОДОВ */
 
 .code__list {
-    width: 100%;    
-    padding-left: 20px;
-    padding-right: 20px;
-    /* padding-top: 32px; */
-    padding-bottom: 35px;
-    /* margin: 0; */
-    column-count: 2;    
-    -webkit-columns: 2;
-    -moz-columns: 2;  
-    column-fill: auto;
-    column-span: all;
-    column-gap: 54px;
-    max-height: 315px;
+    display: flex;
+    width: 100%;
+    padding-left: 0 !important;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none;
 }
 
 .code__item {
-    width: 100%;
+    display: flex;
+    width: 47%;
     height: 40px;
     padding-left: 6.5px;
     padding-right: 6.5px;
-    display: flex;
+    
+    border-bottom: 0.5px solid #fff;
+
     justify-content: space-between;
     align-items: flex-end;
-    border-bottom: 0.5px solid #fff;
+}
+
+.code__item_win {
+    border-bottom: 0.5px solid #FFF65A;
+}
+
+.account__wr-code-and-win {
+    display: flex;
+    gap: 0.1vw;
 }
 
 .code__value, .code__date {    
     font-family: 'Arsenal';
-    font-size: 1.04vw;
+    font-size: 1.03vw;
     font-style: normal;
     font-weight: 200;
     line-height: 125%;
     color: #FFF;
 }
 
-.code__pagination {
+.account__wr-value-code {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.account__code-win-text_mobile {
+    display: none;
+
+    font-family: 'Arsenal';
+    font-size: 2.83vw;
+    font-weight: 400;
+
+    color: #FFF65A;
+}
+
+.account__wr-text-icon-win {
+    display: flex;
+    gap: 0.2vw;
+
+    align-items: center;
+}
+
+.account__icon-win {
+    height: 1.41vw;
+    width: 1.41vw;
+}
+
+.account__icon-win_main {
+    background: no-repeat url(../img/icons/account-icon-main.png);
+    background-position: center;
+    background-size: 100%;
+}
+
+.account__icon-win_tea {
+    background: no-repeat url(../img/icons/account-icon-tea.png);
+    background-position: center;
+    background-size: 100%;
+}
+
+.account__code-win-text_desctop {
+    font-family: 'Arsenal';
+    font-size: 0.73vw;
+    font-weight: 400;
+
+    color: #FFF65A;
+}
+
+.account__codeHide {
+    display: none;
+}
+
+.account__wr-pag-code {
+    display: flex;
+
+    justify-content: center;
+}
+
+.account__pag-code_prev {
+    display: none;
+}
+
+.account__pag-code_next {
+    display: none;
+}
+
+.account__pag-code_active {
+    display: block;
+}
+
+
+
+.account__pag-code {
+    cursor: pointer;
+}
+
+
+
+
+
+/* .code__pagination {
     display: flex;
     text-align: center;
     padding-left: 0;
@@ -524,7 +609,7 @@
     line-height: 100%;
     text-decoration: none;
     background: none;
-}
+} */
 
 /* Слайдер */
 
@@ -963,12 +1048,7 @@ text-transform: inherit !important;
 
 
 
-.code__list {
-    column-count: 1;
-    -webkit-columns: 1;
-    padding-left: 0;
-    padding-right: 0;    
-}
+
 
 .breadcrumbs__container {
     display: none;
@@ -1001,6 +1081,47 @@ text-transform: inherit !important;
         margin-top: 45px;
     }
 
+    .code__container {
+        margin-bottom: 14px;
+    }
+
+    .code__list {
+        flex-direction: column;
+    }
+
+    .code__item {
+        width: 100%;
+        height: 10.67vw;
+    }
+
+    .code__value,
+     .code__date {
+        margin-bottom: 1.7vw;
+    }
+
+    .account__code-win-text_mobile {
+        display: block;
+    }
+
+    .account__icon-win {
+        width: 9vw;
+        height: 9vw;
+    }
+
+    .account__wr-text-icon-win,
+    .account__wr-text-icon-tea {
+        align-items: flex-end;
+    }
+
+    .account__code-win-text_desctop {
+        display: none;
+    }
+
+    
+
+    .slider__group {
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 540px) {

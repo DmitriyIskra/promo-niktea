@@ -17,9 +17,7 @@ export default class FetchAccountAddCodes {
     async create(formData) {
         return await fetch(`${this.domainReg}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
+
             body: formData,
         })
     }

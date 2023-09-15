@@ -25,27 +25,44 @@ export default class ControllAccountAddCodes {
     onClick(e) {
         // открываем поле отрисовки и сохраняем код
         if(e.target.closest('.code__add')) {
-            const value = this.draw.typeCode.value;
-            this.draw.showSlider(value);
-            this.draw.addCode(value);
+            const code = this.draw.typeCode.value;
+            const data = JSON.stringify({code});
+            // this.validateCode(value);
+
+            (async () => {
+                const res = await this.fetch.validate(data)
+                const result = await res.json();
+
+                if(result.error === null) {
+                    this.draw.isValidCode = true;
+                    this.draw.showSlider(code);
+                    this.draw.addCode(code);
+                } else {
+                    this.draw.isValidCode = false;
+                    this.draw.showSlider(code);
+                    this.draw.addCode(code);
+                };
+            })();
+            // 
         }
 
         // отправляем коды и очищаем массив
         if(e.target.closest('.code__submit')) {
             // отправляем данные на сервер (если они есть)
             if(this.draw.arrCodes.length > 0 && this.draw.storageFile) {
-                const formData = new FormData;
-                formData.append('name', this.accountInfo.user.name);
-                formData.append('name', this.accountInfo.user.second_name);
-                formData.append('name', this.accountInfo.user.patronymic);
-                formData.append('name', this.accountInfo.user.phone);
-                formData.append('name', this.accountInfo.user.email);
-                this.draw.arrCodes.forEach( el => formData.append('code[]', el));
-                formData.append('check', this.draw.storageFile);
-
                 (async () => {
+                    const formData = new FormData();
+                    formData.append('name', this.accountInfo.user.name);
+                    formData.append('second_name', this.accountInfo.user.second_name);
+                    formData.append('patronymic', this.accountInfo.user.patronymic);
+                    formData.append('phone', this.accountInfo.user.phone);
+                    this.draw.arrCodes.forEach( el => formData.append('code[]', el));
+                    formData.append('email', this.accountInfo.user.email);
+                    formData.append('check', this.draw.storageFile);
+
                     const res = await this.fetch.create(formData);
                     const result = await res.json();
+
                     console.log(result)
                     // далее нужно вызвать account info и перерисовывать страницу
                 })();
@@ -77,11 +94,6 @@ export default class ControllAccountAddCodes {
         if(value) {
             this.draw.hideInvalidCode();
         }
-
-        // отправляем код на проверку
-        if(value.length >= 9) {
-            this.validateCode(value);
-        }
     }
 
     onChange(e) {
@@ -99,7 +111,7 @@ export default class ControllAccountAddCodes {
         try { // 4009-16H53TT, 2660-777MPV, 1623-15QA3G, 2583-1NL5RN5,   3918-21LCLF2
             const resp = await this.fetch.validate(data);
             const result = await resp.json();
-
+            console.log(result)
             // проверяем ответ и отмечаем валидность
             if(result?.error) this.draw.isValidCode = false;
             if(result[0]?.code) this.draw.isValidCode = true;
@@ -107,6 +119,8 @@ export default class ControllAccountAddCodes {
         catch(error) {
             console.log(error)
         }
+
+        
     }
 
     async getAccountInfo() {

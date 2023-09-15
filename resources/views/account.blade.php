@@ -119,18 +119,18 @@
 
                     </div>
 
-                    <div class="pagination-container">
-                        <button class="pagination-button pagination-prev" id="prev-button" aria-label="Previous page" title="Previous page">
+                    <div class="account__wr-pag-code">
+                        <div class="account__pag-code account__pag-code_prev" aria-label="Previous page" title="Previous page">
                             <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
-                        </button>
+                        </div>
 
-                        <div id="pagination-numbers" style="text-align: center;">
+                        <div class="account__pag-num" style="text-align: center;">
 
                         </div>
 
-                        <button class="pagination-button pagination-next" id="next-button" aria-label="Next page" title="Next page">
+                        <div class="account__pag-code account__pag-code_next" aria-label="Next page" title="Next page">
                             <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
-                        </button>
+                        </div>
                     </div>
 
 

@@ -148,15 +148,113 @@ function fillAccountData(data) {
     accountPhone.textContent = data.user.phone;
     accountMail.textContent = data.user.email;
 
+    const codeWinners = [];
+    const restCodes = [];
+
+    data.activated_codes.forEach( el => {
+      if(el.code_main_win === 1 || el.code_tea_win === 1) {
+        codeWinners.unshift(el);
+      } else {
+        restCodes.unshift(el);
+      }
+    })
+
+    console.log(codeWinners)
+    console.log(restCodes)
+
     // Заполнение кодов
-    // data.activated_codes.forEach( el => {
-    //   const codeItem = document.createElement('li');
-    //   codeItem.classList.add('code__list');
-    //   const codeValue = document.createElement('span');
-    //   codeValue.classList.add('code__value');
-    //   const codeDate = document.createElement('span');
-    //   codeDate.classList.add('code__date');
-    // })
+    if(codeWinners.length !== 0) {
+      
+      codeWinners.forEach( el => {
+        
+        const codeItem = document.createElement('li');
+        codeItem.classList.add('code__item');
+        codeItem.classList.add('code__item_win');
+        
+        // начало левой части
+        const wrCodeAndWin = document.createElement('div');
+        wrCodeAndWin.classList.add('account__wr-code-and-win');
+        
+        const wrValue = document.createElement('div');
+        wrValue.classList.add('account__wr-value-code');
+        const codeWinTextMobile = document.createElement('div');
+        codeWinTextMobile.classList.add('account__code-win-text_mobile');
+        codeWinTextMobile.textContent = 'ВЫ ВЫИГРАЛИ!';
+        const codeValue = document.createElement('div');
+        codeValue.classList.add('code__value');
+        codeValue.textContent = el.code_string;
+        wrValue.append(codeWinTextMobile);
+        wrValue.append(codeValue);
+        
+        const wrTextIconWin = document.createElement('div');
+        wrTextIconWin.classList.add('account__wr-text-icon-win');
+        const iconWin = document.createElement('div');
+        iconWin.classList.add('account__icon-win');
+        if(el.code_main_win === 1) iconWin.classList.add('account__icon-win_main');
+        if(el.code_tea_win === 1) iconWin.classList.add('account__icon-win_tea');
+        const codeWinTextDesc = document.createElement('div');
+        codeWinTextDesc.classList.add('account__code-win-text_desctop');
+        codeWinTextDesc.textContent = 'ВЫ ВЫИГРАЛИ!';
+        wrTextIconWin.append(iconWin);
+        wrTextIconWin.append(codeWinTextDesc);
+        
+        wrCodeAndWin.append(wrValue);
+        wrCodeAndWin.append(wrTextIconWin);
+        // конец левой части
+
+        const codeDate = document.createElement('div');
+        const dateArr = el.created_time.split(' ')
+        codeDate.textContent = dateArr[0];
+        codeDate.classList.add('code__date');
+  
+        codeItem.append(wrCodeAndWin);
+        codeItem.append(codeDate);
+  
+        
+        codeList.append(codeItem);
+      })
+    }
+
+
+    if(restCodes.length !== 0) {
+      // количество кодов уже добавленных 
+      const amountCodes = codeList.children.length;
+      // счетчик видимых кодов (сколько еще можно оставить видимыми)
+      // показываем максимум 14 кодов
+      let counter = 0 + amountCodes;
+
+      restCodes.forEach( el => {
+        counter += 1;
+
+        const codeItem = document.createElement('li');
+        codeItem.classList.add('code__item');
+        const codeValue = document.createElement('span');
+        codeValue.classList.add('code__value');
+        codeValue.textContent = el.code_string;
+        const codeDate = document.createElement('span');
+        const dateArr = el.created_time.split(' ')
+        codeDate.textContent = dateArr[0];
+        codeDate.classList.add('code__date');
+
+        codeItem.append(codeValue);
+        codeItem.append(codeDate);
+
+        // если соответствующий экран и сообщений в массиве больше чем разрешено
+        // остальные скрываем
+        if(window.innerWidth > 428 && counter > 14) {
+          codeItem.classList.add('account__codeHide');
+        }
+
+        if(window.innerWidth <= 428 && counter > 6) {
+          codeItem.classList.add('account__codeHide');
+        }
+
+        codeList.append(codeItem);
+      });
+    }
+
+    
+    
 
 
 
