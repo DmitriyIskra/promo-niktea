@@ -51,16 +51,20 @@ class Codes extends Controller
                 $response = ["error" => "Превышен лимит проверок кода"];
                 $code = 429;
             }
-            Entries::query()->updateOrCreate(['user_id' => $user_id, 'date' => date("Y-m-d")],[
-                'user_id' => $user_id,
-                'date' => date("Y-m-d"),
-                'counter' => ($limit[0]->counter ?? 0) + 1,
-                'updated_at' => now()
-            ]);
+
+            if($code != 200){
+                Entries::query()->updateOrCreate(['user_id' => $user_id, 'date' => date("Y-m-d")],[
+                    'user_id' => $user_id,
+                    'date' => date("Y-m-d"),
+                    'counter' => ($limit[0]->counter ?? 0) + 1,
+                    'updated_at' => now()
+                ]);
+            }
         }else{
             $response = ["error" => "Ошибка авторизации"];
             $code = 403;
         }
+
         return response()->json($response, $code);
     }
 

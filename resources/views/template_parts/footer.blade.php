@@ -47,6 +47,5 @@
     </div>
 </footer>
 <script src="{{ asset("js/bootstrap.js") }}"></script>
-<script src="{{ asset("js/bootstrap.js.map") }}"></script>
 <script src="{{ asset("js/swiper-bundle.min.js") }}"></script>
 <script src="{{ asset("js/slider.js") }}"></script>
