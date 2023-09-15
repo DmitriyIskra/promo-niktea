@@ -467,7 +467,7 @@
 
 
 
-/* БЛОК ВЫВОДА ВСЕХ ЗАРЕГЕСТРИРОВАННЫХ КОДОВ */
+/* МОЕ БЛОК ВЫВОДА ВСЕХ ЗАРЕГЕСТРИРОВАННЫХ КОДОВ */
 
 .code__list {
     display: flex;
@@ -563,10 +563,50 @@
     display: none;
 }
 
+
+
 .account__wr-pag-code {
     display: flex;
 
     justify-content: center;
+}
+
+.account__pag-num {
+    display: flex;
+
+    justify-content: center;
+}
+
+.account__wr-code-pag-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.account__code-pag-item {
+    display: flex;
+    width: 1.7vw;
+
+    font-family: 'Arsenal';
+    font-size: 1.25vw;
+    font-weight: 700;
+
+    color: #fff;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.account__code-pag-num-page {
+    cursor: pointer;
+}
+
+.account__code-pag-num-page_active {
+    filter: drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.7)) drop-shadow(-1px -1px 3px rgba(255, 255, 255, 0.7));
+}
+
+.account__pag-code-arrow {
+    align-items: center;
+    cursor: pointer;
 }
 
 .account__pag-code_prev {
@@ -577,15 +617,13 @@
     display: none;
 }
 
-.account__pag-code_active {
-    display: block;
+.account__pag-code-arrow_active {
+    display: flex;
 }
 
 
 
-.account__pag-code {
-    cursor: pointer;
-}
+
 
 
 

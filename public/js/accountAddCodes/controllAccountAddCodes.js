@@ -49,7 +49,7 @@ export default class ControllAccountAddCodes {
         // отправляем коды и очищаем массив
         if(e.target.closest('.code__submit')) {
             // отправляем данные на сервер (если они есть)
-            if(this.draw.arrCodes.length > 0 && this.draw.storageFile) {
+            if(this.draw.arrCodes.size > 0 && this.draw.storageFile) {
                 (async () => {
                     const formData = new FormData();
                     formData.append('name', this.accountInfo.user.name);
@@ -59,16 +59,15 @@ export default class ControllAccountAddCodes {
                     this.draw.arrCodes.forEach( el => formData.append('code[]', el));
                     formData.append('email', this.accountInfo.user.email);
                     formData.append('check', this.draw.storageFile);
-
+                    console.log(Array.from(formData))
                     const res = await this.fetch.create(formData);
                     const result = await res.json();
 
                     console.log(result)
                     // далее нужно вызвать account info и перерисовывать страницу
+                    this.draw.clearData();
                 })();
-                // отправить коды
-                // получить новый акк инфо
-                // отрисовать его
+
                 return;
             }
 

@@ -37,9 +37,9 @@ window.addEventListener('load', () => {
         },
         breakpoints: {
             992: {
-                centeredSlides: true,
-                slidesPerView: 3,
-                spaceBetween: 10,
+                // centeredSlides: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
             },
             320: {
                 slidesPerView: 1,

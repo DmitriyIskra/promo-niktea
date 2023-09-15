@@ -139,7 +139,11 @@ function fillAccountData(data) {
     const accountPatronymic = document.querySelector('.account__patronymic');
     const accountPhone = document.querySelector('.account__phone');
     const accountMail = document.querySelector('.account__mail');
-    const codeList = document.querySelector('.code__list')
+    const codeList = document.querySelector('.code__list');
+    const contCodePag = document.querySelector('.account__pag-num');
+    const pagCodeNext = document.querySelector('.account__pag-code_next');
+
+    const windowWidth = window.innerWidth;
 
     // Заполнение данных о пользователе
     accountLastname.textContent = data.user.second_name;
@@ -163,6 +167,8 @@ function fillAccountData(data) {
     console.log(restCodes)
 
     // Заполнение кодов
+
+    // Заполняем выигрышные коды
     if(codeWinners.length !== 0) {
       
       codeWinners.forEach( el => {
@@ -215,7 +221,7 @@ function fillAccountData(data) {
       })
     }
 
-
+    // Заполняем не выигрышные коды
     if(restCodes.length !== 0) {
       // количество кодов уже добавленных 
       const amountCodes = codeList.children.length;
@@ -241,16 +247,49 @@ function fillAccountData(data) {
 
         // если соответствующий экран и сообщений в массиве больше чем разрешено
         // остальные скрываем
-        if(window.innerWidth > 428 && counter > 14) {
+        if(windowWidth > 428 && counter > 14) {
           codeItem.classList.add('account__codeHide');
         }
 
-        if(window.innerWidth <= 428 && counter > 6) {
+        if(windowWidth <= 428 && counter > 6) {
           codeItem.classList.add('account__codeHide');
         }
 
         codeList.append(codeItem);
       });
+    }
+
+    // активируем пагинацию
+    if(windowWidth > 428 && data.activated_codes.length > 14) {
+      pagCodeNext.classList.add('account__pag-code-arrow_active');
+
+      const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+      
+      const wrPagSlides = document.createElement('ul');
+      wrPagSlides.classList.add('account__wr-code-pag-list');
+
+      for(let i = 1; i <= amountPagPages; i += 1) {
+        const pagSlideItem = document.createElement('li');
+        pagSlideItem.classList.add('account__code-pag-item');
+        const numPage = document.createElement('div');
+        numPage.classList.add('account__code-pag-num-page');
+        if( i === 1 ) numPage.classList.add('account__code-pag-num-page_active');
+        numPage.textContent = i;
+        pagSlideItem.append(numPage);
+
+        wrPagSlides.append(pagSlideItem);
+      }
+
+   
+      contCodePag.append(wrPagSlides);
+
+    }
+      
+
+    
+
+    if(windowWidth <= 428 && data.activated_codes.length > 6) {
+      pagCodeNext.classList.add('account__pag-code-arrow_active');
     }
 
     

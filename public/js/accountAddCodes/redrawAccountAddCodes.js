@@ -14,7 +14,7 @@ export default class RedrawAccountAddCodes {
         // Отметим активен ли слайдер
         this.activeSlider = null;
         // массив добавленных кодов
-        this.arrCodes = [];
+        this.arrCodes = new Set();
         // для файла
         this.storageFile = null;
         // Выражение для проверки файла
@@ -57,7 +57,7 @@ export default class RedrawAccountAddCodes {
         }
 
         // добавляем код в массив
-        this.arrCodes.unshift(code);
+        this.arrCodes.add(code);
         console.log('массив кодов', this.arrCodes)
         // добавляем код в поле для отображения
         this.addCodeInPlace(code); 
@@ -131,6 +131,11 @@ export default class RedrawAccountAddCodes {
         if(element) element.classList.add('account__file-result_active');
     }
 
+    clearData() {
+        this.arrCodes = [];
+
+        this.storageFile = null;
+    }
 
     
 }

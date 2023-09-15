@@ -74,9 +74,9 @@
 
                                 <div class="swiper codeSlider">
                                     <div class="swiper-wrapper codeslider-output">
-                                        <!-- <div class="swiper-slide">
+                                        <div class="swiper-slide">
                                           <span class="code__text">3548-QTNS5N</span>
-                                        </div>-->
+                                        </div>
                                     </div>
                                 </div>
 
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="account__wr-pag-code">
-                        <div class="account__pag-code account__pag-code_prev" aria-label="Previous page" title="Previous page">
+                        <div class="account__pag-code-arrow account__pag-code_prev" aria-label="Previous page" title="Previous page">
                             <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
                         </div>
 
@@ -128,23 +128,12 @@
 
                         </div>
 
-                        <div class="account__pag-code account__pag-code_next" aria-label="Next page" title="Next page">
+                        <div class="account__pag-code-arrow account__pag-code_next" aria-label="Next page" title="Next page">
                             <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
                         </div>
                     </div>
 
 
-                    <!-- <div class="pagination__container pagination__container--display">
-                      <div class="pagination-prev" id="next-button">&lt;</div>
-                      <div class="code__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                      </div>
-                      <div class="pagination-next">&gt;</div>
-                    </div>
-
-                  </div> -->
 
 
                     <div class="slider__group">
