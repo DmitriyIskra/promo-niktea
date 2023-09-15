@@ -22,7 +22,9 @@
     margin-right: 150px;
     margin-bottom: 50%;
 }
-
+.my td{
+    color: #FEF85C;
+}
 
 .winners-body {
     position: relative;

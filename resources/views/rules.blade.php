@@ -57,8 +57,7 @@
                 <h2>Правила проведения акции</h2>
 
                 <div class="docs_links__wrap">
-                    <div class="docs__link__icon"><img src="img/icons/pdf-icon.svg" alt="Document1" srcset=""></div>
-                    <div class="docs__link__icon"><img src="img/icons/pdf-icon.svg" alt="Document2" srcset=""></div>
+                    <a class="docs__link__icon" href="привила_проведения_промо_акции_Niktea.pdf" download=""><img src="img/icons/pdf-icon.svg" alt="Document1" srcset=""></a>
                 </div>
 
             </div>

@@ -118,13 +118,60 @@ class Winners extends Controller
         }else{
             foreach ($response as $key => $value){
                 if($value->belongs_user_id == $user_id){
+                    $value->my = 1;
                     unset($response[$key]);
                     array_unshift($response, $value);
                 }
                 //unset($value->belongs_user_id);
             }
+
             $response = $this->blur_data($response);
         }
+        $page += 1;
+        $response2 = DB::table('belongs')
+            ->select(
+                'belongs.user_id as belongs_user_id',
+                'users.phone as user_phone',
+                'users.email as user_email',
+                'codes.code_tea_win as code_tea_win',
+                'codes.code_tea_win_discription as code_description',
+                'code_tea_win_date_delivery as code_delivery'
+            )
+            ->join('codes', 'codes.id', '=', 'belongs.code_id')
+            ->join('users', 'belongs.user_id', '=', 'users.id')
+            ->Where('code_tea_win', '=', '1')
+            ->offset($page*21)
+            ->limit(1)
+            ->get()->toArray();
+        if(isset($response2[0])){
+            $response2 = true;
+        }else{
+            $response2 = false;
+        }
+        $response["next_page"] = $response2;
+
+        $page += 1;
+        $response3 = DB::table('belongs')
+            ->select(
+                'belongs.user_id as belongs_user_id',
+                'users.phone as user_phone',
+                'users.email as user_email',
+                'codes.code_tea_win as code_tea_win',
+                'codes.code_tea_win_discription as code_description',
+                'code_tea_win_date_delivery as code_delivery'
+            )
+            ->join('codes', 'codes.id', '=', 'belongs.code_id')
+            ->join('users', 'belongs.user_id', '=', 'users.id')
+            ->Where('code_tea_win', '=', '1')
+            ->offset($page*21)
+            ->limit(1)
+            ->get()->toArray();
+        if(isset($response3[0])){
+            $response3 = true;
+        }else{
+            $response3 = false;
+        }
+        $response["after_next_page"] = $response3;
         return $response;
     }
 

@@ -80,7 +80,7 @@
 
 
                 <div class="winners__button--wrap">
-                    <button class="button__return">ВЕРНУТЬСЯ НА ГЛАВНУЮ</button>
+                    <button onclick="window.location.href = '/';" class="button__return">ВЕРНУТЬСЯ НА ГЛАВНУЮ</button>
                     <div class="button__return--back"></div>
                 </div>
 
@@ -129,8 +129,8 @@
         }else{
             ready = ready_tea
         }
-        ready = false
         if(ready) {
+            $('.attention').empty();
             var settings = {
                 "url": "/api/winners",
                 "method": "POST",
@@ -145,16 +145,25 @@
             };
 
             $.ajax(settings).done(function (response) {
+                let next_page = false
+                let after_next_page = false
                 $.each(response, function (index, element) {
-                    element.forEach(function (entry) {
-                        parser(entry);
-                    });
+                    next_page = element.next_page
+                    delete element.next_page
+                    after_next_page = element.after_next_page
+                    delete element.after_next_page
+                    console.log(element)
+                    for(var entry in element) {
+                        console.log(element[entry])
+                            parser(element[entry]);
+                        }
                     verstka += `</table>`
-                    pagerender(page)
                     var $result = $('#' + PrizeName);
                     $result.empty()
                     console.log(verstka)
                     $result.append(verstka);
+                    let pagi = pagerender(page, next_page, after_next_page)
+                    $result.append(pagi);
                     link_pagi()
                 });
             });
@@ -181,42 +190,69 @@
 
         }
 
-        function pagerender(){
-            console.log(page)
+        function pagerender(page, next_page, after_next_page){
             pre_page = page - 1;
             next = page + 1
             after_next = page + 2
-            if(page === 1) {
-                verstka += `<div class='winners__table__pagination'>
+            let paginator
+            paginator = `<div class='winners__table__pagination'>
                         <button class='pagination-number' value='pre_page'>
-                        <img src='{{ asset('img/icons/pagination-arrow-left.svg') }}' alt='pagination-arrow-left'></button>
-                        <button class='pagination-number active' value='` + page + `'>` + page + `</button>
+                        <img src='{{ asset('img/icons/pagination-arrow-left.svg') }}' alt='pagination-arrow-left'></button>`
+            if(page === 1) {
+                if(next_page === true && after_next_page === true){
+                    paginator += `<button class='pagination-number active' value='` + page + `'>` + page + `</button>
                         <button class='pagination-number' value='` + next + `'>` + next + `</button>
                         <button class='pagination-number' value='` + after_next + `'>` + after_next + `</button>
                         <button class='pagination-number' value='next_page'>
                         <img src='{{ asset('img/icons/pagination-arrow-right.svg') }}' alt='pagination-arrow-right'></button>
                     </div>`
+                }else if(next_page === true && after_next_page === false){
+                    paginator += `
+                        <button class='pagination-number active' value='` + page + `'>` + page + `</button>
+                        <button class='pagination-number' value='` + next + `'>` + next + `</button>
+                        <img src='{{ asset('img/icons/pagination-arrow-right.svg') }}' alt='pagination-arrow-right'></button>
+                    </div>`
+                }else{
+                    paginator += `
+                        <button class='pagination-number active' value='` + page + `'>` + page + `</button>
+                    </div>`
+                }
             }else{
-                verstka += `<div class='winners__table__pagination'>
-                        <button class='pagination-number' value='pre_page'>
-                        <img src='{{ asset('img/icons/pagination-arrow-left.svg') }}' alt='pagination-arrow-left'></button>
+                if(next_page === true){
+                    paginator += `
                         <button class='pagination-number' value='` + pre_page + `'>` + pre_page + `</button>
                         <button class='pagination-number active' value='` + page + `'>` + page + `</button>
                         <button class='pagination-number' value='` + next + `'>` + next + `</button>
                         <button class='pagination-number' value='next_page'>
                         <img src='{{ asset('img/icons/pagination-arrow-right.svg') }}' alt='pagination-arrow-right'></button>
                     </div>`
+                }else{
+                    paginator += `
+                        <button class='pagination-number' value='` + pre_page + `'>` + pre_page + `</button>
+                        <button class='pagination-number active' value='` + page + `'>` + page + `</button>
+                    </div>`
+                }
+
             }
+            return paginator
             }
 
         function parser(entry){
             console.log(entry);
             console.log(entry['user_phone'])
-            verstka += `<tr>
-            <td>`+entry['code_description']+`</td>
-            <td>`+entry['user_email']+'/'+entry['user_phone']+`</td>
-            <td>`+entry['code_delivery']+`</td>
+            if(entry["my"] == 1){
+                verstka += `<tr class="my">
+            <td>` + entry['code_description'] + `</td>
+            <td>` + entry['user_email'] + '/' + entry['user_phone'] + `</td>
+            <td>` + entry['code_delivery'] + `</td>
             </tr>`
+            }else {
+                verstka += `<tr>
+            <td>` + entry['code_description'] + `</td>
+            <td>` + entry['user_email'] + '/' + entry['user_phone'] + `</td>
+            <td>` + entry['code_delivery'] + `</td>
+            </tr>`
+            }
         }
     }
     function link_pagi() {
@@ -226,6 +262,5 @@
         });
     }
 </script>
-
 </body>
 </html>
