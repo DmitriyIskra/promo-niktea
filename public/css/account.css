@@ -605,20 +605,22 @@
 }
 
 .account__pag-code-arrow {
+    display: flex;
+
     align-items: center;
     cursor: pointer;
 }
 
 .account__pag-code_prev {
-    display: none;
+    visibility: hidden;
 }
 
 .account__pag-code_next {
-    display: none;
+    visibility: hidden;
 }
 
 .account__pag-code-arrow_active {
-    display: flex;
+    visibility: visible; 
 }
 
 

@@ -131,10 +131,197 @@ export default class RedrawAccountAddCodes {
         if(element) element.classList.add('account__file-result_active');
     }
 
+    renderActiveCodes(data) {
+        const codeList = document.querySelector('.code__list');
+        const contCodePag = document.querySelector('.account__pag-num');
+        const pagCodePrev = document.querySelector('.account__pag-code_prev');
+        const pagCodeNext = document.querySelector('.account__pag-code_next');
+
+        [...codeList.children].forEach( el => el.remove());
+        [...contCodePag.children].forEach( el => el.remove());
+        pagCodePrev.classList.remove('account__pag-code-arrow_active');
+        pagCodeNext.classList.remove('account__pag-code-arrow_active');
+    
+        const windowWidth = window.innerWidth;
+
+        const codeWinners = [];
+        const restCodes = [];
+
+        data.activated_codes.forEach( el => {
+        if(el.code_main_win === 1 || el.code_tea_win === 1) {
+            codeWinners.unshift(el);
+        } else {
+            restCodes.unshift(el);
+        }
+        })
+
+        console.log(codeWinners)
+        console.log(restCodes)
+
+        // Заполнение кодов
+
+        // Заполняем выигрышные коды
+        if(codeWinners.length !== 0) {
+        
+            codeWinners.forEach( el => {
+            
+            const codeItem = document.createElement('li');
+            codeItem.classList.add('code__item');
+            codeItem.classList.add('code__item_win');
+            
+            // начало левой части
+            const wrCodeAndWin = document.createElement('div');
+            wrCodeAndWin.classList.add('account__wr-code-and-win');
+            
+            const wrValue = document.createElement('div');
+            wrValue.classList.add('account__wr-value-code');
+            const codeWinTextMobile = document.createElement('div');
+            codeWinTextMobile.classList.add('account__code-win-text_mobile');
+            codeWinTextMobile.textContent = 'ВЫ ВЫИГРАЛИ!';
+            const codeValue = document.createElement('div');
+            codeValue.classList.add('code__value');
+            codeValue.textContent = el.code_string;
+            wrValue.append(codeWinTextMobile);
+            wrValue.append(codeValue);
+            
+            const wrTextIconWin = document.createElement('div');
+            wrTextIconWin.classList.add('account__wr-text-icon-win');
+            const iconWin = document.createElement('div');
+            iconWin.classList.add('account__icon-win');
+            if(el.code_main_win === 1) iconWin.classList.add('account__icon-win_main');
+            if(el.code_tea_win === 1) iconWin.classList.add('account__icon-win_tea');
+            const codeWinTextDesc = document.createElement('div');
+            codeWinTextDesc.classList.add('account__code-win-text_desctop');
+            codeWinTextDesc.textContent = 'ВЫ ВЫИГРАЛИ!';
+            wrTextIconWin.append(iconWin);
+            wrTextIconWin.append(codeWinTextDesc);
+            
+            wrCodeAndWin.append(wrValue);
+            wrCodeAndWin.append(wrTextIconWin);
+            // конец левой части
+    
+            const codeDate = document.createElement('div');
+            const dateArr = el.created_time.split(' ')
+            codeDate.textContent = dateArr[0];
+            codeDate.classList.add('code__date');
+        
+            codeItem.append(wrCodeAndWin);
+            codeItem.append(codeDate);
+        
+            
+            codeList.append(codeItem);
+            })
+        }
+    
+        // Заполняем не выигрышные коды
+        if(restCodes.length !== 0) {
+            // количество кодов уже добавленных 
+            const amountCodes = codeList.children.length;
+            // счетчик видимых кодов (сколько еще можно оставить видимыми)
+            // показываем максимум 14 кодов
+            let counter = 0 + amountCodes;
+    
+            restCodes.forEach( el => {
+            counter += 1;
+    
+            const codeItem = document.createElement('li');
+            codeItem.classList.add('code__item');
+            const codeValue = document.createElement('span');
+            codeValue.classList.add('code__value');
+            codeValue.textContent = el.code_string;
+            const codeDate = document.createElement('span');
+            const dateArr = el.created_time.split(' ')
+            codeDate.textContent = dateArr[0];
+            codeDate.classList.add('code__date');
+    
+            codeItem.append(codeValue);
+            codeItem.append(codeDate);
+    
+            // если соответствующий экран и сообщений в массиве больше чем разрешено
+            // остальные скрываем
+            if(windowWidth > 428 && counter > 14) {
+                codeItem.classList.add('account__codeHide');
+            }
+    
+            if(windowWidth <= 428 && counter > 6) {
+                codeItem.classList.add('account__codeHide');
+            }
+    
+            codeList.append(codeItem);
+            });
+        }
+    
+        // активируем пагинацию
+        if(windowWidth > 428 && data.activated_codes.length > 14) {
+            pagCodeNext.classList.add('account__pag-code-arrow_active');
+    
+            const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+            
+            const wrPagSlides = document.createElement('ul');
+            wrPagSlides.classList.add('account__wr-code-pag-list');
+    
+            for(let i = 1; i <= amountPagPages; i += 1) {
+            const pagSlideItem = document.createElement('li');
+            pagSlideItem.classList.add('account__code-pag-item');
+            const numPage = document.createElement('div');
+            numPage.classList.add('account__code-pag-num-page');
+            if( i === 1 ) numPage.classList.add('account__code-pag-num-page_active');
+            numPage.textContent = i;
+            pagSlideItem.append(numPage);
+    
+            wrPagSlides.append(pagSlideItem);
+            }
+    
+        
+            contCodePag.append(wrPagSlides);
+    
+        }
+            
+    
+        
+    
+        // активируем пагинацию для мобильного устройства
+        if(windowWidth <= 428 && data.activated_codes.length > 6) {
+            pagCodeNext.classList.add('account__pag-code-arrow_active');
+    
+            const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+            
+            const wrPagSlides = document.createElement('ul');
+            wrPagSlides.classList.add('account__wr-code-pag-list');
+    
+            for(let i = 1; i <= amountPagPages; i += 1) {
+            const pagSlideItem = document.createElement('li');
+            pagSlideItem.classList.add('account__code-pag-item');
+            const numPage = document.createElement('div');
+            numPage.classList.add('account__code-pag-num-page');
+            if( i === 1 ) numPage.classList.add('account__code-pag-num-page_active');
+            numPage.textContent = i;
+            pagSlideItem.append(numPage);
+    
+            wrPagSlides.append(pagSlideItem);
+            }
+    
+        
+            contCodePag.append(wrPagSlides);
+        }
+        
+        // обновляем количество уже зарегистрированных кодов за сегодня
+        sessionStorage.todayCodesActivated = data.today_activated_codes[0].activated_today;
+
+    }
+
     clearData() {
-        this.arrCodes = [];
+        this.arrCodes.clear();
 
         this.storageFile = null;
+
+        this.codeSlider.classList.remove('code__sleder--display');
+
+        this.textFileValid
+        this.textFileInvalid
+
+        this.textFileValid.classList.remove('account__file-result_active');
+        this.textFileInvalid.classList.remove('account__file-result_active');
     }
 
     

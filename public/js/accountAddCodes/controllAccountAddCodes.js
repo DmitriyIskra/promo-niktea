@@ -66,8 +66,13 @@ export default class ControllAccountAddCodes {
                     console.log(result)
                     // далее нужно вызвать account info и перерисовывать страницу
                     this.draw.clearData();
-                })();
 
+                    const response = await this.fetch.read();
+                    const result2 = await response.json();
+                    console.log(result2);
+                    this.draw.renderActiveCodes(result2);
+                })();
+                
                 return;
             }
 

@@ -109,7 +109,7 @@
 
                     <h1>Активные коды</h1>
                     <div class="code__container">
-                        <ul class="code__list" id="paginated-list" data-current-page="1" aria-live="polite">
+                        <ul class="code__list" data-current-page="1" aria-live="polite">
 
                             <!-- <li class="code__item">
                                 <span class="code__value">3548-QTNS5N</span>
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="account__wr-pag-code">
-                        <div class="account__pag-code-arrow account__pag-code_prev" aria-label="Previous page" title="Previous page">
+                        <div class="account__pag-code-arrow account__pag-code_prev">
                             <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
                         </div>
 
@@ -128,7 +128,7 @@
 
                         </div>
 
-                        <div class="account__pag-code-arrow account__pag-code_next" aria-label="Next page" title="Next page">
+                        <div class="account__pag-code-arrow account__pag-code_next">
                             <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
                         </div>
                     </div>

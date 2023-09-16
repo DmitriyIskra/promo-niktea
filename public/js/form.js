@@ -259,7 +259,7 @@ function fillAccountData(data) {
       });
     }
 
-    // активируем пагинацию
+    // активируем пагинацию для десктопа
     if(windowWidth > 428 && data.activated_codes.length > 14) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
@@ -285,11 +285,29 @@ function fillAccountData(data) {
 
     }
       
-
-    
-
+    // активируем пагинацию для мобильного устройства
     if(windowWidth <= 428 && data.activated_codes.length > 6) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
+
+      const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+      
+      const wrPagSlides = document.createElement('ul');
+      wrPagSlides.classList.add('account__wr-code-pag-list');
+
+      for(let i = 1; i <= amountPagPages; i += 1) {
+        const pagSlideItem = document.createElement('li');
+        pagSlideItem.classList.add('account__code-pag-item');
+        const numPage = document.createElement('div');
+        numPage.classList.add('account__code-pag-num-page');
+        if( i === 1 ) numPage.classList.add('account__code-pag-num-page_active');
+        numPage.textContent = i;
+        pagSlideItem.append(numPage);
+
+        wrPagSlides.append(pagSlideItem);
+      }
+
+   
+      contCodePag.append(wrPagSlides);
     }
 
     
