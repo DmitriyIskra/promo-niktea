@@ -1,47 +1,77 @@
 export default class RedrawActiveCodes {
-    constructor(codeList, wrPag) {
+    constructor(codeList, wrPag, pagContainer, pagItemsList) {
         this.codeList = codeList;
         this.codeItems = this.codeList.querySelectorAll('.code__item');
         // для понимания открыто на десктопе или мобилке 14 или 6
         this.widthScreen = window.innerWidth;
 
         this.wrPag = wrPag;
+        this.pagContainer = pagContainer;
+        this.pagItemsList = pagItemsList;
         this.pagPrev = this.wrPag.querySelector('.account__pag-code_prev');
-        this.pugItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
+        this.pagItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
         this.pagNext = this.wrPag.querySelector('.account__pag-code_next');
 
-        this.activePage = this.pugItems[0];
+        // активный элемент с номером страницы
+        this.activePage = this.pagItems[0];
+        // номер активной страницы
         this.activeNumPage = 1;
 
-        // - тест переключения стрелками после добавления новых кодов
+        // счетчик для сдвига слайдера
+        this.slideMaxOffset = null;
+        this.slideCounter = 0;
+        // Ширина элемента пагинации с цифрой
+        this.widthPagItem = null;
 
-        // 0. Работать будет только по стрелкам, визуализиирует сдвиг цифр
-        // 1. Определить max-width контейнера по ширине li * 3
-        // 2.Сделать каунтер   активная страница - 3, по нему считать количество сдвигов слайдера
-        // 3. Ширина ul тоже по ширине li * на общее количество страниц
-        // 4. сдвиг по transform: translate
-        // Определение размеров добавить в update, и сделать там обновление
+        
+
+        // - тест переключения стрелками после добавления новых кодов и страниц
+
+        // 0. ! Работать будет только по стрелкам, визуализиирует сдвиг цифр
+        // 1. ! Определить max-width контейнера по ширине li * 3
+        // 2. ! Сделать каунтер   активная страница - 3, по нему считать количество сдвигов слайдера
+        // 3. ! Ширина ul тоже по ширине li * на общее количество страниц
+        // 4. ! сдвиг по transform: translate
+        // 5. ! Определение размеров добавить в update, и сделать там обновление
+        // 6. сдвиг нужно постоянно на что то умножать
     }
+
+
 
     // нужно каждый раз обновлять данные, так как содержимле меняется динамически
     updateElements () {
         this.codeItems = this.codeList.querySelectorAll('.code__item');
-        this.pugItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
-        this.activePage = [...this.pugItems].find( el => el.matches('.account__code-pag-num-page_active'));
+        this.pagItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
+        this.activePage = [...this.pagItems].find( el => el.matches('.account__code-pag-num-page_active'));
         // Т Е С Т И Т Ь ! ! ! ! !
         // если при обновлении не совпадает значит страница кодов изменилась
         // и активна первая страница
         if(+this.activePage.textContent !== this.activeNumPage) this.activeNumPage = 1;
+
+        // если элементов больше 3х задаем размеры нужные для работы слайдера
+        if(this.pagItems.length > 3) this.initSlider(); 
+    }
+
+    initSlider() {
+        // Задаем макисмальную ширину поля, инициализируем слайдер
+        this.widthPagItem = this.pagItemsList.children[0].offsetWidth * 3;
+        this.pagContainer.style.maxWidth = `${this.widthPagItem}px`;
+        // убираем выравнивание по центру
+        this.pagContainer.style.justifyContent = 'flex-start';
+
+        // заряжаем счетчик для работы слайдера
+        this.slideMaxOffset = this.pagItems.length - 3;
+        
     }
 
     prevCodes() {
         this.updateElements();
-        
+
         // меняем данные о активных позициях
         this.activeNumPage -= 1;
 
         this.activePage.classList.remove('account__code-pag-num-page_active');
-        this.activePage = this.pugItems[this.activeNumPage - 1];
+        this.activePage = this.pagItems[this.activeNumPage - 1];
         this.activePage.classList.add('account__code-pag-num-page_active');
 
         // если страница первая скрываем стрелку влево
@@ -50,7 +80,7 @@ export default class RedrawActiveCodes {
         }
         
         // при крайнем конечном занчении скрываем стрелку
-        if(this.activeNumPage < this.pugItems.length) {
+        if(this.activeNumPage < this.pagItems.length) {
             this.showArrowNext();
         }
   
@@ -65,8 +95,18 @@ export default class RedrawActiveCodes {
         this.activeNumPage += 1;
 
         this.activePage.classList.remove('account__code-pag-num-page_active');
-        this.activePage = this.pugItems[this.activeNumPage - 1];
+        this.activePage = this.pagItems[this.activeNumPage - 1];
         this.activePage.classList.add('account__code-pag-num-page_active');
+
+        // если активная страница больше 3 и каунтер слайдер меньше
+        // допустимого значения значит есть куда сдвигать
+        if(this.activeNumPage > 3 && this.slideCounter < this.slideMaxOffset ) {
+            // получаем ширину item всегда свежую
+            // можем сдвигать пока каунтер меньше допустимого значения
+            let widthItem = this.pagItemsList.children[0].offsetWidth;
+            this.pagItemsList.style = `transform: translateX(-${widthItem}px);`; 
+            this.slideCounter += 1;
+        }
 
         // если страница не первая показываем стрелку влево
         if(this.activeNumPage !== 1 && !this.pagPrev.closest('.account__pag-code-arrow_active')) {
@@ -74,7 +114,7 @@ export default class RedrawActiveCodes {
         }
         
         // при крайнем конечном занчении скрываем стрелку
-        if(this.activeNumPage === this.pugItems.length) {
+        if(this.activeNumPage === this.pagItems.length) {
             this.hideArrowNext();
         }
         
@@ -91,19 +131,19 @@ export default class RedrawActiveCodes {
         this.activeNumPage = +num;
         // Меняем активную цифру
         this.activePage.classList.remove('account__code-pag-num-page_active');
-        this.activePage = this.pugItems[this.activeNumPage - 1];
+        this.activePage = this.pagItems[this.activeNumPage - 1];
         this.activePage.classList.add('account__code-pag-num-page_active');
 
         // переключаем страницу с кодами
         this.changeVisibleCodes();
 
         // при крайнем конечном занчении скрываем стрелку
-        if(this.activeNumPage < this.pugItems.length) {
+        if(this.activeNumPage < this.pagItems.length) {
             this.showArrowNext();
         }
 
         // при крайнем конечном занчении скрываем стрелку
-        if(this.activeNumPage === this.pugItems.length) {
+        if(this.activeNumPage === this.pagItems.length) {
             this.hideArrowNext()
         }
 
@@ -165,6 +205,9 @@ export default class RedrawActiveCodes {
             }
         }
     }
+
+    
+
 }
 
 

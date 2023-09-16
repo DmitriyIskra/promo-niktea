@@ -574,7 +574,8 @@
 .account__pag-num {
     display: flex;
 
-    justify-content: center;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
 .account__wr-code-pag-list {

@@ -7,6 +7,7 @@ export default class ControllActiveCodes {
 
     init() {
         this.registerEvents();
+        this.draw.initSlider();
     }
 
     registerEvents() {

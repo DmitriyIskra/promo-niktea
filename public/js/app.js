@@ -30,8 +30,16 @@ window.addEventListener('load', () => {
         const codeList = document.querySelector('.code__list');
         const wrPag = document.querySelector('.account__wr-pag-code');
 
-        const redrawActiveCodes = new RedrawActiveCodes(codeList, wrPag);
-        const controllActiveCodes = new ControllActiveCodes(redrawActiveCodes);
-        controllActiveCodes.init();
+        const pagContainer = document.querySelector('.account__pag-num');
+        let pagItemsList = null;
+        setTimeout(() => {
+            pagItemsList = pagContainer.querySelector('.account__wr-code-pag-list');
+
+            const redrawActiveCodes = new RedrawActiveCodes(codeList, wrPag, pagContainer, pagItemsList);
+            const controllActiveCodes = new ControllActiveCodes(redrawActiveCodes);
+            controllActiveCodes.init();
+        }, 2000)
+        
+        
     }
 })
