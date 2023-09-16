@@ -391,7 +391,7 @@ function change_discription(){
     document.getElementsByClassName(".active-slide__description").innerHTML = '';
     const descriptor = document.querySelector('.active-slide__description')
     const parent = document.getElementsByClassName('active');
-    const firstChild = parent[0].children[0];
+    const firstChild = parent[0].children[0].cloneNode(true);
     descriptor.appendChild(firstChild);
 }
 
