@@ -573,6 +573,7 @@
 
 .account__pag-num {
     display: flex;
+    max-width: 5.16vw;
 
     justify-content: flex-start;
     overflow: hidden;

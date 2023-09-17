@@ -310,12 +310,13 @@ function fillAccountData(data) {
       contCodePag.append(wrPagSlides);
     }
 
-    
-    
-
-
 
     sessionStorage.todayCodesActivated = data.today_activated_codes[0].activated_today;
+
+    // Отрисовка оставшегося лимита кодов
+    const limitCodesEl = document.querySelector('.code__count');
+    const limitCodes = data.today_activated_codes[0].activated_today;
+    limitCodesEl.textContent = 15 - limitCodes;
 }
 
 

@@ -67,22 +67,22 @@
                         <div class="invalid-feedback">
                             Вы ввели некорректный код (без кода участие в акции невозможно).
                         </div>
-                        <div class="code__slider">
-                            <button class="code__carousel-prev" type="button" data-bs-target="#codeCarousel" data-bs-slide="prev"></button>
+                        <div class="code__slider"> <!-- !!!!!!!!   code__sleder--display  скрытие -->
+
+                            <div class="code__carousel-prev" type="button" data-bs-target="#codeCarousel" data-bs-slide="prev"></div>
 
                             <div class="code-carousel--wrap">
 
-                                <div class="swiper codeSlider">
+                                <div class="swiper account__slider-add-code codeSlider">
                                     <div class="swiper-wrapper codeslider-output">
-                                        <div class="swiper-slide">
-                                          <span class="code__text">3548-QTNS5N</span>
-                                        </div>
+                                       
                                     </div>
                                 </div>
 
                             </div>
 
-                            <button class="code__carousel-next" type="button" data-bs-target="#codeCarousel" data-bs-slide="next"></button>
+                            <div class="code__carousel-next" type="button" data-bs-target="#codeCarousel" data-bs-slide="next"></div>
+
                         </div>
                         <button class="code__submit">ЗАРЕГИСТРИРОВАТЬ</button>
                         <button class="code__add" id="account__code-add"><img src="{{ asset('img/icons/plus.svg') }}" alt="add-icon"></button>

@@ -1,15 +1,18 @@
+
 export default class RedrawAccountAddCodes {
     constructor(element) {
         this.element = element;
         this.addButton = this.element.querySelector('.code__add');
         this.submitButton = this.element.querySelector('.code__submit');
         this.codeSlider = this.element.querySelector('.code__slider');
+        this.slideWrapper = this.element.querySelector('.swiper-wrapper');
         this.typeCode = this.element.querySelector('.code__input__field--account');
         this.invalidCode = this.element.querySelector('.invalid-feedback');
         this.addFile = this.element.querySelector('.file-upload__input--user');
         this.addFileLabel = this.element.querySelector('.file-upload__label');
         this.textFileValid = this.element.querySelector('.account__file_valid');
         this.textFileInvalid = this.element.querySelector('.account__file_invalid');
+        this.limitCodesToday = this.element.querySelector('.code__count');
 
         // Отметим активен ли слайдер
         this.activeSlider = null;
@@ -21,6 +24,10 @@ export default class RedrawAccountAddCodes {
         this.regExpFile = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
         // значение валидности или не валидности кода (true или false)
         this.isValidCode = null;
+        // сам свайпер
+        this.swiperCode = null;
+        // инициализация свайпера
+        this.initSwiper = null;
     }
 
     // показываем поле для отображения введенных кодов
@@ -44,7 +51,7 @@ export default class RedrawAccountAddCodes {
     addCode(code) {
         // если код не введен ничего не делаем
         if(!code) return;
-
+        
         // колличество кодов уже добавленных сегодня
         // и колличество новых (сумма)
         const totalCodes = +sessionStorage.todayCodesActivated + this.arrCodes.length;
@@ -68,6 +75,55 @@ export default class RedrawAccountAddCodes {
     
     // отрисовываем введенные коды
     addCodeInPlace(code) {
+        const swSlide = document.createElement('div');
+        swSlide.classList.add('swiper-slide');
+
+        const swSlideCode = document.createElement('span');
+        swSlideCode.classList.add('code__text');
+        swSlideCode.textContent = code;
+
+        swSlide.append(swSlideCode);
+        this.slideWrapper.prepend(swSlide);
+
+
+
+        if(!this.initSwiper) {
+            this.swiperCode = new Swiper(".account__slider-add-code", {
+                grabCursor: true,
+                // keyboard: true, 
+                slidesPerView: 1,
+                spaceBetween: 2,
+                loop: true,
+                centeredSlides: true,
+                slideShadows: true,
+                navigation: {
+                    nextEl: ".code__carousel-next",
+                    prevEl: ".code__carousel-prev",
+                },
+                breakpoints: {
+                    992: {
+                        // centeredSlides: true,
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    },
+                    300: {
+                        // with: 200,
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                },
+        
+            });
+        }
+        
+        this.swiperCode.updateSlides();
+        
+        this.initSwiper = true;
+
         console.log('code added to place')
     }
     
@@ -129,6 +185,10 @@ export default class RedrawAccountAddCodes {
 
         // показываем информацию о результате загрузки пользователю
         if(element) element.classList.add('account__file-result_active');
+    }
+
+    updateLimitCodes(amount) {
+        this.limitCodesToday.textContent = 15 - amount;
     }
 
     renderActiveCodes(data) {
@@ -273,7 +333,7 @@ export default class RedrawAccountAddCodes {
             }
     
         
-            contCodePag.append(wrPagSlides);
+            contCodePag.append(wrPagSlides); 
     
         }
             

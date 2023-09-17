@@ -1,4 +1,5 @@
 
+
 // Добавление кодов на странице аккаунт
 import ControllAccountAddCodes from "./accountAddCodes/controllAccountAddCodes.js";
 import RedrawAccountAddCodes from "./accountAddCodes/redrawAccountAddCodes.js";
@@ -39,6 +40,8 @@ window.addEventListener('load', () => {
             const controllActiveCodes = new ControllActiveCodes(redrawActiveCodes);
             controllActiveCodes.init();
         }, 2000)
+        
+
         
         
     }

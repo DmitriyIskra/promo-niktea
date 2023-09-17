@@ -22,6 +22,8 @@ export default class RedrawActiveCodes {
         this.slideCounter = 0;
         // Ширина элемента пагинации с цифрой
         this.widthPagItem = null;
+        // Крайний левый элемент
+        this.LestLeftEl = 1;
 
         
 
@@ -43,7 +45,6 @@ export default class RedrawActiveCodes {
         this.codeItems = this.codeList.querySelectorAll('.code__item');
         this.pagItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
         this.activePage = [...this.pagItems].find( el => el.matches('.account__code-pag-num-page_active'));
-        // Т Е С Т И Т Ь ! ! ! ! !
         // если при обновлении не совпадает значит страница кодов изменилась
         // и активна первая страница
         if(+this.activePage.textContent !== this.activeNumPage) this.activeNumPage = 1;
@@ -54,8 +55,8 @@ export default class RedrawActiveCodes {
 
     initSlider() {
         // Задаем макисмальную ширину поля, инициализируем слайдер
-        this.widthPagItem = this.pagItemsList.children[0].offsetWidth * 3;
-        this.pagContainer.style.maxWidth = `${this.widthPagItem}px`;
+        // this.widthPagItem = this.pagItemsList.children[0].offsetWidth * 3;
+        // this.pagContainer.style.maxWidth = `${this.widthPagItem}px`;
         // убираем выравнивание по центру
         this.pagContainer.style.justifyContent = 'flex-start';
 
@@ -73,6 +74,23 @@ export default class RedrawActiveCodes {
         this.activePage.classList.remove('account__code-pag-num-page_active');
         this.activePage = this.pagItems[this.activeNumPage - 1];
         this.activePage.classList.add('account__code-pag-num-page_active');
+
+        // если активная страница больше 3 и каунтер слайдер меньше
+        // допустимого значения значит есть куда сдвигать
+        if( (this.activeNumPage + 1) === this.LestLeftEl && this.slideCounter > 0 ) {
+            // получаем ширину item всегда свежую
+            // можем сдвигать пока каунтер меньше допустимого значения
+            this.slideCounter -= 1;
+            console.log('prev', this.slideCounter)
+            // расчитываем размер сдвига во vw, для адаптивности
+            let item = this.pagItemsList.children[0];
+            let widthItemVw = (item.offsetWidth / window.innerWidth * 100).toFixed(2);
+            let offsetItem = widthItemVw * this.slideCounter
+            
+            this.pagItemsList.style = `transform: translateX(-${offsetItem}vw);`; 
+            this.LestLeftEl -= 1
+            console.log('LestLeftEl prev', this.LestLeftEl)
+        }
 
         // если страница первая скрываем стрелку влево
         if(this.activeNumPage === 1 && this.pagPrev.matches('.account__pag-code-arrow_active')) {
@@ -103,9 +121,15 @@ export default class RedrawActiveCodes {
         if(this.activeNumPage > 3 && this.slideCounter < this.slideMaxOffset ) {
             // получаем ширину item всегда свежую
             // можем сдвигать пока каунтер меньше допустимого значения
-            let widthItem = this.pagItemsList.children[0].offsetWidth;
-            this.pagItemsList.style = `transform: translateX(-${widthItem}px);`; 
             this.slideCounter += 1;
+            console.log('next', this.slideCounter)
+            // расчитываем размер сдвига во vw, для адаптивности
+            let item = this.pagItemsList.children[0];
+            let widthItemVw = (item.offsetWidth / window.innerWidth * 100).toFixed(2);
+            let offsetItem = widthItemVw * this.slideCounter
+            this.pagItemsList.style = `transform: translateX(-${offsetItem}vw);`; 
+            this.LestLeftEl += 1;
+            console.log('LestLeftEl next', this.LestLeftEl)
         }
 
         // если страница не первая показываем стрелку влево

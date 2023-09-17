@@ -46,7 +46,7 @@ export default class ControllAccountAddCodes {
             // 
         }
 
-        // отправляем коды и очищаем массив
+        // отправляем коды и очищаем массив 
         if(e.target.closest('.code__submit')) {
             // отправляем данные на сервер (если они есть)
             if(this.draw.arrCodes.size > 0 && this.draw.storageFile) {
@@ -71,6 +71,8 @@ export default class ControllAccountAddCodes {
                     const result2 = await response.json();
                     console.log(result2);
                     this.draw.renderActiveCodes(result2);
+                    const limitCodes = result2.today_activated_codes[0].activated_today;
+                    this.drarw.updateLimitCodes(limitCodes);
                 })();
                 
                 return;

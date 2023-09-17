@@ -22,46 +22,44 @@ window.addEventListener('load', () => {
     //   })
     // }
 
-    // слайдер кодов при добавлении
-    let swiperCode = new Swiper(".codeSlider", {
-        grabCursor: true,
-        keyboard: true,
-        slidesPerView: 1,
-        spaceBetween: 2,
-        loop: true,
-        centeredSlides: true,
-        slideShadows: true,
-        navigation: {
-            nextEl: ".code__carousel-next",
-            prevEl: ".code__carousel-prev",
-        },
-        breakpoints: {
-            992: {
-                // centeredSlides: true,
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 0
-            },
-            300: {
-                // with: 200,
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-        },
+    // С Л А Й Д Е Р  К О Д О В  __Р А Б О Ч А Я В Е Р С И Я
+    // let swiperCode = new Swiper(".account__slider-add-code", {
+    //     // grabCursor: true,
+    //     // keyboard: true, 
+    //     slidesPerView: 1,
+    //     spaceBetween: 2,
+    //     loop: true,
+    //     centeredSlides: true,
+    //     slideShadows: true,
+    //     navigation: {
+    //         nextEl: ".code__carousel-next",
+    //         prevEl: ".code__carousel-prev",
+    //     },
+    //     breakpoints: {
+    //         992: {
+    //             // centeredSlides: true,
+    //             slidesPerView: 1,
+    //             spaceBetween: 0,
+    //         },
+    //         320: {
+    //             slidesPerView: 1,
+    //             spaceBetween: 0
+    //         },
+    //         300: {
+    //             // with: 200,
+    //             slidesPerView: 1,
+    //             spaceBetween: 0,
+    //         },
+    //     },
 
-    });
+    // });
 
 })
 
+ // E N D  С Л А Й Д Е Р  К О Д О В  __Р А Б О Ч А Я В Е Р С И Я
 
 
-
-//--------------------- СЛАЙДЕР ЧЕКОВ
-
-
+//----- С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
 if(document.querySelector('.checkSlider')) {
 
     let swiperCheck = new Swiper(".checkSlider", {
@@ -133,10 +131,11 @@ if(document.querySelector('.checkSlider')) {
 
 }
 
-//--------------------- END СЛАЙДЕР ЧЕКОВ
+//-------- E N D  С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
 
 
-//--------------------- М А С К А  Т Е Л Е Ф О Н А
+
+//----- М А С К А  Т Е Л Е Ф О Н А  __Р А Б О Ч А Я В Е Р С И Я
 
 document.addEventListener("DOMContentLoaded", function () {
     var eventCalllback = function (e) {
@@ -167,7 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-//--------------------- E N D  М А С К А  Т Е Л Е Ф О Н А
+//------ E N D  М А С К А  Т Е Л Е Ф О Н А  __Р А Б О Ч А Я  В Е Р С И Я
+
+// Валидация e-mail ???? возможно не рабочая
+
+const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+const input = document.querySelector('.email-auth');
+
+function isEmailValid(value) {
+    return EMAIL_REGEXP.test(value);
+}
+
+function onInput() {
+    if (isEmailValid(input.value)) {
+        input.style.borderColor = 'green';
+    } else {
+        input.style.borderColor = 'red';
+    }
+}
+
 
 
 //   ------------ !!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -341,22 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Валидация e-mail
 
-const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-const input = document.querySelector('.email-auth');
-
-function isEmailValid(value) {
-    return EMAIL_REGEXP.test(value);
-}
-
-function onInput() {
-    if (isEmailValid(input.value)) {
-        input.style.borderColor = 'green';
-    } else {
-        input.style.borderColor = 'red';
-    }
-}
 
 // input.addEventListener('input', onInput);
 
