@@ -2,6 +2,7 @@ export default class ControllAccountAddCodes {
     constructor(arr) {
         this.draw = arr[0];
         this.fetch = arr[1];
+        this.checkSlider = arr[2];
         this.accountInfo = null;
 
         this.onClick = this.onClick.bind(this);
@@ -10,8 +11,10 @@ export default class ControllAccountAddCodes {
     }
 
     init() {
+        
         this.registerEvents();
         this.getAccountInfo();
+        
     }
 
     registerEvents() {
@@ -117,13 +120,13 @@ export default class ControllAccountAddCodes {
         try { // 4009-16H53TT, 2660-777MPV, 1623-15QA3G, 2583-1NL5RN5,   3918-21LCLF2
             const resp = await this.fetch.validate(data);
             const result = await resp.json();
-            console.log(result)
+            console.log(result);
             // проверяем ответ и отмечаем валидность
             if(result?.error) this.draw.isValidCode = false;
             if(result[0]?.code) this.draw.isValidCode = true;
         }
         catch(error) {
-            console.log(error)
+            console.log(error);
         }
 
         
@@ -132,11 +135,12 @@ export default class ControllAccountAddCodes {
     async getAccountInfo() {
         const res = await this.fetch.read();
         this.accountInfo = await res.json();
+
+        this.checkSlider.initSlider();
+        // отправляем ссылки на фото чеков 
+        this.checkSlider.renderingChecks(this.accountInfo.registered_tickets);
     }
 
-    // async sendCodes() {
-
-    // }
 }
 
 // Нажимая кнопку зарегистрировать мы понимаем что там коды прошедшие валидацию

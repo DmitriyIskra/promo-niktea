@@ -58,79 +58,80 @@ window.addEventListener('load', () => {
 
  // E N D  С Л А Й Д Е Р  К О Д О В  __Р А Б О Ч А Я В Е Р С И Я
 
+// let swiperCheck
+// //----- С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
+// if(document.querySelector('.checkSlider')) {
+//     console.log('init slider check')
+//     swiperCheck = new Swiper(".account__slider-check", {
+//         // grabCursor: true,
+//         keyboard: true,
+//         slidesPerView: 3,
+//         spaceBetween: 10,
+//         // loop: true,
+//         slideShadows: true,
+//         // отменили перетаскивание на ПК
+//         simulateTouch: false,
+//         navigation: {
+//             nextEl: ".slider-button-next",
+//             prevEl: ".slider-button-prev",
+//         },
 
-//----- С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
-if(document.querySelector('.checkSlider')) {
+//         pagination: {
+//             el: ".pagination",
+//             type: "bullets",
+//             // динамические булеты
+//             dynamicBullets: true,
+//             clickable: true,
+//             renderBullet: function (index, className) {
+//                 return '<span class="' + className + '">' + (index + 1) + "</span>";
+//             },
+//         },
 
-    let swiperCheck = new Swiper(".checkSlider", {
-        // grabCursor: true,
-        keyboard: true,
-        slidesPerView: 3,
-        // spaceBetween: 10,
-        // loop: true,
-        slideShadows: true,
-        // отменили перетаскивание на ПК
-        simulateTouch: false,
-        navigation: {
-            nextEl: ".slider-button-next",
-            prevEl: ".slider-button-prev",
-        },
+//         // медиа запросы min-width
+//         breakpoints: {
+//             1920: {
+//                 slidesPerView: 3,
+//                 // spaceBetween: 15,
+//             },
+//             1536: {
+//                 slidesPerView: 2,
+//                 // spaceBetween: 15,
+//             },
+//             1280: {
+//                 slidesPerView: 1,
+//                 // spaceBetween: 15,
+//             },
+//             768: {
+//                 // width: 940,
+//                 slidesPerView: 3,
+//                 // spaceBetween: 5,
+//             },
+//             // 540: {
+//             //   slidesPerView: 1,
+//             //   // spaceBetween: 0,
+//             // },
+//             300: {
+//                 slidesPerView: 1,
+//                 // spaceBetween: 5,
+//             },
+//         }
+//     });
 
-        pagination: {
-            el: ".pagination",
-            type: "bullets",
-            // динамические булеты
-            dynamicBullets: true,
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (index + 1) + "</span>";
-            },
-        },
-
-        // медиа запросы min-width
-        breakpoints: {
-            1920: {
-                slidesPerView: 3,
-                // spaceBetween: 15,
-            },
-            1536: {
-                slidesPerView: 2,
-                // spaceBetween: 15,
-            },
-            1280: {
-                slidesPerView: 1,
-                // spaceBetween: 15,
-            },
-            768: {
-                // width: 940,
-                slidesPerView: 3,
-                // spaceBetween: 5,
-            },
-            // 540: {
-            //   slidesPerView: 1,
-            //   // spaceBetween: 0,
-            // },
-            300: {
-                slidesPerView: 1,
-                // spaceBetween: 5,
-            },
-        }
-    });
-
-    let checkPaginationNext = document.querySelector('.pagination-next--check')
-    let checkPaginationPrev = document.querySelector('.pagination-prev--check')
+//     let checkPaginationNext = document.querySelector('.pagination-next--check')
+//     let checkPaginationPrev = document.querySelector('.pagination-prev--check')
 
 
-    checkPaginationNext.addEventListener('click', function(){
-        swiperCheck.slideNext();
-    })
+//     checkPaginationNext.addEventListener('click', function(){
+//         swiperCheck.slideNext();
+//     })
 
-    checkPaginationPrev.addEventListener('click', function(){
-        swiperCheck.slidePrev();
-    })
+//     checkPaginationPrev.addEventListener('click', function(){
+//         swiperCheck.slidePrev();
+//     })
+    
+// }
 
-}
-
+// export default swiperCheck
 //-------- E N D  С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
 
 

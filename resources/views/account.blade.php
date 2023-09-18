@@ -75,7 +75,8 @@
 
                                 <div class="swiper account__slider-add-code codeSlider">
                                     <div class="swiper-wrapper codeslider-output">
-                                       
+
+
                                     </div>
                                 </div>
 
@@ -111,10 +112,7 @@
                     <div class="code__container">
                         <ul class="code__list" data-current-page="1" aria-live="polite">
 
-                            <!-- <li class="code__item">
-                                <span class="code__value">3548-QTNS5N</span>
-                                <span class="code__date">22.06.2023</span>
-                            </li> -->
+                            
                         </ul>
 
                     </div>
@@ -143,8 +141,21 @@
                         <div class="check__slider-container">
                             <div class="slider-button-prev" tabindex="0" role="button"></div>
 
-                            <div class="swiper checkSlider">
-                                <div class="swiper-wrapper checkSlides">
+                            <div class="swiper checkSlider account__slider-check">
+                                <div class="swiper-wrapper checkSlides account__slider-check-wrapper">
+                                    <!-- https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png -->
+                                    <!-- <div class="swiper-slide account__wr-slide-check">
+                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" src class="account__img-check" alt="Чек">
+                                    </div>
+                                    <div class="swiper-slide account__wr-slide-check">
+                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
+                                    </div>
+                                    <div class="swiper-slide account__wr-slide-check">
+                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
+                                    </div>
+                                    <div class="swiper-slide account__wr-slide-check">
+                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
+                                    </div> -->
                                 </div>
                             </div>
 

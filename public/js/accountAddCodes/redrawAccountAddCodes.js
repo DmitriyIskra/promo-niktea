@@ -96,6 +96,7 @@ export default class RedrawAccountAddCodes {
                 loop: true,
                 centeredSlides: true,
                 slideShadows: true,
+                simulateTouch: false,
                 navigation: {
                     nextEl: ".code__carousel-next",
                     prevEl: ".code__carousel-prev",

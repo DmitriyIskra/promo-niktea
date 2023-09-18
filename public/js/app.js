@@ -1,9 +1,10 @@
 
 
-// Добавление кодов на странице аккаунт
+// Добавление кодов и чеков на странице аккаунт
 import ControllAccountAddCodes from "./accountAddCodes/controllAccountAddCodes.js";
 import RedrawAccountAddCodes from "./accountAddCodes/redrawAccountAddCodes.js";
 import FetchAccountAddCodes from "./accountAddCodes/fetchAccountAddCodes.js";
+import RedrawCheckSlider from "./accountAddCodes/redrawCheckSlider.js";
 
 // Управоение переключением активных кодов
 import ControllActiveCodes from "./accountActiveCodes/controllActiveCodes.js";
@@ -14,20 +15,23 @@ window.addEventListener('load', () => {
     const accAddCodeGroup = document.querySelector('.code__input--group');
 
     if(accAddCodeGroup) {
-        // добавление кодов
+        // добавление кодов и чеков
         const domainReg = '/api/auth/register';
         const domainCheck = `http://niktea/api/code/checkout`;
-        const domains = [domainReg, domainCheck]
+        const domains = [domainReg, domainCheck];
+        const checkSlider = '.account__slider-check';
+        const slidesWrapper = document.querySelector('.account__slider-check-wrapper')
 
         const drawAccAddCodes = new RedrawAccountAddCodes(accAddCodeGroup);
         const fetchAccAddCodes = new FetchAccountAddCodes(domains);
-        const arr = [drawAccAddCodes, fetchAccAddCodes]
+        const redrawCheckSlider = new RedrawCheckSlider(checkSlider, slidesWrapper);
+        const arr = [drawAccAddCodes, fetchAccAddCodes, redrawCheckSlider]
         const controllAccAddCodes = new ControllAccountAddCodes(arr);
 
         controllAccAddCodes.init();
 
 
-
+        // АКТИВНЫЕ КОДЫ управление
         const codeList = document.querySelector('.code__list');
         const wrPag = document.querySelector('.account__wr-pag-code');
 

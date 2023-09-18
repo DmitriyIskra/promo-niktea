@@ -21,6 +21,6 @@
 <script src="{{ asset("js/swiper-bundle.min.js?v=").time()}}"></script>
 <script src="{{ asset("js/slider.js?v=").time()}}"></script>
 <script src="{{ asset("js/form.js?v=").time()}}"></script>
-<script src="{{ asset("js/script.js?v=").time()}}"></script>
+<script src="{{ asset("js/script.js?v=").time()}}" defer></script>
 <script src="{{ asset("js/app.js?v=").time()}}" type="module" defer></script>
 
