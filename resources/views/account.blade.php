@@ -119,7 +119,7 @@
 
                     <div class="account__wr-pag-code">
                         <div class="account__pag-code-arrow account__pag-code_prev">
-                            <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
+                            <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" class="account__pag-arrow-img" alt="pagination-arrow-left">
                         </div>
 
                         <div class="account__pag-num" style="text-align: center;">
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="account__pag-code-arrow account__pag-code_next">
-                            <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
+                            <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" class="account__pag-arrow-img" alt="pagination-arrow-right">
                         </div>
                     </div>
 
@@ -143,19 +143,7 @@
 
                             <div class="swiper checkSlider account__slider-check">
                                 <div class="swiper-wrapper checkSlides account__slider-check-wrapper">
-                                    <!-- https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png -->
-                                    <!-- <div class="swiper-slide account__wr-slide-check">
-                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" src class="account__img-check" alt="Чек">
-                                    </div>
-                                    <div class="swiper-slide account__wr-slide-check">
-                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
-                                    </div>
-                                    <div class="swiper-slide account__wr-slide-check">
-                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
-                                    </div>
-                                    <div class="swiper-slide account__wr-slide-check">
-                                        <img src="https://storage.yandexcloud.net/nektia/Bpxka3qpEAzSUgpBmGqmn7d5nRAnLA4ULEdvbduA.png" class="account__img-check" alt="Чек">
-                                    </div> -->
+                                    
                                 </div>
                             </div>
 
@@ -163,12 +151,16 @@
 
                         </div>
                         <div class="pagination__container">
-                            <div class="pagination-prev pagination-prev--check">
-                                <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" alt="pagination-arrow-left">
+                            <div class="pagination-prev account__pagination-arrow pagination-prev--check">
+                                <img src="{{ asset('img/icons/pagination-arrow-left.svg') }}" class="account__pag-arrow-img" alt="pagination-arrow-left">
                             </div>
-                            <div class="pagination"></div>
-                            <div class="pagination-next pagination-next--check">
-                                <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" alt="pagination-arrow-right">
+
+                            <div class="pagination">
+                                <div class="account__pagination-list"></div>
+                            </div>
+
+                            <div class="pagination-next account__pagination-arrow pagination-next--check account__pagination-arrow_active">
+                                <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" class="account__pag-arrow-img" alt="pagination-arrow-right">
                             </div>
                         </div>
 

@@ -569,6 +569,7 @@
     display: flex;
 
     justify-content: center;
+    align-items: center;
 }
 
 .account__pag-num {
@@ -608,6 +609,8 @@
 
 .account__pag-code-arrow {
     display: flex;
+    height: 1.56vw;
+    width: 1.56vw;
 
     align-items: center;
     cursor: pointer;
@@ -687,7 +690,7 @@
     margin-right: 35px;     */
   }
 
-/* !!!!!!!!!!!!!!!!! мой код !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* !!!!!!!!!!!!!!!!! мой код слайдер чеков!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 .account__wr-slide-check {
     width: 11.61vw;
@@ -707,8 +710,48 @@
     object-position: center;
 }
 
+.account__pagination-list {
+    display: flex;
 
-/* !!!!!!!!!!!!!!!!! мой код !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    transition: transform 0.2s linear;
+}
+
+.account__pagination-arrow {
+    visibility: collapse;
+}
+
+.account__pagination-arrow_active {
+    visibility: visible;
+}
+
+div.pagination {
+    width: auto !important;
+    max-width: 4.6vw;
+
+    overflow: hidden;
+}
+
+div.swiper-horizontal .swiper-pagination-bullets .swiper-pagination-bullet,
+ .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 !important;
+ }
+
+.swiper-pagination-bullet, .pagination-prev, .pagination-next {
+    width: 1.56vw !important;
+    height: 1.56vw !important;
+
+    font-size: 1.25vw !important;
+}
+
+.account__pag-arrow-img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+/* !!!!!!!!!!!!!!!!! end мой код слайдер чеков !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 .slider__check-image {    
     height: 223px;

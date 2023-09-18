@@ -15,16 +15,17 @@ window.addEventListener('load', () => {
     const accAddCodeGroup = document.querySelector('.code__input--group');
 
     if(accAddCodeGroup) {
-        // добавление кодов и чеков
+        // добавление кодов и чеков (управление слайдером чеков)
         const domainReg = '/api/auth/register';
         const domainCheck = `http://niktea/api/code/checkout`;
         const domains = [domainReg, domainCheck];
         const checkSlider = '.account__slider-check';
-        const slidesWrapper = document.querySelector('.account__slider-check-wrapper')
+        const slidesWrapper = document.querySelector('.account__slider-check-wrapper');
+        const checkPaginContainer = document.querySelector('.pagination__container');
 
         const drawAccAddCodes = new RedrawAccountAddCodes(accAddCodeGroup);
         const fetchAccAddCodes = new FetchAccountAddCodes(domains);
-        const redrawCheckSlider = new RedrawCheckSlider(checkSlider, slidesWrapper);
+        const redrawCheckSlider = new RedrawCheckSlider(checkSlider, slidesWrapper, checkPaginContainer);
         const arr = [drawAccAddCodes, fetchAccAddCodes, redrawCheckSlider]
         const controllAccAddCodes = new ControllAccountAddCodes(arr);
 
