@@ -777,6 +777,13 @@ div.swiper-horizontal .swiper-pagination-bullets .swiper-pagination-bullet,
     box-shadow: 4px 4px 10px 1px #14141444;
 }
 
+.account__slider-check-arrow {
+    visibility: collapse;
+}
+
+.account__slider-check-arrow_active {
+    visibility: visible;
+}
 
 .check__pagination {
 width: 100%;

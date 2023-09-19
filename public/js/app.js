@@ -4,7 +4,7 @@
 import ControllAccountAddCodes from "./accountAddCodes/controllAccountAddCodes.js";
 import RedrawAccountAddCodes from "./accountAddCodes/redrawAccountAddCodes.js";
 import FetchAccountAddCodes from "./accountAddCodes/fetchAccountAddCodes.js";
-import RedrawCheckSlider from "./accountAddCodes/redrawCheckSlider.js";
+import RedrawVoucherSlider from "./accountAddCodes/redrawVoucherSlider.js";
 
 // Управоение переключением активных кодов
 import ControllActiveCodes from "./accountActiveCodes/controllActiveCodes.js";
@@ -17,16 +17,16 @@ window.addEventListener('load', () => {
     if(accAddCodeGroup) {
         // добавление кодов и чеков (управление слайдером чеков)
         const domainReg = '/api/auth/register';
-        const domainCheck = `http://niktea/api/code/checkout`;
-        const domains = [domainReg, domainCheck];
-        const checkSlider = '.account__slider-check';
+        const domainVoucher = `http://niktea/api/code/checkout`;
+        const domains = [domainReg, domainVoucher];
+        const voucherSlider = '.account__slider-check';
         const slidesWrapper = document.querySelector('.account__slider-check-wrapper');
-        const checkPaginContainer = document.querySelector('.pagination__container');
+        const voucherPaginContainer = document.querySelector('.pagination__container');
 
         const drawAccAddCodes = new RedrawAccountAddCodes(accAddCodeGroup);
         const fetchAccAddCodes = new FetchAccountAddCodes(domains);
-        const redrawCheckSlider = new RedrawCheckSlider(checkSlider, slidesWrapper, checkPaginContainer);
-        const arr = [drawAccAddCodes, fetchAccAddCodes, redrawCheckSlider]
+        const redrawVoucherSlider = new RedrawVoucherSlider(voucherSlider, slidesWrapper, voucherPaginContainer);
+        const arr = [drawAccAddCodes, fetchAccAddCodes, redrawVoucherSlider]
         const controllAccAddCodes = new ControllAccountAddCodes(arr);
 
         controllAccAddCodes.init();

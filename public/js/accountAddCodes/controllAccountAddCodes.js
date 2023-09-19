@@ -29,12 +29,14 @@ export default class ControllAccountAddCodes {
         // открываем поле отрисовки и сохраняем код
         if(e.target.closest('.code__add')) {
             const code = this.draw.typeCode.value;
+            console.log(code)
             const data = JSON.stringify({code});
             // this.validateCode(value);
 
             (async () => {
                 const res = await this.fetch.validate(data)
                 const result = await res.json();
+                console.log(result)
 
                 if(result.error === null) {
                     this.draw.isValidCode = true;
@@ -42,8 +44,7 @@ export default class ControllAccountAddCodes {
                     this.draw.addCode(code);
                 } else {
                     this.draw.isValidCode = false;
-                    this.draw.showSlider(code);
-                    this.draw.addCode(code);
+                    this.draw.showInvalidCode();
                 };
             })();
             // 
@@ -51,6 +52,7 @@ export default class ControllAccountAddCodes {
 
         // отправляем коды и очищаем массив 
         if(e.target.closest('.code__submit')) {
+            e.preventDefault();
             // отправляем данные на сервер (если они есть)
             if(this.draw.arrCodes.size > 0 && this.draw.storageFile) {
                 (async () => {
@@ -66,16 +68,22 @@ export default class ControllAccountAddCodes {
                     const res = await this.fetch.create(formData);
                     const result = await res.json();
 
-                    console.log(result)
+                    console.log('result send check', result)
                     // далее нужно вызвать account info и перерисовывать страницу
                     this.draw.clearData();
 
                     const response = await this.fetch.read();
                     const result2 = await response.json();
                     console.log(result2);
+
+                    // отрисовываем коды
                     this.draw.renderActiveCodes(result2);
+                    // отправляем ссылки на фото чеков 
+                    this.checkSlider.addVoucher(result2.registered_tickets);
+
+                    // обновляем лимит кодов на сегодня
                     const limitCodes = result2.today_activated_codes[0].activated_today;
-                    this.drarw.updateLimitCodes(limitCodes);
+                    this.draw.updateLimitCodes(limitCodes);
                 })();
                 
                 return;
@@ -138,7 +146,7 @@ export default class ControllAccountAddCodes {
 
         this.checkSlider.initSlider();
         // отправляем ссылки на фото чеков 
-        this.checkSlider.renderingChecks(this.accountInfo.registered_tickets);
+        this.checkSlider.renderingVouchers(this.accountInfo.registered_tickets);
     }
 
 }

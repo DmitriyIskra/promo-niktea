@@ -132,12 +132,14 @@ export default class RedrawAccountAddCodes {
     showInvalidCode() {
         if(!this.invalidCode.closest('.invalid-feedback_active')) {
             this.invalidCode.classList.add('invalid-feedback_active');
+            this.typeCode.style = 'color: red;';
         }
     }
     // снимаем класс с элемента показывающего невалидность если он есть, но если он есть
     hideInvalidCode() {
         if(this.invalidCode.closest('.invalid-feedback_active')) {
             this.invalidCode.classList.remove('invalid-feedback_active');
+            this.typeCode.style = 'color: #463E57;'
         }
     }
 
