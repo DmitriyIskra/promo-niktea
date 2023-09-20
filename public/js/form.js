@@ -16,7 +16,9 @@ function deleteAllCookies() {
 function CurrentAuthorizeCheck(){
     let a = null
     console.log(getCookie("niktea_session"))
+
     cookie_auth = getCookie("niktea_session")
+
     var settings = {
         "url": "http://niktea/api/auth/checker",
         "method": "GET",
@@ -33,34 +35,87 @@ function authorize() {
     const formSignIn = document.getElementById('signinForm');
     formSignIn.addEventListener('submit', SendAuth);
 
-    function SendAuth(event) {
+    async function SendAuth(event) {
         event.preventDefault();
-        const name = formSignIn.querySelector('[name="email"]'), //получаем поле name
-            password = formSignIn.querySelector('[name="password"]') //получаем поле age
+        const name = formSignIn.querySelector('[name="email"]') //получаем поле name
+        const password = formSignIn.querySelector('[name="password"]') //получаем поле age
+
+        if(!name.value || !password.value) {
+          if(!name.value) {
+            name.classList.add('invalid');
+            name.nextElementSibling.textContent = 'Вы указали некорректную почту';
+            name.nextElementSibling.style = 'color: #FFC0C0;';
+            name.style = 'border: 1px solid #FFC0C0;';
+          } else if (name.value && name.matches('.invalid')) {
+            name.classList.remove('invalid');
+            name.nextElementSibling.textContent = 'Укажите почту, набранную при регистрации';
+            name.nextElementSibling.style = 'color: #ffffff;';
+            name.style = 'border: 0;';
+          }
+
+
+          if(!password.value) {
+            name.classList.add('invalid');
+            password.nextElementSibling.textContent = 'Вы указали неверный код или вышло время ожидания';
+            password.nextElementSibling.style = 'color: #FFC0C0;';
+            name.style = 'border: 1px solid #FFC0C0;';
+          } else if (password.value && password.matches('.invalid')) {
+            password.classList.remove('invalid');
+            password.nextElementSibling.textContent = 'Введите, пожалуйста, код из E-mail';
+            password.nextElementSibling.style = 'color: #ffffff;';
+            password.style = 'border: 0;';
+          }
+
+          return;
+        }
+
         data = JSON.stringify({
             "email": name.value,
             "password": password.value
         })
 
         console.log(data)
-        var settings = {
-            "url": "/api/auth/login",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json",
-            },
-            "data": data
-        };
+        // var settings = {
+        //     "url": "/api/auth/login",
+        //     "method": "POST",
+        //     "timeout": 0,
+        //     "headers": {
+        //         "Content-Type": "application/json",
+        //     },
+        //     "data": data
+        // };
 
-        $.ajax(settings).done(function (response) {
-            console.log(document.cookie = `niktea_session=${response.auth_token}`)
-            window.location.href = "http://niktea/account";
-            console.log(response);
-        });
+        const res = await fetch("/api/auth/login", {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data
+        })
+
+        const result = await res.json()
+
+        if(result.is_auth) {
+          console.log(document.cookie = `niktea_session=${result.auth_token}`)
+          window.location.href = "http://niktea/account";
+        } else {
+          name.nextElementSibling.textContent = 'Не правильный логин или пароль';
+          name.nextElementSibling.style = 'color: #FFC0C0; font-weight: 700;';
+
+          password.nextElementSibling.textContent = 'Не правильный логин или пароль';
+          password.nextElementSibling.style = 'color: #FFC0C0; font-weight: 700;';
+        }
+
+        // $.ajax(settings).done(function (response) {
+        //   console.log(document.cookie = `niktea_session=${response.auth_token}`)
+        //   window.location.href = "http://niktea/account";
+        //   console.log(response);
+          
+        // });
+        
     }
 }
-
+ 
 function registration() {
     const formSignIn = document.getElementById('registerprovider');
 
@@ -75,7 +130,108 @@ function registration() {
             phone = formSignIn.querySelector('[name="phone"]'), //получаем поле age
             email = formSignIn.querySelector('[name="email"]'), //получаем поле age
             code = formSignIn.querySelector('[name="code"]'), //получаем поле age
-            check = formSignIn.querySelector('[name="check"]') //получаем поле age
+            check = formSignIn.querySelector('[name="check"]'), //получаем поле age
+            conditions = formSignIn.querySelector('.form-check-input')
+
+        
+        if(!name.value || second_name.value || patronymic.value
+          || phone.value || email.value || code.value || !check.files ||
+           !conditions.checked) {
+
+            if(!name.value) {
+              name.classList.add('invalid');
+              name.nextElementSibling.textContent = 'Заполните, пожалуйста, имя';
+              name.nextElementSibling.style = 'color: #FFC0C0;';
+              name.style = 'border: 1px solid #FFC0C0;';
+            } else if (name.value && name.matches('.invalid')) {
+              name.classList.remove('invalid');
+              name.nextElementSibling.textContent = 'имя';
+              name.nextElementSibling.style = 'color: #ffffff;';
+              name.style = 'border: 0;';
+            }
+
+            if(!second_name.value) {
+              second_name.classList.add('invalid');
+              second_name.nextElementSibling.textContent = 'Заполните, пожалуйста, фамилию';
+              second_name.nextElementSibling.style = 'color: #FFC0C0;';
+              second_name.style = 'border: 1px solid #FFC0C0;';
+            } else if (second_name.value && second_name.matches('.invalid')) {
+              second_name.classList.remove('invalid');
+              second_name.nextElementSibling.textContent = 'имя';
+              second_name.nextElementSibling.style = 'color: #ffffff;';
+              second_name.style = 'border: 0;';
+            }
+
+            if(!patronymic.value) {
+              patronymic.classList.add('invalid');
+              patronymic.nextElementSibling.textContent = 'Заполните, пожалуйста, отчество';
+              patronymic.nextElementSibling.style = 'color: #FFC0C0;';
+              patronymic.style = 'border: 1px solid #FFC0C0;';
+            } else if (patronymic.value && patronymic.matches('.invalid')) {
+              patronymic.classList.remove('invalid');
+              patronymic.nextElementSibling.textContent = 'имя';
+              patronymic.nextElementSibling.style = 'color: #ffffff;';
+              patronymic.style = 'border: 0;';
+            }
+
+            if(!phone.value) {
+              phone.classList.add('invalid');
+              phone.nextElementSibling.textContent = 'Некорректный номер телефона';
+              phone.nextElementSibling.style = 'color: #FFC0C0;';
+              phone.style = 'border: 1px solid #FFC0C0;';
+            } else if (phone.value && phone.matches('.invalid')) {
+              phone.classList.remove('invalid');
+              phone.nextElementSibling.textContent = 'имя';
+              phone.nextElementSibling.style = 'color: #ffffff;';
+              phone.style = 'border: 0;';
+            }
+
+            if(!email.value) {
+              email.classList.add('invalid');
+              email.nextElementSibling.textContent = 'Некорректная электронная почта';
+              email.nextElementSibling.style = 'color: #FFC0C0;';
+              email.style = 'border: 1px solid #FFC0C0;';
+            } else if (email.value && email.matches('.invalid')) {
+              email.classList.remove('invalid');
+              email.nextElementSibling.textContent = 'имя';
+              email.nextElementSibling.style = 'color: #ffffff;';
+              email.style = 'border: 0;';
+            }
+
+            if(!code.value) {
+              code.classList.add('invalid');
+              code.nextElementSibling.textContent = 'Извините, но без кода вы не можете принять участие в акции'
+              code.nextElementSibling.style = 'color: #FFC0C0;';
+              code.style = 'border: 1px solid #FFC0C0;';
+            } else if (code.value && code.matches('.invalid')) {
+              code.classList.remove('invalid');
+              code.nextElementSibling.textContent = 'имя';
+              code.nextElementSibling.style = 'color: #ffffff;';
+              code.style = 'border: 0;';
+            }
+
+            if(!check.files[0]) {
+              check.classList.add('invalid');
+              const el = check.parentElement.previousElementSibling;
+              el.textContent = 'Извините, но без чека вы не можете принять участие в акции';
+              el.style = 'color: #FFC0C0;';
+            } else if(check.files[0] && check.matches('invalid')) {
+              check.classList.remove('invalid');
+              const el = check.parentElement.previousElementSibling;
+              el.style = 'color: #ffffff;';
+            }
+
+            console.log(conditions.matches('invalid-conditions'))
+            if(!conditions.checked) {
+              conditions.classList.add('invalid-conditions');
+              conditions.style = `border: 2px solid #FFC0C0;`;
+            } else if(conditions.checked && conditions.matches('.invalid-conditions')) {
+              conditions.classList.remove('invalid-conditions');
+              conditions.style = `border: 0;`;
+            }
+            
+            return;
+          }
 
         var formdata = new FormData();
         formdata.append("name", name.value);

@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+// window.addEventListener('load', () => {
     // Слайдер кодов
 
     // let codeArr = [];
@@ -54,7 +54,7 @@ window.addEventListener('load', () => {
 
     // });
 
-})
+// })
 
  // E N D  С Л А Й Д Е Р  К О Д О В  __Р А Б О Ч А Я В Е Р С И Я
 
@@ -171,20 +171,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Валидация e-mail ???? возможно не рабочая
 
-const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-const input = document.querySelector('.email-auth');
+// const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+// const input = document.querySelector('.email-auth');
 
-function isEmailValid(value) {
-    return EMAIL_REGEXP.test(value);
-}
+// function isEmailValid(value) {
+//     return EMAIL_REGEXP.test(value);
+// }
 
-function onInput() {
-    if (isEmailValid(input.value)) {
-        input.style.borderColor = 'green';
-    } else {
-        input.style.borderColor = 'red';
-    }
-}
+// function onInput() {
+//     if (isEmailValid(input.value)) {
+//         input.style.borderColor = 'green';
+//     } else {
+//         input.style.borderColor = 'red';
+//     }
+// }
 
 
 
