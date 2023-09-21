@@ -20,7 +20,7 @@ function CurrentAuthorizeCheck(){
     cookie_auth = getCookie("niktea_session")
 
     var settings = {
-        "url": "/api/auth/checker",
+        "url": "http://niktea/api/auth/checker",
         "method": "GET",
         "timeout": 0,
         "async": false
@@ -97,7 +97,7 @@ function authorize() {
 
         if(result.is_auth) {
           console.log(document.cookie = `niktea_session=${result.auth_token}`)
-          window.location.href = "/account";
+          window.location.href = "http://niktea/account";
         } else {
           name.nextElementSibling.textContent = 'Не правильный логин или пароль';
           name.nextElementSibling.style = 'color: #FFC0C0; font-weight: 700;';
@@ -110,14 +110,42 @@ function authorize() {
         //   console.log(document.cookie = `niktea_session=${response.auth_token}`)
         //   window.location.href = "http://niktea/account";
         //   console.log(response);
-
+          
         // });
-
+        
     }
 }
 
+
 function registration() {
     const formSignIn = document.getElementById('registerprovider');
+    const check = formSignIn.querySelector('[name="check"]'); //получаем поле age
+    // результат валидации
+    let validateVoucher = null; 
+    // находим label для вывода результата загрузки 
+    const el = check.parentElement.previousElementSibling;
+
+    // событие на загрузку чека
+    check.addEventListener('change', (e) => {
+        
+        const regExpFile = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
+        const typeRes = regExpFile.test(e.target.files[0].type);
+        const sizeRes = e.target.files[0].size <= 104857600;
+
+        validateVoucher = typeRes && sizeRes ? true : false;
+
+
+        if(!validateVoucher) {
+          check.classList.add('invalid');
+          el.textContent = 'Чек должен быть изображением и не превышать 100МБ';
+          el.style = 'color: #FFC0C0;';
+        } else {
+          check.classList.remove('invalid');
+          el.textContent = 'Ваш чек успешно загружен';
+          el.style = 'color: #ffffff;';
+        }
+
+    })
 
     formSignIn.addEventListener('submit', SendRegister);
 
@@ -130,14 +158,44 @@ function registration() {
             phone = formSignIn.querySelector('[name="phone"]'), //получаем поле age
             email = formSignIn.querySelector('[name="email"]'), //получаем поле age
             code = formSignIn.querySelector('[name="code"]'), //получаем поле age
-            check = formSignIn.querySelector('[name="check"]'), //получаем поле age
+            
             conditions = formSignIn.querySelector('.form-check-input')
 
 
-        if(!name.value || second_name.value || patronymic.value
-          || phone.value || email.value || code.value || !check.files ||
-           !conditions.checked) {
+        let validateEmail = null;
+        let validateCode = null;
+               
 
+        if(email.value) {
+          validateEmail = /^\S+@\S+\.\S+$/g.test(email.value);
+          console.log('email.value', validateEmail)
+        }
+
+        if(code.value) {
+          // http://niktea/api/code/checkout
+          const data = JSON.stringify({code: code.value});
+
+          (async () => {
+            const res = await fetch('http://niktea/api/code/checkout', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+              },
+              body: data,
+            })
+
+            validateCode = await res.json(); // error:null или error: "Неверный код"
+          })()
+        }
+
+        
+        
+        if(!name.value || !second_name.value || !patronymic.value
+          || !phone.value || !email.value || !code.value || !check.files[0] ||
+           !conditions.checked || !validateEmail || validateCode.error || !check.files[0]) {
+            // если все верно то страница перезагрузится и ничего менять не надо, 
+            // все само сбросится, иначе если хоть одно условие не верно,
+            // а какие то верно то убираем ошибку на верных
             if(!name.value) {
               name.classList.add('invalid');
               name.nextElementSibling.textContent = 'Заполните, пожалуйста, имя';
@@ -186,42 +244,37 @@ function registration() {
               phone.style = 'border: 0;';
             }
 
-            if(!email.value) {
+            if(!email.value || (email.value && !validateEmail)) {
               email.classList.add('invalid');
               email.nextElementSibling.textContent = 'Некорректная электронная почта';
               email.nextElementSibling.style = 'color: #FFC0C0;';
               email.style = 'border: 1px solid #FFC0C0;';
-            } else if (email.value && email.matches('.invalid')) {
+            } else if (email.value && validateEmail) {
               email.classList.remove('invalid');
               email.nextElementSibling.textContent = 'имя';
               email.nextElementSibling.style = 'color: #ffffff;';
               email.style = 'border: 0;';
             }
 
-            if(!code.value) {
+            if(!code.value || (code.value && validateCode.error)) {
               code.classList.add('invalid');
               code.nextElementSibling.textContent = 'Извините, но без кода вы не можете принять участие в акции'
               code.nextElementSibling.style = 'color: #FFC0C0;';
               code.style = 'border: 1px solid #FFC0C0;';
-            } else if (code.value && code.matches('.invalid')) {
+            } else if (code.value && !validateCode.error) {
               code.classList.remove('invalid');
               code.nextElementSibling.textContent = 'имя';
               code.nextElementSibling.style = 'color: #ffffff;';
               code.style = 'border: 0;';
             }
 
-            if(!check.files[0]) {
+            if(!check.files[0] || (check.files[0] && !validateVoucher)) {
               check.classList.add('invalid');
               const el = check.parentElement.previousElementSibling;
               el.textContent = 'Извините, но без чека вы не можете принять участие в акции';
               el.style = 'color: #FFC0C0;';
-            } else if(check.files[0] && check.matches('invalid')) {
-              check.classList.remove('invalid');
-              const el = check.parentElement.previousElementSibling;
-              el.style = 'color: #ffffff;';
             }
 
-            console.log(conditions.matches('invalid-conditions'))
             if(!conditions.checked) {
               conditions.classList.add('invalid-conditions');
               conditions.style = `border: 2px solid #FFC0C0;`;
@@ -229,7 +282,7 @@ function registration() {
               conditions.classList.remove('invalid-conditions');
               conditions.style = `border: 0;`;
             }
-
+            
             return;
           }
 
@@ -255,7 +308,7 @@ function registration() {
         $.ajax(settings).done(function (response) {
             auth_token = JSON.parse(response).auth_token
             console.log(document.cookie = `niktea_session=${auth_token}`)
-            window.location.href = "/account";
+            window.location.href = "http://niktea/account";
         });
     }
 }
@@ -266,7 +319,7 @@ function logout() {
 
     function logouter() {
         var settings = {
-            "url": "/api/auth/logout",
+            "url": "http://niktea/api/auth/logout",
             "method": "GET",
             "timeout": 0,
         };
@@ -326,17 +379,17 @@ function fillAccountData(data) {
 
     // Заполняем выигрышные коды
     if(codeWinners.length !== 0) {
-
+      
       codeWinners.forEach( el => {
-
+        
         const codeItem = document.createElement('li');
         codeItem.classList.add('code__item');
         codeItem.classList.add('code__item_win');
-
+        
         // начало левой части
         const wrCodeAndWin = document.createElement('div');
         wrCodeAndWin.classList.add('account__wr-code-and-win');
-
+        
         const wrValue = document.createElement('div');
         wrValue.classList.add('account__wr-value-code');
         const codeWinTextMobile = document.createElement('div');
@@ -347,7 +400,7 @@ function fillAccountData(data) {
         codeValue.textContent = el.code_string;
         wrValue.append(codeWinTextMobile);
         wrValue.append(codeValue);
-
+        
         const wrTextIconWin = document.createElement('div');
         wrTextIconWin.classList.add('account__wr-text-icon-win');
         const iconWin = document.createElement('div');
@@ -359,7 +412,7 @@ function fillAccountData(data) {
         codeWinTextDesc.textContent = 'ВЫ ВЫИГРАЛИ!';
         wrTextIconWin.append(iconWin);
         wrTextIconWin.append(codeWinTextDesc);
-
+        
         wrCodeAndWin.append(wrValue);
         wrCodeAndWin.append(wrTextIconWin);
         // конец левой части
@@ -368,18 +421,18 @@ function fillAccountData(data) {
         const dateArr = el.created_time.split(' ')
         codeDate.textContent = dateArr[0];
         codeDate.classList.add('code__date');
-
+  
         codeItem.append(wrCodeAndWin);
         codeItem.append(codeDate);
-
-
+  
+        
         codeList.append(codeItem);
       })
     }
 
     // Заполняем не выигрышные коды
     if(restCodes.length !== 0) {
-      // количество кодов уже добавленных
+      // количество кодов уже добавленных 
       const amountCodes = codeList.children.length;
       // счетчик видимых кодов (сколько еще можно оставить видимыми)
       // показываем максимум 14 кодов
@@ -420,7 +473,7 @@ function fillAccountData(data) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
       const amountPagPages = Math.ceil(data.activated_codes.length / 14);
-
+      
       const wrPagSlides = document.createElement('ul');
       wrPagSlides.classList.add('account__wr-code-pag-list');
 
@@ -436,17 +489,17 @@ function fillAccountData(data) {
         wrPagSlides.append(pagSlideItem);
       }
 
-
+   
       contCodePag.append(wrPagSlides);
 
     }
-
+      
     // активируем пагинацию для мобильного устройства
     if(windowWidth <= 428 && data.activated_codes.length > 6) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
       const amountPagPages = Math.ceil(data.activated_codes.length / 14);
-
+      
       const wrPagSlides = document.createElement('ul');
       wrPagSlides.classList.add('account__wr-code-pag-list');
 
@@ -462,7 +515,7 @@ function fillAccountData(data) {
         wrPagSlides.append(pagSlideItem);
       }
 
-
+   
       contCodePag.append(wrPagSlides);
     }
 

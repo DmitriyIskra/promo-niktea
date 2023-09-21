@@ -8,7 +8,7 @@ export default class FetchAccountAddCodes {
     async read() {
         const requestOptions = {
             method: 'GET',
-            redirect: 'follow' 
+            redirect: 'follow'  
         };
 
         return await fetch("/api/account/info", requestOptions);

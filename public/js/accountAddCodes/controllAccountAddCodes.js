@@ -30,7 +30,7 @@ export default class ControllAccountAddCodes {
         if(e.target.closest('.code__add')) {
             const code = this.draw.typeCode.value;
             console.log(code)
-            const data = JSON.stringify({code});
+            const data = JSON.stringify({code}); // новый синтаксис
             // this.validateCode(value);
 
             (async () => {
@@ -109,7 +109,7 @@ export default class ControllAccountAddCodes {
         const value = this.draw.typeCode.value;
         // если есть сообщение о невалидности кода, при изменении поля убираем это сообщение
         if(value) {
-            this.draw.hideInvalidCode();
+            this.draw.hideInvalidCode(); 
         }
     }
 
