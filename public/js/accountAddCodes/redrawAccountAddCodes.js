@@ -20,8 +20,6 @@ export default class RedrawAccountAddCodes {
         this.arrCodes = new Set();
         // для файла
         this.storageFile = null;
-        // Выражение для проверки файла
-        this.regExpFile = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
         // значение валидности или не валидности кода (true или false)
         this.isValidCode = null;
         // сам свайпер
@@ -145,15 +143,14 @@ export default class RedrawAccountAddCodes {
 
 
     // сохраняем файл 
-    saveFile(file) {
+    saveFile(file) { 
         if(!file) return;
 
         const result = this.validateFile(file.type, file.size);
-
+        
         // не прошел валидацию, показываем пользователю информацию
         if(!result) {
             this.infoAboutUpload(this.textFileInvalid);
-            console.log('error upload file');
             return;
         }
 
@@ -164,7 +161,9 @@ export default class RedrawAccountAddCodes {
     }
     // валидируем файл
     validateFile(type, size) { // 102400
-        const typeRes = this.regExpFile.test(type);
+        const regExp = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
+
+        const typeRes = regExp.test(type);
         const sizeRes = size <= 104857600
 
         const result = typeRes && sizeRes ? true : false;
@@ -174,7 +173,6 @@ export default class RedrawAccountAddCodes {
     // показываем или скрываем результат загрузки файла
     // метод несет двойное назначение
     infoAboutUpload(element) {
-        console.log('work')
         // для снятия активности при отправке
         if(this.textFileInvalid.matches('.account__file-result_active')) {
             this.textFileInvalid.classList.remove('account__file-result_active');
@@ -306,7 +304,7 @@ export default class RedrawAccountAddCodes {
                 codeItem.classList.add('account__codeHide');
             }
     
-            if(windowWidth <= 428 && counter > 6) {
+            if(windowWidth <= 428 && counter > 7) {
                 codeItem.classList.add('account__codeHide');
             }
     
@@ -340,14 +338,12 @@ export default class RedrawAccountAddCodes {
     
         }
             
-    
-        
-    
+
         // активируем пагинацию для мобильного устройства
-        if(windowWidth <= 428 && data.activated_codes.length > 6) {
+        if(windowWidth <= 428 && data.activated_codes.length > 7) {
             pagCodeNext.classList.add('account__pag-code-arrow_active');
     
-            const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+            const amountPagPages = Math.ceil(data.activated_codes.length / 7);
             
             const wrPagSlides = document.createElement('ul');
             wrPagSlides.classList.add('account__wr-code-pag-list');
@@ -385,6 +381,12 @@ export default class RedrawAccountAddCodes {
 
         this.textFileValid.classList.remove('account__file-result_active');
         this.textFileInvalid.classList.remove('account__file-result_active');
+
+        this.activeSlider = null;
+
+        [...this.slideWrapper.children].forEach( el => el.remove());
+
+        this.swiperCode.updateSlides();
     }
 
     

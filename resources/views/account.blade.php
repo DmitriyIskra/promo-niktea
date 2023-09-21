@@ -5,7 +5,7 @@
     @include('template_parts.header_css_js')
     <title>Личный кабинет</title>
 </head>
-
+ 
 <body data-variant="user-account">
 
 <body data-variant="user-account">
@@ -159,7 +159,7 @@
                                 <div class="account__pagination-list"></div>
                             </div>
 
-                            <div class="pagination-next account__pagination-arrow pagination-next--check account__pagination-arrow_active">
+                            <div class="pagination-next account__pagination-arrow pagination-next--check">
                                 <img src="{{ asset('img/icons/pagination-arrow-right.svg') }}" class="account__pag-arrow-img" alt="pagination-arrow-right">
                             </div>
                         </div>

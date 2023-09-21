@@ -460,7 +460,7 @@ function fillAccountData(data) {
           codeItem.classList.add('account__codeHide');
         }
 
-        if(windowWidth <= 428 && counter > 6) {
+        if(windowWidth <= 428 && counter > 7) {
           codeItem.classList.add('account__codeHide');
         }
 
@@ -495,10 +495,10 @@ function fillAccountData(data) {
     }
       
     // активируем пагинацию для мобильного устройства
-    if(windowWidth <= 428 && data.activated_codes.length > 6) {
+    if(windowWidth <= 428 && data.activated_codes.length > 7) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
-      const amountPagPages = Math.ceil(data.activated_codes.length / 14);
+      const amountPagPages = Math.ceil(data.activated_codes.length / 7);
       
       const wrPagSlides = document.createElement('ul');
       wrPagSlides.classList.add('account__wr-code-pag-list');
@@ -528,10 +528,21 @@ function fillAccountData(data) {
     limitCodesEl.textContent = 15 - limitCodes;
 }
 
+function controllMobileMenu() {
+  // mobile menu работает от класса show
+  const navBar = document.querySelector('.navbar-collapse');
+
+  document.addEventListener('click', (e) => {
+    if(!e.target.matches('.navbar-navq')) {
+      navBar.classList.remove('show');
+    }
+  })
+}
 
 $( document ).ready(function() {
     authorize()
     registration()
+    controllMobileMenu()
 
 
 

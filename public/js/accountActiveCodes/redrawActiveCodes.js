@@ -42,7 +42,7 @@ export default class RedrawActiveCodes {
 
     // нужно каждый раз обновлять данные, так как содержимле меняется динамически
     updateElements () {
-        this.codeItems = this.codeList.querySelectorAll('.code__item');
+        this.codeItems = this.codeList.querySelectorAll('.code__item'); 
         this.pagItems = this.wrPag.querySelectorAll('.account__code-pag-num-page');
         this.activePage = [...this.pagItems].find( el => el.matches('.account__code-pag-num-page_active'));
         // если при обновлении не совпадает значит страница кодов изменилась
@@ -81,7 +81,7 @@ export default class RedrawActiveCodes {
             // получаем ширину item всегда свежую
             // можем сдвигать пока каунтер меньше допустимого значения
             this.slideCounter -= 1;
-            console.log('prev', this.slideCounter)
+
             // расчитываем размер сдвига во vw, для адаптивности
             let item = this.pagItemsList.children[0];
             let widthItemVw = (item.offsetWidth / window.innerWidth * 100).toFixed(2);
@@ -89,7 +89,6 @@ export default class RedrawActiveCodes {
             
             this.pagItemsList.style = `transform: translateX(-${offsetItem}vw);`; 
             this.LestLeftEl -= 1
-            console.log('LestLeftEl prev', this.LestLeftEl)
         }
 
         // если страница первая скрываем стрелку влево
@@ -122,20 +121,19 @@ export default class RedrawActiveCodes {
             // получаем ширину item всегда свежую
             // можем сдвигать пока каунтер меньше допустимого значения
             this.slideCounter += 1;
-            console.log('next', this.slideCounter)
+
             // расчитываем размер сдвига во vw, для адаптивности
             let item = this.pagItemsList.children[0];
             let widthItemVw = (item.offsetWidth / window.innerWidth * 100).toFixed(2);
             let offsetItem = widthItemVw * this.slideCounter
             this.pagItemsList.style = `transform: translateX(-${offsetItem}vw);`; 
             this.LestLeftEl += 1;
-            console.log('LestLeftEl next', this.LestLeftEl)
         }
 
         // если страница не первая показываем стрелку влево
         if(this.activeNumPage !== 1 && !this.pagPrev.closest('.account__pag-code-arrow_active')) {
             this.showArrowPrev();
-        }
+        } 
         
         // при крайнем конечном занчении скрываем стрелку
         if(this.activeNumPage === this.pagItems.length) {
@@ -160,7 +158,7 @@ export default class RedrawActiveCodes {
 
         // переключаем страницу с кодами
         this.changeVisibleCodes();
-
+        
         // при крайнем конечном занчении скрываем стрелку
         if(this.activeNumPage < this.pagItems.length) {
             this.showArrowNext();
@@ -221,11 +219,11 @@ export default class RedrawActiveCodes {
 
         // открываем по активной странице
         if(this.widthScreen <= 428) {
-            let startIndex = 6 * (this.activeNumPage - 1);
-            let finalIndex = startIndex + 6 - 1;
+            let startIndex = 7 * (this.activeNumPage - 1);
+            let finalIndex = startIndex + 7 - 1;
             // открываем 14 элементов
             for(let i = startIndex ; i <= finalIndex ; i += 1) {
-                this.codeItems[i].classList.remove('account__codeHide');
+                if(this.codeItems[i]) this.codeItems[i].classList.remove('account__codeHide');
             }
         }
     }

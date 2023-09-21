@@ -39,6 +39,7 @@ export default class ControllAccountAddCodes {
                 console.log(result)
 
                 if(result.error === null) {
+                    console.log('work')
                     this.draw.isValidCode = true;
                     this.draw.showSlider(code);
                     this.draw.addCode(code);

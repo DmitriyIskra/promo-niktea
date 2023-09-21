@@ -196,11 +196,20 @@ export default class RedrawVoucherSlider {
         this.paginationWrapper.addEventListener('click', this.offsetNum);
     }
 
+    // добавление чеков в личном кабинете
     addVoucher(arr) {
+        // когда в массиве от 3х чеков показываем стрелку next в пагинации
+        if(arr.length > 3) {
+            console.log('disabled')
+            this.voucherPaginationNext.classList.add('account__pagination-arrow_active');
+            this.slidesWrapper.style = 'justify-content: normal;';
+        }
+
+        // (фильровать массив не нужно, новый всегда последний в массиве)
         let counter = 0;
-        // создаем элемент
+        // забираем нужный элемент из массива чеков
         const swiperSlide = this.pattern(arr[arr.length - 1], 0);
-        // подставляем
+        // добавляем новый чек в слайдер
         this.slidesWrapper.prepend(swiperSlide);
         // переопределяем нумерации
         [...this.slidesWrapper.children].forEach( el => {
@@ -212,6 +221,7 @@ export default class RedrawVoucherSlider {
         this.updateSlider();
     }
 
+    // отрисовка слайдера при загрузке страницы
     renderingVouchers(arr) {
         
         // для нумерации слайда
@@ -223,8 +233,13 @@ export default class RedrawVoucherSlider {
             const swiperSlide = this.pattern(el, counter);
             
             this.slidesWrapper.prepend(swiperSlide);
-        });
-
+        })
+        // когда в массиве от 2х чеков показываем стрелку next в пагинации
+        if(arr.length > 3) {
+            console.log('disabled')
+            this.voucherPaginationNext.classList.add('account__pagination-arrow_active');
+            this.slidesWrapper.style = 'justify-content: normal;';
+        }
     }
 
     pattern(el, counter) {
@@ -237,15 +252,14 @@ export default class RedrawVoucherSlider {
         imgVoucher.classList.add('account__img-check');
         imgVoucher.src = el.ticket_path;
         imgVoucher.alt = 'Чек';
-
+ 
         swiperSlide.append(imgVoucher);
-        console.log('pattern')
+
         return swiperSlide;
     }
 
     updateSlider() {
         this.slider.updateSlides();
-        console.log('update slides');
     }
 
     clearVoucher() {
