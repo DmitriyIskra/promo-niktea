@@ -11,7 +11,7 @@
     let ready_tea = false
     function check(PrizeName) {
         var settings = {
-            "url": "http://niktea/api/winners/status",
+            "url": "/api/winners/status",
             "method": "POST",
             "timeout": 0,
             "async": false,
