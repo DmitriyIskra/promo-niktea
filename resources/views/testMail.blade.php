@@ -4,7 +4,16 @@
     <title>Niktea</title>
 </head>
 <body>
-<h1>{{ $testMailData['title'] }}</h1>
-<p>{{ $testMailData['body'] }}</p>
+<p>
+    Добрый день!
+</p>
+<p>
+    Мы рады что Вы приняли участие в нашей акции!
+</p>
+<h1>{{ $testMailData['body'] }}</h1>
+<p>Команда NIktea.</p>
+<p>Сообщение формируется и рассылается автоматически,<br> отвечать на него не нужно.
+    <br>© Niktea 2023
+</p>
 </body>
 </html>
