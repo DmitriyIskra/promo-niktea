@@ -206,7 +206,7 @@ export default class RedrawVoucherSlider {
         }
 
         // (фильровать массив не нужно, новый всегда последний в массиве)
-        let counter = 0;
+        let counter = 0; 
         // забираем нужный элемент из массива чеков
         const swiperSlide = this.pattern(arr[arr.length - 1], 0);
         // добавляем новый чек в слайдер
