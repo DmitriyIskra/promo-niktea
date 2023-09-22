@@ -80,7 +80,7 @@
 
 
                 <div class="winners__button--wrap">
-                    <button onclick="window.location.href = '/';" class="button__return">ВЕРНУТЬСЯ НА ГЛАВНУЮ</button>
+                    <button onclick="window.location.href = '/';" class="button__return">ГЛАВНАЯ СТРАНИЦА</button>
                     <div class="button__return--back"></div>
                 </div>
 
