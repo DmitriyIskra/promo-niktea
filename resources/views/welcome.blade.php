@@ -57,8 +57,8 @@
             </div>
 
             <div class="rules__item">
-                <div class="rules__item-wrap">
-                    <img class="rules__item--img" src="img/content/man-icon.png" alt="">
+                <div class="rules__item-wrap rules__item-wrap_last">
+                    <img class="rules__item--img rules__item--img_last" src="img/content/man-icon.png" alt="">
                     <span class="rules__item--text">
               Ждите результаты <br>
               розыгрыша</span>

@@ -21,7 +21,7 @@
             </div>
 
             <div class="footer__column logo-col">
-                <a class="footer__logo">
+                <a href="/" class="footer__logo">
                     <img class="footer__logo--img" src="img/icons/footer-logo.svg" alt="Logo">
                 </a>
             </div>

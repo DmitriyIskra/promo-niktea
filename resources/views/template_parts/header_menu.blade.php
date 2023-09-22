@@ -11,7 +11,7 @@
                 <a id="reglink" class='header__link'>Регистрация</a>
             </li>
             <li class="header__item">
-                <a href="#" class="header__link">Победители</a>
+                <a href="/winners" class="header__link">Победители</a>
             </li>
             <li class="nav-item header__logo d-none d-lg-block">
                 <a href="/">
@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="header__item">
-                <a href="/winners" class="header__link">Призы</a>
+                <a href="#" class="header__link header__link-prizes">Призы</a>
             </li>
             <li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
                 <a id="lkbuttonpc" class='header__link'>Личный кабинет</a>

@@ -89,10 +89,10 @@ export default class RedrawAccountAddCodes {
             this.swiperCode = new Swiper(".account__slider-add-code", {
                 grabCursor: true,
                 // keyboard: true, 
-                slidesPerView: 1,
-                spaceBetween: 2,
+                slidesPerView: 3,
+                spaceBetween: 0,
                 loop: true,
-                centeredSlides: true,
+                // centeredSlides: true,
                 slideShadows: true,
                 simulateTouch: false,
                 navigation: {
@@ -102,7 +102,7 @@ export default class RedrawAccountAddCodes {
                 breakpoints: {
                     992: {
                         // centeredSlides: true,
-                        slidesPerView: 1,
+                        slidesPerView: 3,
                         spaceBetween: 0,
                     },
                     320: {
@@ -122,8 +122,6 @@ export default class RedrawAccountAddCodes {
         this.swiperCode.updateSlides();
         
         this.initSwiper = true;
-
-        console.log('code added to place')
     }
     
     // вешаем класс invalid на элемент показывающий не валидность, но если его нет

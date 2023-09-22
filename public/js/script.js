@@ -2,7 +2,7 @@
     // Слайдер кодов
 
     // let codeArr = [];
-    // let codePlace = null;
+    // let codePlace = null; 
 
     // const codeAddbutton = document.querySelector('.code__add');
     // const codeSlider = document.querySelector('.code__slider');
@@ -133,6 +133,50 @@
 
 // export default swiperCheck
 //-------- E N D  С Л А Й Д Е Р  Ч Е К О В  __Р А Б О Ч А Я В Е Р С И Я
+
+
+
+
+
+// ----------  П Р О К Р У Т К А  К  П Р И З А М  С  Р Е Д И Р Е К Т О М
+// находим кнопку призы в хедер
+const nav = document.querySelector('.header__link-prizes');
+
+nav.addEventListener('click', (e) => {
+    const mainSlider = document.querySelector('.main__slider');
+    if(mainSlider) {
+        scrollToPrizes(mainSlider);
+    } else {
+        sessionStorage.redirect = true;
+
+        location.href = '/';
+    }
+});
+
+// при загрузке страницы проверяем есть ли в хранилище 
+// информация о редиректе
+if(sessionStorage?.redirect === 'true') {
+    const mainSlider = document.querySelector('.main__slider');
+
+    scrollToPrizes(mainSlider);
+
+    delete sessionStorage.redirect;
+}
+
+
+
+function scrollToPrizes(el) {
+    const offsetTop = el.getBoundingClientRect().top;
+
+    scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+    });   
+}
+
+
+// ----------  П Р О К Р У Т К А  К  П Р И З А М
+
 
 
 

@@ -3,6 +3,11 @@
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
+
+// для поиска
+// hidden для body
+// padding-right finded
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core')) :
   typeof define === 'function' && define.amd ? define(['@popperjs/core'], factory) :
@@ -2350,7 +2355,7 @@
     // Private
     _disableOverFlow() {
       this._saveInitialAttribute(this._element, 'overflow');
-      this._element.style.overflow = 'hidden';
+      //this._element.style.overflow = 'hidden'; //  hidden для body
     }
     _setElementAttributes(selector, styleProperty, callback) {
       const scrollbarWidth = this.getWidth();
@@ -2360,7 +2365,7 @@
         }
         this._saveInitialAttribute(element, styleProperty);
         const calculatedValue = window.getComputedStyle(element).getPropertyValue(styleProperty);
-        element.style.setProperty(styleProperty, `${callback(Number.parseFloat(calculatedValue))}px`);
+        //element.style.setProperty(styleProperty, `${callback(Number.parseFloat(calculatedValue))}px`); // padding-right finded
       };
       this._applyManipulationCallback(selector, manipulationCallBack);
     }
@@ -2613,7 +2618,7 @@
         return;
       }
       if (!isModalOverflowing) {
-        this._element.style.overflowY = 'hidden';
+        this._element.style.overflowY = 'hidden'; 
       }
       this._element.classList.add(CLASS_NAME_STATIC);
       this._queueCallback(() => {

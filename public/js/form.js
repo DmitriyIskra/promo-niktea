@@ -35,7 +35,7 @@ function authorize() {
     const formSignIn = document.getElementById('signinForm');
     formSignIn.addEventListener('submit', SendAuth);
 
-    async function SendAuth(event) {
+    async function SendAuth(event) { 
         event.preventDefault();
         const name = formSignIn.querySelector('[name="email"]') //получаем поле name
         const password = formSignIn.querySelector('[name="password"]') //получаем поле age
@@ -538,6 +538,8 @@ function controllMobileMenu() {
     }
   })
 }
+
+
 
 $( document ).ready(function() {
     authorize()
