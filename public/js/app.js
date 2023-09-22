@@ -10,14 +10,14 @@ import RedrawVoucherSlider from "./accountAddCodes/redrawVoucherSlider.js";
 import ControllActiveCodes from "./accountActiveCodes/controllActiveCodes.js";
 import RedrawActiveCodes from "./accountActiveCodes/redrawActiveCodes.js";
 
-window.addEventListener('load', () => { 
+window.addEventListener('load', () => {
 
     const accAddCodeGroup = document.querySelector('.code__input--group');
 
     if(accAddCodeGroup) {
         // добавление кодов и чеков (управление слайдером чеков)
-        const domainReg = '/api/auth/register'; 
-        const domainVoucher = `http://niktea/api/code/checkout`;
+        const domainReg = '/api/auth/register';
+        const domainVoucher = `/api/code/checkout`;
         const domains = [domainReg, domainVoucher];
         const voucherSlider = '.account__slider-check';
         const slidesWrapper = document.querySelector('.account__slider-check-wrapper');
@@ -45,9 +45,9 @@ window.addEventListener('load', () => {
             const controllActiveCodes = new ControllActiveCodes(redrawActiveCodes);
             controllActiveCodes.init();
         }, 2000)
-        
 
-        
-        
+
+
+
     }
 })

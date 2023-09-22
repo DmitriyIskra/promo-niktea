@@ -180,9 +180,9 @@
             div.className = 'attention';
             let winners_body = $(".winners-body")
             if(PrizeName == "main"){
-                string = `<h1 style='text-align: center'>Список победителей будет определен после 15 октября.</h1>`
-            }else{
                 string = `<h1 style='text-align: center'>Список победителей будет определен после 15 декабря.</h1>`
+            }else{
+                string = `<h1 style='text-align: center'>Список победителей будет определен после 15 октября.</h1>`
             }
             div.innerHTML = string;
             var ele = document.querySelector('.winners__button--wrap');

@@ -31,7 +31,7 @@ class MailPass extends Mailable
      */
     public function build()
     {
-        return $this->subject('Email From AllPHPTricks.com')
+        return $this->subject('Код активации для https://promo.nikteaworld.com/')
             ->view('testMail');
     }
 }

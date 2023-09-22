@@ -20,7 +20,7 @@ function CurrentAuthorizeCheck(){
     cookie_auth = getCookie("niktea_session")
 
     var settings = {
-        "url": "http://niktea/api/auth/checker",
+        "url": "/api/auth/checker",
         "method": "GET",
         "timeout": 0,
         "async": false
@@ -97,7 +97,7 @@ function authorize() {
 
         if(result.is_auth) {
           console.log(document.cookie = `niktea_session=${result.auth_token}`)
-          window.location.href = "http://niktea/account";
+          window.location.href = "/account";
         } else {
           name.nextElementSibling.textContent = 'Не правильный логин или пароль';
           name.nextElementSibling.style = 'color: #FFC0C0; font-weight: 700;';
@@ -110,9 +110,9 @@ function authorize() {
         //   console.log(document.cookie = `niktea_session=${response.auth_token}`)
         //   window.location.href = "http://niktea/account";
         //   console.log(response);
-          
+
         // });
-        
+
     }
 }
 
@@ -121,13 +121,13 @@ function registration() {
     const formSignIn = document.getElementById('registerprovider');
     const check = formSignIn.querySelector('[name="check"]'); //получаем поле age
     // результат валидации
-    let validateVoucher = null; 
-    // находим label для вывода результата загрузки 
+    let validateVoucher = null;
+    // находим label для вывода результата загрузки
     const el = check.parentElement.previousElementSibling;
 
     // событие на загрузку чека
     check.addEventListener('change', (e) => {
-        
+
         const regExpFile = /(\/jpg|\/jpeg|\/bmp|\/png|\/gif|\/svg|\/webp)$/g;
         const typeRes = regExpFile.test(e.target.files[0].type);
         const sizeRes = e.target.files[0].size <= 104857600;
@@ -158,13 +158,13 @@ function registration() {
             phone = formSignIn.querySelector('[name="phone"]'), //получаем поле age
             email = formSignIn.querySelector('[name="email"]'), //получаем поле age
             code = formSignIn.querySelector('[name="code"]'), //получаем поле age
-            
+
             conditions = formSignIn.querySelector('.form-check-input')
 
 
         let validateEmail = null;
         let validateCode = null;
-               
+
 
         if(email.value) {
           validateEmail = /^\S+@\S+\.\S+$/g.test(email.value);
@@ -176,7 +176,7 @@ function registration() {
           const data = JSON.stringify({code: code.value});
 
           (async () => {
-            const res = await fetch('http://niktea/api/code/checkout', {
+            const res = await fetch('/api/code/checkout', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json;charset=utf-8'
@@ -188,12 +188,12 @@ function registration() {
           })()
         }
 
-        
-        
+
+
         if(!name.value || !second_name.value || !patronymic.value
           || !phone.value || !email.value || !code.value || !check.files[0] ||
            !conditions.checked || !validateEmail || validateCode.error || !check.files[0]) {
-            // если все верно то страница перезагрузится и ничего менять не надо, 
+            // если все верно то страница перезагрузится и ничего менять не надо,
             // все само сбросится, иначе если хоть одно условие не верно,
             // а какие то верно то убираем ошибку на верных
             if(!name.value) {
@@ -282,7 +282,7 @@ function registration() {
               conditions.classList.remove('invalid-conditions');
               conditions.style = `border: 0;`;
             }
-            
+
             return;
           }
 
@@ -308,7 +308,7 @@ function registration() {
         $.ajax(settings).done(function (response) {
             auth_token = JSON.parse(response).auth_token
             console.log(document.cookie = `niktea_session=${auth_token}`)
-            window.location.href = "http://niktea/account";
+            window.location.href = "/account";
         });
     }
 }
@@ -319,7 +319,7 @@ function logout() {
 
     function logouter() {
         var settings = {
-            "url": "http://niktea/api/auth/logout",
+            "url": "/api/auth/logout",
             "method": "GET",
             "timeout": 0,
         };
@@ -379,17 +379,17 @@ function fillAccountData(data) {
 
     // Заполняем выигрышные коды
     if(codeWinners.length !== 0) {
-      
+
       codeWinners.forEach( el => {
-        
+
         const codeItem = document.createElement('li');
         codeItem.classList.add('code__item');
         codeItem.classList.add('code__item_win');
-        
+
         // начало левой части
         const wrCodeAndWin = document.createElement('div');
         wrCodeAndWin.classList.add('account__wr-code-and-win');
-        
+
         const wrValue = document.createElement('div');
         wrValue.classList.add('account__wr-value-code');
         const codeWinTextMobile = document.createElement('div');
@@ -400,7 +400,7 @@ function fillAccountData(data) {
         codeValue.textContent = el.code_string;
         wrValue.append(codeWinTextMobile);
         wrValue.append(codeValue);
-        
+
         const wrTextIconWin = document.createElement('div');
         wrTextIconWin.classList.add('account__wr-text-icon-win');
         const iconWin = document.createElement('div');
@@ -412,7 +412,7 @@ function fillAccountData(data) {
         codeWinTextDesc.textContent = 'ВЫ ВЫИГРАЛИ!';
         wrTextIconWin.append(iconWin);
         wrTextIconWin.append(codeWinTextDesc);
-        
+
         wrCodeAndWin.append(wrValue);
         wrCodeAndWin.append(wrTextIconWin);
         // конец левой части
@@ -421,18 +421,18 @@ function fillAccountData(data) {
         const dateArr = el.created_time.split(' ')
         codeDate.textContent = dateArr[0];
         codeDate.classList.add('code__date');
-  
+
         codeItem.append(wrCodeAndWin);
         codeItem.append(codeDate);
-  
-        
+
+
         codeList.append(codeItem);
       })
     }
 
     // Заполняем не выигрышные коды
     if(restCodes.length !== 0) {
-      // количество кодов уже добавленных 
+      // количество кодов уже добавленных
       const amountCodes = codeList.children.length;
       // счетчик видимых кодов (сколько еще можно оставить видимыми)
       // показываем максимум 14 кодов
@@ -473,7 +473,7 @@ function fillAccountData(data) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
       const amountPagPages = Math.ceil(data.activated_codes.length / 14);
-      
+
       const wrPagSlides = document.createElement('ul');
       wrPagSlides.classList.add('account__wr-code-pag-list');
 
@@ -489,17 +489,17 @@ function fillAccountData(data) {
         wrPagSlides.append(pagSlideItem);
       }
 
-   
+
       contCodePag.append(wrPagSlides);
 
     }
-      
+
     // активируем пагинацию для мобильного устройства
     if(windowWidth <= 428 && data.activated_codes.length > 7) {
       pagCodeNext.classList.add('account__pag-code-arrow_active');
 
       const amountPagPages = Math.ceil(data.activated_codes.length / 7);
-      
+
       const wrPagSlides = document.createElement('ul');
       wrPagSlides.classList.add('account__wr-code-pag-list');
 
@@ -515,7 +515,7 @@ function fillAccountData(data) {
         wrPagSlides.append(pagSlideItem);
       }
 
-   
+
       contCodePag.append(wrPagSlides);
     }
 
