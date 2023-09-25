@@ -157,7 +157,7 @@ body[data-variant=error-page] {
   outline: none;
   border: none;
   z-index: 100;  
-}
+} 
 
 .navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler-icon:focus {
   outline: none;
@@ -1269,6 +1269,17 @@ body[data-variant=rules] {
   display: none;
 }
 
+.rules__item--img {
+  height: 56vw;
+}
+
+.rules__item-wrap_last {
+  transform: translateX(0);
+}
+
+.priz__item__text {
+  font-size: 5.33vw;
+}
 
 .footer__logo img{
   width: 115px;
