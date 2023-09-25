@@ -7,7 +7,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-navq header__list">
-            <li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
+            <li class='header__item header__item_registration' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
                 <a id="reglink" class='header__link'>Регистрация</a>
             </li>
             <li class="header__item">
@@ -21,8 +21,14 @@
             <li class="header__item">
                 <a href="#" class="header__link header__link-prizes">Призы</a>
             </li>
-            <li class='header__item' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
+            <li class='header__item header__item_account' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
                 <a id="lkbuttonpc" class='header__link'>Личный кабинет</a>
+            </li>
+            <li class="close-mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
+                    <path d="M1.76465 1.76465L26.7214 26.7214" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M26.4705 1.76465L1.76465 26.4705" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                </svg>
             </li>
         </ul>
     </div>
@@ -31,7 +37,7 @@
 <a class="navbar-brand d-lg-none logo-mobile--wrap" href="/">
     <img src="{{ asset('img/icons/logo-mobile.svg') }}" alt="logo-mobile">
 </a>
-<a class="navbar-brand d-lg-none account-logo-mobile" id="mobileaccountbutton">
+<a class="navbar-brand d-lg-none account-logo-mobile" id="mobileaccountbutton" data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
 </a>
 <script>
     var auther = CurrentAuthorizeCheck()

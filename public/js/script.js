@@ -143,7 +143,7 @@
 const nav = document.querySelector('.header__link-prizes');
 
 nav.addEventListener('click', (e) => {
-    const mainSlider = document.querySelector('.main__slider');
+    const mainSlider = document.querySelector('.slider_circle_10');
     if(mainSlider) {
         scrollToPrizes(mainSlider);
     } else {
@@ -156,7 +156,7 @@ nav.addEventListener('click', (e) => {
 // при загрузке страницы проверяем есть ли в хранилище 
 // информация о редиректе
 if(sessionStorage?.redirect === 'true') {
-    const mainSlider = document.querySelector('.main__slider');
+    const mainSlider = document.querySelector('.slider_circle_10');
 
     scrollToPrizes(mainSlider);
 

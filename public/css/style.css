@@ -509,6 +509,7 @@ padding: 0;
 
 .footer__item--icons {
   display: flex;
+  gap: 1.82vw;
 }
 
 
@@ -574,9 +575,7 @@ padding: 0;
   }
   
 
-  .footer__item--right {
-    padding-right: 35px;
-  }
+
 
 .footer__link {
     color: #FFF;
@@ -598,15 +597,18 @@ padding: 0;
     padding-bottom: 25px;
 }
 
+.link-col {
+  margin-right: 3vw;
+}
 
 .logo-col {
-  margin-left: 5%;
-  margin-right: 15%;  
-  }
+  margin-left: 2.03vw;
+  margin-right: 6.09vw;  
+}
 
 .footer__container {      
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 12.45vw;
+    padding-right: 12.45vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -1018,8 +1020,17 @@ text-transform: uppercase;
   .priz-mobile {
     display: flex;    
     flex-direction: column;
-    margin-top: 70px;
+    margin-top: 70px; 
   }
+
+  .rules__item--img {
+    height: 56vw;
+  }
+
+  .rules__item-wrap_last {
+    transform: translateX(0);
+  }
+  
 
   .footer__container, .about, .cards  {
     padding-left: unset;
@@ -1035,190 +1046,208 @@ text-transform: uppercase;
     justify-content: center;
   }
 
-.footer__link {
-font-size: 24px;
-}
+  .footer__item--icons {
+    gap: 7.47vw;
+  }
 
-.footer__link--phone {
+  .footer__link {
+  font-size: 24px;
+  }
+
+  .footer__link--phone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-col {
+    order: 1;
+    }
+    
+
+  .tg-col {
+  order: 2;
+  }
+
+  .link-col {
+    order: 4;
+  }
+
+  .whats-col {
+  order: 2;
+  }
+
+
+  .phone-col {
+  order: 3;
+  padding-bottom: 0;
+  }
+
+  .rules__action {
   display: flex;
   flex-direction: column;
-}
-
-.footer__link__right {
-  padding-right: 27px;
-}
-
-.logo-col {
-  order: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 70px;
   }
-  
 
-.tg-col {
-order: 2;
-}
+  .rules__item {
+    width: max-content;
 
-.link-col {
-  order: 4;
-}
+    font-size: 5.33vw;
+  }
 
-.whats-col {
-order: 2;
-}
+  .recepies__button {
+      width: 90%;
+      height: 50px;
+      border-radius: 50px;
+      color: #FFF;
+      font-family: 'Arsenal';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+  }
+
+  .button--green {
+    position: relative;
+    background: linear-gradient(#53A894, #53A894) padding-box,
+    linear-gradient(to bottom, #00BD8D 32.29%, #00392D 100%) border-box;              
+    border-radius: 50em;
+    border: 2px solid transparent;
+  }
+
+  h1, h2 {
+    font-size: 6.40vw;
+  }
 
 
-.phone-col {
-order: 3;
-padding-bottom: 0;
-}
+    .main__slider {
+    display: none; 
+  }
 
-.rules__action {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 35px;
-margin-bottom: 70px;
-}
+  .logo-col {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-.rules__item {
-  width: max-content;
 
-  font-size: 5.33vw;
-}
+  body[data-variant=main-page]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;    
+    background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-main-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+    background-position-x: center, left; 
+    background-position-y: bottom, 8.5%;
+    background-repeat: no-repeat no-repeat;
+    background-size: contain, 100% auto;
+    z-index: -10;  
+  }
 
-.recepies__button {
-    width: 90%;
-    height: 50px;
-    border-radius: 50px;
-    color: #FFF;
+
+
+  body[data-variant=user-account] {  
+    content: '';
+    width: 100%;
+    height: 100%;    
+    background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+    background-size: 100%, 100%;
+    background-position-x: center, center; 
+    background-position-y: bottom, top;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    z-index: -10;  
+  }
+
+
+  body[data-variant=winners] {  
+    content: '';
+    width: 100%;
+    height: 100%;    
+    background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+    background-size: 100%, 100%;
+    background-position-x: center, center; 
+    background-position-y: bottom, 3%;
+    background-repeat: no-repeat, no-repeat;
+    z-index: -10;  
+  }
+
+  body[data-variant=rules] {  
+    content: '';
+    width: 100%;
+    height: 100%;    
+    background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
+    background-size: 100%, 100%;
+    background-position-x: center, center; 
+    background-position-y: bottom, 3%;
+    background-repeat: no-repeat, no-repeat;
+    z-index: -10;  
+  }
+
+
+  .header__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 3.47vw;
+    padding-bottom: 3.47vw;
+    gap: 6.67vw;
+
+    background: #97F8E4;
+    color: #00392D;
+
+    flex-direction: column;
+    align-items: flex-start;
+    
+    z-index: 11;
+  }
+
+  .header__item {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .close-mobile-menu {
+    position: absolute;
+    top: 9.6%;
+    right: 5%;
+
+    height: 30px;
+    width: 30px;
+  }
+
+
+  /* .header-wrapper {
+    padding-top: 0;
+  }  */
+
+  .header-wrapper--white a {
+    color: #007653;
     font-family: 'Arsenal';
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-}
+  }
 
-.button--green {
-  position: relative;
-  background: linear-gradient(#53A894, #53A894) padding-box,
-  linear-gradient(to bottom, #00BD8D 32.29%, #00392D 100%) border-box;              
-  border-radius: 50em;
-  border: 2px solid transparent;
-}
+  .header__button {
+    padding: 0;
+  }
 
-h1, h2 {
-  font-size: 6.40vw;
-}
+  .header__button a{
+    font-size: 20px;
+  }
 
-
-  .main__slider {
-  display: none; 
-}
-
-.logo-col {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-body[data-variant=main-page]::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;    
-  background:  url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-main-mobile.png) , linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-position-x: center, left; 
-  background-position-y: bottom, 8.5%;
-  background-repeat: no-repeat no-repeat;
-  background-size: contain, 100% auto;
-  z-index: -10;  
-}
-
-
-
-body[data-variant=user-account] {  
-  content: '';
-  width: 100%;
-  height: 100%;    
-  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/flowers-account-bg.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-size: 100%, 100%;
-  background-position-x: center, center; 
-  background-position-y: bottom, top;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  z-index: -10;  
-}
-
-
-body[data-variant=winners] {  
-  content: '';
-  width: 100%;
-  height: 100%;    
-  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-size: 100%, 100%;
-  background-position-x: center, center; 
-  background-position-y: bottom, 3%;
-  background-repeat: no-repeat, no-repeat;
-  z-index: -10;  
-}
-
-body[data-variant=rules] {  
-  content: '';
-  width: 100%;
-  height: 100%;    
-  background: url(../img/icons/background-mobile-bottom.png),  url(../img/icons/winners-bg-flovers.png), linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%);     
-  background-size: 100%, 100%;
-  background-position-x: center, center; 
-  background-position-y: bottom, 3%;
-  background-repeat: no-repeat, no-repeat;
-  z-index: -10;  
-}
-
-
-.header__list {
-  gap: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-left: 20px;
-  padding-top: 20px;
-  flex-direction: column;
-  align-items: flex-start;
-  background: #97F8E4;
-  color: #00392D;
-  z-index: 11;
-}
-
-
-
-/* .header-wrapper {
-  padding-top: 0;
-}  */
-
-.header-wrapper--white a {
-  color: #007653;
-  font-family: 'Arsenal';
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-}
-
-.header__button {
-  padding: 0;
-}
-
-.header__button a{
-  font-size: 20px;
-}
-
-.codeSlider .swiper-wrapper {
-  width: 200px;
-}
+  .codeSlider .swiper-wrapper {
+    width: 200px;
+  }
 
 }
 
@@ -1269,13 +1298,6 @@ body[data-variant=rules] {
   display: none;
 }
 
-.rules__item--img {
-  height: 56vw;
-}
-
-.rules__item-wrap_last {
-  transform: translateX(0);
-}
 
 .priz__item__text {
   font-size: 5.33vw;
@@ -1299,6 +1321,8 @@ body[data-variant=rules] {
   margin: 0;
   padding-bottom: 0;
 }
+
+
 
 .footer__item--right {
   padding-right: 0px;

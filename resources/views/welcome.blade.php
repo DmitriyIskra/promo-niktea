@@ -34,7 +34,7 @@
             <div class="rules__item">
                 <div class="rules__item-wrap">
                     <img class="rules__item--img" src="img/content/basket-prize.png" alt="Basket">
-                    <span class="rules__item--text">Купите пачку чая Niktea<br>
+                    <span class="rules__item--text">Купите промо-пачку чая Niktea<br>
               в удобном для вас розничном<br>
               или интернет-магазине</span>
                 </div>
@@ -145,13 +145,13 @@
                                         <img class="main-slide__img" src="img/content/priz/headphones.png"
                                              alt="headphones">
                                     </div>
-                                </div>
+                                </div> 
 
                                 <div class="slide__container">
                     <span class="slide__description">Портативный аккумулятор Bork (L787)<br>
                       Цвет: Белый </span>
                                     <div class="slide-img--wrap">
-                                        <img class="main-slide__img" src="img/content/priz/borkL787.png" alt="borkL787">
+                                        <img class="main-slide__img slide-acc-bork-img" src="img/content/priz/borkL787.png" alt="borkL787">
                                     </div>
                                 </div>
 

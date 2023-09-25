@@ -1251,7 +1251,7 @@ text-transform: inherit !important;
     }
 
     .account-form  {
-        padding-top: 68px;
+        padding-top: 45px;
         padding-bottom: 128px;
         background: url(../img/icons/form-flowers-top-mobile.svg), url(../img/icons/form-flowers-bottom-mobile.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);
         background-repeat: no-repeat, no-repeat;
@@ -1261,14 +1261,29 @@ text-transform: inherit !important;
 
 
     .wr-exit {
-        display: none;
+        width: 90%;
+        margin-top: 0;
+        margin-bottom: 15px;
+
+        align-self: center;
+    }
+
+    .wr-button-exit {
+        width: 80px;
+        height: 50px;
+        margin-right: 0;
     }
 
     .user__data {
         width: 74vw;
     }
 
-    
+    .log-out__button {
+        width: 76px;
+        height: 46px;
+
+        font-size: 16px;
+    }
 
     .code__input--group {
         width: 74vw;

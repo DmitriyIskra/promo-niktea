@@ -5,7 +5,7 @@
         <div class="modal-content modal-form">
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
-                        src="img/icons/modal-close.svg" alt="clofe-form"></button>
+                        src="img/icons/modal-close.svg" alt="clofe-form"></button> 
             </div>
             <div class="modal-body">
                 <div class="logo__modal--container">
@@ -76,7 +76,7 @@
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
                         src="img/icons/modal-close.svg" alt="clofe-form"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-body__registration_mobile">
                 <div class="logo__modal--container">
                     <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="Logo">
                 </div>

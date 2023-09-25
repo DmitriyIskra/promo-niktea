@@ -5,7 +5,7 @@
 .wr-slider-content h2 {
     margin-bottom: 0;
 }
-
+ 
 .slide-img--wrap {
     position: relative;
     width: 100%;
@@ -37,6 +37,9 @@
     right: 0;
 }
 
+.slide-acc-bork-img {
+    left: -4%;
+}
 /* .main-slide__img--light {
     box-shadow: 0px 0px 20px 8px rgba(255, 247, 0, 0.822);
 } */

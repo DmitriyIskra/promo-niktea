@@ -18,6 +18,9 @@ function CurrentAuthorizeCheck(){
     console.log(getCookie("niktea_session"))
 
     cookie_auth = getCookie("niktea_session")
+    
+    // контроль активации/деактивации режима вызова модалки
+    controllGetModal(cookie_auth);
 
     var settings = {
         "url": "/api/auth/checker",
@@ -219,7 +222,7 @@ function registration() {
               second_name.nextElementSibling.style = 'color: #ffffff;';
               second_name.style = 'border: 0;';
             }
-
+ 
             if(!patronymic.value) {
               patronymic.classList.add('invalid');
               patronymic.nextElementSibling.textContent = 'Заполните, пожалуйста, отчество';
@@ -539,7 +542,23 @@ function controllMobileMenu() {
   })
 }
 
+// контроль наличия атрибутов позволяющих вызвать модалку
+function controllGetModal(cookie_auth) {
+  const reg = document.querySelector('.header__item_registration');
+  const acc = document.querySelector('.header__item_account');
+  const accM = document.querySelector('.account-logo-mobile');
 
+  if(cookie_auth) {
+    reg.removeAttribute('data-bs-target', '#exampleModalToggle');
+    reg.removeAttribute('data-bs-toggle', 'modal');
+
+    acc.removeAttribute('data-bs-target', '#exampleModalToggle');
+    acc.removeAttribute('data-bs-toggle', 'modal');
+
+    accM.removeAttribute('data-bs-target', '#exampleModalToggle');
+    accM.removeAttribute('data-bs-toggle', 'modal');
+  } 
+}
 
 $( document ).ready(function() {
     authorize()
