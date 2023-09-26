@@ -149,9 +149,9 @@ body[data-variant=error-page] {
   transition: none !important;
 } */
 
-.navbar__wrap {
+/* .navbar__wrap {
   margin-right: 2.5%;
-}
+} */
 
 .navbar-toggler {
   outline: none;
@@ -288,6 +288,10 @@ transition: filter 0.3s ease;
     padding-top: 4px;
     padding-bottom: 4px;    
     text-align: center;    
+}
+
+.close-mobile-menu {
+  display: none;
 }
 
 .header__button {
@@ -478,7 +482,10 @@ padding: 0;
 }
 
 .footer__top {
+  display: flex;
   padding-bottom: 30px;
+
+  justify-content: center;
 }
 
 .footer__list {
@@ -509,7 +516,7 @@ padding: 0;
 
 .footer__item--icons {
   display: flex;
-  gap: 1.82vw;
+  gap: 1.20vw;
 }
 
 
@@ -580,7 +587,7 @@ padding: 0;
 .footer__link {
     color: #FFF;
     font-family: 'Arsenal';
-    font-size: 1.25vw;
+    font-size: 28px;
     font-style: normal;
     font-weight: 200;
     line-height: normal;
@@ -598,24 +605,22 @@ padding: 0;
 }
 
 .link-col {
-  margin-right: 3vw;
+  margin-right: 2.5vw;
 }
 
 .logo-col {
-  margin-left: 2.03vw;
-  margin-right: 6.09vw;  
+  margin-left: 5.26vw;
+  margin-right: 6.51vw;  
 }
 
-.footer__container {      
-    padding-left: 12.45vw;
-    padding-right: 12.45vw;
-    margin-left: auto;
-    margin-right: auto;
+.footer__container {     
     display: flex;
+    margin-left: -3.2vw;
+
     flex-wrap: wrap;
-    justify-content: space-evenly;
     align-content: flex-start;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -1020,7 +1025,7 @@ text-transform: uppercase;
   .priz-mobile {
     display: flex;    
     flex-direction: column;
-    margin-top: 70px; 
+    margin-top: 70px;  
   }
 
   .rules__item--img {
@@ -1220,6 +1225,7 @@ text-transform: uppercase;
     top: 9.6%;
     right: 5%;
 
+    display: block;
     height: 30px;
     width: 30px;
   }

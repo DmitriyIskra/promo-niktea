@@ -141,13 +141,17 @@
 // ----------  П Р О К Р У Т К А  К  П Р И З А М  С  Р Е Д И Р Е К Т О М
 // находим кнопку призы в хедер
 const nav = document.querySelector('.header__link-prizes');
-
+const sizeWindow = window.innerWidth; // 768 mobile version
+ 
 nav.addEventListener('click', (e) => {
-    const mainSlider = document.querySelector('.slider_circle_10');
-    if(mainSlider) {
-        scrollToPrizes(mainSlider);
+    let prizes = null;
+    if(sizeWindow > 768) prizes = document.querySelector('.slider_circle_10');
+    if(sizeWindow <= 768) prizes = document.querySelector('.priz-mobile');
+    
+    if(prizes) {
+        scrollToPrizes(prizes);
     } else {
-        sessionStorage.redirect = true;
+        localStorage.redirect = true;
 
         location.href = '/';
     }
@@ -155,12 +159,14 @@ nav.addEventListener('click', (e) => {
 
 // при загрузке страницы проверяем есть ли в хранилище 
 // информация о редиректе
-if(sessionStorage?.redirect === 'true') {
-    const mainSlider = document.querySelector('.slider_circle_10');
+if(localStorage?.redirect === 'true') {
+    let prizes = null;
+    if(sizeWindow > 768) prizes = document.querySelector('.slider_circle_10');
+    if(sizeWindow <= 768) prizes = document.querySelector('.priz-mobile');
 
-    scrollToPrizes(mainSlider);
+    scrollToPrizes(prizes);
 
-    delete sessionStorage.redirect;
+    delete localStorage.redirect;
 }
 
 
@@ -168,10 +174,11 @@ if(sessionStorage?.redirect === 'true') {
 function scrollToPrizes(el) {
     const offsetTop = el.getBoundingClientRect().top;
 
-    scrollTo({
+    setTimeout(scrollTo({
         top: offsetTop,
         behavior: "smooth",
-    });   
+    }), 100)
+      
 }
 
 
