@@ -38,6 +38,7 @@ class Account extends Controller
                 'codes.code_main_win as code_main_win',
             )
             ->join('codes', 'belongs.code_id', '=', 'codes.id')
+            ->where('belongs.user_id', $user_id)
             ->orderBy('code_tea_win', 'desc')
             ->orderBy('code_main_win', 'desc')
             ->get();
@@ -57,7 +58,7 @@ class Account extends Controller
     public function get_tickets_provider($user_id){
         $limits = DB::table('tickets')
             ->select('tickets.ticket_path as ticket_path',
-            'tickets.created_at as time_created')
+                'tickets.created_at as time_created')
             ->where('user_id', $user_id)
             ->get();
         return $limits;
