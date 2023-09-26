@@ -173,28 +173,28 @@ function registration() {
           console.log('email.value', validateEmail)
         }
 
-        if(code.value) {
-          // http://niktea/api/code/checkout
-          const data = JSON.stringify({code: code.value});
+        // if(code.value) {
+        //   // http://niktea/api/code/checkout
+        //   const data = JSON.stringify({code: code.value});
 
-          (async () => {
-            const res = await fetch('/api/code/checkout', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json;charset=utf-8'
-              },
-              body: data,
-            })
+        //   (async () => {
+        //     const res = await fetch('/api/code/checkout', {
+        //       method: 'POST',
+        //       headers: {
+        //           'Content-Type': 'application/json;charset=utf-8'
+        //       },
+        //       body: data,
+        //     })
 
-            validateCode = await res.json(); // error:null или error: "Неверный код"
-          })()
-        }
+        //     validateCode = await res.json(); // error:null или error: "Неверный код"
+        //   })()
+        // }
 
 
 
         if(!name.value || !second_name.value || !patronymic.value
           || !phone.value || !email.value || !code.value || !check.files[0] ||
-           !conditions.checked || !validateEmail || validateCode.error || !check.files[0]) {
+           !conditions.checked || !validateEmail || !check.files[0]) {
             // если все верно то страница перезагрузится и ничего менять не надо,
             // все само сбросится, иначе если хоть одно условие не верно,
             // а какие то верно то убираем ошибку на верных
