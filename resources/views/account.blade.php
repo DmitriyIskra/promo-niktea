@@ -18,7 +18,7 @@
 <script>
     // если пользователь не авторизован, редирект на главную
     if (auther.is_auth === false) {
-        window.location.href = "/";
+        window.location.href = "/"; 
     }
 
     // каждый раз при загрузке страницы вызывается

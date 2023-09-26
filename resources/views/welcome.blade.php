@@ -31,7 +31,7 @@
 
         <section class="rules__action">
 
-            <div class="rules__item">
+            <div class="rules__item"> 
                 <div class="rules__item-wrap">
                     <img class="rules__item--img" src="img/content/basket-prize.png" alt="Basket">
                     <span class="rules__item--text">Купите промо-пачку чая Niktea<br>

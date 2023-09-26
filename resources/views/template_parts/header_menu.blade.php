@@ -33,7 +33,7 @@
         </ul>
     </div>
 
-</nav>
+</nav> 
 <a class="navbar-brand d-lg-none logo-mobile--wrap" href="/">
     <img src="{{ asset('img/icons/logo-mobile.svg') }}" alt="logo-mobile">
 </a>
@@ -43,6 +43,9 @@
     var auther = CurrentAuthorizeCheck()
     if (auther.is_auth === true) {
         div_href = "/account"
+
+        // контроль активации/деактивации режима вызова модалки
+        controllGetModal(true);
     } else {
         div_href = "#"
     }

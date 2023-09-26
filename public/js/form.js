@@ -19,8 +19,7 @@ function CurrentAuthorizeCheck(){
 
     cookie_auth = getCookie("niktea_session")
     
-    // контроль активации/деактивации режима вызова модалки
-    controllGetModal(cookie_auth);
+    
 
     var settings = {
         "url": "/api/auth/checker",
@@ -532,7 +531,7 @@ function fillAccountData(data) {
 }
 
 function controllMobileMenu() {
-  // mobile menu работает от класса show
+  // mobile menu работает от класса show 
   const navBar = document.querySelector('.navbar-collapse');
 
   document.addEventListener('click', (e) => {
@@ -543,12 +542,12 @@ function controllMobileMenu() {
 }
 
 // контроль наличия атрибутов позволяющих вызвать модалку
-function controllGetModal(cookie_auth) {
+function controllGetModal(auth) {
   const reg = document.querySelector('.header__item_registration');
   const acc = document.querySelector('.header__item_account');
   const accM = document.querySelector('.account-logo-mobile');
 
-  if(cookie_auth) {
+  if(auth) {
     reg.removeAttribute('data-bs-target', '#exampleModalToggle');
     reg.removeAttribute('data-bs-toggle', 'modal');
 
