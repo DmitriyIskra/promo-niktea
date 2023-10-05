@@ -3,7 +3,9 @@
 
 <head>
     @include('template_parts.header_css_js')
-    <title>Личный кабинет</title>
+    <title>Ваш личный кабинет на промостранице бренда Niktea</title>
+    <meta name="description" content="Здесь вы можете выиграть путешествие, главные или чайные призы."/>
+
 </head>
  
 <body data-variant="user-account">

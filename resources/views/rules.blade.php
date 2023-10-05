@@ -3,7 +3,8 @@
 
 <head>
     @include('template_parts.header_css_js')
-    <title>Главная</title>
+    <title>Бренд NIktea устраиваем розыгрыш призов в честь 15-летия чайного бренда NIktea!</title>
+    <meta name="description" content="Наши призы: сертификат на путешествие мечты, Macbook, IPhone, Sony PlayStation, электросамокат Bork, годовой запас чая NIktea и многое другое!"/>
     <link rel="stylesheet" href="{{ asset("css/rules.css?v=").time()}}">
     <link rel="stylesheet" href="{{ asset("css/winners.css?v=").time()}}">
 

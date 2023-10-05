@@ -4,7 +4,8 @@
 <head>
     @include('template_parts.header_css_js')
     <link rel="stylesheet" href="{{ asset("css/winners.css?v=").time()}}">
-    <title>Призы</title>
+    <title>Победители в промоакции от бренда NIktea! Главный приз - сертификат на путешествие на 300 000 р.  </title>
+    <meta name="description" content="Наши призы: сертификат на путешествие мечты, Macbook, IPhone, Sony PlayStation, электросамокат Bork, годовой запас чая NIktea и многое другое!"/>
 </head>
 <script>
     let ready_main = false
