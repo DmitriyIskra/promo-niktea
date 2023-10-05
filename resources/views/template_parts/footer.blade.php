@@ -11,11 +11,10 @@
             <div class="footer__column tg-col">
 
                 <div class="footer__item footer__item--icons">
-                    <div class="footer__item--right"><a href="#" class="footer__link  footer__link__right"><img
+                    <div class="footer__item--right"><a href="https://t.me/NikteaPromo2023" class="footer__link  footer__link__right"><img
                                 class="footer__link--img" src="img/icons/telegram-icon.svg" alt="Logo"></a></div>
-                    <div><a href="#" class="footer__link"><img class="footer__link--img"
-                                                               src="img/icons/whatsapp-icon.svg"
-                                                               alt="Logo"></a></div>
+                    <div><a href="https://api.whatsapp.com/send/?phone=79037988598&text&type=phone_number&app_absent=0" class="footer__link"><img class="footer__link--img" src="img/icons/whatsapp-icon.svg"
+                                                                                                                                                  alt="Logo"></a></div>
                 </div>
 
             </div>
