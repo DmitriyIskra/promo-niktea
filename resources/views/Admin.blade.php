@@ -175,7 +175,7 @@
     <form action="">
         <div class="flex">
             <label class="description">Для начала поиска начните вводить код</label>
-            <input type="text" name="search" id="search" placeholder="Введите город">
+            <input type="text" name="search" id="search" placeholder="Введите код с пачки">
             <!--<input type="submit">-->
         </div>
     </form>

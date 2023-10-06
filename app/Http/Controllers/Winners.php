@@ -85,6 +85,7 @@ class Winners extends Controller
         }else{
             foreach ($response as $key => $value){
                 if($value->belongs_user_id == $user_id){
+                    $value->my = 1;
                     unset($response[$key]);
                     array_unshift($response, $value);
                 }
