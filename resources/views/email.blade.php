@@ -8,6 +8,7 @@
         font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
         text-shadow: 0 1px 0 #fff;">
 <h1>Добрый день, данные по зарегистрированным пользователям, по датам</h1>
+<h1>Текущее общее количество пользователей {{ $result["sum"] }}</h1>
 <table style='        background: #f5f5f5;
         border-collapse: separate;
         box-shadow: inset 0 1px 0 #fff;

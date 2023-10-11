@@ -51,6 +51,7 @@ class SendExcelController implements ShouldQueue
         }
         foreach($result as $date => $user){
             $result[$date] = count($result[$date]);
+            $result["sum"] = array_sum($result);
         }
         //Mail::to($data['email'])->send(new MailPass($testMailData));
         foreach($mails as $mail) {
