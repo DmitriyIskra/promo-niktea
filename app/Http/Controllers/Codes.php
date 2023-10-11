@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailReport;
 use App\Models\Entries;
 use Aws\S3\S3Client;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -67,5 +72,4 @@ class Codes extends Controller
 
         return response()->json($response, $code);
     }
-
 }

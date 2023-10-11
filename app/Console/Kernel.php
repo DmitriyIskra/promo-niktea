@@ -2,20 +2,13 @@
 
 namespace App\Console;
 
+use App\Jobs\Export;
 use App\Jobs\SendExcelController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        \App\Console\Commands\SendExcel::class
-    ];
 
     /**
      * Define the application's command schedule.
@@ -26,7 +19,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->job(new SendExcelController)->dailyAt('13:00');
-        // $schedule->command('command:SendExcel')->everyFifteenSeconds();
+        //->weeklyOn(7, '23:59');
+        $schedule->job(new Export)->weeklyOn(7, '23:59');
     }
 
     /**
