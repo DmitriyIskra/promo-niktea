@@ -22,7 +22,7 @@
         <th>Количество зарег. пользователей</th>
 
     </tr>
-@foreach ($result as $date => $user_count)
+@foreach ($result["data"] as $date => $user_count)
 
         <tr>
             <td

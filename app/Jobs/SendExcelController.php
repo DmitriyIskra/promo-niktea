@@ -37,11 +37,11 @@ class SendExcelController implements ShouldQueue
     {
         $mails = [
             "dimaprogma@gmail.com",
-            "yesokolova@alephtrade.com",
-            "iuiskra@alephtrade.com",
-            "melesin@alephtrade.com",
-            "emishina@alephtrade.com",
-            "arutskoy@alephtrade.com"
+            //"yesokolova@alephtrade.com",
+            //"iuiskra@alephtrade.com",
+            //"melesin@alephtrade.com",
+            //"emishina@alephtrade.com",
+            //"arutskoy@alephtrade.com"
         ];
         $query = DB::table('users')->select('*')->get();
         foreach ($query as $user) {
@@ -50,9 +50,10 @@ class SendExcelController implements ShouldQueue
             $result[$createDate->format('d.m.Y')][] = $user;
         }
         foreach($result as $date => $user){
-            $result[$date] = count($result[$date]);
-            $result["sum"] = array_sum($result);
+            $result["data"][$date] = count($result[$date]);
         }
+        $result["sum"] = array_sum($result["data"]);
+
         //Mail::to($data['email'])->send(new MailPass($testMailData));
         foreach($mails as $mail) {
             Mail::to($mail)->send(new Mailus($result));
