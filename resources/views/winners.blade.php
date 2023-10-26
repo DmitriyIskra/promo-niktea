@@ -244,13 +244,13 @@
             if(entry["my"] == 1){
                 verstka += `<tr class="my">
             <td>` + entry['code_description'] + `</td>
-            <td>` + entry['user_email'] + '/' + entry['user_phone'] + `</td>
+            <td>` + entry['user_phone'] + ' ' + entry['user_email'] + `</td>
             <td>` + entry['code_delivery'] + `</td>
             </tr>`
             }else {
                 verstka += `<tr>
             <td>` + entry['code_description'] + `</td>
-            <td>` + entry['user_email'] + '/' + entry['user_phone'] + `</td>
+            <td>` + entry['user_phone'] + ' ' + entry['user_email'] + `</td>
             <td>` + entry['code_delivery'] + `</td>
             </tr>`
             }

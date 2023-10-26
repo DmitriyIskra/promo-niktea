@@ -25,7 +25,7 @@
   src:  url(../fonts/BloggerSans/Blogger_Sans-Bold.otf);
   font-weight: 500;     
   font-style: normal;
-  font-display: swap;
+  font-display: swap; 
 }
 
 
@@ -903,6 +903,38 @@ line-height: normal;
   text-align: center;
 }
 
+/* НАЧАЛО ССЫЛКА НА ПАРТНЕРОВ */
+
+.links-partner__wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.30vw;
+
+  justify-content: center;
+}
+
+.links-partner__text {
+  margin-bottom: 0;
+
+  font-family: Arsenal;
+  font-size: 1.25vw;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.links-partner__link {
+  color: #ffffff;
+
+  transition: filter 0.2s ease;
+}
+
+.links-partner__link:hover {
+  filter: drop-shadow( 0 0 8px #ffffff);
+}
+
+/* КОНЕЦ ССЫЛКА НА ПАРТНЕРОВ */
+
 .recepies__button {
   position: relative;
   font-family: 'Arsenal';  
@@ -1093,7 +1125,7 @@ text-transform: uppercase;
   justify-content: center;
   align-items: center;
   margin-top: 35px;
-  margin-bottom: 70px;
+  margin-bottom: 11.14vw;
   }
 
   .rules__item {
@@ -1102,6 +1134,18 @@ text-transform: uppercase;
     font-size: 5.33vw;
   }
 
+  .links-partner__wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12.30vw;
+  
+    justify-content: center;
+  }
+  
+  .links-partner__text {  
+    font-size: 5.33vw;
+  }
+  
   .recepies__button {
       width: 90%;
       height: 50px;
