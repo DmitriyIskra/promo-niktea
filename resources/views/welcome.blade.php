@@ -70,7 +70,7 @@
 
         <div class="links-partner__wrapper">
             <p class="links-partner__text">
-                Промо-пачки можно купить на сайтах <a class="links-partner__link" href=" https://oasis-msk.ru/Paketirovannyj-tea-niktea-c-28_109_126.html" title="Oasis">Oasis</a>, <a class="links-partner__link" href="https://www.ozon.ru/product/chay-niktea-krasnaya-polyana-krasnaya-polyana-chay-zelenyy-s-dobavkami-rastitelnogo-172799946/?_bctx=CAMQpMbXEA&asb=q3TAME6KQWnUXjLp9Hf4OkKdMzFX2RoqT8ro%252B1wg6pk%253D&asb2=bUHx-cIcy-mrVTcRhVsT0LBkyPEY0MCsgespHt1eLU_sjD47PYvNn6F0c_Ttxpvk&avtc=1&avte=2&avts=1698320947" title="Ozon">Ozon</a>, в магазинах Окей, Гипер Глобус, Перекресток и других.
+                Промо-пачки можно купить на сайтах <a class="links-partner__link" href=" https://oasis-msk.ru/Paketirovannyj-tea-niktea-c-28_109_126.html" title="Oasis">Oasis</a>, <a class="links-partner__link" href="https://www.ozon.ru/product/chay-niktea-krasnaya-polyana-krasnaya-polyana-chay-zelenyy-s-dobavkami-rastitelnogo-172799946/?_bctx=CAMQpMbXEA&asb=q3TAME6KQWnUXjLp9Hf4OkKdMzFX2RoqT8ro%252B1wg6pk%253D&asb2=bUHx-cIcy-mrVTcRhVsT0LBkyPEY0MCsgespHt1eLU_sjD47PYvNn6F0c_Ttxpvk&avtc=1&avte=2&avts=1698320947" title="Ozon">Ozon</a>, в магазинах О'Кей, гипермаркетах Глобус, Перекресток и других.
             </p>
         </div>
 
