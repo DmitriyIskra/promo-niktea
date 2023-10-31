@@ -126,6 +126,40 @@ body[data-variant=error-page] {
   z-index: -10;  
 }
 
+/* НАЧАЛО ССЫЛКА НА ПАРТНЕРОВ */
+
+.links-partner__wrapper { 
+  display: flex;
+  width: 100%;
+  margin-bottom: 4.30vw;
+
+  justify-content: center;
+}
+
+.links-partner__text {
+  margin-bottom: 0;
+
+  font-family: Arsenal;
+  font-size: 1.25vw;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.links-partner__link {
+  color: #ffffff;
+
+  transition: filter 0.2s ease;
+}
+
+.links-partner__link:hover {
+  filter: drop-shadow( 0 0 8px #ffffff);
+}
+
+/* КОНЕЦ ССЫЛКА НА ПАРТНЕРОВ */
+
+
+
 
 .header-wrapper {
   padding-top: 15px;
@@ -551,6 +585,10 @@ padding: 0;
 
  
 .footer__logo--img {
+  display: block;
+  height: 124px;
+  width: 115px;
+
   filter: none;
   -webkit-filter: none;
   transition: filter 0.3s ease;
@@ -903,37 +941,7 @@ line-height: normal;
   text-align: center;
 }
 
-/* НАЧАЛО ССЫЛКА НА ПАРТНЕРОВ */
 
-.links-partner__wrapper {
-  display: flex;
-  width: 100%;
-  margin-bottom: 4.30vw;
-
-  justify-content: center;
-}
-
-.links-partner__text {
-  margin-bottom: 0;
-
-  font-family: Arsenal;
-  font-size: 1.25vw;
-  font-weight: 700;
-
-  color: #ffffff;
-}
-
-.links-partner__link {
-  color: #ffffff;
-
-  transition: filter 0.2s ease;
-}
-
-.links-partner__link:hover {
-  filter: drop-shadow( 0 0 8px #ffffff);
-}
-
-/* КОНЕЦ ССЫЛКА НА ПАРТНЕРОВ */
 
 .recepies__button {
   position: relative;
@@ -1076,6 +1084,7 @@ text-transform: uppercase;
   .footer__container {
     flex-direction: column;
     align-content: center;
+    margin-left: 0;
     margin-bottom: 25%;
   }
 
@@ -1094,6 +1103,11 @@ text-transform: uppercase;
   .footer__link--phone {
     display: flex;
     flex-direction: column;
+  }
+
+  .footer__item span {
+    display: inline-block;
+    margin-left: -11.20vw;
   }
 
   .logo-col {
@@ -1353,7 +1367,8 @@ text-transform: uppercase;
   font-size: 5.33vw;
 }
 
-.footer__logo img{
+.footer__logo--img{
+  height: 115px;
   width: 115px;
 }
 
