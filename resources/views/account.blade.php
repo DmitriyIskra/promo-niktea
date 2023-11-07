@@ -7,7 +7,7 @@
     <meta name="description" content="Здесь вы можете выиграть путешествие, главные или чайные призы."/>
 
 </head>
- 
+
 <body data-variant="user-account">
 
 <body data-variant="user-account">
@@ -20,7 +20,7 @@
 <script>
     // если пользователь не авторизован, редирект на главную
     if (auther.is_auth === false) {
-        window.location.href = "/"; 
+        window.location.href = "/";
     }
 
     // каждый раз при загрузке страницы вызывается
@@ -99,7 +99,7 @@
                             <input type="file" class="file-upload__input--user" id="uploadPhoto" hidden/>
                             <label class="file-upload__label file-upload__label--width" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
-                            <span>Вы можете зарегестрировать не более 15 чеков в день.<br>
+                            <span>Вы можете зарегистрировать не более 15 чеков в день.<br>
                             ( с 00:00 по 23:59 по Московскому времени )</span>
                         </div>
 
@@ -114,7 +114,7 @@
                     <div class="code__container">
                         <ul class="code__list" data-current-page="1" aria-live="polite">
 
-                            
+
                         </ul>
 
                     </div>
@@ -145,7 +145,7 @@
 
                             <div class="swiper checkSlider account__slider-check">
                                 <div class="swiper-wrapper checkSlides account__slider-check-wrapper">
-                                    
+
                                 </div>
                             </div>
 

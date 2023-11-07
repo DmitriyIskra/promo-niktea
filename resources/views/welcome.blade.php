@@ -32,7 +32,7 @@
 
         <section class="rules__action">
 
-            <div class="rules__item"> 
+            <div class="rules__item">
                 <div class="rules__item-wrap">
                     <img class="rules__item--img" src="img/content/basket-prize.png" alt="Basket">
                     <span class="rules__item--text">Купите промо-пачку чая Niktea<br>
@@ -44,7 +44,7 @@
                 <div class="rules__item-wrap">
                     <img class="rules__item--img" src="img/content/registry-comp.png" alt="Registry">
                     <span class="rules__item--text">
-              Зарегестрируйте код и чек<br>
+              Зарегистрируйте код и чек<br>
               на сайте в личном кабинете</span>
                 </div>
             </div>
@@ -152,7 +152,7 @@
                                         <img class="main-slide__img" src="img/content/priz/headphones.png"
                                              alt="headphones">
                                     </div>
-                                </div> 
+                                </div>
 
                                 <div class="slide__container">
                     <span class="slide__description">Портативный аккумулятор Bork (L787)<br>
