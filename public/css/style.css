@@ -359,7 +359,7 @@ transition: filter 0.3s ease;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(../img/content/header-bg.png);
+  background: url(../img/content/header-bg.webp);
   background-repeat: no-repeat;  
   background-position-x: center;
   background-position-y: top;
@@ -1341,11 +1341,11 @@ text-transform: uppercase;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(../img/content/header-bg-mobile.png);
+  background: url(../img/content/header-bg-mobile.jpg);
   background-repeat: no-repeat;  
-  background-position-x: center;
-  background-position-y: -8%;
-  background-size: 100% 100%;
+  background-position: top center;
+  /* background-position-y: -8%; */
+  background-size: contain;
   margin-bottom: 10px;
 }
 
