@@ -385,12 +385,12 @@ transition: filter 0.3s ease;
 
 .header__link {
     text-decoration: none;
-        color: #ffffff;
-        font-family: 'Arsenal';
-        font-size: clamp(1vw, 1.75rem, 1.45vw);         
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+    color: #ffffff;
+    font-family: 'Arsenal';
+    font-size: clamp(1vw, 1.75rem, 1.45vw);         
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 
@@ -1333,9 +1333,9 @@ text-transform: uppercase;
 @media (max-width: 540px) {
 
   header {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 0;
+    left: 0; 
     right: 0;
   }
 
@@ -1346,13 +1346,13 @@ text-transform: uppercase;
 
 .header-wrapper__main-page {
   /* height: 500px; */
-  height: 105vw;
+  height: 93vw;
 }
 
 .header-wrapper__main-page--img {
   position: relative; 
-  height: 105vw;
-  top: 0;
+  height: 93vw;
+  top: -48px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1362,6 +1362,10 @@ text-transform: uppercase;
   /* background-position-y: -8%; */
   background-size: contain;
   margin-bottom: 10px;
+}
+
+.header__main-page--img_bottom {
+  transform: translateY(-67%);
 }
 
 .header__link a{
