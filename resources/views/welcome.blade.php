@@ -13,6 +13,9 @@
 <header>
     <div class="header-wrapper header-wrapper__main-page">
         @include('template_parts.header_menu')
+        <div class="header-wrapper__main-page--img">
+            <div class="header__main-page--img_bottom"></div>
+        </div>
     </div>
 </header>
 
@@ -21,9 +24,6 @@
 @include('template_parts.modal')
 
 <main class="main">
-
-
-    <div class="header-wrapper__main-page--img"></div>
 
     <div class="main-page__container">
 
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="rules__item">
+            <div class="rules__item"> 
                 <div class="rules__item-wrap rules__item-wrap_last">
                     <img class="rules__item--img rules__item--img_last" src="img/content/man-icon.png" alt="">
                     <span class="rules__item--text">

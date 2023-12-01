@@ -17,7 +17,7 @@
                 <a href="/">
                     <img class="header__logo--img" src="{{ asset('img/icons/logo.svg') }}" alt="logo">
                 </a>
-            </li>
+            </li> 
             <li class="header__item">
                 <a href="#" class="header__link header__link-prizes">Призы</a>
             </li>
