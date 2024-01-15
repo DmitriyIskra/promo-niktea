@@ -3,7 +3,7 @@ export default class RedrawVoucherSlider {
         this.slider = null;
         this.sliderPath = sliderPath;
         this.slidesWrapper = slidesWrapper;
-        this.pagContainer = pagContainer
+        this.pagContainer = pagContainer 
 
 
         // стрелки пагинации

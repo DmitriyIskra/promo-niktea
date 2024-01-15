@@ -6,7 +6,7 @@ export default class RedrawAccountAddCodes {
         this.submitButton = this.element.querySelector('.code__submit');
         this.codeSlider = this.element.querySelector('.code__slider');
         this.slideWrapper = this.element.querySelector('.swiper-wrapper');
-        this.typeCode = this.element.querySelector('.code__input__field--account');
+        this.typeCode = this.element.querySelector('.code__input__field--account'); 
         this.invalidCode = this.element.querySelector('.invalid-feedback');
         this.addFile = this.element.querySelector('.file-upload__input--user');
         this.addFileLabel = this.element.querySelector('.file-upload__label');
@@ -14,7 +14,7 @@ export default class RedrawAccountAddCodes {
         this.textFileInvalid = this.element.querySelector('.account__file_invalid');
         this.limitCodesToday = this.element.querySelector('.code__count');
 
-        // Отметим активен ли слайдер
+        // Отметим активен ли слайдер кодов
         this.activeSlider = null;
         // массив добавленных кодов
         this.arrCodes = new Set();

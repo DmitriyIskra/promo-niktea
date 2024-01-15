@@ -10,9 +10,10 @@ export default class ControllAccountAddCodes {
         this.onChange = this.onChange.bind(this);
     }
 
-    init() {
+    init() { 
         
         this.registerEvents();
+        // при загрузке страницы инициализируем слайдер
         this.getAccountInfo();
         
     }
@@ -33,6 +34,7 @@ export default class ControllAccountAddCodes {
             const data = JSON.stringify({code}); // новый синтаксис
             // this.validateCode(value);
 
+            // Валидируем введенный код, и открываем слайдер и добавляем туда код
             (async () => {
                 const res = await this.fetch.validate(data)
                 const result = await res.json();
@@ -51,7 +53,7 @@ export default class ControllAccountAddCodes {
             // 
         }
 
-        // отправляем коды и очищаем массив 
+        // отправляем коды и чек и очищаем массив 
         if(e.target.closest('.code__submit')) {
             e.preventDefault();
             // отправляем данные на сервер (если они есть)
@@ -79,7 +81,7 @@ export default class ControllAccountAddCodes {
 
                     // отрисовываем коды
                     this.draw.renderActiveCodes(result2);
-                    // отправляем ссылки на фото чеков 
+                    // отправляем ссылки на фото чеков в слайдер чеков для отрисовки
                     this.checkSlider.addVoucher(result2.registered_tickets);
 
                     // обновляем лимит кодов на сегодня
@@ -141,6 +143,7 @@ export default class ControllAccountAddCodes {
         
     }
 
+    // при загрузке страницы инициализируем слайдер
     async getAccountInfo() {
         const res = await this.fetch.read();
         this.accountInfo = await res.json();

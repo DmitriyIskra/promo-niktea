@@ -16,7 +16,7 @@
     <div class="header-wrapper header-wrapper--white">
         @include('template_parts.header_menu')
     </div>
-</header>
+</header> 
 <script>
     // если пользователь не авторизован, редирект на главную
     if (auther.is_auth === false) {

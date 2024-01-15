@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
         const arr = [drawAccAddCodes, fetchAccAddCodes, redrawVoucherSlider]
         const controllAccAddCodes = new ControllAccountAddCodes(arr);
 
-        controllAccAddCodes.init();
+        controllAccAddCodes.init(); 
 
 
         // АКТИВНЫЕ КОДЫ управление
