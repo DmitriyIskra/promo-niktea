@@ -11,8 +11,8 @@ export default class ControllAccountAddCodes {
     }
 
     init() { 
-        
-        this.registerEvents();
+        // Блокируем все события по добавлению чеков и кодов
+        // this.registerEvents();
         // при загрузке страницы инициализируем слайдер
         this.getAccountInfo();
         
@@ -50,7 +50,6 @@ export default class ControllAccountAddCodes {
                     this.draw.showInvalidCode();
                 };
             })();
-            // 
         }
 
         // отправляем коды и чек и очищаем массив 

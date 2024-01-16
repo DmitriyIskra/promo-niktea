@@ -63,9 +63,12 @@
                 </div>
 
                 <div class="code__input--group">
-
+                    <p class="code__disabled-ref-text">
+                        <span>Регистрация в акции временно закрыта, но выдача подарков продолжается.</span>
+                        <span>В скором времени Вас ждет интересная бонусная программа и новые подарки.</span>
+                    </p>
                     <div class="code__input--account--wrap">
-                        <input class="code__input__field code__input__field--account" type="text" name="code" id="codeInputField" placeholder="Введите Ваш код">
+                        <input class="code__input__field code__input__field--account account__disabled-input" type="text" name="code" id="codeInputField" placeholder="Введите Ваш код" disabled>
                         <div class="invalid-feedback">
                             Вы ввели некорректный код (без кода участие в акции невозможно).
                         </div>
@@ -87,8 +90,8 @@
                             <div class="code__carousel-next" type="button" data-bs-target="#codeCarousel" data-bs-slide="next"></div>
 
                         </div>
-                        <button class="code__submit">ЗАРЕГИСТРИРОВАТЬ</button>
-                        <button class="code__add" id="account__code-add"><img src="{{ asset('img/icons/plus.svg') }}" alt="add-icon"></button>
+                        <button class="code__submit code__submit_disabled">ЗАРЕГИСТРИРОВАТЬ</button>
+                        <button class="code__add code__add_disabled" id="account__code-add"><img src="{{ asset('img/icons/plus.svg') }}" alt="add-icon"></button>
                         <label for="codeInputField" class="reg-label--code">Вы можете зарегистрировать не более 15 кодов в день (на один чек).</label>
                         <span class="code__counter--wrap">У Вас осталось для регистрации<br class="br-mob"> <span class="code__count"> 1 </span> код(ов) в день.</span>
 
@@ -96,8 +99,8 @@
                         <div class="file-upload__group">
                             <div class="account__file-result account__file_valid">Ваш чек успешно загружен</div>
                             <div class="account__file-result account__file_invalid">Не удалось загрузить чек, попробуйте еще раз</div>
-                            <input type="file" class="file-upload__input--user" id="uploadPhoto" hidden/>
-                            <label class="file-upload__label file-upload__label--width" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
+                            <input type="file" class="file-upload__input--user" id="uploadPhoto" hidden disabled/>
+                            <label class="file-upload__label file-upload__label--width file-upload__label_disabled" id="checkUploadPhoto" for="uploadPhoto">ЗАГРУЗИТЬ ФОТО ЧЕКА</label>
                             <span>Убедитесь, что Ваш чек хорошо читается.<br></span>
                             <span>Вы можете зарегистрировать не более 15 чеков в день.<br>
                             ( с 00:00 по 23:59 по Московскому времени )</span>

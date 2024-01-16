@@ -6,11 +6,12 @@
 
 .modal-form {
   width: 100%;
-  aspect-ratio: 7/6;  
+  padding-bottom: 4.74vw;
+  aspect-ratio: 7/6;   
   flex-direction: column;
   justify-content: center;   
   border-radius: 30px;       
-  background: url(../img/icons/modal-bg-1.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
+  background: url(../img/icons/modal-bg-1-close-reg.svg), linear-gradient(180deg, #7775B6 0%, #494694 69.79%);      
   background-repeat: no-repeat;
   background-size: contain;
   background-position-y: center;  
@@ -159,8 +160,38 @@
     left: -2px;
     border-radius: 50px;
     background: linear-gradient(180deg, #00BD8D 32.29%, #00392D 100%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));  
+    linear-gradient(0deg, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0.27));
 }
+
+.registry__submit_disabled::after {
+    background: none;
+}
+
+.modal__disabled-text {
+    display: flex;
+    margin-bottom: 0;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal__disabled-text span {
+    font-family: 'Arsenal';
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modal__reg-closed-text {
+    color: #fff;
+}
+
+.modal__new-program-text {
+    color: #FFED36;;
+}
+
+
+
+
 
 .modal-form_enter .registry__submit {
     width: 65%;
@@ -277,6 +308,15 @@
 .code__submit:hover {
     box-shadow: 0px 0px 15px 5px #FFF;
     transition: box-shadow 0.3s ease;  
+}
+
+.code__submit_disabled {
+    background: #B1B0D3 !important;
+}
+
+.code__submit_disabled:hover {
+    box-shadow: none;
+    transition:none;
 }
 
 .reg__group {
@@ -506,6 +546,11 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 10px 6px #ffffffa9; 
     }
       
+    .modal-body {
+        padding-bottom: 0;
+
+        flex: none;
+    }
 
     .modal-form_enter {        
         height: 574px;
@@ -548,10 +593,10 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 
       .reg-label--code {
         width: 100%;
-        font-size: 12px;
-      }
 
-      
+        font-size: 12px;
+        text-align: center;
+      }
 
       .form-check-label {
         font-size: 10px;
@@ -608,9 +653,18 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
         width: 90%;
     }
 
+    .logo__modal--container {
+        margin-bottom: 17px;
+    }
 
     .buttons__group {
         width: 75%;
+    }
+
+    .modal__disabled-text span {
+        font-size: 13px;
+        line-height: 1.1;
+        text-align: center;
     }
 
     .file-upload__group .file-upload__label{
@@ -650,6 +704,11 @@ border-bottom: 1px solid rgba(255, 255, 255, 1);
 .registry__submit:hover {
     box-shadow: 0px 0px 20px 8px #FFF;
     transition: box-shadow 0.3s ease;  
+}
+
+.registry__submit_disabled:hover {
+    box-shadow: none;
+    transition: none;
 }
 
 .modal_close {

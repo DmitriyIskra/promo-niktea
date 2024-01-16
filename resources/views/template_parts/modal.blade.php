@@ -3,10 +3,12 @@
 <div class="modal fade" id="exampleModalToggle" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-form">
+
             <div class="modal-header">
                 <button type="button" class="modal_close" data-bs-dismiss="modal" aria-label="Close"><img
                         src="img/icons/modal-close.svg" alt="clofe-form"></button> 
             </div>
+
             <div class="modal-body">
                 <div class="logo__modal--container">
                     <img class="logo__modal--img" src="img/icons/logo-modal.svg" alt="logo-modal">
@@ -15,11 +17,23 @@
                     <button class="registry__submit" type="submit" data-bs-target="#enterAccount"
                             data-bs-toggle="modal">ВХОД
                     </button>
-                    <button class="registry__submit" type="submit" data-bs-target="#registryForm"
-                            data-bs-toggle="modal">РЕГИСТРАЦИЯ
+                    <button class="registry__submit registry__submit_disabled" type="submit" data-bs-target="#registryForm"
+                            data-bs-toggle="modal" disabled>РЕГИСТРАЦИЯ
                     </button>
                 </div>
             </div>
+
+            <div class="modal__wr-text-disabled">
+                <p class="modal__reg-closed-text modal__disabled-text">
+                    <span>Регистрация в акции временно закрыта,</span>
+                    <span>но выдача подарков продолжается.</span>
+                </p>
+                <p class="modal__new-program-text modal__disabled-text">
+                    <span>В скором времени Вас ждет интересная</span>
+                    <span>бонусная программа и новые подарки.</span>
+                </p>
+            </div>
+
         </div>
     </div>
 </div>
