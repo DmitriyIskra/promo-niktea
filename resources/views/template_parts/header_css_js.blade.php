@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="{{ asset("css/recept.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/forms.css?v=").time()}}">
 <link rel="stylesheet" href="{{ asset("css/style.css?v=").time()}}">
+<link rel="stylesheet" href="{{ asset("css/slider-header-main.css?v=").time()}}">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="{{ asset("js/swiper-bundle.min.js?v=").time()}}"></script>
 <script src="{{ asset("js/slider.js?v=").time()}}"></script>

@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-navq header__list">
             <li class='header__item header__item_registration' data-bs-target='#exampleModalToggle' data-bs-toggle='modal'>
-                <a id="reglink" class='header__link'>Регистрация</a>
+                <a id="reglink" class='header__link'>Регистрация</a> 
             </li>
             <li class="header__item">
                 <a href="/winners" class="header__link">Победители</a>

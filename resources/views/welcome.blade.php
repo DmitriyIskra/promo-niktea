@@ -12,8 +12,43 @@
 
 <header>
     <div class="header-wrapper header-wrapper__main-page">
-        @include('template_parts.header_menu')
+        @include('template_parts.header_menu') 
         <div class="header-wrapper__main-page--img">
+
+            <div class="slider-hm">
+
+                <div class="slider-hm__slides">
+                    <ul class="slider-hm__slides-list">
+                        <li class="slider-hm__slides-item">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="" class="src">
+                        </li>
+                        <li class="slider-hm__slides-item">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="" class="src">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="slider-hm__controll">
+                    <div class="slider-hm__controll-arrow slider-hm__controll-prev">
+                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M44.5731 58.593C44.082 58.593 43.5988 58.4011 43.2369 58.0392L26.5338 41.338C26.1794 40.9836 25.98 40.504 25.98 40.0019C25.98 39.4999 26.1794 39.0202 26.5338 38.6658L43.2369 21.9606C43.7797 21.4178 44.5915 21.2632 45.2963 21.551C46.0012 21.8428 46.4625 22.5328 46.4625 23.2968V56.7031C46.4625 57.4671 46.0032 58.1575 45.2963 58.4488C45.0622 58.5452 44.8166 58.593 44.5731 58.593Z" fill="white"/>
+                            <path d="M40 80.0005C17.9434 80.0005 0 62.0591 0 40.002C0 17.9448 17.9434 0 40 0C62.0566 0 80 17.9453 80 40.002C80 62.0586 62.0571 80.0005 40 80.0005ZM40 3.77925C20.0286 3.77925 3.77925 20.0301 3.77925 40.002C3.77925 59.9739 20.0286 76.2208 40 76.2208C59.9714 76.2208 76.2208 59.9734 76.2208 40.002C76.2208 20.0306 59.9719 3.77925 40 3.77925Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="slider-hm__controll-arrow slider-hm__controll-next">
+                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M35.4272 58.5927C35.9183 58.5927 36.4015 58.4009 36.7633 58.039L53.4664 41.3379C53.8208 40.9835 54.0201 40.5038 54.0201 40.0018C54.0201 39.4998 53.8208 39.0201 53.4664 38.6657L36.7633 21.9606C36.2205 21.4178 35.4088 21.2632 34.704 21.551C33.9991 21.8428 33.5379 22.5328 33.5379 23.2968V56.7029C33.5379 57.4669 33.9972 58.1573 34.704 58.4486C34.9381 58.545 35.1837 58.5927 35.4272 58.5927Z" fill="white"/>
+                            <path d="M40.0002 80C62.0568 80 80 62.0587 80 40.0017C80 17.9447 62.0568 0 40.0002 0C17.9437 0 0.000495911 17.9452 0.000495911 40.0017C0.000495911 62.0582 17.9432 80 40.0002 80ZM40.0002 3.77923C59.9715 3.77923 76.2208 20.0299 76.2208 40.0017C76.2208 59.9735 59.9715 76.2203 40.0002 76.2203C20.029 76.2203 3.77972 59.973 3.77972 40.0017C3.77972 20.0304 20.0285 3.77923 40.0002 3.77923Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slider-hm_mobile">
+                
+            </div>
+
             <div class="header__main-page--img_bottom"></div>
         </div>
     </div>

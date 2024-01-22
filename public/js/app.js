@@ -10,6 +10,10 @@ import RedrawVoucherSlider from "./accountAddCodes/redrawVoucherSlider.js";
 import ControllActiveCodes from "./accountActiveCodes/controllActiveCodes.js";
 import RedrawActiveCodes from "./accountActiveCodes/redrawActiveCodes.js";
 
+// Слайдер на главной
+import ControllSlHeaderMain from "./sliderHeaderMain/controllSlHeaderMain.js";
+import RedrawSlHeaderMain from "./sliderHeaderMain/redrawSlHeaderMain.js";
+
 window.addEventListener('load', () => {
 
     const accAddCodeGroup = document.querySelector('.code__input--group');
@@ -45,9 +49,14 @@ window.addEventListener('load', () => {
             const controllActiveCodes = new ControllActiveCodes(redrawActiveCodes);
             controllActiveCodes.init();
         }, 2000)
+    }
 
 
+    const sliderHead = document.querySelector('.slider-hm');
 
-
+    if(sliderHead) {
+        const redrawSlHeaderMain = new RedrawSlHeaderMain(sliderHead);
+        const controllSlHeaderMain = new ControllSlHeaderMain(redrawSlHeaderMain);
+        controllSlHeaderMain.init();
     }
 })
