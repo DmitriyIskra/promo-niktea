@@ -13,6 +13,8 @@ import RedrawActiveCodes from "./accountActiveCodes/redrawActiveCodes.js";
 // Слайдер на главной
 import ControllSlHeaderMain from "./sliderHeaderMain/controllSlHeaderMain.js";
 import RedrawSlHeaderMain from "./sliderHeaderMain/redrawSlHeaderMain.js";
+import MobileSlHeaderMain from "./sliderHeaderMain/mobileSlHeaderMain.js";
+
 
 window.addEventListener('load', () => {
 
@@ -52,11 +54,20 @@ window.addEventListener('load', () => {
     }
 
 
+    // Слайдер для HEADER
     const sliderHead = document.querySelector('.slider-hm');
 
     if(sliderHead) {
         const redrawSlHeaderMain = new RedrawSlHeaderMain(sliderHead);
         const controllSlHeaderMain = new ControllSlHeaderMain(redrawSlHeaderMain);
         controllSlHeaderMain.init();
+    }
+
+    // Слайдер для HEADER mobile
+    const swiper__mainSL = document.querySelector('.swiper__main-header')
+
+    if(swiper__mainSL) {
+        const mobileSlHeaderMain = new MobileSlHeaderMain(swiper__mainSL);
+        mobileSlHeaderMain.initSlider();
     }
 })

@@ -7,11 +7,11 @@ export default class RedrawSlHeaderMain {
         this.slides = null;
         this.amountSlides = null;
         this.showSlides = 1;
-        this.gapSlides = 0;
+        this.gapSlides = 0; // в пикселях
 
         // параметры для transition
         this.timingFunc = 'linear';
-        this.duration = 0.3;
+        this.duration = 0.5;
 
         // кнопки
         this.next = this.el.querySelector('.slider-hm__controll-next');
@@ -20,27 +20,38 @@ export default class RedrawSlHeaderMain {
         // Блокировка накликивания
         this.stop = false;
 
+        // Автоматическое перелистывание
+        this.agreeToFlipping = true; // разрешение
         this.intervalId = null;
-        this.intervalTime = 5;
+        this.intervalTime = 5; // интервал в секундах
     }
 
     initSlider() {
         this.slides = this.slidesList.children;
         this.amountSlides = this.slides.length;
 
-        // ширина слайда
-        [...this.slides].forEach(item => item.style.width = `${100 / this.showSlides}%`);
+        // пердварительные расчеты:
+        // ширина обертки слайдов
+        const width_1 = 100 * this.amountSlides / this.showSlides;
+        // ширина gap в %
+        const width_2 = this.gapSlides / 100 * this.gapSlides;
+        // ширина контейнера слайдов
+        this.slidesList.style.width = `${width_1 + width_2}%`;
         // отступ между слайдами
         this.slidesList.style.gap = `${this.gapSlides}px`;
 
-        if(this.amountSlides.length <= this.showSlides) {
+        // ширина слайда
+        [...this.slides].forEach(item => item.style.width = `${100 / this.showSlides}%`);
+
+        if(this.amountSlides <= this.showSlides) {
+            console.log('work')
             this.next.style.display = 'none';
             this.prev.style.display = 'none';
 
             return;
         }
 
-        // this.leafInterval();
+        this.leafInterval();
     }
 
     mooveNext() {
@@ -70,7 +81,7 @@ export default class RedrawSlHeaderMain {
             this.stop = false;
 
             // запускаем авто пролистывание сначала
-            // this.leafInterval();
+            this.leafInterval();
         }, {once: true})
     }
 
@@ -98,13 +109,15 @@ export default class RedrawSlHeaderMain {
 
             this.stop = false;
 
-            // this.leafInterval();
+            this.leafInterval();
         }, {once: true})
     }
 
     // перелистывание через интервал
     leafInterval() {
-        this.intervalId = setInterval(() => this.next.click(), this.intervalTime * 1000);
+        if(this.agreeToFlipping) {
+            this.intervalId = setInterval(() => this.next.click(), this.intervalTime * 1000);
+        }
     }
 
     // сброс интервала

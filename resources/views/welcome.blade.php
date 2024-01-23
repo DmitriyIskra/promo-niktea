@@ -20,10 +20,16 @@
                 <div class="slider-hm__slides">
                     <ul class="slider-hm__slides-list">
                         <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="" class="src">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="winner" class="src">
                         </li>
                         <li class="slider-hm__slides-item">
-                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="" class="src">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="winner" class="src">
+                        </li>
+                        <li class="slider-hm__slides-item">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-1.webp" alt="winner" class="src">
+                        </li>
+                        <li class="slider-hm__slides-item">
+                            <img class="slider-hm__slides-img" src="./img/content/banner-winners-desc-2.webp" alt="winner" class="src">
                         </li>
                     </ul>
                 </div>
@@ -46,10 +52,21 @@
             </div>
 
             <div class="slider-hm_mobile">
-                
+                <div class="swiper swiper__main-header">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="./img/content/banner-winners-mobile-1.webp" alt="winner">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="./img/content/banner-winners-mobile-2.webp" alt="winner">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="header__main-page--img_bottom"></div>
+            <div class="header__main-page--wr-img_bottom">
+                <img class="header__main-page--img_bottom" src="./img/content/header-bg-flower_bottom.png" alt="">
+            </div>
         </div>
     </div>
 </header>
